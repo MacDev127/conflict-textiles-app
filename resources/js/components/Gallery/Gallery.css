@@ -1,0 +1,25 @@
+.galleryWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+  grid-gap: 20px; /* Spacing between grid items */
+  width: 60%;
+  margin: 0 auto;
+  background-color: #c89452;
+  padding: 40px;
+}
+
+.galleryWrapper .single img {
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.galleryWrapper .single img:hover {
+  transform: scale(1.02);
+  transition: ease-in-out 0.2s;
+}

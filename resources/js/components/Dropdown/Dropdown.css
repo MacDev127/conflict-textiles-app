@@ -1,0 +1,79 @@
+/* Dropdown button */
+.dropdown_btn {
+    color: crimson;
+    padding: 25px;
+    font-size: 18px;
+    border: 1px solid crimson; /* Ensure the border width is the same in all states */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    background-color: #f5f4f4;
+    position: relative; /* This ensures that the absolute positioning of the dropdown is relative to this button */
+    outline: none; /* Removes the outline that may appear on focus */
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f5f4f4;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 120px; /* Match the width of the button */
+    z-index: 1;
+    list-style: none;
+    padding: 0; /* Remove padding to prevent affecting the width */
+    top: 100%; /* Position right below the button */
+    right: 0; /* Align to the right of the button */
+}
+
+/* Links inside the dropdown */
+.dropdown-content .lang_btn {
+    color: black;
+    margin: 10px 0;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Show the dropdown menu on click */
+.dropdown .dropdown-content {
+    display: block;
+}
+
+/* No additional margins for the language buttons */
+.dropdown-content .lang_btn {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    border: none; /* Remove borders that might affect the layout */
+    background: none; /* Avoid background styles that might affect the layout */
+    width: 100%; /* Ensure button takes full width of dropdown */
+}
+
+.lang_btn:hover {
+    background-color: #e0dddd;
+}
+
+/* Icon does not change the layout */
+.icon {
+    margin-left: auto; /* Push the icon to the far right */
+}
+
+/* Icon rotation */
+.icon.open {
+    transform: rotate(180deg);
+    transition: ease-in-out 0.2s;
+}

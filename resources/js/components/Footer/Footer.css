@@ -1,0 +1,171 @@
+/* footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+} */
+
+:root {
+  --primary: #dc143c;
+
+  --brownishcolor: #cb9a58;
+  --blackishcolor: #050001;
+}
+
+footer {
+  width: 100%;
+  margin-top: auto;
+
+  height: 200px;
+  border-top: 1px solid var(--primary);
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.foot-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.foot-list li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.foot-list li a:hover {
+  text-decoration: underline;
+  color: var(--redishcolor);
+}
+
+.foot-list a {
+  text-decoration: none;
+}
+
+.foot-list li a {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Newsletter */
+
+.news-letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f4f4;
+  margin-top: 30px;
+}
+
+.subscribe-title {
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Amaranth', sans-serif;
+  letter-spacing: 2px;
+  color: #01345b;
+}
+
+.subscribe-copy {
+  max-width: 450px;
+  text-align: center;
+  margin: 20px;
+  font-size: 12px;
+}
+
+.form-email {
+  padding: 10px 15px;
+  border: 1px solid #01345b;
+  width: 250px;
+  font-size: 14px;
+  color: #000;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.form-email:focus {
+  outline: 1px solid #01345b;
+}
+
+.form-button {
+  background: var(--primary);
+  padding: 11.5px 30px;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.form-button:hover {
+  background: #9a0934;
+  transition: all ease 0.2s;
+}
+
+.notice {
+  padding-top: 10px;
+  width: 345px;
+  font-size: 12px;
+}
+
+/* NewsLetter End */
+
+/* Payments */
+
+.accept-pay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pay-image img {
+  height: 120px;
+  padding-top: 20px;
+}
+/* Payments end */
+
+/* Footer Socials */
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding-top: 20px;
+  background-color: #f5f4f4;
+}
+
+.social-icon {
+  /* position: relative; */
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+
+  /* background-color: #01345b;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.3 ease; */
+}
+
+.copy {
+  text-align: center;
+  color: #01345b;
+  font-size: 14px;
+  padding: 10px;
+  background-color: #f5f4f4;
+}
