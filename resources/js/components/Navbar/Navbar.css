@@ -110,8 +110,6 @@ nav .menu {
     color: white;
 }
 
-/* test */
-
 @media (max-width: 768px) {
     nav .menu {
         display: flex;
@@ -129,7 +127,7 @@ nav .menu {
         right: -200px;
         width: 200px;
         height: 100vh;
-        background-color: #e30143;
+        background: #dc143c;
         box-sizing: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 40px 0 0 10px;
         margin-top: 48px;
@@ -146,6 +144,9 @@ nav .menu {
     nav ul li {
         width: 100%;
         padding: 0.5rem;
+    }
+    nav ul li a {
+        color: #f5f4f4 !important;
     }
 
     .nav_log {

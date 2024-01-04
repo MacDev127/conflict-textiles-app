@@ -1,0 +1,19 @@
+.cards_wrapper {
+    display: flex;
+    margin-top: 80px;
+}
+@media (max-width: 768px) {
+    .cards_wrapper {
+        flex-direction: column; /* Stack image and details on top of each other */
+    }
+
+    .modalImage,
+    .modalDetails {
+        max-width: 100%; /* Allow image and details to take full width */
+    }
+
+    .modalImage img {
+        max-height: none; /* Remove max-height restriction */
+        height: auto; /* Adjust height to maintain aspect ratio */
+    }
+}

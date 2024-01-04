@@ -1,0 +1,54 @@
+.cards__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    min-height: 500px;
+    border-radius: 8px;
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-family: "Mulish", sans-serif;
+}
+
+.cards__image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.cards__image-container img:hover {
+    scale: 1.1;
+    transition: ease-in 0.2s;
+    cursor: pointer;
+}
+
+.cards__date h4 {
+    color: gray;
+    font-weight: 200;
+}
+
+.cards__event-description {
+    line-height: 1.5;
+}
+
+.cards__btn {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+    width: 44%;
+    padding: 14px;
+    background: #dc143c;
+    border: 1px solid #dc143c;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+}
+.cards__btn:hover {
+    background: #9e122e;
+    transition: ease-in 0.1s;
+}
