@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/HeroComponent";
 import HomeAboutSection from "@/components/About/HomeAboutSection";
 import HomeCollectionSection from "@/components/Collection/HomeCollectionSection";
+import HomeEventsSection from "@/components/Events/HomeEventsSection";
 import Footer from "@/components/Footer/Footer";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
                 <Hero />
                 <HomeAboutSection />
                 <HomeCollectionSection />
+                <HomeEventsSection />
                 <Footer />
             </section>
         </>
