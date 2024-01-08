@@ -31,7 +31,11 @@ Route::get('/users', function(){
 
 Route::get('/home', function (){
 return Inertia::render('Home/Home');
-});
+})->name('home');
+
+Route::get('/details', function (){
+return Inertia::render('Details/EventDetails');
+})->name('details');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -5,12 +5,11 @@ import { Link } from "@inertiajs/react";
 import { FaPhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarDays } from "react-icons/fa6";
-import GoogleMapReact from "google-map-react";
 
 import { IconContext } from "react-icons";
-import "./Index.css";
+import "./EventDetails.css";
 
-const Index = () => {
+const EventDetails = () => {
     return (
         <>
             <Navbar />
@@ -43,6 +42,7 @@ const Index = () => {
                                 perspiciatis facere soluta culpa cumque ipsa.
                             </p>
                         </div>
+                        {/* Form */}
                         <div className="event-register">
                             <section className="container">
                                 <header>Event Registration Form</header>
@@ -72,14 +72,14 @@ const Index = () => {
                                                 required
                                             />
                                         </div>
-                                        <div className="input-box">
+                                        {/* <div className="input-box">
                                             <label>Birth Date</label>
                                             <input
                                                 type="date"
                                                 placeholder="Enter birth date"
                                                 required
                                             />
-                                        </div>
+                                        </div> */}
                                     </div>
                                     {/* <div className="gender-box">
                                         <h3>Gender</h3>
@@ -164,16 +164,16 @@ const Index = () => {
                                 </form>
                             </section>
                         </div>
+                        {/* Form end */}
                     </div>
                     <div className="col-right">
                         <div className="event-info">
-                            <div className="title">
-                                <h2>Event Info</h2>
-                            </div>
-                            <div className="socials">
+                            <div className="info-details">
+                                <h2 className="title">Event Info</h2>
+
                                 <IconContext.Provider
                                     value={{
-                                        color: "#dc143c;",
+                                        color: "dc143c",
                                         size: "30px",
                                     }}
                                 >
@@ -213,4 +213,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default EventDetails;

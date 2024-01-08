@@ -21,12 +21,7 @@ const HomeEventsSection = () => {
 
             <ContentComponent>
                 <TextComponent>
-                    Conflict Textiles is home to a large collection of
-                    international textiles, exhibitions and associated events,
-                    all of which focus on elements of conflict and human rights
-                    abuses. The collection is mainly comprised of arpilleras,
-                    quilts and wall hangings. Making visible the struggle for
-                    the disappeared remains at thevery core of the collection.
+                    <h1 className="subtitle">Upcoming Events</h1>
                     {/* {t("about_text")} */}
                 </TextComponent>
                 <div className="cards_wrapper">

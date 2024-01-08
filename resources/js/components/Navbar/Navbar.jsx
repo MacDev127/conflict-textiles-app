@@ -12,7 +12,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <header>
-            <Link to="/home">
+            <Link href={route("home")}>
                 <div className="nav-logo">
                     <img src="/images/logo2.png" alt="Logo" />
                 </div>
@@ -32,7 +32,7 @@ const Navbar = () => {
                 </div>
                 <ul>
                     <li className="nav_list">
-                        <Link className="nav_link" to="/home">
+                        <Link className="nav_link" href={route("home")}>
                             Home
                             {/* {t("navbar_home")} */}
                         </Link>
