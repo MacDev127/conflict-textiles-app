@@ -82,85 +82,7 @@ const EventDetails = () => {
                                             />
                                         </div> */}
                                     </div>
-                                    {/* <div className="gender-box">
-                                        <h3>Gender</h3>
-                                        <div className="gender-option">
-                                            <div className="gender">
-                                                <input
-                                                    type="radio"
-                                                    id="check-male"
-                                                    name="gender"
-                                                    checked
-                                                />
-                                                <label for="check-male">
-                                                    male
-                                                </label>
-                                            </div>
-                                            <div className="gender">
-                                                <input
-                                                    type="radio"
-                                                    id="check-female"
-                                                    name="gender"
-                                                />
-                                                <label for="check-female">
-                                                    Female
-                                                </label>
-                                            </div>
-                                            <div className="gender">
-                                                <input
-                                                    type="radio"
-                                                    id="check-other"
-                                                    name="gender"
-                                                />
-                                                <label for="check-other">
-                                                    prefer not to say
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div> */}
-                                    {/* <div className="input-box address">
-                                        <label>Address</label>
-                                        <input
-                                            type="text"
-                                            placeholder="Enter street address"
-                                            required
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="Enter street address line 2"
-                                            required
-                                        />
-                                        <div className="column">
-                                            <div className="select-box">
-                                                <select>
-                                                    <option hidden>
-                                                        Country
-                                                    </option>
-                                                    <option>America</option>
-                                                    <option>Japan</option>
-                                                    <option>India</option>
-                                                    <option>Nepal</option>
-                                                </select>
-                                            </div>
-                                            <input
-                                                type="text"
-                                                placeholder="Enter your city"
-                                                required
-                                            />
-                                        </div>
-                                        <div className="column">
-                                            <input
-                                                type="text"
-                                                placeholder="Enter your region"
-                                                required
-                                            />
-                                            <input
-                                                type="number"
-                                                placeholder="Enter postal code"
-                                                required
-                                            />
-                                        </div>
-                                    </div> */}
+
                                     <button>Submit</button>
                                 </form>
                             </section>
@@ -232,12 +154,13 @@ const EventDetails = () => {
                         </div>
                         <div>
                             <div className="upcoming__event-title">
-                                <h2>Upcomming Events</h2>
+                                <h2>Upcoming Events</h2>
                             </div>
                         </div>
                         <IconContext.Provider
                             value={{
                                 color: "dc143c",
+                                size: "12px",
                             }}
                         >
                             <div className="upcoming__event">
