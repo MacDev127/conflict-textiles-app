@@ -2,9 +2,10 @@ import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Link } from "@inertiajs/react";
-import { FaPhone } from "react-icons/fa6";
+import { FaEnvelope } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarDays } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa6";
 
 import { IconContext } from "react-icons";
 import "./EventDetails.css";
@@ -167,34 +168,59 @@ const EventDetails = () => {
                         {/* Form end */}
                     </div>
                     <div className="col-right">
-                        <div className="event-info">
-                            <div className="info-details">
-                                <h2 className="title">Event Info</h2>
+                        <div className="event__info">
+                            <h2>Event Info</h2>
 
-                                <IconContext.Provider
-                                    value={{
-                                        color: "dc143c",
-                                        size: "30px",
-                                    }}
-                                >
-                                    <div className="event-icon">
-                                        <FaPhone /> <p>02871 223445</p>
-                                    </div>
-                                    <div className="event-icon">
-                                        <FaLocationDot />{" "}
-                                        <p>Ulster University</p>
-                                    </div>
-                                    <div className="event-icon">
-                                        <FaCalendarDays />{" "}
-                                        <p> 25 Feb - 20 March</p>
-                                    </div>
-                                </IconContext.Provider>
-                            </div>
+                            <IconContext.Provider
+                                value={{
+                                    color: "dc143c",
+                                    size: "20px",
+                                }}
+                            >
+                                <ul>
+                                    <li>
+                                        <div className="event__info-icon">
+                                            <FaCalendarDays />
+                                        </div>
+                                        <div className="event__info-content">
+                                            <h4> Date</h4>
+                                            <p>20 Feb - 3 March</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className="event__info-icon">
+                                            <FaClock />
+                                        </div>
+                                        <div className="event__info-content">
+                                            <h4>Time</h4>
+                                            <p>10am - 5pm</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className="event__info-icon">
+                                            <FaLocationDot />
+                                        </div>
+                                        <div className="event__info-content">
+                                            <h4>Venue</h4>
+                                            <p>Ulster University Magee</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div className="event__info-icon">
+                                            <FaEnvelope />
+                                        </div>
+                                        <div className="event__info-content">
+                                            <h4>Enquires</h4>
+                                            <p>info@conflicttextiles.com</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </IconContext.Provider>
                         </div>
-                        <div className="event-location">
-                            <div className="title">
-                                <h2>Event Location</h2>
-                            </div>
+                        <div className="event__location">
+                            <h2>Event Location</h2>
+
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2310.9636388401223!2d-5.931679822859798!3d54.60463317983631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4861084ca01b3ccd%3A0xf36a06a9666eabcc!2sUlster%20University!5e0!3m2!1sen!2suk!4v1704663178549!5m2!1sen!2suk"
                                 width="400"
@@ -204,6 +230,37 @@ const EventDetails = () => {
                                 referrerpolicy="no-referrer-when-downgrade"
                             ></iframe>
                         </div>
+                        <div>
+                            <div className="upcoming__event-title">
+                                <h2>Upcomming Events</h2>
+                            </div>
+                        </div>
+                        <IconContext.Provider
+                            value={{
+                                color: "dc143c",
+                            }}
+                        >
+                            <div className="upcoming__event">
+                                <div className="image__wrapper">
+                                    <img src="/images/event2.jpg" alt="" />
+                                </div>
+
+                                <div className="upcoming__event-details">
+                                    <h2>
+                                        Workshop: The Workhouse Through the
+                                        Times
+                                    </h2>
+                                    <div className="upcoming__event-details-icons">
+                                        <div className="upcoming__event-location">
+                                            <FaLocationDot /> Limavday
+                                        </div>
+                                        <div upcoming__event-date>
+                                            <FaCalendarDays /> 20 April, 2024
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </IconContext.Provider>
                     </div>
                 </div>
             </div>

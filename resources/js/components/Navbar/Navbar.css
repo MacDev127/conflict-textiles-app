@@ -110,7 +110,7 @@ nav .menu {
     color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     nav .menu {
         display: flex;
         position: fixed;
