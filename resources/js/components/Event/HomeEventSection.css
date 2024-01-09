@@ -6,6 +6,7 @@
 .subtitle {
     text-align: center;
 }
+
 @media (max-width: 768px) {
     .cards_wrapper {
         flex-direction: column; /* Stack image and details on top of each other */

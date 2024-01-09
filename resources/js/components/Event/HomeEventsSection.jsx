@@ -42,30 +42,32 @@ const HomeEventsSection = () => {
         },
     ];
     return (
-        <ContainerComponent>
-            <TitleComponent>Events</TitleComponent>
+        <>
+            <ContainerComponent>
+                <TitleComponent>Events</TitleComponent>
 
-            <ContentComponent>
-                <TextComponent>
-                    <h1 className="subtitle">Upcoming Events</h1>
-                    {/* {t("about_text")} */}
-                </TextComponent>
-                <div className="cards_wrapper">
-                    {events.map((event, index) => (
-                        <>
-                            <CardComponent key={index} {...event} />
-                        </>
-                    ))}
-                </div>
-            </ContentComponent>
+                <ContentComponent>
+                    <TextComponent>
+                        <h1 className="subtitle">Upcoming Events</h1>
+                        {/* {t("about_text")} */}
+                    </TextComponent>
+                    <div className="cards_wrapper">
+                        {events.map((event, index) => (
+                            <>
+                                <CardComponent key={index} {...event} />
+                            </>
+                        ))}
+                    </div>
+                </ContentComponent>
 
-            <Link to="/events">
-                <ButtonComponent>
-                    Find Out More
-                    {/* {t("hero_button1_text")} */}
-                </ButtonComponent>
-            </Link>
-        </ContainerComponent>
+                <Link to="/events">
+                    <ButtonComponent>
+                        Find Out More
+                        {/* {t("hero_button1_text")} */}
+                    </ButtonComponent>
+                </Link>
+            </ContainerComponent>
+        </>
     );
 };
 

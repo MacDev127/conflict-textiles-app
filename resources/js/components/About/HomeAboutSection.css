@@ -1,14 +1,32 @@
 /* //--Modal----// */
 
 .modal-icon-text {
-  line-height: 1 !important;
-  font-size: 20px !important;
-  margin: 0 10px !important;
-  display: flex !important;
-  align-items: center; /* Centers items vertically within the flex container */
-  justify-content: center; /* Centers items horizontally within the flex container */
-  white-space: nowrap;
+    line-height: 1 !important;
+    font-size: 20px !important;
+    margin: 0 10px !important;
+    display: flex !important;
+    align-items: center; /* Centers items vertically within the flex container */
+    justify-content: center; /* Centers items horizontally within the flex container */
+    white-space: nowrap;
 }
+
+.about {
+    position: relative;
+    z-index: 1;
+    margin: none;
+}
+.bg-test img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    z-index: -1;
+    height: 100vh;
+    width: auto;
+    margin: none;
+    padding: 0;
+}
+
 /* //--Modal end----// */
 
 @media (max-width: 768px) {

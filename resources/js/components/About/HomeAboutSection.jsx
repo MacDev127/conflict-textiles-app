@@ -22,55 +22,61 @@ const About = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <ContainerComponent>
-            <TitleComponent>
-                About
-                {/* {t('about_title')} */}
-            </TitleComponent>
+        <section className="about">
+            <div className="bg-test">
+                <img src="/images/hpbg2.png" alt="" />
+            </div>
+            <ContainerComponent>
+                <TitleComponent>
+                    About
+                    {/* {t('about_title')} */}
+                </TitleComponent>
 
-            <ContentComponent className="about-content">
-                <TextComponent>
-                    Conflict Textiles is home to a large collection of
-                    international textiles, exhibitions and associated events,
-                    all of which focus on elements of conflict and human rights
-                    abuses. The collection is mainly comprised of arpilleras,
-                    quilts and wall hangings. Making visible the struggle for
-                    the disappeared remains at thevery core of the collection.
-                    {/* {t("about_text")} */}
-                </TextComponent>
-            </ContentComponent>
-
-            <ModalWrapper>
-                <IconWrapper>
-                    <PlayIcon onClick={() => setIsOpen(true)} />
-                    <TextComponent
-                        className="modal-icon-text"
-                        onClick={() => setIsOpen(true)}
-                    >
-                        Watch Video
-                        {/* {t("video_icon_text")} */}
+                <ContentComponent className="about-content">
+                    <TextComponent>
+                        Conflict Textiles is home to a large collection of
+                        international textiles, exhibitions and associated
+                        events, all of which focus on elements of conflict and
+                        human rights abuses. The collection is mainly comprised
+                        of arpilleras, quilts and wall hangings. Making visible
+                        the struggle for the disappeared remains at thevery core
+                        of the collection.
+                        {/* {t("about_text")} */}
                     </TextComponent>
-                </IconWrapper>
-                <ModalComponent
-                    open={isOpen}
-                    onClose={() => setIsOpen(!isOpen)}
-                >
-                    <div className="about__modal--player">
-                        <VideoPlayer
-                            url="https://www.youtube.com/watch?v=HYpWaI-3SZY"
-                            autoPlay={true}
-                        />
-                    </div>
-                </ModalComponent>
-            </ModalWrapper>
+                </ContentComponent>
 
-            <Link to="/about">
-                <ButtonComponent>
-                    Find Out More
-                    {/* {t("hero_button1_text")} */}
-                </ButtonComponent>
-            </Link>
-        </ContainerComponent>
+                <ModalWrapper>
+                    <IconWrapper>
+                        <PlayIcon onClick={() => setIsOpen(true)} />
+                        <TextComponent
+                            className="modal-icon-text"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            Watch Video
+                            {/* {t("video_icon_text")} */}
+                        </TextComponent>
+                    </IconWrapper>
+                    <ModalComponent
+                        open={isOpen}
+                        onClose={() => setIsOpen(!isOpen)}
+                    >
+                        <div className="about__modal--player">
+                            <VideoPlayer
+                                url="https://www.youtube.com/watch?v=HYpWaI-3SZY"
+                                autoPlay={true}
+                            />
+                        </div>
+                    </ModalComponent>
+                </ModalWrapper>
+
+                <Link to="/about">
+                    <ButtonComponent>
+                        Find Out More
+                        {/* {t("hero_button1_text")} */}
+                    </ButtonComponent>
+                </Link>
+            </ContainerComponent>
+        </section>
     );
 };
 
