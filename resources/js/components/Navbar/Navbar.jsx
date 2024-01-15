@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/react";
 
 import "./Navbar.css";
 import ButtonComponent from "@/components/Button/ButtonComponent";
+import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
 
 const Navbar = () => {
@@ -80,10 +81,10 @@ const Navbar = () => {
             <div className="right-section">
                 <DropdownMenu />
                 <Link to="/login">
-                    <ButtonComponent className="nav_log">
+                    <LoginButton className="nav_log">
                         Login
                         {/* {t("navbar_login")} */}
-                    </ButtonComponent>
+                    </LoginButton>
                 </Link>
             </div>
         </header>

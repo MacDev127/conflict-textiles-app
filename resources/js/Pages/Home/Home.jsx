@@ -8,7 +8,8 @@ import HomeCollectionSection from "@/components/Collection/HomeCollectionSection
 import HomeEventsSection from "@/components/Event/HomeEventsSection";
 import Footer from "@/components/Footer/Footer";
 
-const Home = () => {
+const Home = ({ events }) => {
+    console.log(events);
     return (
         <>
             <section className="Home">
@@ -16,7 +17,7 @@ const Home = () => {
                 <Hero />
                 <HomeAboutSection />
                 <HomeCollectionSection />
-                <HomeEventsSection />
+                <HomeEventsSection events={events} />
                 <Footer />
             </section>
         </>

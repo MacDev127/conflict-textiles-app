@@ -112,6 +112,7 @@ const Collection = () => {
     ];
 
     const handleImageClick = (index) => {
+        console.log("click");
         setSelectedImageIndex(index);
         setIsModalOpen(true);
     };
@@ -236,7 +237,7 @@ const Collection = () => {
 
             <Link to="/about">
                 <ButtonComponent>
-                    Find Out More
+                    View Collection
                     {/* {t("hero_button1_text")} */}
                 </ButtonComponent>
             </Link>

@@ -1,8 +1,6 @@
 :root {
-    --primary: #dc143c;
-
-    --brownishcolor: #cb9a58;
-    --blackishcolor: #050001;
+    --primary: #e30143;
+    --secondary: #cb9a58;
 }
 
 .nav-logo {
@@ -24,6 +22,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #f5f4f4;
+    /* background-color: #f5f4f4; */
     position: sticky;
     top: 0;
     z-index: 2;
@@ -68,8 +67,6 @@ nav .menu {
     cursor: pointer;
 }
 
-/* test */
-
 .nav_link {
     position: relative;
 }
@@ -100,14 +97,13 @@ nav .menu {
 .nav_log {
     background: none;
     padding: 10px 14px !important;
-    border: 1.4px solid var(--redishcolor);
+    border: 1px solid var(--primary);
     cursor: pointer;
-    letter-spacing: 2px;
 
     margin-top: 0px !important;
 }
 .nav_log:hover {
-    background-color: var(--redishcolor);
+    background-color: var(--primary);
     color: white;
 }
 

@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\EventController;
+use App\Models\Event;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +20,15 @@ use Inertia\Inertia;
 |
 */
 
+
+// Events db test
+
+Route::get('/events', [EventController::class, 'index']);
+
+
+
+// Events db test
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -25,13 +38,16 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/home', function () {
+    $events = Event::all(); // Fetch all events from the database
+    return Inertia::render('Home/Home', ['events' => $events]);
+})->name('home');
+
+
 Route::get('/users', function(){
     return Inertia::render('Users/Index');
 });
 
-Route::get('/home', function (){
-return Inertia::render('Home/Home');
-})->name('home');
 
 Route::get('/details', function (){
 return Inertia::render('Details/EventDetails');

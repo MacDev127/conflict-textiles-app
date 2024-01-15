@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TextStyle = styled.p`
+export const TextStyle = styled.div`
     color: #000;
     justify-content: center;
     align-items: center;
