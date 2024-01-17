@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EventController;
 use App\Models\Event;
+use App\Http\Controllers\TextileDetailController;
+use App\Models\TextileDetail;
+
+
 
 
 
@@ -21,14 +25,54 @@ use App\Models\Event;
 */
 
 
-// Events db test
+// ----------------Controller Routes------------//
+
+// Event Controller
 
 Route::get('/events', [EventController::class, 'index']);
 
+// Textile Details Controller
+
+Route::get('/textile-details', [TextileDetailController::class, 'index']);
 
 
-// Events db test
+// ---------------Controller Routes-------------------//
 
+
+
+// ------------Page Routes-------------//
+
+//Home page
+
+Route::get('/home', function () {
+    $events = Event::all(); // Fetch all events from the database
+    return Inertia::render('Home/Home', ['events' => $events]);
+})->name('home');
+
+// Event Details page
+
+Route::get('/details', function (){
+    return Inertia::render('Details/EventDetails');
+    })->name('details');
+
+// Textile Details Page
+Route::get('/textiledetails', function () {
+    $textileDetails = TextileDetail::all();
+    return Inertia::render('TextileDetails/TextileDetails', ['textileDetails' => $textileDetails]);
+})->name('textiledetails');
+
+// -------------------Page Routes----------------//
+
+
+
+
+
+
+
+
+
+
+// Bolier plate laravel Routes
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -38,20 +82,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/home', function () {
-    $events = Event::all(); // Fetch all events from the database
-    return Inertia::render('Home/Home', ['events' => $events]);
-})->name('home');
-
 
 Route::get('/users', function(){
     return Inertia::render('Users/Index');
 });
 
 
-Route::get('/details', function (){
-return Inertia::render('Details/EventDetails');
-})->name('details');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -1,5 +1,5 @@
 import { Link } from "@inertiajs/react";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { IconContext } from "react-icons";
@@ -38,11 +38,12 @@ const Footer = () => {
                             <li>
                                 <a href="#">About Us</a>
                             </li>
-                            <li>
-                                <a href="#">Loyalty Cards</a>
-                            </li>
+
                             <li>
                                 <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Policy</a>
                             </li>
                             <li>
                                 <a href="#">Policy</a>
@@ -89,13 +90,6 @@ const Footer = () => {
                                 />
                                 <button className="form-button">Send</button>
                             </div>
-                            <div className="notice">
-                                <input type="checkbox" />
-                                <span className="notice-copy">
-                                    I agree to my email address being stored and
-                                    uses to recieve monthly newsletter.
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,14 +97,14 @@ const Footer = () => {
                 <div className="socials">
                     <IconContext.Provider
                         value={{
-                            color: "blue",
-                            size: "20px",
+                            color: "white",
+                            size: "24px",
                             margin: "auto",
                             zIndex: "1",
                         }}
                     >
                         <Link className="social-icon" to="https://twitter.com/">
-                            <FaTwitter />
+                            <FaXTwitter />
                         </Link>
                         <Link className="social-icon" to="https://youtube.com/">
                             <FaYoutube />

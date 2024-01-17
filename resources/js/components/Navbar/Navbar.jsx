@@ -6,6 +6,7 @@ import "./Navbar.css";
 import ButtonComponent from "@/components/Button/ButtonComponent";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
+import { PiSignInBold } from "react-icons/pi";
 
 const Navbar = () => {
     // const { t } = useTranslation();
@@ -74,6 +75,13 @@ const Navbar = () => {
                             Contact
                             {/* {t("navbar_contact")} */}
                         </Link>
+                    </li>
+                    <li className="nav_icon" to="/contact">
+                        <Link className="login_link">
+                            <p>Login</p>
+                            <PiSignInBold />
+                        </Link>
+                        {/* {t("navbar_contact")} */}
                     </li>
                 </ul>
             </nav>

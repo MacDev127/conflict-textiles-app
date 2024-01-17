@@ -9,7 +9,6 @@ import HomeEventsSection from "@/components/Event/HomeEventsSection";
 import Footer from "@/components/Footer/Footer";
 
 const Home = ({ events }) => {
-    console.log(events);
     return (
         <>
             <section className="Home">
