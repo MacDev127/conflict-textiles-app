@@ -33,13 +33,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // ------------Page Routes-------------//
 
 //Home page
-
-// Route::get('/home', function () {
-//     $events = Event::all(); // Fetch all events from the database
-//     return Inertia::render('Home/Home', ['events' => $events]);
-// })->name('home');
-
-
 Route::get('/home', function () {
     $events = Event::all(); // Fetch all events from the database
     $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
@@ -51,7 +44,6 @@ Route::get('/home', function () {
 })->name('home');
 
 // Event Details page
-
 Route::get('/details', function (){
     return Inertia::render('Details/EventDetails');
     })->name('details');
@@ -69,7 +61,10 @@ Route::get('/textiledetails', function () {
 
 
 
-
+// Route::get('/home', function () {
+//     $events = Event::all(); // Fetch all events from the database
+//     return Inertia::render('Home/Home', ['events' => $events]);
+// })->name('home');
 
 
 

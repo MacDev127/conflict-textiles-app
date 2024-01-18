@@ -25,8 +25,30 @@ class TextileDetailController extends Controller
 }
 }
 
-// Show method explanation
-// $id is the parameter that will be passed from the route.
-// TextileDetail::findOrFail($id) will try to find a TextileDetail by its ID and will throw a 404 exception if it's not found.
-// Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $textileDetail]) will pass the found textileDetail to your React component, 
-// which you should name accordingly (e.g., TextileDetail.js or TextileDetail.jsx in your resources/js/Pages/TextileDetails directory).
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | index method: 
+    |--------------------------------------------------------------------------
+    |
+    | -  index method: This method is used to fetch and return all records from the textile_details table in the database.
+    | $textileDetails = TextileDetail::all(); is using Laravel's Eloquent ORM to retrieve all entries from the database table associated with the TextileDetail model.
+
+    | -  return Inertia::render('TextileDetails/TextileDetails', ['textileDetails' => $textileDetails]); is then passing this data to an Inertia.js React component located at resources/js/Pages/TextileDetails/TextileDetails.
+     The data is sent as props to the React component, allowing the frontend to access and display all textile details.
+
+    */
+    /*
+    |--------------------------------------------------------------------------
+    | show method: 
+    |--------------------------------------------------------------------------
+    |
+    |  - show method: This method is responsible for fetching and returning a specific textile detail by its unique ID.
+
+    |  - $textileDetail = TextileDetail::findOrFail($id); attempts to find a single TextileDetail record by the provided ID. 
+    If no record is found, Laravel automatically throws a 404 error, indicating that the resource doesn't exist.
+
+    | -  return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $textileDetail]); passes the found textile detail to the Inertia.js React component located at resources/js/Pages/TextileDetails/TextileDetail. 
+    This is then used to display the specific details of the selected textile on the frontend.
+    */
