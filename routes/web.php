@@ -6,47 +6,48 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EventController;
 use App\Models\Event;
+use App\Models\GalleryImage;
 use App\Http\Controllers\TextileDetailController;
 use App\Models\TextileDetail;
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\GalleryImagesController;
+use App\Http\Controllers\HomeController;
 
 
 // ----------------Controller Routes------------//
 
 // Event Controller
-
 Route::get('/events', [EventController::class, 'index']);
 
 // Textile Details Controller
+Route::get('/textile-details/{id}', [TextileDetailController::class, 'show'])->name('textile-details.show');
 
-Route::get('/textile-details', [TextileDetailController::class, 'index']);
+//Gallery images Controller
+Route::get('/galleryImages', [GalleryImagesController::class, 'index']);
+
+//Home Controller
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // ---------------Controller Routes-------------------//
-
-
 
 // ------------Page Routes-------------//
 
 //Home page
 
+// Route::get('/home', function () {
+//     $events = Event::all(); // Fetch all events from the database
+//     return Inertia::render('Home/Home', ['events' => $events]);
+// })->name('home');
+
+
 Route::get('/home', function () {
     $events = Event::all(); // Fetch all events from the database
-    return Inertia::render('Home/Home', ['events' => $events]);
+    $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
+
+    return Inertia::render('Home/Home', [
+        'events' => $events,
+        'galleryImages' => $galleryImages
+    ]);
 })->name('home');
 
 // Event Details page
@@ -58,7 +59,7 @@ Route::get('/details', function (){
 // Textile Details Page
 Route::get('/textiledetails', function () {
     $textileDetails = TextileDetail::all();
-    return Inertia::render('TextileDetails/TextileDetails', ['textileDetails' => $textileDetails]);
+    return Inertia::render('TextileDetails/TextileDetail', ['textileDetails' => $textileDetails]);
 })->name('textiledetails');
 
 // -------------------Page Routes----------------//

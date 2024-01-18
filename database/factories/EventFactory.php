@@ -15,10 +15,12 @@ class EventFactory extends Factory
     {
         return [
             'image' => $this->faker->imageUrl(640, 480, 'cats'), 
-            'title' => $this->faker->sentence,
-            'time' => $this->faker->time,
-            'date' => $this->faker->date,
-            'description' => $this->faker->paragraph,
+            'title' => $this->faker->words(2, true),
+            'event_time' => $this->faker->time('H:i:s'), // Use the correct column name and format
+            'event_date' => $this->faker->date('Y-m-d'), // Use the correct column name and format
+            'description' => $this->faker->text(300),
+            'location' => $this->faker->country,
+
         ];
     }
 

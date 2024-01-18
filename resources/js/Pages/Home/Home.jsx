@@ -8,14 +8,14 @@ import HomeCollectionSection from "@/components/Collection/HomeCollectionSection
 import HomeEventsSection from "@/components/Event/HomeEventsSection";
 import Footer from "@/components/Footer/Footer";
 
-const Home = ({ events }) => {
+const Home = ({ events, galleryImages }) => {
     return (
         <>
             <section className="Home">
                 <Navbar />
                 <Hero />
                 <HomeAboutSection />
-                <HomeCollectionSection />
+                <HomeCollectionSection galleryImages={galleryImages} />
                 <HomeEventsSection events={events} />
                 <Footer />
             </section>

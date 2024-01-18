@@ -6,11 +6,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Fade from "@mui/material/Fade";
 
-const Accordian = ({
-    TransitionComponent,
-    TransitionProps,
-    textileDetails,
-}) => {
+const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -35,11 +31,9 @@ const Accordian = ({
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    {textileDetails.map((detail) => (
-                        <Typography key={detail.id}>
-                            {detail.description}
-                        </Typography>
-                    ))}
+                    <Typography key={textileDetail.id}>
+                        {textileDetail.description}
+                    </Typography>
                 </AccordionDetails>
             </Accordion>
             <Accordion

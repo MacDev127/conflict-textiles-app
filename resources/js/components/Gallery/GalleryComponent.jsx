@@ -4,20 +4,16 @@ import PropTypes from "prop-types";
 
 const GalleryComponent = ({ onImageClick, galleryImages }) => {
     return (
-        <div>
-            <div className="galleryWrapper">
-                {galleryImages.map((image, index) => {
-                    return (
-                        <div
-                            className="single"
-                            key={index}
-                            onClick={() => onImageClick(index)}
-                        >
-                            <img src={image.img} alt="" />
-                        </div>
-                    );
-                })}
-            </div>
+        <div className="galleryWrapper">
+            {galleryImages.map((image) => (
+                <div
+                    className="single"
+                    key={image.id}
+                    onClick={() => onImageClick(image.id)}
+                >
+                    <img src={image.img} alt={image.title || "Gallery Image"} />
+                </div>
+            ))}
         </div>
     );
 };
