@@ -8,12 +8,12 @@ import HomeCollectionSection from "@/components/Collection/HomeCollectionSection
 import HomeEventsSection from "@/components/Event/HomeEventsSection";
 import Footer from "@/components/Footer/Footer";
 
-const Home = ({ events, galleryImages }) => {
+const Home = ({ events, galleryImages, translations }) => {
     return (
         <>
             <section className="Home">
                 <Navbar />
-                <Hero />
+                <Hero translations={translations} />
                 <HomeAboutSection />
                 <HomeCollectionSection galleryImages={galleryImages} />
                 <HomeEventsSection events={events} />

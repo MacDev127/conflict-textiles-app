@@ -32,7 +32,7 @@ class TextileDetailFactory extends Factory
             'photographer' => $this->faker->name,
             'provenance' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'textile_detail_id' => $this->faker->
+            // 'textile_detail_id' => $this->faker->
         ];
     }
 }

@@ -1,16 +1,24 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\EventController;
-use App\Models\Event;
-use App\Models\GalleryImage;
+
+
+//Controllers
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TextileDetailController;
-use App\Models\TextileDetail;
 use App\Http\Controllers\GalleryImagesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+
+//Models
+use App\Models\Event;
+use App\Models\GalleryImage;
+use App\Models\TextileDetail;
+
+
+
 
 
 // ----------------Controller Routes------------//
@@ -36,10 +44,14 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home', function () {
     $events = Event::all(); // Fetch all events from the database
     $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
+    $locale = App::getLocale(); // Get the current locale
+    $translations = trans('messages'); // Get the translation strings
 
     return Inertia::render('Home/Home', [
         'events' => $events,
-        'galleryImages' => $galleryImages
+        'galleryImages' => $galleryImages,
+        'translations' => $translations, // Pass the translations to the component
+
     ]);
 })->name('home');
 
@@ -59,12 +71,13 @@ Route::get('/textiledetails', function () {
 
 
 
+    // Test
 
 
-// Route::get('/home', function () {
-//     $events = Event::all(); // Fetch all events from the database
-//     return Inertia::render('Home/Home', ['events' => $events]);
-// })->name('home');
+    Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
+
+
+    // Test
 
 
 

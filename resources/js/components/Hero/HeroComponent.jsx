@@ -3,10 +3,8 @@ import Slider from "react-slick";
 
 import "./HeroComponent.css";
 import ButtonComponent from "../Button/ButtonComponent";
-// import { useTranslation } from "react-i18next";
 
-const Hero = () => {
-    // const { t } = useTranslation();
+const Hero = ({ translations }) => {
     const settings = {
         // dots: true,
         button: true,
@@ -31,8 +29,9 @@ const Hero = () => {
                             <h1 className="hero__title">Textiles</h1>
 
                             <p className="hero__text">
-                                Explore the rich tapestry of stories woven into
-                                our collection
+                                {translations.hero__text}
+                                {/* Explore the rich tapestry of stories woven into
+                                our collection */}
                                 {/* {t("hero_text")} */}
                             </p>
                             <div className="hero__btn-container">
