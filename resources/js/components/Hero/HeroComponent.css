@@ -56,7 +56,8 @@
     font-style: italic;
 }
 
-.hero__title {
+.hero__title_top,
+.hero__title_bottom {
     color: white;
     font-size: 90px;
     text-transform: uppercase;

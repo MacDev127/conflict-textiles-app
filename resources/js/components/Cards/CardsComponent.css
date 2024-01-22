@@ -42,20 +42,21 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-top: 10px;
-    width: 45%;
-    padding: 14px;
-    background: #dc143c;
-    border: 1px solid #dc143c;
-    color: #fff;
+    margin-top: 20px;
+    border: none;
+    /* width: 45%; */
+    /* padding: 14px; */
+    /* background: #dc143c; */
+    color: #dc143c;
     cursor: pointer;
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 6px;
+    font-weight: 600;
 }
 .cards__btn:hover {
-    background: #9e122e;
     transition: ease-in 0.1s;
+    color: #9f1530;
 }
 
 .cards__info {

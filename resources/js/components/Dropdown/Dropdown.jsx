@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import "./Dropdown.css";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { FaAngleDown } from "react-icons/fa";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const DropdownMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,12 +19,17 @@ const DropdownMenu = () => {
             name: "Español",
             country_code: "es",
         },
+        {
+            code: "de",
+            name: "Deutsch",
+            country_code: "de",
+        },
     ];
 
     const changeLanguage = (code) => {
         // Here we use Inertia's visit method to make a GET request to the server
         Inertia.visit(`/change-language/${code}`, { preserveState: false });
-        setIsOpen(false); // Close the dropdown
+        setIsOpen(false);
     };
 
     return (
@@ -42,10 +47,11 @@ const DropdownMenu = () => {
                                 className="lang_btn"
                                 onClick={() => changeLanguage(code)}
                             >
-                                <span
-                                    className={`flag-icon flag-icon-${country_code.toLowerCase()}`}
-                                ></span>
                                 {name}
+                                <span
+                                    style={{ marginLeft: "6px" }}
+                                    class={`fi fi-${country_code.toLowerCase()}`}
+                                ></span>
                             </button>
                         </li>
                     ))}

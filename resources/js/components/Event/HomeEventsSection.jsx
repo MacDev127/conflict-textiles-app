@@ -26,7 +26,7 @@ const HomeEventsSection = ({ events }) => {
                 </ContentComponent>
                 <div className="cards_wrapper">
                     {events &&
-                        events.map((event, index) => (
+                        events.map((event) => (
                             <div key={event.id}>
                                 <CardComponent key={event.id} {...event} />
                             </div>
@@ -34,7 +34,7 @@ const HomeEventsSection = ({ events }) => {
                 </div>
                 <Link to="/events">
                     <ButtonComponent>
-                        Find Out More
+                        View All Events
                         {/* {t("hero_button1_text")} */}
                     </ButtonComponent>
                 </Link>

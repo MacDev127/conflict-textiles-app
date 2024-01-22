@@ -6,7 +6,13 @@ import { FaClock } from "react-icons/fa6";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 
-const CardComponent = ({ image, title, time, date, description }) => {
+const CardComponent = ({
+    image,
+    title,
+    event_time,
+    event_date,
+    description,
+}) => {
     return (
         <div className="cards__container">
             <div className="cards__image-container">
@@ -24,11 +30,11 @@ const CardComponent = ({ image, title, time, date, description }) => {
                 <div className="cards__info">
                     <div className="cards__info-time">
                         <FaClock />
-                        <h3>{time}</h3>
+                        <h3>{event_time}</h3>
                     </div>
                     <div className="cards__info-date">
                         <FaCalendarDays />
-                        <h3>{date}</h3>
+                        <h3>{event_date}</h3>
                     </div>
                 </div>
             </IconContext.Provider>

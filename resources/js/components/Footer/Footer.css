@@ -14,7 +14,7 @@ footer {
     margin-top: auto;
     /* background-color: #f5f4f4; */
     background-color: #dca35e;
-    height: 220px;
+    /* height: 220px; */
     border-top: 1px solid var(--primary);
     color: #fff;
 }
@@ -98,7 +98,7 @@ footer {
 }
 
 .form-button {
-    background: var(--primary);
+    background: #dc143c;
     padding: 12px 30px;
     border: none;
     font-size: 14px;
@@ -140,7 +140,6 @@ footer {
     margin: 10px;
     justify-content: center;
     align-items: center;
-
     background-color: #dc143c;
     border-radius: 50%;
     text-decoration: none;

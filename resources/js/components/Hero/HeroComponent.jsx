@@ -25,14 +25,15 @@ const Hero = ({ translations }) => {
                         <video src="/images/video.mp4" autoPlay loop muted />
                         <div className="hero__overlay"></div>
                         <div className="hero__content">
-                            <h1 className="hero__title">Conflict</h1>
-                            <h1 className="hero__title">Textiles</h1>
+                            <h1 className="hero__title_top">
+                                {translations.hero__title_top}
+                            </h1>
+                            <h1 className="hero__title_bottom">Textiles</h1>
 
                             <p className="hero__text">
                                 {translations.hero__text}
                                 {/* Explore the rich tapestry of stories woven into
                                 our collection */}
-                                {/* {t("hero_text")} */}
                             </p>
                             <div className="hero__btn-container">
                                 <Link to="/about">
