@@ -24,5 +24,5 @@ class EventTest extends TestCase
      
 
 //         $this->assertDatabaseCount('events', 0);
-//     }
+    }
 }
