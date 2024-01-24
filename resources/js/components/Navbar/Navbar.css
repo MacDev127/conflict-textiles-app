@@ -10,7 +10,6 @@
 .right-section {
     display: flex;
     align-items: center;
-    gap: 10px; /* Adjust the gap as needed */
 }
 
 .nav-logo img {

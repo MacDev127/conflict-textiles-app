@@ -36,7 +36,7 @@ class TextileDetailController extends Controller
     | $textileDetails = TextileDetail::all(); is using Laravel's Eloquent ORM to retrieve all entries from the database table associated with the TextileDetail model.
 
     | -  return Inertia::render('TextileDetails/TextileDetails', ['textileDetails' => $textileDetails]); is then passing this data to an Inertia.js React component located at resources/js/Pages/TextileDetails/TextileDetails.
-     The data is sent as props to the React component, allowing the frontend to access and display all textile details.
+     The data is sent as props to the component, allowing the frontend to access and display all textile details.
 
     */
     /*

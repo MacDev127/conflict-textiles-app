@@ -16,7 +16,6 @@ class EventController extends Controller
 
         $events = Event::all(); // Retrieve all items from the database
         // dd($events);
-        // return Inertia::render('Event/HomeEventsSection', ['events' => $events->toArray()]);
         return Inertia::render('Home/Home', ['events' => $events->toArray()]);
     }
 }

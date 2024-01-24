@@ -18,10 +18,10 @@ class Language
     public function handle(Request $request, Closure $next): Response
     {
         {
-            if(session()->has("lang_code")){
-                App::setLocale(session()->get("lang_code"));
+            if(session()->has("lang_code")){ // Check if the session has a lang_code set
+                App::setLocale(session()->get("lang_code")); // Set the app's locale to the 'lang_code' from the session
             }
-            return $next($request);
+            return $next($request); // Pass the request to the next middleware in the stack or to the app's controller
         }
     }
 }

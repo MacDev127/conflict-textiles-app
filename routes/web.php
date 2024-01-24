@@ -30,7 +30,7 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/textile-details/{id}', [TextileDetailController::class, 'show'])->name('textile-details.show');
 
 //Gallery images Controller
-Route::get('/galleryImages', [GalleryImagesController::class, 'index']);
+Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
 
 //Home Controller
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -42,42 +42,38 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Home page
 Route::get('/home', function () {
-    $events = Event::all(); // Fetch all events from the database
+    $events = Event::all(); // Fetch all events from the database table
     $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
     $locale = App::getLocale(); // Get the current locale
     $translations = trans('messages'); // Get the translation strings
 
     return Inertia::render('Home/Home', [
         'events' => $events,
-        'galleryImages' => $galleryImages,
+        'galleryImages' => $galleryImages, // Pass the galleryImages to the component
         'translations' => $translations, // Pass the translations to the component
 
     ]);
 })->name('home');
 
 // Event Details page
-Route::get('/details', function (){
+Route::get('/details', function (){ 
     return Inertia::render('Details/EventDetails');
     })->name('details');
 
 // Textile Details Page
 Route::get('/textiledetails', function () {
-    $textileDetails = TextileDetail::all();
-    return Inertia::render('TextileDetails/TextileDetail', ['textileDetails' => $textileDetails]);
-})->name('textiledetails');
+    $textileDetails = TextileDetail::all(); // Fetch all records from the database table.
+    return Inertia::render('TextileDetails/TextileDetail', ['textileDetails' => $textileDetails]); // Render the TextileDetail component with the fetched data.
+})->name('textiledetails'); 
 
 // -------------------Page Routes----------------//
 
 
 
 
-    // Test
-
-
+    // --------Change language Route-----/
     Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
-
-
-    // Test
+    // -----Change language Route----/
 
 
 
@@ -95,8 +91,6 @@ Route::get('/', function () {
 Route::get('/users', function(){
     return Inertia::render('Users/Index');
 });
-
-
 
 
 Route::get('/dashboard', function () {

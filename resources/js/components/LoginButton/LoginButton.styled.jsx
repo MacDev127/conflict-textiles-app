@@ -10,13 +10,13 @@ export const LoginButtonStyles = styled.button`
     justify-content: space-between;
     width: 120px;
     height: 40px;
-    background-color: #f5f4f4;
+    background-color: #ffffff;
     position: relative;
     font-family: "Mulish", sans-serif;
     font-weight: 300;
     border: none;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    // box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    //     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 
     &:hover {
         color: #cb013e;
