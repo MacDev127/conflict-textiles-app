@@ -30,6 +30,7 @@ const Collection = ({ galleryImages }) => {
                     arpilleras, quilts, and wall hangings. Additionally,
                     textiles from other collections that have been featured in
                     various exhibitions are well-documented.
+                    {/* {t("collection_text")} */}
                 </TextComponent>
             </ContentComponent>
 
@@ -39,7 +40,7 @@ const Collection = ({ galleryImages }) => {
                 columnClassName="my-masonry-grid_column"
             >
                 <div className="collection__item">
-                    <img src="/images/arp2.jpeg" alt="" />
+                    <img src="/images/arpillera/arp14.jpg" alt="" />
                     <div className="overlay"></div>
 
                     <div className="collection__item-desc">

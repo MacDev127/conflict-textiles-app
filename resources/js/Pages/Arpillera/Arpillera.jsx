@@ -23,7 +23,7 @@ const Arpillera = ({ galleryImages }) => {
         <section className="Arpillera">
             <Navbar />
             <ContainerComponent>
-                <TitleComponent>Arpillera Collection</TitleComponent>
+                <TitleComponent>Arpillera</TitleComponent>
                 <ContentComponent>
                     <TextComponent>
                         Arpilleras (pronounced ‘ar-pee-air-ahs’) can be simply
@@ -34,7 +34,7 @@ const Arpillera = ({ galleryImages }) => {
                         Pinochet dictatorship in Chile, 1973-1990.
                     </TextComponent>
                 </ContentComponent>
-
+                <h2 className="sub-heading">Collection Highlights</h2>
                 <MasonryComponent
                     galleryImages={galleryImages}
                     onImageClick={handleImageClick}
@@ -50,7 +50,7 @@ const Arpillera = ({ galleryImages }) => {
                             <div className="collection__item-desc">
                                 <h2>{image.title}</h2>
                                 <Link href={`/textile-details/${image.id}`}>
-                                    <h3>View Collection</h3>
+                                    <h3>View Details</h3>
                                 </Link>
                             </div>
                         </div>

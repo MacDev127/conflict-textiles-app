@@ -62,3 +62,10 @@
     transform: scale(0.9);
     transition: ease-in-out 0.2s;
 }
+
+.sub-heading {
+    font-size: 28px;
+    padding: 20px 0;
+    color: #777;
+    font-weight: 400;
+}
