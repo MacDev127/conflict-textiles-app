@@ -1,12 +1,3 @@
-.my-masonry-grid {
-    display: flex;
-    width: 60%;
-}
-.my-masonry-grid_column {
-    padding-left: 30px; /* gutter size */
-    background-clip: padding-box;
-}
-
 .collection__item {
     /* change div to reference your elements you put in <Masonry> */
     margin-bottom: 30px;

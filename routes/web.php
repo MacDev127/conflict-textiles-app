@@ -16,6 +16,8 @@ use App\Http\Controllers\EventController;
 use App\Models\Event;
 use App\Models\GalleryImage;
 use App\Models\TextileDetail;
+use App\Models\Arpillera;
+
 
 
 
@@ -36,11 +38,11 @@ Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('g
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-// ---------------Controller Routes-------------------//
 
-// ------------Page Routes-------------//
+// -----------------------------Page Routes-----------------------------------//
 
-//Home page
+//---------------------------------Home page--------------------------------------------\\
+
 Route::get('/home', function () {
     $events = Event::all(); // Fetch all events from the database table
     $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
@@ -54,6 +56,8 @@ Route::get('/home', function () {
 
     ]);
 })->name('home');
+//---------------------------------Home page--------------------------------------------\\
+
 
 // Event Details page
 Route::get('/details', function (){ 
@@ -65,6 +69,27 @@ Route::get('/textiledetails', function () {
     $textileDetails = TextileDetail::all(); // Fetch all records from the database table.
     return Inertia::render('TextileDetails/TextileDetail', ['textileDetails' => $textileDetails]); // Render the TextileDetail component with the fetched data.
 })->name('textiledetails'); 
+
+// Arpillera Items page
+Route::get('/arpillera', function () { 
+    $galleryImages = GalleryImage::all(); 
+    return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $galleryImages]);
+})->name('arpillera');
+
+// Banner Items page
+Route::get('/banner', function (){ 
+    return Inertia::render('Banner/Banner');
+    })->name('banner');
+
+// Quilt Items page
+Route::get('/quilt', function (){ 
+    return Inertia::render('Quilt/Quilt');
+    })->name('quilt');
+
+// Wall Hanging Items page
+Route::get('/wall-hanging', function (){ 
+    return Inertia::render('Wall Hanging/WallHanging');
+    })->name('wall-hanging');
 
 // -------------------Page Routes----------------//
 

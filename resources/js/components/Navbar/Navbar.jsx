@@ -89,10 +89,7 @@ const Navbar = () => {
             <div className="right-section">
                 <DropdownMenu />
                 <Link to="/login">
-                    <LoginButton className="nav_log">
-                        Login
-                        {/* {t("navbar_login")} */}
-                    </LoginButton>
+                    <LoginButton className="nav_log">Login</LoginButton>
                 </Link>
             </div>
         </header>

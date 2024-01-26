@@ -39,12 +39,14 @@ const CardComponent = ({
                 </div>
             </IconContext.Provider>
 
-            <div className="cards__event-description">{description}</div>
-            <Link href={route("details")}>
-                <button className="cards__btn">
-                    View Details <ArrowIcon />
-                </button>
-            </Link>
+            <div className="cards__event-description">
+                {description}
+                <Link href={route("details")}>
+                    <button className="cards__btn">
+                        View Details <ArrowIcon />
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 };
