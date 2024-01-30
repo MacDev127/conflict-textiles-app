@@ -36,17 +36,15 @@ const Hero = ({ translations }) => {
                                 our collection */}
                             </p>
                             <div className="hero__btn-container">
-                                <Link to="/about">
+                                {/* <Link to="/about">
                                     <ButtonComponent className="hero__button">
                                         Find out More
-                                        {/* {t("hero_button1_text")} */}
                                     </ButtonComponent>
-                                </Link>
+                                </Link> */}
 
                                 <Link to="/textiles">
                                     <ButtonComponent className="hero__button">
                                         View Collection
-                                        {/* {t("hero_button2_text")} */}
                                     </ButtonComponent>
                                 </Link>
                             </div>

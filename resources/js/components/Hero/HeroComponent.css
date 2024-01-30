@@ -67,11 +67,14 @@
 }
 
 .hero__button {
-    margin: 20px 10px !important;
-
-    background: transparent;
-
-    color: white !important;
+    margin: 30px 10px !important;
+    background: #f4f4f4 !important;
+    color: #000 !important;
+    border: none !important;
+}
+.hero__button:hover {
+    background-color: #e30143 !important;
+    color: #f4f4f4 !important;
 }
 
 .hero__btn-container {

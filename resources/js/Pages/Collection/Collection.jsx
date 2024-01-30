@@ -1,44 +1,36 @@
 import React from "react";
-import { Link } from "@inertiajs/react";
-import "./Arpillera.css";
+import "./Collection.css";
+import { Inertia } from "@inertiajs/inertia";
 
-//Components
+//components
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import TitleComponent from "@/components/Title/TitleComponent";
 import ContainerComponent from "@/components/Container/ContainerComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
-import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import GalleryComponent from "@/components/Gallery/GalleryComponent";
+import { Link } from "@inertiajs/react";
 
-import { Inertia } from "@inertiajs/inertia";
-
-const Arpillera = ({ galleryImages }) => {
+const Collection = ({ collectionPageImages }) => {
+    console.log(collectionPageImages);
     const handleImageClick = (imageId) => {
         Inertia.visit(`/textile-details/${imageId}`);
     };
     return (
-        <section className="Arpillera">
+        <section className="Collection">
             <Navbar />
             <ContainerComponent>
-                <TitleComponent>Arpillera</TitleComponent>
+                <TitleComponent>Collection</TitleComponent>
                 <ContentComponent>
-                    <TextComponent>
-                        Arpilleras (pronounced ‘ar-pee-air-ahs’) can be simply
-                        described as three-dimensional appliquéd tapestries of
-                        Latin America that originated in Chile. These became the
-                        medium for women, generally working collectively, to
-                        denounce the human rights abuses and repression of the
-                        Pinochet dictatorship in Chile, 1973-1990.
-                    </TextComponent>
+                    <TextComponent></TextComponent>
                 </ContentComponent>
-                <h2 className="sub-heading">Collection Highlights</h2>
-                <MasonryComponent
-                    galleryImages={galleryImages}
-                    onImageClick={handleImageClick}
+                <h2 className="sub-heading">Collection </h2>
+                <GalleryComponent
+                    collectionPageImages={collectionPageImages}
+                    // onImageClick={handleImageClick}
                 >
-                    {galleryImages.map((image) => (
+                    {collectionPageImages.map((image) => (
                         <div className="collection__item" key={image.id}>
                             <img
                                 src={image.img}
@@ -54,15 +46,11 @@ const Arpillera = ({ galleryImages }) => {
                             </div>
                         </div>
                     ))}
-                </MasonryComponent>
+                </GalleryComponent>
             </ContainerComponent>
-
             <Footer />
         </section>
     );
 };
 
-{
-}
-
-export default Arpillera;
+export default Collection;

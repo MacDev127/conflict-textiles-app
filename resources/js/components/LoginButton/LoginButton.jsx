@@ -1,11 +1,11 @@
 import React from "react";
 import { LoginButtonStyles } from "./LoginButton.styled";
-import { PiSignInBold } from "react-icons/pi";
+import { FaUser } from "react-icons/fa6";
 
 const LoginButton = ({ children }) => {
     return (
         <LoginButtonStyles>
-            {children} <PiSignInBold style={{ fontSize: "22px" }} />
+            {children} <FaUser style={{ fontSize: "20px" }} />
         </LoginButtonStyles>
     );
 };

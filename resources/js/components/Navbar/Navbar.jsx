@@ -7,6 +7,7 @@ import ButtonComponent from "@/components/Button/ButtonComponent";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
 import { PiSignInBold } from "react-icons/pi";
+import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
     // const { t } = useTranslation();
@@ -36,38 +37,32 @@ const Navbar = () => {
                     <li className="nav_list">
                         <Link className="nav_link" href={route("home")}>
                             Home
-                            {/* {t("navbar_home")} */}
                         </Link>
                     </li>
                     <li className="nav_list">
                         <Link className="nav_link" to="/about">
                             About
-                            {/* {t("navbar_about")} */}
                         </Link>
                     </li>
                     <li className="nav_list">
                         <Link className="nav_link" to="/search">
                             Search
-                            {/* {t("navbar_search")} */}
                         </Link>
                     </li>
                     <li className="nav_list">
                         <Link className="nav_link" to="/textiles">
                             Collection
-                            {/* {t("navbar_collection")} */}
                         </Link>
                     </li>
 
                     <li className="nav_list">
                         <Link className="nav_link" to="/events">
                             Events
-                            {/* {t("navbar_events")} */}
                         </Link>
                     </li>
                     <li className="nav_list">
                         <Link className="nav_link" to="/links">
                             Links
-                            {/* {t("navbar_links")} */}
                         </Link>
                     </li>
                     <li className="nav_list">
@@ -78,10 +73,9 @@ const Navbar = () => {
                     </li>
                     <li className="nav_icon" to="/contact">
                         <Link className="login_link">
-                            <p>Login</p>
-                            <PiSignInBold />
+                            <p>Account</p>
+                            <FaUser />
                         </Link>
-                        {/* {t("navbar_contact")} */}
                     </li>
                 </ul>
             </nav>
@@ -89,7 +83,7 @@ const Navbar = () => {
             <div className="right-section">
                 <DropdownMenu />
                 <Link to="/login">
-                    <LoginButton className="nav_log">Login</LoginButton>
+                    <LoginButton className="nav_log">Account</LoginButton>
                 </Link>
             </div>
         </header>

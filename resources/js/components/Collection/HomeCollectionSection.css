@@ -26,7 +26,8 @@
     position: absolute;
     top: 0;
     cursor: pointer;
-    background: rgba(27, 24, 24, 0.9);
+    background: rgba(223, 1, 68, 0.9);
+
     opacity: 0;
     transition: 1s;
 }

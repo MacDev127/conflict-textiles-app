@@ -43,9 +43,9 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/arpillera/arp27.jpg', 'title' => 'Día de Visita / Day of Visit'],
             ['img' => '/images/arpillera/arp29.jpg', 'title' => 'Violeta Morales life story'],
             ['img' => '/images/arpillera/arp30.jpg', 'title' => 'We are seeds'],
+            ['img' => '/images/arpillera/arp33.jpg', 'title' => 'A special place in our hearts'],
             ['img' => '/images/arpillera/arp31.jpg', 'title' => 'Through the Barricades'],
             ['img' => '/images/arpillera/arp32.jpg', 'title' => 'Retorno/Return'],
-            ['img' => '/images/arpillera/arp33.jpg', 'title' => 'A special place in our hearts'],
            
         ]);
     }

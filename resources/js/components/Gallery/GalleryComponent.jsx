@@ -1,11 +1,11 @@
 import "./Gallery.css";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-const GalleryComponent = ({ onImageClick, galleryImages }) => {
+const GalleryComponent = ({ onImageClick, collectionPageImages }) => {
     return (
         <div className="galleryWrapper">
-            {galleryImages.map((image) => (
+            {collectionPageImages.map((image) => (
                 <div
                     className="single"
                     key={image.id}
@@ -20,12 +20,12 @@ const GalleryComponent = ({ onImageClick, galleryImages }) => {
 
 export default GalleryComponent;
 
-GalleryComponent.propTypes = {
-    galleryImages: PropTypes.arrayOf(
-        PropTypes.shape({
-            img: PropTypes.string.isRequired,
-        })
-    ).isRequired,
-    onImageClick: PropTypes.func.isRequired,
-    className: PropTypes.string,
-};
+// GalleryComponent.propTypes = {
+//     galleryImages: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             img: PropTypes.string.isRequired,
+//         })
+//     ).isRequired,
+//     onImageClick: PropTypes.func.isRequired,
+//     className: PropTypes.string,
+// };

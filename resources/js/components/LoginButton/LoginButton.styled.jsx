@@ -4,7 +4,7 @@ export const LoginButtonStyles = styled.button`
     color: crimson;
     padding: 16px;
     font-size: 18px;
-    gap: 4px;
+    gap: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
