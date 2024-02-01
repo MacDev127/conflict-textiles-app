@@ -12,7 +12,7 @@ class CollectionPageImageController extends Controller
           
 
         $images = CollectionPageImage::all();
-        // dd($images);
+        //   dd($images);
         return Inertia::render('Collection/Collection', ['collectionPageImages' => $images->toArray()]);
     }
     

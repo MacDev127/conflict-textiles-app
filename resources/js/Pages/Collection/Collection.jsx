@@ -25,28 +25,34 @@ const Collection = ({ collectionPageImages }) => {
                 <ContentComponent>
                     <TextComponent></TextComponent>
                 </ContentComponent>
-                <h2 className="sub-heading">Collection </h2>
-                <GalleryComponent
+                {/* <GalleryComponent
                     collectionPageImages={collectionPageImages}
                     // onImageClick={handleImageClick}
-                >
+                > */}
+                <h2 className="sub-heading">Theme</h2>
+
+                <div className="collection__wrapper">
                     {collectionPageImages.map((image) => (
-                        <div className="collection__item" key={image.id}>
-                            <img
-                                src={image.img}
-                                alt={image.title}
-                                onClick={() => handleImageClick(image.id)}
-                            />
-                            <div className="overlay"></div>
+                        <div>
+                            <div className="collection__item" key={image.id}>
+                                <img
+                                    src={image.img}
+                                    alt={image.title}
+                                    onClick={() => handleImageClick(image.id)}
+                                />
+                                <div className="overlay"></div>
+                            </div>
                             <div className="collection__item-desc">
                                 <h2>{image.title}</h2>
-                                <Link href={`/textile-details/${image.id}`}>
-                                    <h3>View Details</h3>
-                                </Link>
+                                {/* <Link href={`/textile-details/${image.id}`}>
+                             <h3>View Details</h3>
+                         </Link> */}
                             </div>
                         </div>
                     ))}
-                </GalleryComponent>
+                </div>
+
+                {/* </GalleryComponent> */}
             </ContainerComponent>
             <Footer />
         </section>

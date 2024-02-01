@@ -52,7 +52,7 @@ const Collection = ({ galleryImages }) => {
                 </div>
 
                 <div className="collection__item">
-                    <img src="/images/banner.jpeg" alt="" />
+                    <img src="/images/banner.jpg" alt="" />
                     <div className="overlay"></div>
                     <div className="collection__item-desc">
                         <h2>Banner</h2>

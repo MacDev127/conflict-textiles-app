@@ -14,9 +14,20 @@ class CollectionPageImagesTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('collection_page_images')->insert([
-            ['img' => '/images/arpillera/arp1.jpg', 'title' => 'En el lado “bueno” de la valla 2 / On the “Good" Side of the Fence 2'],
-            ['img' => '/images/arpillera/arp2.jpg', 'title' => 'Cueca chilena y Cueca Sola / Chilean Cueca and Cueca Sola'],
-            ['img' => '/images/arpillera/arp3.jpg', 'title' => ' Nuestros/as desaparecidos/as / Our Disappeared'],
+            ['img' => '/images/collectionPage/arpillera.png', 'title' => 'Arpillera'],
+            ['img' => '/images/collectionPage/banner.jpg', 'title' => 'Banner'],
+            ['img' => '/images/collectionPage/embroidered-cloth.png', 'title' => 'Embroidered Cloth'],
+            ['img' => '/images/collectionPage/fabric-print.png', 'title' => 'Fabric Print'],
+            ['img' => '/images/collectionPage/headscarf.png', 'title' => 'Headscarf'],
+            ['img' => '/images/collectionPage/installation.png', 'title' => 'Installation'],
+            ['img' => '/images/collectionPage/memorabilla.jpg', 'title' => 'Memorabilla'],
+            ['img' => '/images/collectionPage/memory-textile.jpg', 'title' => 'Memory Textile'],
+            ['img' => '/images/collectionPage/painting.png', 'title' => 'Painting'],
+            ['img' => '/images/collectionPage/quilt.png', 'title' => 'Quilt'],
+            ['img' => '/images/collectionPage/roundel.jpg', 'title' => 'Roundel'],
+            ['img' => '/images/collectionPage/story-cloth.png', 'title' => 'Story Cloth'],
+            ['img' => '/images/collectionPage/wall-hanging.jpg', 'title' => 'Wall Hanging'],
+        
         ]);
     }
 }

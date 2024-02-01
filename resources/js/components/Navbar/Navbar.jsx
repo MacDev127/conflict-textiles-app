@@ -3,15 +3,11 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { Link } from "@inertiajs/react";
 
 import "./Navbar.css";
-import ButtonComponent from "@/components/Button/ButtonComponent";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
-import { PiSignInBold } from "react-icons/pi";
 import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
-    // const { t } = useTranslation();
-
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <header>
@@ -50,7 +46,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav_list">
-                        <Link className="nav_link" to="/textiles">
+                        <Link className="nav_link" href={route("collection")}>
                             Collection
                         </Link>
                     </li>
