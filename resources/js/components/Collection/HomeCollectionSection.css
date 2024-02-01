@@ -7,32 +7,31 @@
     background-clip: padding-box;
 }
 
-.collection__item {
+.home__collection-item {
     /* change div to reference your elements you put in <Masonry> */
     margin-bottom: 30px;
     position: relative;
 }
 
-.collection__item img {
+.home__collection-item img {
     max-width: 100%;
     height: auto;
     padding: 0;
     margin: 0;
     display: block;
 }
-.overlay {
+.home__collection-overlay {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     cursor: pointer;
     background: rgba(223, 1, 68, 0.9);
-
     opacity: 0;
     transition: 1s;
 }
 
-.collection__item-desc {
+.home__collection-item-desc {
     position: absolute;
     top: 50%;
     opacity: 0;
@@ -41,22 +40,22 @@
     transition: 1s;
 }
 
-.collection__item:hover .overlay {
+.home__collection-item:hover .home__collection-overlay {
     opacity: 0.9;
 }
 
-.collection__item:hover .collection__item-desc {
+.home__collection-item:hover .home__collection-item-desc {
     opacity: 1;
 }
 
-.collection__item-desc h3 {
+.home__collection-item-desc h3 {
     color: #ffffff;
     font-weight: 200;
     font-size: 20px;
     cursor: pointer;
     text-align: center;
 }
-.collection__item-desc h2 {
+.home__collection-item-desc h2 {
     color: #ffffff;
     font-weight: 400;
     font-size: 50px;
@@ -68,7 +67,7 @@
     padding-bottom: 30px;
 }
 
-.collection__item-desc h3:hover {
+.home__collection-item-desc h3:hover {
     transform: scale(0.9);
     transition: ease-in-out 0.2s;
 }

@@ -42,7 +42,7 @@ const Hero = ({ translations }) => {
                                     </ButtonComponent>
                                 </Link> */}
 
-                                <Link to="/textiles">
+                                <Link href={route("collection")}>
                                     <ButtonComponent className="hero__button">
                                         View Collection
                                     </ButtonComponent>

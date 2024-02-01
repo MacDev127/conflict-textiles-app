@@ -1,74 +1,89 @@
 .collection__wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
-    grid-gap: 80px; /* Spacing between grid items */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 70px;
     width: 70%;
     padding: 30px;
 }
 
+.sub-heading {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
 .collection__item {
-    background-color: #2d313a;
-    padding: 30px;
-    /* background-color: #b68448; */
-    height: 480px;
+    background-color: #201b1b;
+    height: 360px;
+    width: 100%;
     position: relative;
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
-
-.collection__item::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: #e5e5e5;
-    opacity: 0;
-    transition: 0.5s ease all;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .collection__item img {
-    display: block;
-    max-width: 100%;
-    height: 100%;
+    width: 100%;
+    height: 50vh;
     object-fit: cover;
-    object-position: center;
+    object-position: 50% 50%;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .collection__item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .collection__item:hover::after {
     opacity: 0.2;
+}
+
+.collection__item-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.collection__item:hover .collection__item-view {
+    opacity: 1;
+}
+
+.collection__item-view h3 {
+    transition: transform 0.2s ease-in-out;
+    color: #fff;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
 }
 
 .collection__item-desc {
     display: flex;
     justify-content: flex-start;
     margin-top: 30px;
-    /* background: #df0144; */
-    background-color: #b68448;
-
-    padding: 30px;
+    background: #cb013e;
+    padding: 20px;
     margin: 0;
     color: #f4f4f4;
 }
 .collection__item-desc h2 {
     font-family: "Mulish", sans-serif;
-    font-weight: 400;
-    font-size: 28px;
-}
-.collection__item img:hover {
-    transform: scale(1.1);
-    overflow: hidden;
-}
-
-.sub-heading {
-    font-size: 40px;
+    font-weight: 300;
+    font-size: 26px;
 }

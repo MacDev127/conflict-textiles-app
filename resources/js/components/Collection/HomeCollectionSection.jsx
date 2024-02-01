@@ -39,11 +39,10 @@ const Collection = ({ galleryImages }) => {
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
             >
-                <div className="collection__item">
+                <div className="home__collection-item">
                     <img src="/images/arpillera/arp14.jpg" alt="" />
-                    <div className="overlay"></div>
-
-                    <div className="collection__item-desc">
+                    <div className="home__collection-overlay"></div>
+                    <div className="home__collection-item-desc">
                         <h2>Arpillera</h2>
                         <Link href={route("arpillera")}>
                             <h3>View Collection</h3>
@@ -51,20 +50,20 @@ const Collection = ({ galleryImages }) => {
                     </div>
                 </div>
 
-                <div className="collection__item">
+                <div className="home__collection-item">
                     <img src="/images/banner.jpg" alt="" />
-                    <div className="overlay"></div>
-                    <div className="collection__item-desc">
+                    <div className="home__collection-overlay"></div>
+                    <div className="home__collection-item-desc">
                         <h2>Banner</h2>
                         <Link href={route("banner")}>
                             <h3>View Collection</h3>
                         </Link>
                     </div>
                 </div>
-                <div className="collection__item">
+                <div className="home__collection-item">
                     <img src="/images/quilt.jpg" alt="" />
-                    <div className="overlay"></div>
-                    <div className="collection__item-desc">
+                    <div className="home__collection-overlay"></div>
+                    <div className="home__collection-item-desc">
                         <h2>Wall Hanging</h2>
                         <Link href={route("wall-hanging")}>
                             <h3>View Collection</h3>
@@ -72,10 +71,10 @@ const Collection = ({ galleryImages }) => {
                     </div>
                 </div>
 
-                <div className="collection__item">
+                <div className="home__collection-item">
                     <img src="/images/quilt3.jpeg" alt="" />
-                    <div className="overlay"></div>
-                    <div className="collection__item-desc">
+                    <div className="home__collection-overlay"></div>
+                    <div className="home__collection-item-desc">
                         <h2>Quilt</h2>
                         <Link href={route("quilt")}>
                             <h3>View Collection</h3>

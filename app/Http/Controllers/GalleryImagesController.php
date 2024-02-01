@@ -20,4 +20,10 @@ public function index()
 
 }
 
+public function arpillera() {
+    // Fetch specific images for the Arpillera collection
+    $arpilleraImages = GalleryImage::where('type', 'arpillera')->get();
+    return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $arpilleraImages]);
+}
+
 }

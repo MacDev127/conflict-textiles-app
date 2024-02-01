@@ -10,7 +10,6 @@ import ContainerComponent from "@/components/Container/ContainerComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
-import GalleryComponent from "@/components/Gallery/GalleryComponent";
 
 import { Inertia } from "@inertiajs/inertia";
 
@@ -33,26 +32,32 @@ const Arpillera = ({ galleryImages }) => {
                         Pinochet dictatorship in Chile, 1973-1990.
                     </TextComponent>
                 </ContentComponent>
-                <h2 className="sub-heading">Collection Highlights</h2>
                 <MasonryComponent
                     galleryImages={galleryImages}
                     onImageClick={handleImageClick}
                 >
                     {galleryImages.map((image) => (
-                        <div className="collection__item" key={image.id}>
-                            <img
-                                src={image.img}
-                                alt={image.title}
-                                onClick={() => handleImageClick(image.id)}
-                            />
-                            <div className="overlay"></div>
-                            <div className="collection__item-desc">
-                                <h2>{image.title}</h2>
-                                <Link href={`/textile-details/${image.id}`}>
-                                    <h3>View Details</h3>
-                                </Link>
+                        <>
+                            <div
+                                className="arpillera__collection-item"
+                                key={image.id}
+                            >
+                                <img
+                                    src={image.img}
+                                    alt={image.title}
+                                    onClick={() => handleImageClick(image.id)}
+                                />
+                                <div className="overlay"></div>
+                                <div className="arpillera__collection-item-desc">
+                                    <Link href={`/textile-details/${image.id}`}>
+                                        <h3>View Details</h3>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
+                            <div className="arpillera__item-desc">
+                                <h2>{image.title}</h2>
+                            </div>
+                        </>
                     ))}
                 </MasonryComponent>
             </ContainerComponent>

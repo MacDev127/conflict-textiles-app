@@ -84,10 +84,15 @@ Route::get('/collection', function (){
 
 
 // Arpillera Items page
-Route::get('/arpillera', function () { 
-    $galleryImages = GalleryImage::all(); 
-    return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $galleryImages]);
-})->name('arpillera');
+// Route::get('/arpillera', function () { 
+//     $galleryImages = GalleryImage::all(); 
+//     return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $galleryImages]);
+// })->name('arpillera');
+
+ // Fetch specific images for the Arpillera collection
+ Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
+
+
 
 // Banner Items page
 Route::get('/banner', function (){ 
