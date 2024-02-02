@@ -1,6 +1,6 @@
 .my-masonry-grid {
     display: flex;
-    width: 60%;
+    width: 50%;
 }
 .my-masonry-grid_column {
     padding-left: 30px; /* gutter size */
@@ -14,7 +14,7 @@
 }
 
 .home__collection-item img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     padding: 0;
     margin: 0;
@@ -26,7 +26,7 @@
     position: absolute;
     top: 0;
     cursor: pointer;
-    background: rgba(223, 1, 68, 0.9);
+    background: rgba(203, 1, 62, 0.902);
     opacity: 0;
     transition: 1s;
 }
@@ -58,7 +58,7 @@
 .home__collection-item-desc h2 {
     color: #ffffff;
     font-weight: 400;
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
     text-align: center;
     font-family: "Playfair Display", serif;

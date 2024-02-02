@@ -1,13 +1,13 @@
 /* Dropdown button */
 
 .dropdown_btn {
-    color: crimson;
+    color: #313131;
     padding: 16px;
     font-size: 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: hsl(0, 0%, 100%);
     position: relative;
     font-family: "Mulish", sans-serif;
     font-weight: 400;

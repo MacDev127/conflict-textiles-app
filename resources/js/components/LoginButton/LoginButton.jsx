@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa6";
 const LoginButton = ({ children }) => {
     return (
         <LoginButtonStyles>
-            {children} <FaUser style={{ fontSize: "20px" }} />
+            {children} <FaUser style={{ fontSize: "20px", color: "#313131" }} />
         </LoginButtonStyles>
     );
 };

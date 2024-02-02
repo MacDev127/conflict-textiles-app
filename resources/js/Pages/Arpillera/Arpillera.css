@@ -15,7 +15,8 @@
     position: absolute;
     top: 0;
     cursor: pointer;
-    background: rgba(27, 24, 24, 0.6);
+    background: rgba(0, 0, 0, 0.5);
+
     opacity: 0;
     transition: 1s;
 }
@@ -60,7 +61,7 @@
 .arpillera__item-desc {
     display: flex;
     justify-content: flex-start;
-    padding: 10px 0 30px 0;
+    padding: 14px 0 30px 0;
 
     color: #000;
     /* background: #cb013e; */

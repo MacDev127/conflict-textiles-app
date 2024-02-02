@@ -1,19 +1,15 @@
 import "./HomeCollectionSection.css";
 import { Link } from "@inertiajs/react";
+
+//Components
 import TitleComponent from "../Title/TitleComponent";
 import ContainerComponent from "../Container/ContainerComponent";
 import ContentComponent from "../Content/ContentComponent";
 import TextComponent from "../Text/TextComponent";
 import ButtonComponent from "../Button/ButtonComponent";
-import GalleryComponent from "../Gallery/GalleryComponent";
-import { Inertia } from "@inertiajs/inertia";
 import Masonry from "react-masonry-css";
 
-const Collection = ({ galleryImages }) => {
-    const handleImageClick = (imageId) => {
-        Inertia.visit(`/textile-details/${imageId}`);
-    };
-
+const Collection = () => {
     const breakpoints = {
         default: 2,
         1100: 2,
@@ -30,7 +26,6 @@ const Collection = ({ galleryImages }) => {
                     arpilleras, quilts, and wall hangings. Additionally,
                     textiles from other collections that have been featured in
                     various exhibitions are well-documented.
-                    {/* {t("collection_text")} */}
                 </TextComponent>
             </ContentComponent>
 
@@ -83,16 +78,7 @@ const Collection = ({ galleryImages }) => {
                 </div>
             </Masonry>
 
-            {/* {galleryImages ? (
-                <GalleryComponent
-                    galleryImages={galleryImages}
-                    onImageClick={handleImageClick}
-                />
-            ) : (
-                <div>lOADING....</div>
-            )} */}
-
-            <Link to="/about">
+            <Link href={"collection"}>
                 <ButtonComponent>View Collection</ButtonComponent>
             </Link>
         </ContainerComponent>
