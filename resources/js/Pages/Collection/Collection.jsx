@@ -16,6 +16,11 @@ const Collection = ({ collectionPageImages }) => {
     return (
         <section className="Collection">
             <Navbar />
+            <div className="test">
+                <img src="/images/test2.jpg" alt="" />
+                <div className="test-overlay"></div>
+                <h3>Browse our Collection Below</h3>
+            </div>
             <ContainerComponent>
                 <TitleComponent>Collection</TitleComponent>
                 <ContentComponent>
