@@ -9,7 +9,7 @@ import TitleComponent from "@/components/Title/TitleComponent";
 import ContainerComponent from "@/components/Container/ContainerComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
-import GalleryComponent from "@/components/Gallery/GalleryComponent";
+import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import { Link } from "@inertiajs/react";
 
 const Collection = ({ collectionPageImages }) => {
@@ -19,10 +19,16 @@ const Collection = ({ collectionPageImages }) => {
             <div className="test">
                 <img src="/images/test2.jpg" alt="" />
                 <div className="test-overlay"></div>
-                <h3>Browse our Collection Below</h3>
+                <h3>
+                    <q>
+                        When words are not enough to express lived experiences
+                        of violence, stitching and sewing emerge as textile
+                        language.
+                    </q>
+                </h3>
             </div>
             <ContainerComponent>
-                <TitleComponent>Collection</TitleComponent>
+                <TitleComponent>Explore Collection</TitleComponent>
                 <ContentComponent>
                     <TextComponent>
                         Lorem ipsum, dolor sit amet consectetur adipisicing
@@ -33,9 +39,7 @@ const Collection = ({ collectionPageImages }) => {
                         doloremque modi a porro voluptates!
                     </TextComponent>
                 </ContentComponent>
-
-                <h2 className="sub-heading">Theme</h2>
-
+                <SubtitleComponent>Theme</SubtitleComponent>
                 <div className="collection__wrapper">
                     {collectionPageImages.map((image) => (
                         <div>

@@ -44,6 +44,16 @@ const Collection = () => {
                         </Link>
                     </div>
                 </div>
+                <div className="home__collection-item">
+                    <img src="/images/quilt.jpg" alt="" />
+                    <div className="home__collection-overlay"></div>
+                    <div className="home__collection-item-desc">
+                        <h2>Wall Hanging</h2>
+                        <Link href={route("wall-hanging")}>
+                            <h3>View Collection</h3>
+                        </Link>
+                    </div>
+                </div>
 
                 <div className="home__collection-item">
                     <img src="/images/banner.jpg" alt="" />
@@ -51,16 +61,6 @@ const Collection = () => {
                     <div className="home__collection-item-desc">
                         <h2>Banner</h2>
                         <Link href={route("banner")}>
-                            <h3>View Collection</h3>
-                        </Link>
-                    </div>
-                </div>
-                <div className="home__collection-item">
-                    <img src="/images/quilt.jpg" alt="" />
-                    <div className="home__collection-overlay"></div>
-                    <div className="home__collection-item-desc">
-                        <h2>Wall Hanging</h2>
-                        <Link href={route("wall-hanging")}>
                             <h3>View Collection</h3>
                         </Link>
                     </div>
@@ -79,7 +79,7 @@ const Collection = () => {
             </Masonry>
 
             <Link href={"collection"}>
-                <ButtonComponent>View Collection</ButtonComponent>
+                <ButtonComponent>Explore Collection</ButtonComponent>
             </Link>
         </ContainerComponent>
     );

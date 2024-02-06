@@ -12,6 +12,7 @@ import ContentComponent from "../Content/ContentComponent";
 import ContainerComponent from "../Container/ContainerComponent";
 import ButtonComponent from "../Button/ButtonComponent";
 import CardComponent from "../Cards/CardsComponent";
+import SubtitleComponent from "../Subtitle/SubtitleComponent";
 //Components end
 
 const HomeEventsSection = ({ events }) => {
@@ -21,8 +22,7 @@ const HomeEventsSection = ({ events }) => {
                 <TitleComponent>Events</TitleComponent>
 
                 <ContentComponent>
-                    <h1 className="subtitle">Upcoming Events</h1>
-                    {/* {t("about_text")} */}
+                    <SubtitleComponent>Upcoming Events</SubtitleComponent>
                 </ContentComponent>
                 <div className="cards_wrapper">
                     {events &&

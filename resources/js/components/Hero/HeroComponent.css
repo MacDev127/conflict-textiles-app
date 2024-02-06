@@ -35,7 +35,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,9 +44,9 @@
 .hero__text {
     color: white;
     align-self: flex-start;
-    font-size: 30px;
+    font-size: 36px;
     margin: 20px 0 20px 10px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     width: 100%;
     text-align: center;
     line-height: 1.8;
