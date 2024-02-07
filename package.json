@@ -26,6 +26,7 @@
         "@mui/icons-material": "^5.15.4",
         "@mui/material": "^5.15.3",
         "@mui/styled-engine-sc": "^6.0.0-alpha.11",
+        "animate.css": "^4.1.1",
         "country-flag-icons": "^1.5.9",
         "flag-icons": "^7.1.0",
         "google-map-react": "^2.2.1",

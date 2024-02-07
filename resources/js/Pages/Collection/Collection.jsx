@@ -1,6 +1,6 @@
 import React from "react";
 import "./Collection.css";
-import { Inertia } from "@inertiajs/inertia";
+import { Link } from "@inertiajs/react";
 
 //components
 import Navbar from "@/components/Navbar/Navbar";
@@ -10,23 +10,20 @@ import ContainerComponent from "@/components/Container/ContainerComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
-import { Link } from "@inertiajs/react";
+import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 
 const Collection = ({ collectionPageImages }) => {
     return (
         <section className="Collection">
             <Navbar />
-            <div className="test">
-                <img src="/images/test2.jpg" alt="" />
-                <div className="test-overlay"></div>
-                <h3>
-                    <q>
-                        When words are not enough to express lived experiences
-                        of violence, stitching and sewing emerge as textile
-                        language.
-                    </q>
-                </h3>
-            </div>
+
+            <ImageHeaderComponent
+                imageUrl="/images/test2.jpg"
+                quoteText="When words are not enough to express lived experiences
+                         of violence, stitching and sewing emerge as textile
+                         language."
+            />
+
             <ContainerComponent>
                 <TitleComponent>Explore Collection</TitleComponent>
                 <ContentComponent>

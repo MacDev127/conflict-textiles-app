@@ -46,6 +46,7 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/arpillera/arp33.jpg', 'title' => 'A special place in our hearts','type' => 'arpillera'],
             ['img' => '/images/arpillera/arp31.jpg', 'title' => 'Through the Barricades','type' => 'arpillera'],
             ['img' => '/images/arpillera/arp32.jpg', 'title' => 'Retorno/Return','type' => 'arpillera'],
+            
            
         ]);
     }

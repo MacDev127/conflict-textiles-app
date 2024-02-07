@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
+import { Inertia } from "@inertiajs/inertia";
+
 import "./Arpillera.css";
 
 //Components
@@ -10,8 +12,7 @@ import ContainerComponent from "@/components/Container/ContainerComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
-
-import { Inertia } from "@inertiajs/inertia";
+import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 
 const Arpillera = ({ galleryImages }) => {
     const handleImageClick = (imageId) => {
@@ -20,6 +21,10 @@ const Arpillera = ({ galleryImages }) => {
     return (
         <section className="Arpillera">
             <Navbar />
+            <ImageHeaderComponent
+                imageUrl="/images/test4.jpg"
+                quoteText="In this sense arpilleras may empower people, give them a way of expressing themselves"
+            />
             <ContainerComponent>
                 <TitleComponent>Arpillera</TitleComponent>
                 <ContentComponent>
