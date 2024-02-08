@@ -22,7 +22,12 @@ const Hero = ({ translations }) => {
             <section className="hero">
                 <Slider {...settings}>
                     <div className="hero__image-container">
-                        <video src="/images/video.mp4" autoPlay loop muted />
+                        <video
+                            src="/images/misc/video.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
                         <div className="hero__overlay"></div>
                         <div className="hero__content">
                             <h1 className="hero__title_top">

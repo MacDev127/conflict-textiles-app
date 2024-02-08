@@ -18,7 +18,7 @@ const EventDetails = () => {
                 <div className="wrapper">
                     <div className="col-left">
                         <div className="image">
-                            <img src="/images/about.jpg" alt="" />
+                            <img src="/images/misc/about.jpg" alt="" />
                         </div>
                         <div className="event-title">
                             <h1>Connecting Ties</h1>

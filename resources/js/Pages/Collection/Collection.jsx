@@ -18,7 +18,7 @@ const Collection = ({ collectionPageImages }) => {
             <Navbar />
 
             <ImageHeaderComponent
-                imageUrl="/images/test2.jpg"
+                imageUrl="/images/misc/test2.jpg"
                 quoteText="When words are not enough to express lived experiences
                          of violence, stitching and sewing emerge as textile
                          language."

@@ -22,7 +22,7 @@ const Arpillera = ({ galleryImages }) => {
         <section className="Arpillera">
             <Navbar />
             <ImageHeaderComponent
-                imageUrl="/images/test4.jpg"
+                imageUrl="/images/misc/test4.jpg"
                 quoteText="In this sense arpilleras may empower people, give them a way of expressing themselves"
             />
             <ContainerComponent>

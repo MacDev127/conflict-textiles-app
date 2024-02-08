@@ -13,7 +13,7 @@ const Navbar = () => {
         <header>
             <Link href={route("home")}>
                 <div className="nav-logo">
-                    <img src="/images/logo2.png" alt="Logo" />
+                    <img src="/images/misc/logo2.png" alt="Logo" />
                 </div>
             </Link>
             <nav className={menuOpen ? "open active" : ""}>

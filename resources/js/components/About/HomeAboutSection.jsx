@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "@inertiajs/react";
-// import { useTranslation } from 'react-i18next';
 
 //Components
 import TitleComponent from "../Title/TitleComponent";
@@ -18,19 +17,14 @@ import "./HomeAboutSection.css";
 //styles end
 
 const About = () => {
-    // const { t } = useTranslation();
-
     const [isOpen, setIsOpen] = useState(false);
     return (
         <section className="about">
             <div className="bg-test">
-                <img src="/images/hpbg2.png" alt="" />
+                <img src="/images/misc/hpbg2.png" alt="" />
             </div>
             <ContainerComponent>
-                <TitleComponent>
-                    About
-                    {/* {t('about_title')} */}
-                </TitleComponent>
+                <TitleComponent>About</TitleComponent>
 
                 <ContentComponent className="about-content">
                     <TextComponent>
@@ -41,7 +35,6 @@ const About = () => {
                         of arpilleras, quilts and wall hangings. Making visible
                         the struggle for the disappeared remains at thevery core
                         of the collection.
-                        {/* {t("about_text")} */}
                     </TextComponent>
                 </ContentComponent>
 
@@ -53,7 +46,6 @@ const About = () => {
                             onClick={() => setIsOpen(true)}
                         >
                             Watch Video
-                            {/* {t("video_icon_text")} */}
                         </TextComponent>
                     </IconWrapper>
                     <ModalComponent
