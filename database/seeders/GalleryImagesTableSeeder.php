@@ -46,6 +46,15 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/collections/arp33.jpg', 'title' => 'A special place in our hearts','type' => 'arpillera'],
             ['img' => '/images/collections/arp31.jpg', 'title' => 'Through the Barricades','type' => 'arpillera'],
             ['img' => '/images/collections/arp32.jpg', 'title' => 'Retorno/Return','type' => 'arpillera'],
+
+            //Banners
+            ['img' => '/images/collections/banner1.jpg', 'title' => 'Bienvenida a las personas refugiadas / Welcome Refugees','type' => 'banner'],
+            ['img' => '/images/collections/banner2.jpg', 'title' => 'Con-textualizando la memoria / Contextualising memory outcome banner','type' => 'banner'],
+            ['img' => '/images/collections/banner3.jpg', 'title' => 'It’s No ******* Computer Game!!','type' => 'banner'],
+            ['img' => '/images/collections/banner4.jpg', 'title' => 'Threads for Corporate Justice','type' => 'banner'],
+            ['img' => '/images/collections/banner5.jpg', 'title' => 'Threads of Empowerment: Conflict Textiles’ International Journey','type' => 'banner'],
+            ['img' => '/images/collections/banner6.jpg', 'title' => 'War-Torn Children banner featuring Broken Rifle 2 and Després de les onades','type' => 'banner'],
+            ['img' => '/images/collections/banner7.jpg', 'title' => 'We cannot walk alone – Refugee week 2021 outcome banner','type' => 'banner'],
         ]);
 }
 }

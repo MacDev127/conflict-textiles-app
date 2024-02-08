@@ -51,13 +51,11 @@ Route::get('/collectionPageImages', [HomeController::class, 'index'])->name('col
 
 Route::get('/', function () {
     $events = Event::all(); // Fetch all events from the database table
-    $galleryImages = GalleryImage::all(); // Fetch all gallery images from the database
     $locale = App::getLocale(); // Get the current locale
     $translations = trans('messages'); // Get the translation strings
 
     return Inertia::render('Home/Home', [
         'events' => $events,
-        'galleryImages' => $galleryImages, // Pass the galleryImages to the component
         'translations' => $translations, // Pass the translations to the component
 
     ]);
@@ -92,12 +90,15 @@ Route::get('/collection', function (){
  // Fetch specific images for the Arpillera collection
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
 
+ // Fetch specific images for the Banner collection
+ Route::get('/banner', [GalleryImagesController::class, 'banner'])->name('banner');
+
 
 
 // Banner Items page
-Route::get('/banner', function (){ 
-    return Inertia::render('Banner/Banner');
-    })->name('banner');
+// Route::get('/banner', function (){ 
+//     return Inertia::render('Banner/Banner');
+//     })->name('banner');
 
 // Quilt Items page
 Route::get('/quilt', function (){ 

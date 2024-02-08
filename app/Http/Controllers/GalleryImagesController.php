@@ -25,5 +25,10 @@ public function arpillera() {
     $arpilleraImages = GalleryImage::where('type', 'arpillera')->get();
     return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $arpilleraImages]);
 }
+public function banner() {
+    // Fetch specific images for the banner collection
+    $bannerImages = GalleryImage::where('type', 'banner')->get();
+    return Inertia::render('Banner/Banner', ['galleryImages' => $bannerImages]);
+}
 
 }
