@@ -1,13 +1,13 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
 
-const Banner = ({ galleryImages }) => {
+const EmbroideredCloth = ({ galleryImages }) => {
     const content = {
-        type: "banner", // Used for className and routing
-        title: "Banner Collection",
+        type: "quilt",
+        title: "Embroidered Cloth Collection",
         quoteText:
-            "There is a long tradition of protest and human struggle being expressed by means of textile hangings and banners",
-        imageUrl: "/images/misc/test13.png",
+            "They document peoples’ lived experiences, memories and stories",
+        imageUrl: "/images/misc/pagebg1.jpg",
         description:
             "  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime nobis, eveniet repudiandae illo non, accusamus expedita minus vel beatae qui sapiente voluptatum ipsa maiores at, exercitationem a sed voluptas aut.",
         galleryImages,
@@ -16,4 +16,4 @@ const Banner = ({ galleryImages }) => {
     return <ItemPageComponent {...content} />;
 };
 
-export default Banner;
+export default EmbroideredCloth;

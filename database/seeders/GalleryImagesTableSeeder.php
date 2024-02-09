@@ -70,8 +70,13 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/collections/quilt11.jpg', 'title' => 'Events of 1992','type' => 'quilt'],
             ['img' => '/images/collections/quilt12.jpg', 'title' => 'Events of 1994','type' => 'quilt'],
             ['img' => '/images/collections/quilt13.jpg', 'title' => 'Events of 1998','type' => 'quilt'],
-            ['img' => '/images/collections/quilt14.jpg', 'title' => 'Evenets of 2005','type' => 'quilt'],
+            ['img' => '/images/collections/quilt14.jpg', 'title' => 'Events of 2005','type' => 'quilt'],
             ['img' => '/images/collections/quilt15.jpg', 'title' => 'Friendship Quilt','type' => 'quilt'],
+
+            //Embroidered Cloth
+            ['img' => '/images/collections/ec1.jpg', 'title' => 'Los trabajos colectivos son fuente de resistencia / Collective work is a source of resistance
+            ','type' => 'embroidered-cloth'],
+            ['img' => '/images/collections/ec2.png', 'title' => 'Un corazón como el de todos / A heart like everyone else','type' => 'embroidered-cloth'],
         
 
         ]);

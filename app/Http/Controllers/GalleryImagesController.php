@@ -36,4 +36,9 @@ public function quilt() {
     return Inertia::render('Quilt/Quilt', ['galleryImages' => $quiltImages]);
 }
 
+public function embroideredCloth() {
+    $embroideredClothImages = GalleryImage::where('type', 'embroidered-cloth')->get();
+    return Inertia::render('EmbroideredCloth/EmbroideredCloth', ['galleryImages' => $embroideredClothImages]);
+}
+
 }
