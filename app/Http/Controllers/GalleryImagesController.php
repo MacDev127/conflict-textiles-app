@@ -30,5 +30,10 @@ public function banner() {
     $bannerImages = GalleryImage::where('type', 'banner')->get();
     return Inertia::render('Banner/Banner', ['galleryImages' => $bannerImages]);
 }
+public function quilt() {
+    // Fetch specific images for the quilt collection
+    $quiltImages = GalleryImage::where('type', 'quilt')->get();
+    return Inertia::render('Quilt/Quilt', ['galleryImages' => $quiltImages]);
+}
 
 }

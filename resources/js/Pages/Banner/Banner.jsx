@@ -22,8 +22,8 @@ const Banner = ({ galleryImages }) => {
         <section className="Banner">
             <Navbar />
             <ImageHeaderComponent
-                imageUrl="/images/misc/test4.jpg"
-                quoteText="In this sense arpilleras may empower people, give them a way of expressing themselves"
+                imageUrl="/images/misc/test9.jpg"
+                quoteText="There is a long tradition of protest and human struggle being expressed by means of textile hangings and banners"
             />
             <ContainerComponent>
                 <TitleComponent>Banner</TitleComponent>

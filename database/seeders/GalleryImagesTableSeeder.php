@@ -55,6 +55,25 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/collections/banner5.jpg', 'title' => 'Threads of Empowerment: Conflict Textiles’ International Journey','type' => 'banner'],
             ['img' => '/images/collections/banner6.jpg', 'title' => 'War-Torn Children banner featuring Broken Rifle 2 and Després de les onades','type' => 'banner'],
             ['img' => '/images/collections/banner7.jpg', 'title' => 'We cannot walk alone – Refugee week 2021 outcome banner','type' => 'banner'],
+
+            //Quilts
+            ['img' => '/images/collections/quilt1.jpg', 'title' => '25 Years of Peacemaking','type' => 'quilt'],
+            ['img' => '/images/collections/quilt2.jpg', 'title' => 'A man with three wives','type' => 'quilt'],
+            ['img' => '/images/collections/quilt3.jpg', 'title' => 'A picture of Germany','type' => 'quilt'],
+            ['img' => '/images/collections/quilt4.jpg', 'title' => 'A Quilt for the world','type' => 'quilt'],
+            ['img' => '/images/collections/quilt5.jpg', 'title' => '25 Alzheimers 2: Lost Memories of New York','type' => 'quilt'],
+            ['img' => '/images/collections/quilt6.jpg', 'title' => 'As a War Bride to USA','type' => 'quilt'],
+            ['img' => '/images/collections/quilt7.jpg', 'title' => 'Broken Promises','type' => 'quilt'],
+            ['img' => '/images/collections/quilt8.jpg', 'title' => 'Circle of Sacred Sisters','type' => 'quilt'],
+            ['img' => '/images/collections/quilt9.jpg', 'title' => 'Egyptian Gods','type' => 'quilt'],
+            ['img' => '/images/collections/quilt10.jpg', 'title' => 'Events of 1989','type' => 'quilt'],
+            ['img' => '/images/collections/quilt11.jpg', 'title' => 'Events of 1992','type' => 'quilt'],
+            ['img' => '/images/collections/quilt12.jpg', 'title' => 'Events of 1994','type' => 'quilt'],
+            ['img' => '/images/collections/quilt13.jpg', 'title' => 'Events of 1998','type' => 'quilt'],
+            ['img' => '/images/collections/quilt14.jpg', 'title' => 'Evenets of 2005','type' => 'quilt'],
+            ['img' => '/images/collections/quilt15.jpg', 'title' => 'Friendship Quilt','type' => 'quilt'],
+        
+
         ]);
 }
 }

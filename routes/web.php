@@ -93,17 +93,16 @@ Route::get('/collection', function (){
  // Fetch specific images for the Banner collection
  Route::get('/banner', [GalleryImagesController::class, 'banner'])->name('banner');
 
+ // Fetch specific images for the Banner collection
+ Route::get('/quilt', [GalleryImagesController::class, 'quilt'])->name('quilt');
 
 
-// Banner Items page
-// Route::get('/banner', function (){ 
-//     return Inertia::render('Banner/Banner');
-//     })->name('banner');
+
 
 // Quilt Items page
-Route::get('/quilt', function (){ 
-    return Inertia::render('Quilt/Quilt');
-    })->name('quilt');
+// Route::get('/quilt', function (){ 
+//     return Inertia::render('Quilt/Quilt');
+//     })->name('quilt');
 
 // Wall Hanging Items page
 Route::get('/wall-hanging', function (){ 

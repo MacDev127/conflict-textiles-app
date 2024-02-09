@@ -39,8 +39,8 @@ const Collection = ({ collectionPageImages }) => {
                 <SubtitleComponent>Theme</SubtitleComponent>
                 <div className="collection__wrapper">
                     {collectionPageImages.map((image) => (
-                        <div>
-                            <div key={image.id} className="collection__item">
+                        <div key={image.id}>
+                            <div className="collection__item">
                                 <Link href={`/${image.type}`}>
                                     <img src={image.img} alt={image.title} />
                                 </Link>
