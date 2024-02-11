@@ -17,6 +17,7 @@ class CollectionPageImagesTableSeeder extends Seeder
             ['img' => '/images/collectionPage/arpillera.png', 'title' => 'Arpillera', 'type' => 'arpillera'],
             ['img' => '/images/collectionPage/banner.jpg', 'title' => 'Banner', 'type' => 'banner'],
             ['img' => '/images/collectionPage/embroidered-cloth.png', 'title' => 'Embroidered Cloth', 'type' => 'embroidered-cloth'],
+            ['img' => '/images/collectionPage/wall-hanging.png', 'title' => 'Wall Hanging', 'type' => 'wall-hanging'],
             ['img' => '/images/collectionPage/fabric-print.png', 'title' => 'Fabric Print', 'type' => 'fabric-print'],
             ['img' => '/images/collectionPage/headscarf.png', 'title' => 'Headscarf', 'type' => 'headscarf'],
             ['img' => '/images/collectionPage/installation.png', 'title' => 'Installation', 'type' => 'installation'],
@@ -26,7 +27,6 @@ class CollectionPageImagesTableSeeder extends Seeder
             ['img' => '/images/collectionPage/quilt.png', 'title' => 'Quilt', 'type' => 'quilt'],
             ['img' => '/images/collectionPage/roundel.jpg', 'title' => 'Roundel', 'type' => 'roundel'],
             ['img' => '/images/collectionPage/story-cloth.png', 'title' => 'Story Cloth', 'type' => 'story-cloth'],
-            ['img' => '/images/collectionPage/wall-hanging.png', 'title' => 'Wall Hanging', 'type' => 'wall-hanging'],
         
         ]);
     }

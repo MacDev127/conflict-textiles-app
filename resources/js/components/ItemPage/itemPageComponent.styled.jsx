@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const ImageContainer = styled.div`
     position: relative;
     img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
         padding: 0;
         margin: 0;
         display: block;
     }
+
     .overlay {
         width: 100%;
         height: 100%;

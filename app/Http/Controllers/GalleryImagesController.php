@@ -35,10 +35,14 @@ public function quilt() {
     $quiltImages = GalleryImage::where('type', 'quilt')->get();
     return Inertia::render('Quilt/Quilt', ['galleryImages' => $quiltImages]);
 }
-
+    // Fetch specific images for the quilt collection
 public function embroideredCloth() {
     $embroideredClothImages = GalleryImage::where('type', 'embroidered-cloth')->get();
     return Inertia::render('EmbroideredCloth/EmbroideredCloth', ['galleryImages' => $embroideredClothImages]);
+}
+public function wallHanging() {
+    $wallHangingImages = GalleryImage::where('type', 'wall-hanging')->get();
+    return Inertia::render('WallHanging/WallHanging', ['galleryImages' => $wallHangingImages]);
 }
 
 }

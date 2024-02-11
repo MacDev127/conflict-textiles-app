@@ -99,13 +99,11 @@ Route::get('/collection', function (){
  // Fetch specific images for the Embroidered Cloth collection
  Route::get('/embroidered-cloth', [GalleryImagesController::class, 'embroideredCloth'])->name('embroidered-cloth');
 
+ // Fetch specific images for the Wall Hanging collection
+ Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
 
 
-// Wall Hanging Items page
-Route::get('/wall-hanging', function (){ 
-    return Inertia::render('Wall Hanging/WallHanging');
-    })->name('wall-hanging');
 
 // -------------------Page Routes----------------//
 

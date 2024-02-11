@@ -6,6 +6,6 @@ export const SubtitleStyle = styled.h3`
     letter-spacing: 1px;
     color: #919191;
     font-weight: 400;
-    font-family: "mullish", sans-serif;
-    // font-family: "Playfair Display", serif;
+    // font-family: "mullish", sans-serif;
+    font-family: "Playfair Display", serif;
 `;

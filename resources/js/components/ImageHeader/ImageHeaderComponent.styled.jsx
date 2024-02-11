@@ -10,9 +10,15 @@ export const ImageHeaderStyle = styled.div`
     align-self: center;
 
     img {
-        width: 100%;
+        width: 120%;
         height: 100%;
         object-fit: cover;
+        animation: scale 10s linear;
+    }
+    @keyframes scale {
+        100% {
+            width: 100%;
+        }
     }
 
     .imageHeader__overlay {

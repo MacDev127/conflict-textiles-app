@@ -77,6 +77,28 @@ class GalleryImagesTableSeeder extends Seeder
             ['img' => '/images/collections/ec1.jpg', 'title' => 'Los trabajos colectivos son fuente de resistencia / Collective work is a source of resistance
             ','type' => 'embroidered-cloth'],
             ['img' => '/images/collections/ec2.png', 'title' => 'Un corazón como el de todos / A heart like everyone else','type' => 'embroidered-cloth'],
+
+            //Wall hangings
+            ['img' => '/images/collections/wh1.jpg', 'title' => 'Anti Apartheid ','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh2.jpg', 'title' => 'Blutspur / Blood trail','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh3.jpg', 'title' => 'Brigits Dream ','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh4.jpg', 'title' => 'Children connecting with the past through embroidery','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh5.jpg', 'title' => 'Children on the Edge ','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh6.jpg', 'title' => 'Civil War','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh7.jpg', 'title' => 'Continuum','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh8.jpg', 'title' => 'Da capo al fine','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh9.jpg', 'title' => 'Daily Life in Zambia','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh10.jpg', 'title' => 'Daily Life in Zambia II','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh11.jpg', 'title' => 'Derry Dolls - Past to Present','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh12.jpg', 'title' => 'Disappeared','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh13.jpg', 'title' => 'Earthquake','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh14.jpg', 'title' => 'Executed at dawn','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh15.jpg', 'title' => 'Fern Woman','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh16.jpg', 'title' => 'Frederick Meeting House Panel 1','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh17.jpg', 'title' => 'Frederick Meeting House Panel 2','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh18.jpg', 'title' => 'Frederick Meeting House Panel 3','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh19.jpg', 'title' => 'Gegossenes Blei / Cast lead ','type' => 'wall-hanging'],
+            ['img' => '/images/collections/wh20.jpg', 'title' => 'John Hume, Peacemaker ','type' => 'wall-hanging'],
         
 
         ]);
