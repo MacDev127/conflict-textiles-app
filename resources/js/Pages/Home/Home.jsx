@@ -3,9 +3,10 @@ import "./home.css";
 
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/HeroComponent";
-import HomeAboutSection from "@/components/About/HomeAboutSection";
-import HomeCollectionSection from "@/components/Collection/HomeCollectionSection";
-import HomeEventsSection from "@/components/Event/HomeEventsSection";
+import HomeAboutSection from "@/components/HomeAbout/HomeAboutSection";
+import HomeCollectionSection from "@/components/HomeCollection/HomeCollectionSection";
+import HomeEventsSection from "@/components/HomeEvent/HomeEventsSection";
+import HomeEmailSection from "@/components/HomeEmail/HomeEmailSection";
 import Footer from "@/components/Footer/Footer";
 
 const Home = ({ events, galleryImages, translations }) => {
@@ -17,6 +18,7 @@ const Home = ({ events, galleryImages, translations }) => {
                 <HomeAboutSection />
                 <HomeCollectionSection galleryImages={galleryImages} />
                 <HomeEventsSection events={events} />
+                <HomeEmailSection />
                 <Footer />
             </section>
         </>

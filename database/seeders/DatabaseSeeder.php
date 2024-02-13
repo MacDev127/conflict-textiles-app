@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Event::factory(10)->create(); 
-        Event::factory(3)->create();
+        // Event::factory(3)->create();
 
 
         \App\Models\TextileDetail::factory(5)->create(); 

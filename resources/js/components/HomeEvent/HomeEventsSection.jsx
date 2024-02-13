@@ -13,6 +13,7 @@ import ContainerComponent from "../Container/ContainerComponent";
 import ButtonComponent from "../Button/ButtonComponent";
 import CardComponent from "../Cards/CardsComponent";
 import SubtitleComponent from "../Subtitle/SubtitleComponent";
+
 //Components end
 
 const HomeEventsSection = ({ events }) => {
@@ -32,6 +33,7 @@ const HomeEventsSection = ({ events }) => {
                             </div>
                         ))}
                 </div>
+
                 <Link to="/events">
                     <ButtonComponent>
                         View All Events

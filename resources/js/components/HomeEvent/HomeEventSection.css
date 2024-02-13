@@ -1,0 +1,33 @@
+.cards_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitle {
+    text-align: center;
+    display: flex;
+}
+
+@media (max-width: 992px) {
+    .cards_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+
+        width: 60%;
+    }
+}
+@media (max-width: 768px) {
+    .cards_wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        width: 60%;
+        padding: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .cards_wrapper {
+        flex-direction: column;
+    }
+}
