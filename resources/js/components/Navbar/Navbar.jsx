@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react";
 import "./Navbar.css";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
-import { FaUser } from "react-icons/fa6";
+import { FaCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -68,9 +68,9 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav_icon" to="/contact">
-                        <Link className="login_link">
-                            <p>Account</p>
-                            <FaUser />
+                        <Link href="/login" className="login_link">
+                            <FaCircleUser />
+                            <p>Log In</p>
                         </Link>
                     </li>
                 </ul>
@@ -78,8 +78,8 @@ const Navbar = () => {
 
             <div className="right-section">
                 <DropdownMenu />
-                <Link to="/login">
-                    <LoginButton className="nav_log">Account</LoginButton>
+                <Link href="/login">
+                    <LoginButton className="nav_log">Log In</LoginButton>
                 </Link>
             </div>
         </header>

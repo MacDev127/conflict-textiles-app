@@ -7,9 +7,9 @@ export const EmailStyle = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 50px 30px;
-    margin: 50px 0;
+    margin: 10px 0 50px 0;
     color: #333;
-    background-color: #c2c2c2;
+    // background-color: #c2c2c2;
     form {
         display: flex;
 
@@ -22,6 +22,8 @@ export const EmailStyle = styled.div`
             font-size: 16px;
             outline: none;
             width: 340px;
+            font-family: "Mullish", sans-serif;
+            font-weight: 300;
         }
 
         input[type="submit"] {
@@ -34,8 +36,11 @@ export const EmailStyle = styled.div`
             transition: background-color 0.3s ease;
             text-transform: uppercase;
             margin: 0 10px;
+            font-family: "Mullish", sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
             &:hover {
-                background-color: ;
+                background-color: #dd294d;
             }
         }
     }

@@ -7,4 +7,5 @@ export const ContentStyle = styled.div`
     gap: 10px;
     align-items: center;
     margin: 80px 0;
+    width: 100%;
 `;

@@ -81,12 +81,6 @@ Route::get('/collection', function (){
     })->name('collection');
 
 
-// Arpillera Items page
-// Route::get('/arpillera', function () { 
-//     $galleryImages = GalleryImage::all(); 
-//     return Inertia::render('Arpillera/Arpillera', ['galleryImages' => $galleryImages]);
-// })->name('arpillera');
-
  // Fetch specific images for the Arpillera collection
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
 
@@ -102,17 +96,12 @@ Route::get('/collection', function (){
  // Fetch specific images for the Wall Hanging collection
  Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
-
-
-
 // -------------------Page Routes----------------//
 
 
-
-
-    // --------Change language Route-----/
-    Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
-    // -----Change language Route----/
+// --------Change language Route-----/
+Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
+// -----Change language Route----/
 
 
 

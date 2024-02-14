@@ -4,7 +4,7 @@ export const ButtonStyles = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px 0;
     padding: 0.8em 1.8em;
     background: transparent;
     font-family: "Mulish", sans-serif;

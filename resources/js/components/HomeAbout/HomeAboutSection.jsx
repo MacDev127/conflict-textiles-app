@@ -19,7 +19,7 @@ import "./HomeAboutSection.css";
 const About = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <section className="about">
+        <section className="home__about">
             <div className="bg-test">
                 <img src="/images/misc/hpbg2.png" alt="" />
             </div>

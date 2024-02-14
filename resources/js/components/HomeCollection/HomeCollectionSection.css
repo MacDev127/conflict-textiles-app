@@ -1,3 +1,7 @@
+.home__collection {
+    background-color: #e4e4e4;
+}
+
 .my-masonry-grid {
     display: flex;
     width: 50%;
