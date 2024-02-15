@@ -51,16 +51,17 @@
 }
 .cards__event-description p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 300;
     padding: 1px 0px 4px 0px;
-    color: #313131;
+    color: #919191;
     text-align: left;
 }
 
 .cards__event-title h2 {
     font-size: 20px;
-    font-weight: 300;
-    color: #919191;
+    font-weight: 400;
+    color: #313131;
+
     padding: 10px 0;
     font-family: "Mullish", sans-serif;
 }

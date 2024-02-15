@@ -12,8 +12,10 @@ const CardComponent = ({
     title,
     // event_time,
     location,
+    type,
     event_date,
     description,
+    id,
 }) => {
     return (
         <>
@@ -33,12 +35,14 @@ const CardComponent = ({
                     }}
                 >
                     <div className="cards__info">
-                        <div className="cards__event-title">
-                            <h2>{title}</h2>
-                        </div>
-
                         <div className="cards__event-description">
-                            <p>{description}</p>
+                            <p>
+                                <div className="cards__event-title">
+                                    <h2>{title}</h2>
+                                </div>
+
+                                {type}
+                            </p>
                         </div>
                         <div className="cards__info-time">
                             <FaLocationDot />
@@ -49,7 +53,7 @@ const CardComponent = ({
                             <h3>{event_date}</h3>
                         </div>
                         <div className="cards__btn-wrapper">
-                            <Link href={route("details")}>
+                            <Link href={route("events.show", { id })}>
                                 <button className="cards__btn">Details</button>
                             </Link>
                         </div>

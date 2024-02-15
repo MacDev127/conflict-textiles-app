@@ -1,0 +1,222 @@
+/* * {
+    font-family: "Mulish", sans-serif;
+}
+
+.event-details {
+    width: 100%;
+    padding: 60px 0;
+    margin: 0 10%;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-basis: 50%;
+}
+
+.image img {
+    height: 600px;
+    border-radius: 6px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.event-title h1 {
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+.event-description p {
+    line-height: 1.8;
+    font-size: 18px;
+    width: 80%;
+    text-align: justify;
+}
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-basis: 50%;
+}
+
+.info-details .title {
+    font-size: 30px;
+    padding: 10px 0 0 30px;
+}
+
+.event__info {
+    width: 400px;
+    background-color: #f9f1f1;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+/* padding: 16px; */
+/* } */
+
+/* .event__info h2 {
+    margin-bottom: 24px;
+    color: #333333;
+    font-size: 30px;
+}
+
+.event__info ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: centers;
+}
+
+.event__info ul li {
+    display: flex;
+    margin-bottom: 26px;
+}
+
+.event__info-icon {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.event__info-content h4 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.event__info-content p {
+    color: #666666;
+    font-size: 17px;
+}
+
+.event__location h2 {
+    font-size: 30px;
+    margin: 20px 0; 
+} */
+
+/*Responsive*/
+/* @media screen and (max-width: 500px) {
+    .form .column {
+        flex-wrap: wrap;
+    }
+    .form :where(.gender-option, .gender) {
+        row-gap: 15px;
+    }
+} */
+
+/* Test */
+
+/* Assuming the color palette from the image */
+:root {
+    --primary-color: #dc143c; /* This is the color already used for icons, assuming it's the primary color */
+    --text-color: #333333; /* Dark grey text */
+    --subtext-color: #666666; /* Lighter grey for less important text */
+    --background-color: #f9f1f1; /* Light background for event info */
+    --border-color: #e0e0e0; /* Border color for boxes */
+}
+.event__details {
+    padding: 60px 0;
+    margin: auto;
+    max-width: 1200px;
+    background: #fff;
+}
+
+.event__details-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.event__details-col-left {
+    width: 600px;
+}
+
+/* Adjust image styles */
+.event__details-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Event title and description styles */
+.event__details-event__title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    color: #313131;
+}
+
+.event__details-event__description p {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: left;
+    margin-top: 3rem;
+}
+
+/* Event info box */
+.event__details-event__info {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    max-width: 300px;
+    padding: 8px 30px;
+}
+
+.event__details-event__info h2 {
+    color: var(--primary-color); /* Primary color for the titles */
+    font-size: 2rem; /* Adjust to match the design */
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+/* Event info list */
+.event__details-event__info ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.event__details-event__info ul li {
+    margin-bottom: 1rem;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+
+.event__details-event__info-icon {
+    /* Icon color and size are already set in the IconContext.Provider */
+}
+
+.event__details-event__info-content h4 {
+    color: var(--text-color);
+    margin: 0; /* Remove default margins if needed */
+}
+
+.event__details-event__info-content p {
+    color: var(--subtext-color);
+}
+
+@media (max-width: 768px) {
+    .event__details-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .event__details-event__info {
+        width: auto; /* Allow the box to adjust to the column width */
+        margin: 0 auto; /* Centering the box */
+    }
+}
+/* Test */

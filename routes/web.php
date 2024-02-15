@@ -68,6 +68,12 @@ Route::get('/details', function (){
     return Inertia::render('Details/EventDetails');
     })->name('details');
 
+    //Test event details page
+    Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+
+    //Test event details page
+
+
 // Textile Details Page
 Route::get('/textiledetails', function () {
     $textileDetails = TextileDetail::all(); // Fetch all records from the database table.
