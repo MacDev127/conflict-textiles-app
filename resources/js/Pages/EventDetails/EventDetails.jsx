@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import TabsComponent from "@/components/Tabs/TabsComponent";
+
 import {
     FaEnvelope,
     FaLocationDot,
@@ -9,6 +11,7 @@ import {
 } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import "./EventDetails.css";
+import { TabPanel } from "@mui/lab";
 
 const EventDetails = ({ event }) => {
     const formattedDate = new Date(event.event_date).toLocaleDateString(
@@ -35,7 +38,16 @@ const EventDetails = ({ event }) => {
                         </div>
 
                         <div className="event__details-event__description">
-                            <p>{event.description}</p>
+                            <p>
+                                {event.description
+                                    .split("\n")
+                                    .map((line, index) => (
+                                        <React.Fragment key={index}>
+                                            {line}
+                                            <br />
+                                        </React.Fragment>
+                                    ))}
+                            </p>
                         </div>
                     </div>
                     <div className="event__details-col-right">
@@ -85,6 +97,8 @@ const EventDetails = ({ event }) => {
                             </IconContext.Provider>
                         </div>
                     </div>
+
+                    <TabsComponent event={event} />
                 </div>
             </section>
             <Footer />
