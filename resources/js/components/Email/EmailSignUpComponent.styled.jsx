@@ -6,7 +6,6 @@ export const EmailStyle = styled.div`
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 50px 30px;
     margin: 10px 0 50px 0;
     color: #333;
     // background-color: #c2c2c2;

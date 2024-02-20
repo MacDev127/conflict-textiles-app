@@ -16,6 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call([
+            EventSeeder::class,
+            // CollectionPageImagesTableSeeder::class,
+            // GalleryImagesTableSeeder::class,
+        ]);
+
+
+
         // Event::factory(10)->create(); 
         // Event::factory(3)->create();
 

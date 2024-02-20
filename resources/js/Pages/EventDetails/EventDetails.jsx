@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import TabsComponent from "@/components/Tabs/TabsComponent";
+import ButtonComponent from "@/components/Button/ButtonComponent";
 
 import {
     FaEnvelope,
@@ -54,7 +55,7 @@ const EventDetails = ({ event }) => {
                         <div className="event__details-event__info">
                             <h2>{event.type}</h2>
                             <IconContext.Provider
-                                value={{ color: "#313131", size: "20px" }}
+                                value={{ color: "#dc143c", size: "20px" }}
                             >
                                 <ul>
                                     <li>
@@ -93,6 +94,12 @@ const EventDetails = ({ event }) => {
                                             <p>info@conflicttextiles.com</p>
                                         </div>
                                     </li>
+                                    <ButtonComponent
+                                        className="event__details-reg-btn
+                                    "
+                                    >
+                                        Register
+                                    </ButtonComponent>
                                 </ul>
                             </IconContext.Provider>
                         </div>

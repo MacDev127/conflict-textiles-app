@@ -22,9 +22,8 @@ const HomeEventsSection = ({ events }) => {
             <ContainerComponent>
                 <TitleComponent>Events</TitleComponent>
 
-                <ContentComponent>
-                    <SubtitleComponent>Upcoming Events</SubtitleComponent>
-                </ContentComponent>
+                <SubtitleComponent>Upcoming Events</SubtitleComponent>
+
                 <div className="cards_wrapper">
                     {events &&
                         events.map((event) => (

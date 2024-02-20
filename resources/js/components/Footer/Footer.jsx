@@ -11,6 +11,14 @@ const Footer = () => {
         <>
             <footer>
                 <div className="footer-wrapper">
+                    <div className="news-letter">
+                        <div className="subscribe">
+                            <h2 className="subscribe-title">
+                                Conflict Textiles
+                            </h2>
+                            <img src="/images/misc/logo2.png" alt="Logo" />
+                        </div>
+                    </div>
                     <div className="foot-list">
                         <ul>
                             <li className="foot-title">Links</li>
@@ -72,25 +80,6 @@ const Footer = () => {
                                 <a href="#">My Account</a>
                             </li>
                         </ul>
-                    </div>
-                    <div className="news-letter">
-                        <div className="subscribe">
-                            <h2 className="subscribe-title">
-                                Conflict Textiles
-                            </h2>
-                            <p className="subscribe-copy">
-                                Subscribe to keep up with upcoming events and
-                                workshops.
-                            </p>
-                            <div className="form">
-                                <input
-                                    type="email"
-                                    className="form-email"
-                                    placeholder="Enter your email address"
-                                />
-                                <button className="form-button">Send</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

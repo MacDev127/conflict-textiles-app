@@ -23,13 +23,14 @@
     border-bottom: 1px solid #e4e4e4;
 }
 .tab__details-container ul li p {
-    font-weight: 400;
-    color: #888;
+    font-weight: 300;
+    color: #313131;
+    font-size: 1.1rem;
+    text-align: justify;
 }
 
 .tab__details-container ul li:last-child,
 .tab__details-container ul li:nth-last-child(2) {
-    flex-direction: column;
     align-items: flex-start;
 }
 

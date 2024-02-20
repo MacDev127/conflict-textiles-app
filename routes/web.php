@@ -86,6 +86,11 @@ Route::get('/collection', function (){
     return Inertia::render('Collection/Collection', ['collectionPageImages' => $collectionPageImages]);
     })->name('collection');
 
+// Events Page
+Route::get('/events', function (){ 
+    return Inertia::render('Events/Events');
+    })->name('events');
+
 
  // Fetch specific images for the Arpillera collection
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');

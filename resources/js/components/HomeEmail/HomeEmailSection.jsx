@@ -8,9 +8,11 @@ import "./HomeEmailSection.css";
 const HomeEmailSection = () => {
     return (
         <section className="HomeEmailSection">
-            <TitleComponent>Join Our Email List</TitleComponent>
+            <TitleComponent className="email__title">
+                Join Our Email List
+            </TitleComponent>
             <ContainerComponent>
-                <SubtitleComponent>
+                <SubtitleComponent className="email__subtitle">
                     Hear about collections, exhibitions and events from Conflict
                     Textiles.
                 </SubtitleComponent>

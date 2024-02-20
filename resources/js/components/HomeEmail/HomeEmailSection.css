@@ -6,5 +6,12 @@
     width: 100%;
     margin: 0 auto;
     gap: 20px;
-    background-color: #e4e4e4;
+    background-color: #f3f5f4;
+}
+
+.email__title {
+    font-size: 3rem !important;
+}
+.email__subtitle {
+    margin: 20px 0 40px 0 !important;
 }
