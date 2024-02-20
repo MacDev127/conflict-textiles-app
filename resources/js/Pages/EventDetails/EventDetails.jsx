@@ -19,7 +19,7 @@ const EventDetails = ({ event }) => {
         "en-US",
         {
             day: "numeric",
-            month: "long",
+            month: "numeric",
             year: "numeric",
         }
     );

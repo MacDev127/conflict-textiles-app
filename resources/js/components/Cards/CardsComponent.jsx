@@ -10,27 +10,46 @@ import { IconContext } from "react-icons";
 const CardComponent = ({
     image,
     title,
-    // event_time,
+    event_time,
     location,
     type,
     event_date,
     description,
     id,
 }) => {
+    const formattedDate = new Date(event_date).toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+    });
+    const formattedTime = new Date(
+        "1970-01-01T" + event_time
+    ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     return (
         <>
             <div className="cards__container">
                 <div className="cards__image-container">
                     <img src={image} />
                 </div>
-                <div className="cards__flag">
-                    <span className="cards__flag-date">01</span>
-                    <span className="cards__flag-month-year">May 2024</span>
-                </div>
+                <IconContext.Provider
+                    value={{
+                        color: "#df0144",
+                        size: "15px",
+                    }}
+                >
+                    <div className="cards__flag">
+                        <span className="cards__flag-date">
+                            <span className="cards__flag-icon">
+                                <FaCalendarDays />
+                            </span>
+                            {formattedDate}
+                        </span>
+                    </div>
+                </IconContext.Provider>
 
                 <IconContext.Provider
                     value={{
-                        color: "#313131",
+                        color: "#df0144",
                         size: "14px",
                     }}
                 >
@@ -49,8 +68,8 @@ const CardComponent = ({
                             <h3>{location}</h3>
                         </div>
                         <div className="cards__info-date">
-                            <FaCalendarDays />
-                            <h3>{event_date}</h3>
+                            <FaClock />
+                            <h3>{formattedTime}</h3>
                         </div>
                         <div className="cards__btn-wrapper">
                             <Link href={route("events.show", { id })}>

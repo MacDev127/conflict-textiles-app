@@ -5,8 +5,8 @@
 .cards__container {
     display: flex;
     flex-direction: column;
-    max-width: 420px;
-    min-height: 520px;
+    max-width: 350px;
+    min-height: 480px;
     margin: 10px;
     font-family: "Mullish", sans-serif;
     position: relative;
@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 .cards__image-container img {
-    height: 260px;
+    height: 220px;
     width: 100%;
     overflow: hidden;
     object-fit: cover;
@@ -29,19 +29,21 @@
     position: absolute;
     top: 20px;
     display: flex;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .cards__flag-date {
-    background: #df0144;
-    padding: 8px;
-    color: #fff;
-}
-.cards__flag-month-year {
     background: #fff;
     padding: 8px;
+    color: #313131;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.cards__flag-icon {
+    margin: 0 8px 0 4px;
+}
 .cards__event-description {
     line-height: 1.5;
     text-align: justify;
@@ -50,15 +52,15 @@
     justify-content: space-between;
 }
 .cards__event-description p {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
-    padding: 1px 0px 4px 0px;
+    padding: 10px 0 6px 0;
     color: #919191;
     text-align: left;
 }
 
 .cards__event-title h2 {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 400;
     color: #313131;
 

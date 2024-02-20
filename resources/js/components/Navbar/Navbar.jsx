@@ -52,7 +52,7 @@ const Navbar = () => {
                     </li>
 
                     <li className="nav_list">
-                        <Link className="nav_link" to="/events">
+                        <Link className="nav_link" href={route("events")}>
                             Events
                         </Link>
                     </li>

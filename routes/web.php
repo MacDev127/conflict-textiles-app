@@ -45,33 +45,29 @@ Route::get('/collectionPageImages', [HomeController::class, 'index'])->name('col
 
 
 
-// -----------------------------Page Routes-----------------------------------//
+// --------------------------------------Page Routes Start-----------------------------------------------------------------//
 
-//---------------------------------Home page--------------------------------------------\\
-
+//Home page
 Route::get('/', function () {
     $events = Event::all(); // Fetch all events from the database table
     $locale = App::getLocale(); // Get the current locale
     $translations = trans('messages'); // Get the translation strings
 
     return Inertia::render('Home/Home', [
-        'events' => $events,
+        'events' => $events, // pass events to the home page and render
         'translations' => $translations, // Pass the translations to the component
 
     ]);
 })->name('home');
-//---------------------------------Home page--------------------------------------------\\
 
 
 // Event Details page
-Route::get('/details', function (){ 
-    return Inertia::render('Details/EventDetails');
-    })->name('details');
+// Route::get('/details', function (){ 
+//     return Inertia::render('Details/EventDetails');
+//     })->name('details');
 
-    //Test event details page
-    Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-
-    //Test event details page
+ //Event details page
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
 
 // Textile Details Page
@@ -87,36 +83,32 @@ Route::get('/collection', function (){
     })->name('collection');
 
 // Events Page
-Route::get('/events', function (){ 
-    return Inertia::render('Events/Events');
-    })->name('events');
+Route::get('/events', [EventController::class, 'events'])->name('events');
 
 
- // Fetch specific images for the Arpillera collection
+ // Fetch specific images for the Arpillera collection page
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
 
- // Fetch specific images for the Banner collection
+ // Fetch specific images for the Banner collection page
  Route::get('/banner', [GalleryImagesController::class, 'banner'])->name('banner');
 
- // Fetch specific images for the Quilt collection
+ // Fetch specific images for the Quilt collection page
  Route::get('/quilt', [GalleryImagesController::class, 'quilt'])->name('quilt');
 
- // Fetch specific images for the Embroidered Cloth collection
+ // Fetch specific images for the Embroidered Cloth collection page
  Route::get('/embroidered-cloth', [GalleryImagesController::class, 'embroideredCloth'])->name('embroidered-cloth');
 
- // Fetch specific images for the Wall Hanging collection
+ // Fetch specific images for the Wall Hanging collection page
  Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
-// -------------------Page Routes----------------//
+// --------------------------------------Page Routes End-----------------------------------------------------------------//
 
 
 // --------Change language Route-----/
 Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
-// -----Change language Route----/
 
 
-
-// Bolier plate laravel Routes
+//------- Bolier plate laravel Routes-----//
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -126,13 +118,12 @@ Route::get('/welcome', function () {
     ]);
 });
 
-
-
-
+//------- Bolier plate laravel Routes-----//
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//------- Bolier plate laravel Routes-----//
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
