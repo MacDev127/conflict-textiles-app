@@ -12,6 +12,8 @@ use App\Http\Controllers\GalleryImagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CollectionPageImageController;
+use App\Http\Controllers\EmailSignUpController;
+
 
 //Models
 use App\Models\Event;
@@ -42,6 +44,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Collection page Controller
 Route::get('/collectionPageImages', [HomeController::class, 'index'])->name('collectionPageImages');
+
+//Email Sign up
+Route::post('/email-signup', [EmailSignUpController::class, 'store']);
+
+
 
 
 

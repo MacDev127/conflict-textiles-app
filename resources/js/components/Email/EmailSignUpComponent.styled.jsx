@@ -43,4 +43,10 @@ export const EmailStyle = styled.div`
             }
         }
     }
+    .success-message {
+        margin-top: 40px;
+        font-size: 18px;
+        color: green;
+        font-weight: 300;
+    }
 `;

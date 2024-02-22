@@ -55,13 +55,11 @@ const CardComponent = ({
                 >
                     <div className="cards__info">
                         <div className="cards__event-description">
-                            <p>
-                                <div className="cards__event-title">
-                                    <h2>{title}</h2>
-                                </div>
+                            <div className="cards__event-title">
+                                <h2>{title}</h2>
+                            </div>
 
-                                {type}
-                            </p>
+                            {type}
                         </div>
                         <div className="cards__info-time">
                             <FaLocationDot />

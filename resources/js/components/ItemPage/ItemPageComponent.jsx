@@ -1,7 +1,6 @@
 // GenericItemPage.js
 import React from "react";
 import { Link } from "@inertiajs/react";
-import { Inertia } from "@inertiajs/inertia";
 
 //Components
 import Navbar from "@/components/Navbar/Navbar";

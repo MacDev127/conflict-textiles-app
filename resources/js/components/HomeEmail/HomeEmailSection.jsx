@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import TitleComponent from "../Title/TitleComponent";
 import SubtitleComponent from "../Subtitle/SubtitleComponent";
-import NewsLetterComponent from "../Email/EmailSignUpComponent";
 import ContainerComponent from "../Container/ContainerComponent";
+import EmailSignUpComponent from "../Email/EmailSignUpComponent";
 import "./HomeEmailSection.css";
 
 const HomeEmailSection = () => {
@@ -16,7 +16,7 @@ const HomeEmailSection = () => {
                     Hear about collections, exhibitions and events from Conflict
                     Textiles.
                 </SubtitleComponent>
-                <NewsLetterComponent />
+                <EmailSignUpComponent />
             </ContainerComponent>
         </section>
     );

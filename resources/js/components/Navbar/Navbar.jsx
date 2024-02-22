@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { Link } from "@inertiajs/react";
-
 import "./Navbar.css";
 import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
