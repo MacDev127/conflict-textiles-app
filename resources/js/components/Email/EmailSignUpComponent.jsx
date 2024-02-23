@@ -1,57 +1,68 @@
-// Import React, useState hook, and usePage from Inertia
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { EmailStyle } from "./EmailSignUpComponent.styled";
-import { router } from "@inertiajs/react";
-import { usePage } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 
 const EmailSignUpComponent = () => {
-    const [formData, setFormData] = useState({ name: "", email: "" });
-    const [submitted, setSubmitted] = useState(false);
-    const { flash } = usePage().props || {}; // Ensure that props is an object
-    const [message, setMessage] = useState(flash?.success || ""); // Use optional chaining
+    const { data, setData, post, processing, errors, reset } = useForm({
+        name: "",
+        email: "",
+    });
+    const [message, setMessage] = React.useState("");
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((formData) => ({ ...formData, [name]: value }));
-        if (submitted) setSubmitted(false);
-    };
+    useEffect(() => {
+        return () => {
+            if (message) {
+                // Clear the success message after 5 seconds (5000 milliseconds)
+                const timer = setTimeout(() => {
+                    setMessage("");
+                }, 5000);
+
+                return () => clearTimeout(timer);
+            }
+        };
+    }, [message]);
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-        router.post("/email-signup", formData, {
+        e.preventDefault();
+        post("/email-signup", {
             preserveState: true,
             onSuccess: () => {
                 setMessage("Subscription successful! Thanks for signing up.");
-                setFormData({ name: "", email: "" }); // Reset form data
-                setSubmitted(true);
-
-                // Clear the success message after 5 seconds (5000 milliseconds)
-                setTimeout(() => {
-                    setMessage("");
-                }, 5000);
+                reset(); // Reset the form data
             },
         });
     };
 
     return (
         <EmailStyle>
-            {/* Display flash message or any other message */}
+            {/* Display server-side form errors and success message */}
+            {errors.name && <div className="error-message">{errors.name}</div>}
+            {errors.email && (
+                <div className="error-message">{errors.email}</div>
+            )}
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="name"
                     placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    defaultValue={data.name}
+                    onChange={(e) => setData("name", e.target.value)}
+                    disabled={processing}
                 />
                 <input
                     type="email"
                     name="email"
                     placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleChange}
+                    defaultValue={data.email}
+                    onChange={(e) => setData("email", e.target.value)}
+                    disabled={processing}
                 />
-                <input type="submit" value="Subscribe" />
+                <input
+                    type="submit"
+                    defaultValue="Subscribe"
+                    disabled={processing}
+                />
             </form>
             {message && <div className="success-message">{message}</div>}
         </EmailStyle>

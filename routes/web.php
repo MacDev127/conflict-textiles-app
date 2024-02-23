@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CollectionPageImageController;
 use App\Http\Controllers\EmailSignUpController;
+use App\Http\Controllers\EventRegisterController;
 
 
 //Models
@@ -20,7 +21,8 @@ use App\Models\Event;
 use App\Models\GalleryImage;
 use App\Models\TextileDetail;
 use App\Models\Arpillera;
-use App\Models\CollectionPageImage;;
+use App\Models\CollectionPageImage;
+use App\Models\EventRegister;
 
 
 
@@ -40,13 +42,21 @@ Route::get('/textile-details/{id}', [TextileDetailController::class, 'show'])->n
 Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
 
 //Home Controller
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class,'index'])->name('home.index');
 
 // Collection page Controller
-Route::get('/collectionPageImages', [HomeController::class, 'index'])->name('collectionPageImages');
+Route::get('/collectionPageImages', [CollectionPageImageController::class, 'index'])->name('collectionPageImages');
 
 //Email Sign up
 Route::post('/email-signup', [EmailSignUpController::class, 'store']);
+
+
+// Route to show registration form
+Route::get('/event/{eventId}/registerPage', [EventRegisterController::class, 'showRegistrationForm'])->name('event.registerPage');
+
+// Route to handle the form submission
+Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, 'store'])->name('event.eventRegister.store');
+
 
 
 
@@ -67,13 +77,7 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-
-// Event Details page
-// Route::get('/details', function (){ 
-//     return Inertia::render('Details/EventDetails');
-//     })->name('details');
-
- //Event details page
+//Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
 
@@ -91,7 +95,6 @@ Route::get('/collection', function (){
 
 // Events Page
 Route::get('/events', [EventController::class, 'events'])->name('events');
-
 
  // Fetch specific images for the Arpillera collection page
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');

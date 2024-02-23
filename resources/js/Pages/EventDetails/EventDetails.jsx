@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import TabsComponent from "@/components/Tabs/TabsComponent";
 import ButtonComponent from "@/components/Button/ButtonComponent";
+import { Link } from "@inertiajs/react";
 
 import {
     FaEnvelope,
@@ -12,7 +13,6 @@ import {
 } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import "./EventDetails.css";
-import { TabPanel } from "@mui/lab";
 
 const EventDetails = ({ event }) => {
     const formattedDate = new Date(event.event_date).toLocaleDateString(
@@ -94,11 +94,12 @@ const EventDetails = ({ event }) => {
                                             <p>info@conflicttextiles.com</p>
                                         </div>
                                     </li>
-                                    <ButtonComponent
-                                        className="event__details-reg-btn
-                                    "
-                                    >
-                                        Register
+                                    <ButtonComponent className="event__details-reg-btn ">
+                                        <Link
+                                            href={`/event/${event.id}/registerPage`}
+                                        >
+                                            Register
+                                        </Link>
                                     </ButtonComponent>
                                 </ul>
                             </IconContext.Provider>

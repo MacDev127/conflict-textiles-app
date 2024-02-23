@@ -33,7 +33,7 @@ const HomeEventsSection = ({ events }) => {
                         ))}
                 </div>
 
-                <Link to="/events">
+                <Link href={route("events")}>
                     <ButtonComponent>
                         View All Events
                         {/* {t("hero_button1_text")} */}
