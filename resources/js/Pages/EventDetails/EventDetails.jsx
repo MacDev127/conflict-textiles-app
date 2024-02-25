@@ -94,7 +94,7 @@ const EventDetails = ({ event }) => {
                                             <p>info@conflicttextiles.com</p>
                                         </div>
                                     </li>
-                                    <ButtonComponent className="event__details-reg-btn ">
+                                    <ButtonComponent className="event__details-reg-btn">
                                         <Link
                                             href={`/event/${event.id}/registerPage`}
                                         >

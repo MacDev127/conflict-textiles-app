@@ -102,6 +102,9 @@
     font-size: 18px !important;
     align-self: center !important;
 }
+.event__details-reg-btn a {
+    color: #fff !important;
+}
 .event__details-reg-btn:hover {
     background-color: #dd294d !important;
     transition: 0.3s;
@@ -115,4 +118,3 @@
         margin: 0 auto; /* Centering the box */
     }
 }
-/* Test */

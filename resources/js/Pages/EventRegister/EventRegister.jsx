@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
+
+import ModalComponent from "@/components/Modal/ModalComponent";
+
 import "./EventRegister.css";
 import { Link } from "@inertiajs/react";
 
 const EventRegister = ({ eventId }) => {
-    const { data, setData, post, errors } = useForm({
+    const { data, setData, post, errors, reset } = useForm({
         name: "",
         email: "",
         number: "",
@@ -15,8 +18,17 @@ const EventRegister = ({ eventId }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        post(`/event/${eventId}/eventRegister`);
+        post(`/event/${eventId}/eventRegister`, {
+            onSuccess: () => {
+                reset(); // Reset the form data
+                setSuccessMessage("Registration Successful See you soon!!"); // Set your success message
+                setIsModalOpen(true);
+            },
+        });
     };
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     return (
         <section className="event-register">
@@ -137,6 +149,17 @@ const EventRegister = ({ eventId }) => {
                     </div>
                 </form>
             </div>
+            <ModalComponent
+                open={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            >
+                <div className="success__message">
+                    <h2>{successMessage}</h2>
+                    <h5 className="return__link">
+                        <Link href={route("events")}>Back to Events</Link>
+                    </h5>
+                </div>
+            </ModalComponent>
         </section>
     );
 };
