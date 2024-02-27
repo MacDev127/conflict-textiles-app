@@ -10,18 +10,60 @@ const Footer = () => {
     return (
         <>
             <footer>
-                <div className="footer-wrapper">
-                    <div className="news-letter">
-                        <div className="subscribe">
-                            <h2 className="subscribe-title">
-                                Conflict Textiles
-                            </h2>
-                            <img src="/images/misc/logo2.png" alt="Logo" />
+                <div className="footer__container">
+                    <div className="footer__widget">
+                        <div>
+                            <Link href={route("home")}>
+                                <img
+                                    src="/images/misc/footer-logo.png"
+                                    alt="Logo"
+                                />
+                            </Link>
+                        </div>
+                        <div>
+                            <p className="footer__widget_desc">
+                                Conflict Textiles is home to a large collection
+                                of international textiles, exhibitions and
+                                associated events, all of which focus on
+                                elements of conflict and human rights abuses
+                            </p>
+                        </div>
+
+                        <div className="footer__widget-socials">
+                            <IconContext.Provider
+                                value={{
+                                    color: "#bbbbbb",
+                                    size: "24px",
+                                    margin: "auto",
+                                    zIndex: "1",
+                                }}
+                            >
+                                <a
+                                    className="social-icon"
+                                    href="https://twitter.com/conflicttextil1"
+                                >
+                                    <FaXTwitter />
+                                </a>
+                                <a
+                                    className="social-icon"
+                                    href="https://www.youtube.com/@CAINWebService"
+                                >
+                                    <FaYoutube />
+                                </a>
+
+                                <a
+                                    className="social-icon"
+                                    href="https://youtube.com/"
+                                >
+                                    <FaFacebookF />
+                                </a>
+                            </IconContext.Provider>
                         </div>
                     </div>
-                    <div className="foot-list">
+
+                    <div className="footer__links">
                         <ul>
-                            <li className="foot-title">Links</li>
+                            <li className="footer__links-title">Quick Links</li>
                             <li>
                                 <a href="#">About</a>
                             </li>
@@ -29,7 +71,7 @@ const Footer = () => {
                                 <a href="#">Search</a>
                             </li>
                             <li>
-                                <a href="#">Textiles</a>
+                                <a href="#">Collection</a>
                             </li>
                             <li>
                                 <a href="#">Events</a>
@@ -37,33 +79,37 @@ const Footer = () => {
                             <li>
                                 <a href="#">Links</a>
                             </li>
+
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
                         </ul>
                     </div>
 
-                    <div className="foot-list">
+                    <div className="footer__links">
                         <ul>
-                            <li className="foot-title">About Us</li>
+                            <li className="footer__links-title">About</li>
+
                             <li>
                                 <a href="#">About Us</a>
                             </li>
-
                             <li>
-                                <a href="#">Careers</a>
+                                <a href="#">Contact Us</a>
                             </li>
                             <li>
-                                <a href="#">Policy</a>
+                                <a href="#">Research</a>
                             </li>
                             <li>
-                                <a href="#">Policy</a>
+                                <a href="#">International Work</a>
                             </li>
                             <li>
-                                <a href="#">Locations</a>
+                                <a href="#">Volunteer</a>
                             </li>
                         </ul>
                     </div>
-                    <div className="foot-list">
+                    <div className="footer__links">
                         <ul>
-                            <li className="foot-title">Help</li>
+                            <li className="footer__links-title">Help</li>
                             <li>
                                 <a href="#">Terms & Conditions</a>
                             </li>
@@ -82,33 +128,12 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-
-                <div className="socials">
-                    <IconContext.Provider
-                        value={{
-                            color: "white",
-                            size: "24px",
-                            margin: "auto",
-                            zIndex: "1",
-                        }}
-                    >
-                        <Link className="social-icon" to="https://twitter.com/">
-                            <FaXTwitter />
-                        </Link>
-                        <Link className="social-icon" to="https://youtube.com/">
-                            <FaYoutube />
-                        </Link>
-
-                        <Link className="social-icon" to="https://youtube.com/">
-                            <FaFacebookF />
-                        </Link>
-                    </IconContext.Provider>
+                <div className="footer__copy">
+                    <p className="copy">
+                        &copy; Conflict Textiles Trust 2024 | CAIN Associated
+                        Site
+                    </p>
                 </div>
-                <p className="copy">
-                    &copy; Conflict Textiles Trust 2023 | CAIN Associated Site
-                </p>
-
-                {/* test */}
             </footer>
         </>
     );

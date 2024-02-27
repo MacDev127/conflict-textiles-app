@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const ImageContainer = styled.div`
     position: relative;
+
     img {
         width: 100%;
-        height: auto;
+        height: 100%;
         padding: 0;
         margin: 0;
         display: block;
@@ -42,7 +43,7 @@ export const CollectionItemStyle = styled.div`
         transition: 1s;
         color: #fff;
         font-weight: 300;
-        font-size: 28px;
+        font-size: 22px;
         cursor: pointer;
         text-align: left;
         z-index: 2;

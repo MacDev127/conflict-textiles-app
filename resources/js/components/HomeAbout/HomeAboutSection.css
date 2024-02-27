@@ -14,6 +14,7 @@
     position: relative;
     z-index: 1;
     margin: none;
+    height: 100vh;
 }
 .bg-test img {
     position: absolute;

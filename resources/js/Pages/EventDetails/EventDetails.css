@@ -85,7 +85,7 @@
 
 .event__details-event__info-content h4 {
     color: var(--text-color);
-    margin: 0; /* Remove default margins if needed */
+    margin: 0;
 }
 
 .event__details-event__info-content p {

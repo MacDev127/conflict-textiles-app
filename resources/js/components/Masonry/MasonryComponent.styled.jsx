@@ -3,8 +3,8 @@ import Masonry from "react-masonry-css";
 
 export const MasonryStyle = styled(Masonry)`
     display: flex;
-    width: 60%;
-    background: #ececec;
+    width: 70%;
+    background: #bbb;
     padding: 10px;
 
     height: 100%;

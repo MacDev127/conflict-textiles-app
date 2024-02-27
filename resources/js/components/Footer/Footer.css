@@ -5,135 +5,74 @@
 :root {
     --primary: #dc143c;
 
-    --brownishcolor: #dca35e;
-    --blackishcolor: #050001;
+    --footbg: #3a3335;
 }
 
 footer {
     width: 100%;
-    /* background-color: #f5f4f4; */
-    /* background-color: #dca35e; */
-    background-color: #25282e;
-    border-top: 1px solid var(--primary);
-    color: #fff;
+    height: auto;
+    background-color: var(--footbg);
+    padding-top: 50px;
 }
 
 footer img {
-    height: 90px;
+    height: 100px;
 }
 
-.footer-wrapper {
+.footer__container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 30px 0;
+    padding-bottom: 30px;
+}
+.footer__widget {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.foot-title {
+.footer__widget_desc {
+    color: #888;
+    line-height: 1.5;
+    padding-left: 20px;
+}
+
+.footer__links-title {
     font-size: 20px;
     font-weight: 600;
     color: #bbb;
 }
 
-.foot-list li {
+.footer__links li {
     list-style: none;
     margin: 10px 0;
 }
 
-.foot-list li a:hover {
+.footer__links li a:hover {
     color: #bbb;
 }
 
-.foot-list a {
+.footer__links a {
     text-decoration: none;
 }
 
-.foot-list li a {
+.footer__links li a {
     font-size: 18px;
     color: #888;
     font-weight: 300;
 }
 
-/* Newsletter */
-
-.news-letter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.subscribe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #dca35e; */
-    margin-top: 30px;
-    background-color: #25282e;
-}
-
-.subscribe-title {
-    font-size: 30px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #888;
-}
-
-.subscribe-copy {
-    max-width: 450px;
-    text-align: center;
-    margin: 20px;
-    font-size: 13px;
-    color: #bbb;
-}
-
-.form-email {
-    padding: 10px 15px;
-    border: 1px solid #ffffff;
-    width: 250px;
-    font-size: 14px;
-    color: #000;
-    border-radius: 5px 0px 0px 5px;
-}
-
-.form-email:focus {
-    outline: 1px solid #ffffff;
-}
-
-.form-button {
-    background: #dc143c;
-    padding: 12px 30px;
-    border: none;
-    font-size: 14px;
-    color: #fff;
-    font-family: "Quicksand", sans-serif;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border-radius: 0px 5px 5px 0px;
-}
-
-.form-button:hover {
-    background: #9a0934;
-    transition: all ease 0.2s;
-}
-
-.notice {
-    padding-top: 10px;
-    width: 345px;
-    font-size: 12px;
-}
-
-/* NewsLetter End */
-
-/* Footer Socials */
-.socials {
+.footer__widget-socials {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-flow: row wrap;
-    padding-top: 20px;
-    background-color: #212329;
+    padding-top: 18px;
+    background-color: var(--footbg);
 }
 
 .social-icon {
@@ -151,11 +90,65 @@ footer img {
     transition: all 0.3 ease;
 }
 
+.social-icon:hover {
+    background-color: #dd294d;
+    transition: ease.1s;
+}
+
+.footer__copy {
+    margin: 0 auto;
+    padding: 20px 0;
+    border-top: 1px solid #504f4f;
+    max-width: 1320px;
+}
 .copy {
+    justify-content: center;
     text-align: center;
     color: #888;
     font-size: 14px;
     padding: 10px;
-    /* background-color: #dca35e; */
-    background-color: #212329;
+    background-color: var(--footbg);
+}
+
+/* Adjustments for devices with a maximum width of 992px */
+@media (max-width: 992px) {
+    .footer__widget,
+    .footer__links {
+        width: 100%;
+        margin-bottom: 30px; /* Adds space between stacked elements */
+    }
+}
+
+/* Adjustments for devices with a maximum width of 768px */
+@media (max-width: 768px) {
+    .footer__widget,
+    .footer__links {
+        width: 80%;
+        margin: 0px 10px;
+    }
+
+    .footer__links ul {
+        padding: 0; /* Remove padding if any */
+    }
+
+    .footer__links li {
+        margin: 5px 20px; /* Adjust the margin as necessary */
+    }
+}
+
+/* Additional media query for smaller devices, such as phones */
+@media (max-width: 576px) {
+    .footer__widget,
+    .footer__links {
+        width: 80%;
+        margin-bottom: 20px; /* Adds space between stacked elements */
+    }
+
+    .footer__links ul {
+        padding: 0; /* Remove padding if any */
+    }
+
+    .footer__links li {
+        margin: 5px 20px; /* Adjust the margin as necessary */
+    }
 }
