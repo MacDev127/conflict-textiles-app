@@ -33,7 +33,7 @@ const Collection = () => {
 
                 <Masonry
                     breakpointCols={breakpoints}
-                    className="my-masonry-grid"
+                    className="home__collection-masonry"
                     columnClassName="my-masonry-grid_column"
                 >
                     <div className="home__collection-item">

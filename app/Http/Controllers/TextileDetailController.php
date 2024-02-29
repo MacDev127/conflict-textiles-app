@@ -20,9 +20,11 @@ class TextileDetailController extends Controller
     // This method will fetch and return a specific textile detail by ID
     public function show($id)
 {
-    $textileDetail = TextileDetail::findOrFail($id);
+    
+    $textileDetail = TextileDetail::where('gallery_image_id', $id)->firstOrFail();
     return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $textileDetail]);
-}
+
+
 }
 
 
@@ -52,3 +54,4 @@ class TextileDetailController extends Controller
     | -  return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $textileDetail]); passes the found textile detail to the Inertia.js React component located at resources/js/Pages/TextileDetails/TextileDetail. 
     This is then used to display the specific details of the selected textile on the frontend.
     */
+}

@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
         Schema::create('textile_details', function (Blueprint $table) {
@@ -28,12 +26,13 @@ return new class extends Migration
             $table->string('type');
             $table->text('description');
             $table->timestamps();
+            $table->foreignId('gallery_image_id')->constrained('gallery_images')->onDelete('cascade');
+
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+   
     public function down(): void
     {
         Schema::dropIfExists('textile_details');

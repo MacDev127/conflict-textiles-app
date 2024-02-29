@@ -46,15 +46,12 @@ const ItemPageComponent = ({
                             key={image.id}
                             onClick={() => handleImageClick(image.id)}
                         >
-                            <ImageContainer>
-                                <img src={image.img} alt={image.title} />
-                                <div className="overlay"></div>
-                            </ImageContainer>
-                            <h3 className="collection-item-detail">
-                                <Link href={`/textile-details/${image.id}`}>
-                                    View Details
-                                </Link>
-                            </h3>
+                            <Link href={`/textile-details/${image.id}`}>
+                                <ImageContainer>
+                                    <img src={image.img} alt={image.title} />
+                                    <div className="overlay"></div>
+                                </ImageContainer>
+                            </Link>
 
                             <ItemDescStyle className={`${type}__item-desc`}>
                                 <h2>{image.title}</h2>

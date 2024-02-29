@@ -1,7 +1,7 @@
 import React from "react";
 import { MasonryStyle } from "./MasonryComponent.styled";
 
-const MasonryComponent = ({ children }) => {
+const MasonryComponent = ({ children, className }) => {
     const breakpoints = {
         default: 3,
         1100: 2,
@@ -11,7 +11,7 @@ const MasonryComponent = ({ children }) => {
     return (
         <MasonryStyle
             breakpointCols={breakpoints}
-            className="my-masonry-grid"
+            className={className}
             columnClassName="my-masonry-grid_column"
         >
             {children}

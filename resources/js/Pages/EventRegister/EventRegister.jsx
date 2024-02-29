@@ -20,8 +20,8 @@ const EventRegister = ({ eventId }) => {
 
         post(`/event/${eventId}/eventRegister`, {
             onSuccess: () => {
-                reset(); // Reset the form data
-                setSuccessMessage("Registration Successful See you soon!!"); // Set your success message
+                reset();
+                setSuccessMessage("Registration Successful See you soon!!");
                 setIsModalOpen(true);
             },
         });

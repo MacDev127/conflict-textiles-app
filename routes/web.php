@@ -128,6 +128,9 @@ Route::get('/welcome', function () {
     ]);
 });
 
+
+
+
 //------- Bolier plate laravel Routes-----//
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

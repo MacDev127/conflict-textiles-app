@@ -2,9 +2,12 @@
     background-color: #f5f3f4;
 }
 
-.my-masonry-grid {
+.home__collection-masonry {
     display: flex;
     width: 50%;
+    padding: 10px;
+    margin-bottom: 50px;
+    height: 100%;
 }
 .my-masonry-grid_column {
     padding-left: 30px; /* gutter size */

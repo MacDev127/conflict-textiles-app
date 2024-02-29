@@ -73,7 +73,7 @@ const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
                     style={{ minHeight: "80px" }}
                 >
                     <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                        Advanced settings
+                        Exhibited At
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>

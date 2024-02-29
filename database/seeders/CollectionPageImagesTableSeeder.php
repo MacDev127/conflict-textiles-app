@@ -26,7 +26,10 @@ class CollectionPageImagesTableSeeder extends Seeder
             ['img' => '/images/collectionPage/painting.png', 'title' => 'Painting', 'type' => 'painting'],
             ['img' => '/images/collectionPage/quilt.png', 'title' => 'Quilt', 'type' => 'quilt'],
             ['img' => '/images/collectionPage/roundel.jpg', 'title' => 'Roundel', 'type' => 'roundel'],
+            ['img' => '/images/collectionPage/embroidered-godon.png', 'title' => 'Embroidered Goden', 'type' => 'embroidered-godon'],
+            ['img' => '/images/collectionPage/handkerchief.jpg', 'title' => 'Handkerchiefs', 'type' => 'handkerchief'],
             ['img' => '/images/collectionPage/story-cloth.png', 'title' => 'Story Cloth', 'type' => 'story-cloth'],
+            ['img' => '/images/collectionPage/textile-book.jpg', 'title' => 'Textile Book', 'type' => 'textile-book'],
         
         ]);
     }
