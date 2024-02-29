@@ -78,7 +78,7 @@ const Navbar = () => {
             <div className="right-section">
                 <DropdownMenu />
                 <Link href="/login">
-                    <LoginButton className="nav_log">Log In</LoginButton>
+                    <LoginButton className="nav_log"></LoginButton>
                 </Link>
             </div>
         </header>

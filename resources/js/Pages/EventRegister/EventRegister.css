@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    padding-bottom: 50px;
 }
 
 .logo-link img {
@@ -137,7 +138,8 @@
     transition: ease-in-out 0.3s;
 }
 .form button:hover {
-    background: rgb(88, 56, 250);
+    background: #dd294d;
+    transition: ease 0.1s;
 }
 /*Responsive*/
 @media screen and (max-width: 500px) {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./Dropdown.css";
-import { FaAngleDown } from "react-icons/fa";
+// import { FaAngleDown } from "react-icons/fa";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { router } from "@inertiajs/react";
+import { GrLanguage } from "react-icons/gr";
 
 const DropdownMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,8 +35,10 @@ const DropdownMenu = () => {
     return (
         <div className="dropdown">
             <button className="dropdown_btn" onClick={toggleDropdown}>
-                Lang
-                <FaAngleDown className={`icon ${isOpen ? "open" : ""}`} />
+                <GrLanguage
+                    style={{ fontSize: "22px", color: "#df0144" }}
+                    className={`icon ${isOpen ? "open" : ""}`}
+                />
             </button>
 
             {isOpen && (
