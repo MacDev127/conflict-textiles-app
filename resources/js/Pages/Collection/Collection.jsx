@@ -11,6 +11,7 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
+import SearchComponent from "@/components/Search/SearchComponent";
 
 const Collection = ({ collectionPageImages }) => {
     return (
@@ -35,6 +36,8 @@ const Collection = ({ collectionPageImages }) => {
                         eaque laudantium aperiam. Dolorum enim quaerat,
                         doloremque modi a porro voluptates!
                     </TextComponent>
+
+                    <SearchComponent />
                 </ContentComponent>
                 <SubtitleComponent>Theme</SubtitleComponent>
                 <div className="collection__wrapper">

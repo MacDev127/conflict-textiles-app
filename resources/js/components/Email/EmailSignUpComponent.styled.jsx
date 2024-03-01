@@ -8,7 +8,6 @@ export const EmailStyle = styled.div`
     text-align: center;
     margin: 10px 0 50px 0;
     color: #333;
-    // background-color: #c2c2c2;
     form {
         display: flex;
 

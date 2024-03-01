@@ -14,6 +14,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CollectionPageImageController;
 use App\Http\Controllers\EmailSignUpController;
 use App\Http\Controllers\EventRegisterController;
+use App\Http\Controllers\SearchController;
 
 
 //Models
@@ -23,6 +24,7 @@ use App\Models\TextileDetail;
 use App\Models\Arpillera;
 use App\Models\CollectionPageImage;
 use App\Models\EventRegister;
+use App\Models\Search;
 
 
 
@@ -112,6 +114,17 @@ Route::get('/events', [EventController::class, 'events'])->name('events');
  Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
 // --------------------------------------Page Routes End-----------------------------------------------------------------//
+
+
+//----------search functionality----------//
+
+
+
+Route::get('/search', [GalleryImagesController::class, 'search'])->name('gallery_images.search');
+Route::get('/search-page', [SearchController::class, 'index'])->name('search-page');
+
+
+//----------search functionality----------//
 
 
 // --------Change language Route-----/

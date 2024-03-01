@@ -45,4 +45,31 @@ public function wallHanging() {
     return Inertia::render('WallHanging/WallHanging', ['galleryImages' => $wallHangingImages]);
 }
 
+
+//-------------------Search functionality----------------///
+
+public function search(Request $request)
+{
+    $images = GalleryImage::query()
+    ->when($request->filled('type'), function ($query) use ($request) {
+        return $query->where('type', $request->type);
+    })
+    ->when($request->filled('maker'), function ($query) use ($request) {
+        return $query->where('maker', $request->maker);
+    })
+    ->when($request->filled('keyword'), function ($query) use ($request) {
+        return $query->where('title', 'LIKE', '%' . $request->keyword . '%');
+    })
+    ->when($request->filled('date_start') && $request->filled('date_end'), function ($query) use ($request) {
+        return $query->whereBetween('created_at', [$request->date_start, $request->date_end]);
+    })
+    ->get();
+
+return Inertia::render('Search/Search', ['images' => $images]);
+}
+
+
+
+//---------------------Search functionality-----------------------------//
+
 }

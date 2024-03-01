@@ -40,7 +40,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav_list">
-                        <Link className="nav_link" to="/search">
+                        <Link className="nav_link" href={route("search-page")}>
                             Search
                         </Link>
                     </li>
