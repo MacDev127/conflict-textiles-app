@@ -6,25 +6,30 @@ import { usePage } from "@inertiajs/react";
 import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
+// Access the current page's properties using the usePage hook from Inertia.js
 const SearchComponent = () => {
     const { url } = usePage();
 
+    // Initialize form data with useForm hook from Inertia.js, setting default values for each field
     const { data, setData, get } = useForm({
         type: "",
         maker: "",
         keyword: "",
         date_start: "",
         date_end: "",
+        country_of_origin: "",
     });
 
+    // Event handler for handling changes in any of the form's input fields
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setData(name, value);
+        const { name, value } = e.target; // Destructure 'name' and 'value' from the event's target (the input element)
+        setData(name, value); // Update the form's state for the changed input field using setData method
     };
 
+    // Event handler for form submission
     const handleSubmit = (e) => {
-        e.preventDefault();
-        get(route("gallery_images.search"));
+        e.preventDefault(); // Prevent the default form submission action (page reload)
+        get(route("gallery_images.search")); // Submit the form data using a GET request to the 'gallery_images.search'  controller route
     };
 
     //--------------------------------Advanaced Search----------------------------------------------//
@@ -47,13 +52,6 @@ const SearchComponent = () => {
             setShowAdvanced(true);
         }
     };
-
-    // Effect hook to reset the closing state when `showAdvanced` becomes true
-    // useEffect(() => {
-    //     if (showAdvanced) {
-    //         setIsClosing(false);
-    //     }
-    // }, [showAdvanced]);
 
     //--------------------------------------Advanaced Search-----------------------------------//
 
@@ -100,7 +98,7 @@ const SearchComponent = () => {
                             className="advanced__search-form"
                         >
                             <div className="advanced__search-form__group1">
-                                <div>
+                                <div className="advanced__search-form__group1-container">
                                     <label htmlFor="type">Type</label>
 
                                     <input
@@ -113,7 +111,7 @@ const SearchComponent = () => {
                                     />
                                 </div>
 
-                                <div>
+                                <div className="advanced__search-form__group1-container">
                                     <label htmlFor="maker">Maker</label>
 
                                     <input
@@ -125,23 +123,46 @@ const SearchComponent = () => {
                                         className="advanced__input"
                                     />
                                 </div>
+                                <div className="advanced__search-form__group1-container">
+                                    <label htmlFor="country_of_origin">
+                                        Country of Origin
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="country_of_origin"
+                                        value={data.country_of_origin}
+                                        onChange={handleInputChange}
+                                        placeholder="Country of origin"
+                                        className="advanced__input"
+                                    />
+                                </div>
                             </div>
 
                             <div className="advanced__search-form__group2">
-                                <input
-                                    type="date"
-                                    name="date_start"
-                                    value={data.date_start}
-                                    onChange={handleInputChange}
-                                    placeholder="Date Start"
-                                />
-                                <input
-                                    type="date"
-                                    name="date_end"
-                                    value={data.date_end}
-                                    onChange={handleInputChange}
-                                    placeholder="Date End"
-                                />
+                                <div className="advanced__search-form__group2-container">
+                                    <label htmlFor="date">Date From</label>
+                                    <input
+                                        type="date"
+                                        name="date_start"
+                                        value={data.date_start}
+                                        onChange={handleInputChange}
+                                        placeholder="Date Start"
+                                        className="advanced__input-date"
+                                    />
+                                </div>
+                                <div className="advanced__search-form__group2-container">
+                                    <label htmlFor="date">Date To</label>
+
+                                    <input
+                                        type="date"
+                                        name="date_end"
+                                        value={data.date_end}
+                                        onChange={handleInputChange}
+                                        placeholder="Date End"
+                                        className="advanced__input-date"
+                                    />
+                                </div>
                             </div>
                         </form>
 

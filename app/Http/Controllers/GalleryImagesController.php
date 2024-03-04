@@ -57,11 +57,19 @@ public function search(Request $request)
     ->when($request->filled('maker'), function ($query) use ($request) {
         return $query->where('maker', $request->maker);
     })
+    ->when($request->filled('country_of_origin'), function ($query) use ($request) {
+        return $query->where('country_of_origin', $request->country_of_origin);
+    })
     ->when($request->filled('keyword'), function ($query) use ($request) {
         return $query->where('title', 'LIKE', '%' . $request->keyword . '%');
     })
     ->when($request->filled('date_start') && $request->filled('date_end'), function ($query) use ($request) {
-        return $query->whereBetween('created_at', [$request->date_start, $request->date_end]);
+        $startYear = date('Y', strtotime($request->date_start));
+        $endYear = date('Y', strtotime($request->date_end));
+        
+        // Assuming 'date' is the name of your column that contains the date values
+        return $query->whereYear('date', '>=', $startYear)
+                     ->whereYear('date', '<=', $endYear);
     })
     ->get();
 

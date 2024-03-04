@@ -27,15 +27,15 @@ foreach ($galleryImages as $galleryImage){
 
             'image' => $galleryImage->img, // Use the image path from the gallery image
             'location' => 'Belfast',
-            'date' => Carbon::createFromDate(2024, 6, 1)->format('Y-m-d'), // should output '2024-06-01'
+            'date' => $galleryImage->date, // should output '2024-06-01'
             'title' => $galleryImage->title,
-            'size' => 'It is a long established',
+            'size' => '18 X 20 cms',
             'materials' => 'Exhibition',
             'provenance' => "Conflict Textiles",
-            'country_of_origin' => "Ulster University",
+            'country_of_origin' => "$galleryImage->country_of_origin",
             'authenticity' => "Roberta Bacic and Conflict Textiles team",
             'type' => $galleryImage->type,
-            'maker' => "Lorem ipsum dolor sit amet",
+            'maker' => $galleryImage->maker, 
             'owner' => "comming soon",
             'photographer' => "Paddy Joe",
             'description' => "description goes in here",

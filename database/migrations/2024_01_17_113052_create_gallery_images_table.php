@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('img'); 
             $table->string('title')->nullable();
             $table->timestamps();
-            $table->string('type'); 
+            $table->string('type')->nullable(); 
+            $table->string('maker')->nullable(); 
+            $table->string('country_of_origin')->nullable(); 
+            $table->date('date'); 
+
 
         });
     }
