@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GalleryImage;
+use App\Models\CollectionPageImage;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -73,8 +74,26 @@ public function search(Request $request)
     })
     ->get();
 
-return Inertia::render('Search/Search', ['images' => $images]);
+ 
+    return Inertia::render('Search/Search', [
+    'images' => $images,
+    ]);
 }
+
+public function showCollection() {
+
+    // Retrieve a unique list of countries from the 'country_of_origin' field
+    $countries = GalleryImage::distinct()->pluck('country_of_origin')->sort()->values();
+    // dd($countries);
+
+    //render the countries via the dropdown (advanced search) on the collection page
+    return Inertia::render('Collection/Collection', [
+        'countries' => $countries
+        
+    ]);
+}
+
+
 
 
 

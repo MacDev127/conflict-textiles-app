@@ -44,7 +44,7 @@ Route::get('/textile-details/{id}', [TextileDetailController::class, 'show'])->n
 Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
 
 //Home Controller
-Route::get('/home', [HomeController::class,'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Collection page Controller
 Route::get('/collectionPageImages', [CollectionPageImageController::class, 'index'])->name('collectionPageImages');
@@ -66,37 +66,18 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
 
-//Home page
-Route::get('/', function () {
-    $events = Event::all(); // Fetch all events from the database table
-    $locale = App::getLocale(); // Get the current locale
-    $translations = trans('messages'); // Get the translation strings
-
-    return Inertia::render('Home/Home', [
-        'events' => $events, // pass events to the home page and render
-        'translations' => $translations, // Pass the translations to the component
-
-    ]);
-})->name('home');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
-
-// Textile Details Page
-Route::get('/textiledetails', function () {
-    $textileDetails = TextileDetail::all(); // Fetch all records from the database table.
-    return Inertia::render('TextileDetails/TextileDetail', ['textileDetails' => $textileDetails]); // Render the TextileDetail component with the fetched data.
-})->name('textiledetails'); 
-
-// Collection Page
-Route::get('/collection', function (){ 
-    $collectionPageImages = CollectionPageImage::all(); 
-    return Inertia::render('Collection/Collection', ['collectionPageImages' => $collectionPageImages]);
-    })->name('collection');
-
 // Events Page
 Route::get('/events', [EventController::class, 'events'])->name('events');
+
+// Collection Page
+Route::get('/collection', [CollectionPageImageController::class, 'index'])->name('collection');
+
+
+
 
  // Fetch specific images for the Arpillera collection page
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
@@ -122,6 +103,7 @@ Route::get('/events', [EventController::class, 'events'])->name('events');
 
 Route::get('/search', [GalleryImagesController::class, 'search'])->name('gallery_images.search');
 Route::get('/search-page', [SearchController::class, 'index'])->name('search-page');
+
 
 
 //----------search functionality----------//

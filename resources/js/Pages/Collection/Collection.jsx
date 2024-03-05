@@ -12,8 +12,12 @@ import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import SearchComponent from "@/components/Search/SearchComponent";
+import { usePage } from "@inertiajs/react";
 
 const Collection = ({ collectionPageImages }) => {
+    const { countries } = usePage().props;
+    console.log(countries);
+
     return (
         <section className="Collection">
             <Navbar />
@@ -37,7 +41,7 @@ const Collection = ({ collectionPageImages }) => {
                         doloremque modi a porro voluptates!
                     </TextComponent>
 
-                    <SearchComponent />
+                    <SearchComponent countries={countries} />
                 </ContentComponent>
                 <SubtitleComponent>Theme</SubtitleComponent>
                 <div className="collection__wrapper">

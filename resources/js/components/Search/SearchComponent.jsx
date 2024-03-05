@@ -53,6 +53,8 @@ const SearchComponent = () => {
         }
     };
 
+    const { countries = [] } = usePage().props;
+
     //--------------------------------------Advanaced Search-----------------------------------//
 
     return (
@@ -128,14 +130,23 @@ const SearchComponent = () => {
                                         Country of Origin
                                     </label>
 
-                                    <input
-                                        type="text"
+                                    <select
                                         name="country_of_origin"
                                         value={data.country_of_origin}
                                         onChange={handleInputChange}
-                                        placeholder="Country of origin"
                                         className="advanced__input"
-                                    />
+                                    >
+                                        <option value="">Select</option>
+                                        {countries &&
+                                            countries.map((country, index) => (
+                                                <option
+                                                    key={index}
+                                                    value={country}
+                                                >
+                                                    {country}
+                                                </option>
+                                            ))}
+                                    </select>
                                 </div>
                             </div>
 
