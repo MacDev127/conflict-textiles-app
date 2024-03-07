@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('maker');
             $table->string('country_of_origin');
-            $table->date('date');   
+            $table->string('year_produced');   
             $table->string('image');
             $table->string('title');
             $table->string('size');

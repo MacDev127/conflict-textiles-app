@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@inertiajs/react";
+import { router } from "@inertiajs/react";
 
 //Components
 import Navbar from "@/components/Navbar/Navbar";
@@ -11,13 +12,14 @@ import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import { CollectionItemStyle } from "./Search.styled";
 import { ImageContainer } from "./Search.styled";
-import SearchComponent from "@/components/Search/SearchComponent";
+import { ItemDescStyle } from "./Search.styled";
+import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
 
 import "./Search.css";
 
-const Search = ({ images }) => {
+const Search = ({ galleryImages, type }) => {
     const handleImageClick = (imageId) => {
-        Inertia.visit(`/textile-details/${imageId}`);
+        router.visit(`/textile-details/${imageId}`);
     };
     return (
         <>
@@ -34,8 +36,11 @@ const Search = ({ images }) => {
                     </TextComponent>
                 </ContentComponent>
                 {/* <SearchComponent /> */}
-                <MasonryComponent className="search-masonry" images={images}>
-                    {images.map((image) => (
+                <MasonryComponent
+                    className="search-masonry"
+                    galleryImages={galleryImages}
+                >
+                    {galleryImages.map((image) => (
                         <CollectionItemStyle
                             key={image.id}
                             onClick={() => handleImageClick(image.id)}
@@ -46,10 +51,13 @@ const Search = ({ images }) => {
                                     <div className="overlay"></div>
                                 </ImageContainer>
                             </Link>
-                            <h3>{image.title}</h3>
+                            <ItemDescStyle className={`${type}__item-desc`}>
+                                <h2>{image.title}</h2>
+                            </ItemDescStyle>
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
+                <ReturnLinkComponent />
             </ContainerComponent>
 
             <Footer />

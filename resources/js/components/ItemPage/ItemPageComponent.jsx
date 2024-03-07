@@ -1,6 +1,7 @@
 // GenericItemPage.js
 import React from "react";
 import { Link } from "@inertiajs/react";
+import { router } from "@inertiajs/react";
 
 //Components
 import Navbar from "@/components/Navbar/Navbar";
@@ -11,6 +12,7 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
+import ReturnLinkComponent from "../Return/ReturnLinkComponent";
 import { CollectionItemStyle } from "./itemPageComponent.styled";
 import { ItemDescStyle } from "./itemPageComponent.styled";
 import { ImageContainer } from "./itemPageComponent.styled";
@@ -24,7 +26,7 @@ const ItemPageComponent = ({
     galleryImages,
 }) => {
     const handleImageClick = (imageId) => {
-        Inertia.visit(`/textile-details/${imageId}`);
+        router.visit(`/textile-details/${imageId}`);
     };
 
     return (
@@ -59,6 +61,7 @@ const ItemPageComponent = ({
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
+                <ReturnLinkComponent />
             </ContainerComponent>
             <Footer />
         </section>

@@ -12,12 +12,8 @@ import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import SearchComponent from "@/components/Search/SearchComponent";
-import { usePage } from "@inertiajs/react";
 
-const Collection = ({ collectionPageImages }) => {
-    const { countries } = usePage().props;
-    console.log(countries);
-
+const Collection = ({ collectionPageImages, countries }) => {
     return (
         <section className="Collection">
             <Navbar />
@@ -30,17 +26,14 @@ const Collection = ({ collectionPageImages }) => {
             />
 
             <ContainerComponent>
-                <TitleComponent>Explore Collection</TitleComponent>
+                <TitleComponent>Collection</TitleComponent>
                 <ContentComponent>
                     <TextComponent>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Illum quaerat harum exercitationem earum ipsum.
-                        Magnam aut eius voluptas sed provident obcaecati,
-                        voluptates minima aliquam ducimus molestiae eum harum
-                        eaque laudantium aperiam. Dolorum enim quaerat,
-                        doloremque modi a porro voluptates!
+                        This global textiles collection includes more than 400
+                        documented pieces, such as arpilleras, quilts, wall
+                        hangings, and more, all centered around themes of
+                        conflict and human rights violations.
                     </TextComponent>
-
                     <SearchComponent countries={countries} />
                 </ContentComponent>
                 <SubtitleComponent>Theme</SubtitleComponent>

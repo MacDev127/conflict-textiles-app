@@ -7,7 +7,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
 // Access the current page's properties using the usePage hook from Inertia.js
-const SearchComponent = () => {
+const SearchComponent = ({ countries }) => {
     const { url } = usePage();
 
     // Initialize form data with useForm hook from Inertia.js, setting default values for each field
@@ -39,29 +39,23 @@ const SearchComponent = () => {
     const [isClosing, setIsClosing] = useState(false);
 
     const toggleAdvancedSearch = () => {
-        if (showAdvanced) {
-            // Begin the closing animation
-            setIsClosing(true);
-
-            // Wait for the animation to finish before hiding the content
-            setTimeout(() => {
-                setShowAdvanced(false);
-                setIsClosing(false); // Reset the closing state
-            }, 500); // This timeout should match the duration of your CSS animation
-        } else {
-            setShowAdvanced(true);
-        }
+        setIsClosing(!showAdvanced); // Toggle the isClosing state
+        setShowAdvanced(!showAdvanced); // Toggle the visibility of the advanced search
     };
 
-    const { countries = [] } = usePage().props;
+    const handleTransitionEnd = () => {
+        if (!showAdvanced) {
+            setIsClosing(false); // Reset the closing state after the transition finishes
+        }
+    };
 
     //--------------------------------------Advanaced Search-----------------------------------//
 
     return (
-        <>
+        <div className="search-container">
             <div className="search-bar">
                 <div className="search-bar__title">
-                    <p>Explore Collection</p>
+                    <p>Search Collection</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="search-form">
@@ -71,7 +65,7 @@ const SearchComponent = () => {
                         name="keyword"
                         value={data.keyword}
                         onChange={handleInputChange}
-                        placeholder="Search the collection..."
+                        placeholder="Search the collection by keyword..."
                         className="search-input"
                     />
                     <button type="submit" className="search-button">
@@ -80,108 +74,110 @@ const SearchComponent = () => {
                     </button>
                 </form>
                 <div className="advanced__btn-wrapper">
-                    <a onClick={toggleAdvancedSearch} className="advanced__btn">
+                    <button
+                        onClick={toggleAdvancedSearch}
+                        className="advanced__btn"
+                    >
                         Advanced
                         <FaAngleDown
                             className={`icon ${showAdvanced ? "true" : ""}`}
                         />
-                    </a>
+                    </button>
+                </div>
+                <div
+                    className={`advanced__search-container ${
+                        showAdvanced ? "open" : ""
+                    } ${isClosing ? "closing" : ""}`}
+                    onTransitionEnd={handleTransitionEnd}
+                >
+                    <form
+                        onSubmit={handleSubmit}
+                        className="advanced__search-form"
+                    >
+                        <div className="advanced__search-form__group1">
+                            <div className="advanced__search-form__group1-container">
+                                <label htmlFor="type">Type</label>
+
+                                <input
+                                    type="text"
+                                    name="type"
+                                    value={data.type}
+                                    onChange={handleInputChange}
+                                    placeholder="Arpillera, Quilt, Banner etc..."
+                                    className="advanced__input"
+                                />
+                            </div>
+
+                            <div className="advanced__search-form__group1-container">
+                                <label htmlFor="maker">Maker</label>
+
+                                <input
+                                    type="text"
+                                    name="maker"
+                                    value={data.maker}
+                                    onChange={handleInputChange}
+                                    placeholder="Name of Maker..."
+                                    className="advanced__input"
+                                />
+                            </div>
+                            <div className="advanced__search-form__group1-container">
+                                <label htmlFor="country_of_origin">
+                                    Country of Origin
+                                </label>
+
+                                <select
+                                    name="country_of_origin"
+                                    value={data.country_of_origin}
+                                    onChange={handleInputChange}
+                                    className="advanced__input"
+                                >
+                                    <option value="">Select</option>
+                                    {countries &&
+                                        countries.map((country, index) => (
+                                            <option key={index} value={country}>
+                                                {country}
+                                            </option>
+                                        ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="advanced__search-form__group2">
+                            <div className="advanced__search-form__date-container">
+                                <label htmlFor="date_start">
+                                    Date From (Year)
+                                </label>
+                                <input
+                                    type="number"
+                                    name="date_start"
+                                    value={data.date_start}
+                                    onChange={handleInputChange}
+                                    placeholder="Year Start"
+                                    className="advanced__input-date"
+                                    min="1900" // Adjust according to your data
+                                    max={new Date().getFullYear()} // Current year as the max value
+                                />
+                            </div>
+                            <div className="advanced__search-form__date-container">
+                                <label htmlFor="date_end">Date To (Year)</label>
+                                <input
+                                    type="number"
+                                    name="date_end"
+                                    value={data.date_end}
+                                    onChange={handleInputChange}
+                                    placeholder="Year End"
+                                    className="advanced__input-date"
+                                    min="1900" // Adjust according to your data
+                                    max={new Date().getFullYear()} // Current year as the max value
+                                />
+                            </div>
+                        </div>
+                    </form>
+
+                    {/* You can add more advanced search fields here */}
                 </div>
             </div>
-            <div className="advanced__search">
-                {showAdvanced && (
-                    <div
-                        className={`advanced__search-container ${
-                            showAdvanced ? "open" : ""
-                        } ${isClosing ? "closing" : ""}`}
-                    >
-                        <form
-                            onSubmit={handleSubmit}
-                            className="advanced__search-form"
-                        >
-                            <div className="advanced__search-form__group1">
-                                <div className="advanced__search-form__group1-container">
-                                    <label htmlFor="type">Type</label>
-
-                                    <input
-                                        type="text"
-                                        name="type"
-                                        value={data.type}
-                                        onChange={handleInputChange}
-                                        placeholder="Type"
-                                        className="advanced__input"
-                                    />
-                                </div>
-
-                                <div className="advanced__search-form__group1-container">
-                                    <label htmlFor="maker">Maker</label>
-
-                                    <input
-                                        type="text"
-                                        name="maker"
-                                        value={data.maker}
-                                        onChange={handleInputChange}
-                                        placeholder="Maker"
-                                        className="advanced__input"
-                                    />
-                                </div>
-                                <div className="advanced__search-form__group1-container">
-                                    <label htmlFor="country_of_origin">
-                                        Country of Origin
-                                    </label>
-
-                                    <select
-                                        name="country_of_origin"
-                                        value={data.country_of_origin}
-                                        onChange={handleInputChange}
-                                        className="advanced__input"
-                                    >
-                                        <option value="">Select</option>
-                                        {countries &&
-                                            countries.map((country, index) => (
-                                                <option
-                                                    key={index}
-                                                    value={country}
-                                                >
-                                                    {country}
-                                                </option>
-                                            ))}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="advanced__search-form__group2">
-                                <div className="advanced__search-form__group2-container">
-                                    <label htmlFor="date">Date From</label>
-                                    <input
-                                        type="date"
-                                        name="date_start"
-                                        value={data.date_start}
-                                        onChange={handleInputChange}
-                                        placeholder="Date Start"
-                                        className="advanced__input-date"
-                                    />
-                                </div>
-                                <div className="advanced__search-form__group2-container">
-                                    <label htmlFor="date">Date To</label>
-
-                                    <input
-                                        type="date"
-                                        name="date_end"
-                                        value={data.date_end}
-                                        onChange={handleInputChange}
-                                        placeholder="Date End"
-                                        className="advanced__input-date"
-                                    />
-                                </div>
-                            </div>
-                        </form>
-
-                        {/* You can add more advanced search fields here */}
-                    </div>
-                )}
-            </div>
-        </>
+        </div>
     );
 };
 

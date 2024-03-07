@@ -1,82 +1,3 @@
-// import React from "react";
-// import { Link } from "@inertiajs/react";
-// import { Inertia } from "@inertiajs/inertia";
-
-// import "./Arpillera.css";
-
-// //Components
-// import Navbar from "@/components/Navbar/Navbar";
-// import Footer from "@/components/Footer/Footer";
-// import TitleComponent from "@/components/Title/TitleComponent";
-// import ContainerComponent from "@/components/Container/ContainerComponent";
-// import ContentComponent from "@/components/Content/ContentComponent";
-// import TextComponent from "@/components/Text/TextComponent";
-// import MasonryComponent from "@/components/Masonry/MasonryComponent";
-// import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
-
-// const Arpillera = ({ galleryImages }) => {
-//     const handleImageClick = (imageId) => {
-//         Inertia.visit(`/textile-details/${imageId}`);
-//     };
-//     return (
-//         <section className="Arpillera">
-//             <Navbar />
-//             <ImageHeaderComponent
-//                 imageUrl="/images/misc/test4.jpg"
-//                 quoteText="In this sense arpilleras may empower people, give them a way of expressing themselves"
-//             />
-//             <ContainerComponent>
-//                 <TitleComponent>Arpillera</TitleComponent>
-//                 <ContentComponent>
-//                     <TextComponent>
-//                         Arpilleras (pronounced ‘ar-pee-air-ahs’) can be simply
-//                         described as three-dimensional appliquéd tapestries of
-//                         Latin America that originated in Chile. These became the
-//                         medium for women, generally working collectively, to
-//                         denounce the human rights abuses and repression of the
-//                         Pinochet dictatorship in Chile, 1973-1990.
-//                     </TextComponent>
-//                 </ContentComponent>
-//                 <MasonryComponent
-//                     galleryImages={galleryImages}
-//                     onImageClick={handleImageClick}
-//                 >
-//                     {galleryImages.map((image) => (
-//                         <>
-//                             <div
-//                                 className="arpillera__collection-item"
-//                                 key={image.id}
-//                             >
-//                                 <img
-//                                     src={image.img}
-//                                     alt={image.title}
-//                                     onClick={() => handleImageClick(image.id)}
-//                                 />
-//                                 <div className="overlay"></div>
-//                                 <div className="arpillera__collection-item-desc">
-//                                     <Link href={`/textile-details/${image.id}`}>
-//                                         <h3>View Details</h3>
-//                                     </Link>
-//                                 </div>
-//                             </div>
-//                             <div className="arpillera__item-desc">
-//                                 <h2>{image.title}</h2>
-//                             </div>
-//                         </>
-//                     ))}
-//                 </MasonryComponent>
-//             </ContainerComponent>
-
-//             <Footer />
-//         </section>
-//     );
-// };
-
-// {
-// }
-
-// export default Arpillera;
-
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
 
@@ -88,7 +9,8 @@ const Arpillera = ({ galleryImages }) => {
             "In this sense arpilleras may empower people, give them a way of expressing themselves",
         imageUrl: "/images/misc/test4.jpg",
         description:
-            "  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime nobis, eveniet repudiandae illo non, accusamus expedita minus vel beatae qui sapiente voluptatum ipsa maiores at, exercitationem a sed voluptas aut.",
+            "Arpilleras (pronounced ‘ar-pee-air-ahs’) are at the core of the collection. These hand sewn appliquéd picture textiles came to prominence during the Pinochet regimein Chile (1973-1990). As the level of detentions, enforced disappearances, torture and economic hardship soared, women gathered collectively to share their experiences  of the violence and repression of the dictatorship. Such gatherings were  often clandestine. With scraps of fabric,  needle and thread, women stitched  their stories of the human rights abuses onto a hessian/burlap backing. These arpillera testimonies later found their way to various countries such as England and Japan through solidarity groups. They informed the world of the reality of the dictatorship; a narrative         which varied from the state version.",
+
         galleryImages,
     };
 

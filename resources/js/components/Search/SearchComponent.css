@@ -1,89 +1,42 @@
 .search-bar {
     display: flex;
-    align-items: center;
-    justify-self: center;
+    align-items: stretch;
     flex-direction: column;
-    /* margin-top: 100px; */
     background-color: #f5f3f4;
-    padding: 60px;
+    padding: 50px 50px 30px 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
         rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-    width: 800px; /* This should match the search input width */
+    width: 750px; /* This should match the search input width */
     margin: 100px auto 0 auto;
 }
 
 .search-bar__title p {
-    font-size: 30px;
+    font-size: 40px;
     font-family: "Playfair Display", serif;
     color: #313131;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* .advanced__search-container {
-    background-color: #f5f3f4;
-    padding: 60px 150px;
-    max-height: 0;
+.advanced__search-container {
+    max-height: 0; /* Start with max-height at 0 */
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
+        visibility 0.5s linear;
+    background-color: #f5f3f4; /* Match the search bar background */
+    padding: 20px; /* Match the horizontal padding */
+    /* width: 700px;  */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
+        visibility 0.5s linear;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Start fully transparent */
+    box-sizing: border-box;
 }
+
 .advanced__search-container.open {
     max-height: 500px;
-} */
-
-/* //test */
-
-@keyframes slideDown {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-    }
-    1% {
-        visibility: visible;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    99% {
-        visibility: visible;
-    }
-    100% {
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-.advanced__search {
-    width: 800px; /* This should match the search input width */
-    margin: 0 auto;
-}
-.advanced__search-container {
-    background-color: #f5f3f4;
-    padding: 60px;
-    visibility: hidden; /* Default state is not visible */
-    opacity: 0;
-    transform: translateY(-100%); /* Start above its final position */
-    width: 800px; /* This should match the search bar width */
-    margin: 0 auto;
-}
-
-.advanced__search-container.open {
-    animation: slideDown 0.5s forwards; /* Use forwards to keep the last keyframe style */
-}
-
-.advanced__search-container.closing {
-    animation: slideUp 0.5s forwards; /* Use forwards to keep the last keyframe style */
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Fade in */
 }
 
 /* //test */
@@ -91,6 +44,7 @@
 .advanced__search-form {
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 
 .advanced__search-form__group1 {
@@ -106,12 +60,13 @@
 }
 .advanced__search-form__group2 {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-between;
     margin: 20px 0;
 }
 .advanced__search-form__group1-container label {
     align-self: flex-start;
-    padding: 0px 0px 6px 6px;
+    padding-bottom: 6px;
 }
 .advanced__search-form__group2-container {
     display: flex;
@@ -119,9 +74,9 @@
     align-items: flex-start;
     margin: 10px 0;
 }
-.advanced__search-form__group2-container label {
+.advanced__search-form__date-container label {
     align-self: flex-start;
-    padding: 0px 0px 6px 6px;
+    padding-bottom: 6px;
 }
 
 /* Style the form */
@@ -139,22 +94,24 @@
     border: 1px solid #ccc; /* Light grey border */
     font-size: 16px; /* Larger font size for better readability */
     box-sizing: border-box;
+    border-radius: 5px 0px 0px 5px;
 }
-.advanced__input {
-    padding: 16px 20px;
-    width: calc(100% - 8px);
-    border: 1px solid #ccc; /* Light grey border */
-    font-size: 16px; /* Larger font size for better readability */
-    box-sizing: border-box;
-    margin: 0 4px;
+
+.advanced__search-form__date-container {
+    flex-basis: 48%; /* Give date containers a flexible basis of 48% width */
+    display: flex;
+    flex-direction: column;
 }
+
+.advanced__input,
 .advanced__input-date {
-    padding: 16px 20px;
-    width: calc(100% - 8px);
-    border: 1px solid #ccc; /* Light grey border */
-    font-size: 16px; /* Larger font size for better readability */
+    /* Reducing the padding and adjusting width for a better aesthetic */
+    padding: 10px 15px;
+    width: 100%; /* Make input take the full width of its container */
+    border: 1px solid #ccc;
+    font-size: 16px;
     box-sizing: border-box;
-    margin: 0 4px;
+    margin-bottom: 10px; /* Add space below the input */
 }
 
 input[type="text"]:focus,
@@ -168,13 +125,14 @@ button[type="submit"] {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 0px 30px;
+    padding: 0px 20px;
     background-color: #df0144;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 18px; /* Match input text size */
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 0px 5px 5px 0px;
 }
 
 button[type="submit"]:hover {

@@ -65,18 +65,17 @@ public function search(Request $request)
         return $query->where('title', 'LIKE', '%' . $request->keyword . '%');
     })
     ->when($request->filled('date_start') && $request->filled('date_end'), function ($query) use ($request) {
-        $startYear = date('Y', strtotime($request->date_start));
-        $endYear = date('Y', strtotime($request->date_end));
-        
-        // Assuming 'date' is the name of your column that contains the date values
-        return $query->whereYear('date', '>=', $startYear)
-                     ->whereYear('date', '<=', $endYear);
+        $startYear = $request->date_start;
+        $endYear = $request->date_end;
+
+        return $query->where('year_produced', '>=', $startYear)
+        ->where('year_produced', '<=', $endYear);
     })
     ->get();
 
  
     return Inertia::render('Search/Search', [
-    'images' => $images,
+    'galleryImages' => $images,
     ]);
 }
 

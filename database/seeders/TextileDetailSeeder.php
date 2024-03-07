@@ -27,7 +27,7 @@ foreach ($galleryImages as $galleryImage){
 
             'image' => $galleryImage->img, // Use the image path from the gallery image
             'location' => 'Belfast',
-            'date' => $galleryImage->date, // should output '2024-06-01'
+            'year_produced' => $galleryImage->year_produced, // should output '2024-06-01'
             'title' => $galleryImage->title,
             'size' => '18 X 20 cms',
             'materials' => 'Exhibition',

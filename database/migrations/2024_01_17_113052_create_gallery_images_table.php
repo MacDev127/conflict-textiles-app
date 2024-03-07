@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('type')->nullable(); 
             $table->string('maker')->nullable(); 
             $table->string('country_of_origin')->nullable(); 
-            $table->date('date'); 
+            $table->string('year_produced')->nullable(); 
 
 
         });
