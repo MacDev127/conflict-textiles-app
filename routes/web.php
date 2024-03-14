@@ -30,6 +30,32 @@ use App\Models\Search;
 
 
 
+///admin functionality
+
+// Route to show the form to add a new textile
+Route::get('/admin/textiles/create', [TextileDetailController::class, 'create'])
+    ->name('admin.textiles.create')
+    ->middleware('is_admin');
+
+// Route to post the data to add a new textile
+Route::post('/admin/textiles/create', [TextileDetailController::class, 'store'])
+    ->name('admin.textiles.store')
+    ->middleware('is_admin');
+
+// Route to show the form to add a new event
+Route::get('/admin/events/create', [EventController::class, 'create'])
+    ->name('admin.events.create')
+    ->middleware('is_admin');
+
+// Route to post the data to add a new event
+Route::post('/admin/events', [EventController::class, 'store'])
+
+    ->name('admin.events.store')
+    ->middleware('is_admin');
+
+///admin functionality
+
+
 
 
 // ----------------Controller Routes------------//
@@ -66,6 +92,12 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
 
+//Dashboard
+
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Admin/Dashboard');
+})->middleware(['auth', 'is_admin'])->name('dashboard');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
@@ -127,9 +159,9 @@ Route::get('/welcome', function () {
 
 
 //------- Bolier plate laravel Routes-----//
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 //------- Bolier plate laravel Routes-----//
 Route::middleware('auth')->group(function () {

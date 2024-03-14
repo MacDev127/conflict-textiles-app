@@ -13,7 +13,7 @@ class SearchController extends Controller
     {
         // You can pass default data or just render the component
         return Inertia::render('Search/Search', [
-            'images' => []
+            // 'images' => []
         ]);
     }
 

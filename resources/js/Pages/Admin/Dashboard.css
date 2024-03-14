@@ -1,0 +1,28 @@
+.admin-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+nav {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    background-color: red;
+    padding: 20px 24px;
+    margin: 20px;
+}
+
+a {
+    color: white !important;
+}
+
+li:hover {
+    background-color: rgb(204, 35, 35);
+}

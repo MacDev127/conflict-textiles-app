@@ -39,16 +39,20 @@ const EventDetails = ({ event }) => {
                         </div>
 
                         <div className="event__details-event__description">
-                            <p>
-                                {event.description
-                                    .split("\n")
-                                    .map((line, index) => (
-                                        <React.Fragment key={index}>
-                                            {line}
-                                            <br />
-                                        </React.Fragment>
-                                    ))}
-                            </p>
+                            {event.description ? (
+                                <p>
+                                    {event.description
+                                        .split("\n")
+                                        .map((line, index) => (
+                                            <React.Fragment key={index}>
+                                                {line}
+                                                <br />
+                                            </React.Fragment>
+                                        ))}
+                                </p>
+                            ) : (
+                                <p>No description available.</p>
+                            )}
                         </div>
                     </div>
                     <div className="event__details-col-right">

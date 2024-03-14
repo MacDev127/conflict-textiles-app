@@ -26,6 +26,19 @@ class TextileDetailController extends Controller
 
 
 }
+public function create()
+{
+    // Render a form for creating a new textile
+    return Inertia::render('Admin/Textiles/Create');
+}
+
+public function store(Request $request)
+{
+    // Handle the form submission to add a new textile
+    // Validate and store the textile, then redirect or respond accordingly
+}
+
+
 
 
 
