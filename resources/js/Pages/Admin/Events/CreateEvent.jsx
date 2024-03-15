@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "@inertiajs/react";
 import "./CreateEvent.css";
+import DashboardSidebar from "../DashboardComponents/DashboardSidebarComponent/DashboardSidebar";
 
 const CreateEvent = () => {
     const { data, setData, post, progress, reset } = useForm({
@@ -47,6 +48,7 @@ const CreateEvent = () => {
     return (
         <>
             <div>
+                <DashboardSidebar />
                 <h1>Create Event</h1>
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <label htmlFor="image">Image</label>
