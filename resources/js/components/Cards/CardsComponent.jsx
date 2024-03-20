@@ -14,7 +14,6 @@ const CardComponent = ({
     location,
     type,
     event_date,
-    description,
     id,
 }) => {
     const formattedDate = new Date(event_date).toLocaleDateString("en-US", {
@@ -29,7 +28,7 @@ const CardComponent = ({
         <>
             <div className="cards__container">
                 <div className="cards__image-container">
-                    <img src={image} />
+                    <img src={image} alt="" />
                 </div>
                 <IconContext.Provider
                     value={{
@@ -46,7 +45,6 @@ const CardComponent = ({
                         </span>
                     </div>
                 </IconContext.Provider>
-
                 <IconContext.Provider
                     value={{
                         color: "#df0144",

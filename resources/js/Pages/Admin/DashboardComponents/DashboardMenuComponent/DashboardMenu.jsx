@@ -18,6 +18,9 @@ const DashboardMenu = () => {
             <Button
                 sx={{
                     color: "white",
+                    position: "absolute",
+                    right: 0,
+                    top: 8,
                 }}
                 id="basic-button"
                 aria-controls={open ? "basic-menu" : undefined}
@@ -27,7 +30,7 @@ const DashboardMenu = () => {
             >
                 <AccountCircleIcon
                     sx={{
-                        fontSize: "26px",
+                        fontSize: "30px",
                     }}
                 />
             </Button>

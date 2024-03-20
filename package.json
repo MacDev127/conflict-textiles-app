@@ -26,6 +26,7 @@
         "@mui/lab": "^5.0.0-alpha.165",
         "@mui/material": "^5.15.3",
         "@mui/styled-engine-sc": "^6.0.0-alpha.11",
+        "@mui/x-charts": "^6.19.5",
         "animate.css": "^4.1.1",
         "country-flag-icons": "^1.5.9",
         "flag-icons": "^7.1.0",

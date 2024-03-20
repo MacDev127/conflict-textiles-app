@@ -7,9 +7,12 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import MenuIcon from "@mui/icons-material/Menu";
+import EventIcon from "@mui/icons-material/Event";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
@@ -19,6 +22,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import DashboardMenu from "../DashboardMenuComponent/DashboardMenu";
+import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
 
 const DashboardSidebar = () => {
@@ -39,7 +43,6 @@ const DashboardSidebar = () => {
         shouldForwardProp: (prop) => prop !== "open",
     })(({ theme, open }) => ({
         flexGrow: 1,
-        padding: theme.spacing(3),
         transition: theme.transitions.create("margin", {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -88,6 +91,7 @@ const DashboardSidebar = () => {
                 <AppBar position="fixed" open={open}>
                     <Toolbar
                         sx={{
+                            background: "crimson",
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
@@ -95,13 +99,20 @@ const DashboardSidebar = () => {
                         }}
                     >
                         <IconButton
+                            sx={{
+                                mr: 2,
+                                ...(open && { display: "none" }),
+                            }}
                             color="inherit"
                             aria-label="open drawer"
                             onClick={handleDrawerOpen}
                             edge="start"
-                            sx={{ mr: 2, ...(open && { display: "none" }) }}
                         >
-                            <MenuIcon />
+                            <MenuIcon
+                                sx={{
+                                    fontSize: 30,
+                                }}
+                            />
                         </IconButton>
                         <DashboardMenu />
                     </Toolbar>
@@ -131,18 +142,74 @@ const DashboardSidebar = () => {
                     <Divider />
                     <List>
                         <ListItem disablePadding>
-                            <Link href="/admin/events/create">
+                            <Link href="/dashboard" style={{ width: "100%" }}>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <InboxIcon />
+                                        <DashboardCustomizeIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary="Add Event" />
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Dashboard"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <Link
+                                href="/admin/events/create"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <EventIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Add Event"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <Link
+                                href="/admin/events/create"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <AddPhotoAlternateIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Add Textile"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <Link href="/" style={{ width: "100%" }}>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <HomeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Home"
+                                    />
                                 </ListItemButton>
                             </Link>
                         </ListItem>
                     </List>
                     <Divider />
-                    <List>
+                    {/* <List>
                         {["All mail", "Trash", "Spam"].map((text, index) => (
                             <ListItem key={text} disablePadding>
                                 <ListItemButton>
@@ -157,7 +224,7 @@ const DashboardSidebar = () => {
                                 </ListItemButton>
                             </ListItem>
                         ))}
-                    </List>
+                    </List> */}
                 </Drawer>
                 <Main open={open}>
                     <DrawerHeader />

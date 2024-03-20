@@ -3,12 +3,8 @@ import "./HomeEventSection.css";
 
 import { Link } from "@inertiajs/react";
 
-// import { useTranslation } from 'react-i18next';
-
 //Components
 import TitleComponent from "../Title/TitleComponent";
-import TextComponent from "../Text/TextComponent";
-import ContentComponent from "../Content/ContentComponent";
 import ContainerComponent from "../Container/ContainerComponent";
 import ButtonComponent from "../Button/ButtonComponent";
 import CardComponent from "../Cards/CardsComponent";
@@ -27,17 +23,12 @@ const HomeEventsSection = ({ events }) => {
                 <div className="cards_wrapper">
                     {events &&
                         events.map((event) => (
-                            <div key={event.id}>
-                                <CardComponent key={event.id} {...event} />
-                            </div>
+                            <CardComponent key={event.id} {...event} />
                         ))}
                 </div>
 
                 <Link href={route("events")}>
-                    <ButtonComponent>
-                        View All Events
-                        {/* {t("hero_button1_text")} */}
-                    </ButtonComponent>
+                    <ButtonComponent>View All Events</ButtonComponent>
                 </Link>
             </ContainerComponent>
         </>
