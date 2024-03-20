@@ -12,21 +12,33 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
-        $images = GalleryImage::all(); // This seems to be extra data not present in the route closure
+        $events = Event::all()->map(function ($event) {
+            if ($event->image) {
+            // Use Laravel's asset() helper to generate a full URL for the image.
+            // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
+            // which is linked to the public/storage directory.
+                $event->image = asset('storage/' . $event->image);
+            }
+            return $event;
+        });
+        // Retrieve all gallery images from the database (seems to be used elsewhere on the homepage)
+        $images = GalleryImage::all();
+
+        // Get the current language setting of the application
+        $locale = App::getLocale();
+         // Retrieve translation strings based on the current locale
+        $translations = trans('messages');
     
-        $locale = App::getLocale(); // Get the current locale (language setting) of the app
-        $translations = trans('messages'); // Retrieve translation strings based on the current locale
-    
+
+    // Render the Home component with Inertia, passing the modified events, gallery images,
+    // current locale, and translation strings as props
+
         return Inertia::render('Home/Home', [
             'events' => $events,
-            'galleryImages' => $images, // Make sure you need this data in the frontend.
-    
-            //translations
-            'locale' => $locale, // Pass the current locale to the component
-            'translations' => $translations, // Pass the translation strings to the component
+            'galleryImages' => $images,
+            'locale' => $locale,
+            'translations' => $translations,
         ]);
-    
     }
     public function changeLanguage($langcode)
     {
