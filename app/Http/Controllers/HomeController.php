@@ -47,3 +47,5 @@ class HomeController extends Controller
         return redirect()->back(); // Redirect back to the previous page
     }
 }
+
+

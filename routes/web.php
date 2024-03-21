@@ -15,22 +15,16 @@ use App\Http\Controllers\CollectionPageImageController;
 use App\Http\Controllers\EmailSignUpController;
 use App\Http\Controllers\EventRegisterController;
 use App\Http\Controllers\SearchController;
-
-
-//Models
-use App\Models\Event;
-use App\Models\GalleryImage;
-use App\Models\TextileDetail;
-use App\Models\Arpillera;
-use App\Models\CollectionPageImage;
-use App\Models\EventRegister;
-use App\Models\Search;
+use App\Http\Controllers\DashboardController;
 
 
 
 
 
-///admin functionality
+
+
+
+///Admin / Dashboard functionality
 
 // Route to show the form to add a new textile
 Route::get('/admin/textiles/create', [TextileDetailController::class, 'create'])
@@ -47,18 +41,38 @@ Route::get('/admin/events/create', [EventController::class, 'create'])
     ->name('admin.events.create')
     ->middleware('is_admin');
 
+// Route to show the edit form for an event
+Route::get('/admin/events/{id}/edit', [EventController::class, 'edit'])
+->name('admin.events.edit')
+->middleware('is_admin');
+
+
 // Route to post the data to add a new event
 Route::post('/admin/events', [EventController::class, 'store'])
-
     ->name('admin.events.store')
     ->middleware('is_admin');
 
-///admin functionality
+// update event
+Route::put('/events/{id}', [EventController::class, 'update'])->name('event.update');
+
+ //Delete Event
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 
 
 
+/// main dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'is_admin'])
+    ->name('dashboard');
 
-// ----------------Controller Routes------------//
+//events dashboard
+   Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
+    ->middleware(['auth', 'is_admin'])
+    ->name('admin.events-dashboard');
+
+ ///-------Admin / Dashboard functionality--------
+
+
 
 // Event Controller
 Route::get('/events', [EventController::class, 'index']);
@@ -82,7 +96,7 @@ Route::post('/email-signup', [EmailSignUpController::class, 'store']);
 // Route to show registration form
 Route::get('/event/{eventId}/registerPage', [EventRegisterController::class, 'showRegistrationForm'])->name('event.registerPage');
 
-// Route to handle the form submission
+// Route to handle event register form submission
 Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, 'store'])->name('event.eventRegister.store');
 
 
@@ -92,12 +106,6 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
 
-//Dashboard
-
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Admin/Dashboard');
-})->middleware(['auth', 'is_admin'])->name('dashboard');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
@@ -107,9 +115,6 @@ Route::get('/events', [EventController::class, 'events'])->name('events');
 
 // Collection Page
 Route::get('/collection', [CollectionPageImageController::class, 'index'])->name('collection');
-
-
-
 
  // Fetch specific images for the Arpillera collection page
  Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
@@ -131,12 +136,8 @@ Route::get('/collection', [CollectionPageImageController::class, 'index'])->name
 
 //----------search functionality----------//
 
-
-
 Route::get('/search', [GalleryImagesController::class, 'search'])->name('gallery_images.search');
 Route::get('/search-page', [SearchController::class, 'index'])->name('search-page');
-
-
 
 //----------search functionality----------//
 

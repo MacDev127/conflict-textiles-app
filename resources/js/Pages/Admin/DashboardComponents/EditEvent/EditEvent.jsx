@@ -1,33 +1,18 @@
-// In your resources/js/Pages/Admin/Textiles/CreateTextile.jsx
-
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
-import "./CreateEvent.css";
+import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import ModalComponent from "@/components/Modal/ModalComponent";
-import { Link } from "@inertiajs/react";
+import { router } from "@inertiajs/react";
 
-import DashboardSidebar from "../DashboardComponents/DashboardSidebarComponent/DashboardSidebar";
-
-const CreateEvent = () => {
-    const { data, setData, post, reset } = useForm({
-        image: null,
-        title: "",
-        event_time: "",
-        location: "",
-        type: "",
-        event_date: "",
-        commissioned_by: "",
-        venue: "",
-        curator: "",
-        facilitator: "",
-        description: "",
-        outcome: "",
-        document_url: "",
-        textile_url: "",
+const EditEvent = ({ event }) => {
+    // Initialize the form data with the existing event data
+    const { data, setData, put, processing } = useForm({
+        ...event, // Spread the event data into the form state
     });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+
     const handleInputChange = (e) => {
         const key = e.target.name;
         const value =
@@ -36,28 +21,26 @@ const CreateEvent = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission action (page reload)
-        post("/admin/events", {
-            // Correct URL, no template literal or variable
+        e.preventDefault();
+        router.put(route("event.update", event.id), data, {
+            preserveState: true,
             onSuccess: () => {
-                reset(); // Reset the fields, or you can specify which fields to reset
-                setSuccessMessage("Event Added");
+                setSuccessMessage("Event Updated Successfully");
                 setIsModalOpen(true);
             },
-            onError: (errors) => {
-                // Handle validation errors
-                // Log errors or set state to display them
-            },
+            // onError: () => {
+            //     // Handle validation errors, you might want to set an error message here
+            // },
         });
     };
 
     return (
         <>
             <DashboardSidebar />
-            <section className="create-event">
-                <h1 className="create-event__title">Create Event</h1>
+            <section className="edit-event">
+                <h1 className="edit-event__title">Edit Event</h1>
 
-                <div className="create-event__form-container">
+                <div className="edit-event__form-container">
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="form-row">
                             <div className="col-1">
@@ -74,7 +57,7 @@ const CreateEvent = () => {
                                     type="text"
                                     id="title"
                                     name="title"
-                                    value={data.title}
+                                    value={data.title || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter event title"
                                 />
@@ -83,7 +66,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="type"
-                                    value={data.type}
+                                    value={data.type || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter event type"
                                 />
@@ -92,7 +75,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="location"
-                                    value={data.location}
+                                    value={data.location || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter event location"
                                 />
@@ -100,7 +83,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="facilitator"
-                                    value={data.facilitator}
+                                    value={data.facilitator || ""}
                                     onChange={handleInputChange}
                                     placeholder="Facilitator"
                                 />
@@ -110,7 +93,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="venue"
-                                    value={data.venue}
+                                    value={data.venue || ""}
                                     onChange={handleInputChange}
                                     placeholder="Venue"
                                 />
@@ -135,7 +118,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="curator"
-                                    value={data.curator}
+                                    value={data.curator || ""}
                                     onChange={handleInputChange}
                                     placeholder="Curator"
                                 />
@@ -144,7 +127,7 @@ const CreateEvent = () => {
                                     className="textarea"
                                     id="description"
                                     name="description"
-                                    value={data.description}
+                                    value={data.description || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter event description"
                                     rows="6"
@@ -158,7 +141,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="commissioned_by"
-                                    value={data.commissioned_by}
+                                    value={data.commissioned_by || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter event date"
                                 />
@@ -167,7 +150,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="outcome"
-                                    value={data.outcome}
+                                    value={data.outcome || ""}
                                     onChange={handleInputChange}
                                     placeholder="Outcome"
                                 />
@@ -178,7 +161,7 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="document_url"
-                                    value={data.document_url}
+                                    value={data.document_url || ""}
                                     onChange={handleInputChange}
                                     placeholder="document_url"
                                 />
@@ -187,35 +170,41 @@ const CreateEvent = () => {
                                 <input
                                     type="text"
                                     name="textile_url"
-                                    value={data.textile_url}
+                                    value={data.textile_url || ""}
                                     onChange={handleInputChange}
                                     placeholder="textile_url"
                                 />
                             </div>
                         </div>
-
                         <button
-                            className="create-event__form-button"
+                            className="edit-event__form-button"
                             type="submit"
+                            disabled={processing}
                         >
-                            Add Event
+                            Update Event
                         </button>
                     </form>
                 </div>
-                <ModalComponent
-                    open={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                >
-                    <div className="success__message">
-                        <h2>{successMessage}</h2>
-                        <h5 className="return__link">
-                            <Link href={route("events")}>Back to Events</Link>
-                        </h5>
-                    </div>
-                </ModalComponent>
+                {isModalOpen && (
+                    <ModalComponent
+                        open={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                    >
+                        <div className="success__message">
+                            <h2>{successMessage}</h2>
+                            <h5 className="return__link">
+                                <InertiaLink
+                                    href={route("admin.events-dashboard")}
+                                >
+                                    Back to Event Dashboard
+                                </InertiaLink>
+                            </h5>
+                        </div>
+                    </ModalComponent>
+                )}
             </section>
         </>
     );
 };
 
-export default CreateEvent;
+export default EditEvent;

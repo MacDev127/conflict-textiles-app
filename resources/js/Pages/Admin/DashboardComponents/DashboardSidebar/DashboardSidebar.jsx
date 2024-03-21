@@ -21,7 +21,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import DashboardMenu from "../DashboardMenuComponent/DashboardMenu";
+import DashboardMenu from "../DashboardMenu/DashboardMenu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
 
@@ -158,7 +158,7 @@ const DashboardSidebar = () => {
                         </ListItem>
                         <ListItem disablePadding>
                             <Link
-                                href="/admin/events/create"
+                                href="/events-dashboard"
                                 style={{ width: "100%" }}
                             >
                                 <ListItemButton>
@@ -176,7 +176,7 @@ const DashboardSidebar = () => {
                         </ListItem>
                         <ListItem disablePadding>
                             <Link
-                                href="/admin/events/create"
+                                href="/Admin/Dashboards/EventsDashboard/EventsDashboard.jsx"
                                 style={{ width: "100%" }}
                             >
                                 <ListItemButton>

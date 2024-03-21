@@ -17,6 +17,9 @@ class EventController extends Controller
   {
     $events = Event::all()->map(function ($event) {
         if ($event->image) {
+             // Use Laravel's asset() helper to generate a full URL for the image.
+            // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
+            // which is linked to the public/storage directory.
             $event->image = asset('storage/' . $event->image);
         }
         return $event;
@@ -49,17 +52,16 @@ public function show($id)
 }
 
 
-//admin functionality
+//-------------------admin functionality------------------
 
 public function create()
 {
-    // Render a form for creating a new textile
-    return Inertia::render('Admin/Events/CreateEvent');
+    // Render a form in the admin databse for creating a new event
+    return Inertia::render('Admin/Dashboard/Component/CreateEvent/CreateEvent');
 }
 
 public function store(Request $request)
 {
-    // Log::info($request->all());
 
     $validatedData = $request->validate([
         'title' => 'required|string|max:255',
@@ -88,6 +90,55 @@ public function store(Request $request)
     $event->save();
 
     return redirect()->route('dashboard');
+}
+
+// Delete event from admin dashboard
+public function destroy($id)
+{
+    $event = Event::findOrFail($id);
+    $event->delete();
+
+    // You can add additional logic here if you need to do more when an event is deleted,
+    // such as clearing caches, updating related models, etc.
+
+    return redirect()->route('admin.events-dashboard')->with('message', 'Event deleted successfully.');
+}
+
+// update event from admin dashboard
+
+public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/', // Allowing nullable and validating format HH:MM or HH:MM:SS
+        'location' => 'nullable|string',
+        'type' => 'nullable|string',
+        'event_date' => 'nullable|date', // Allowing nullable
+        'commissioned_by' => 'nullable|string',
+        'venue' => 'nullable|string',
+        'curator' => 'nullable|string',
+        'facilitator' => 'nullable|string',
+        'description' => 'nullable|string',
+        'outcome' => 'nullable|string',
+        'document_url' => 'nullable|string', // Allowing nullable, consider using 'nullable|url' if you expect a URL format
+        'textile_url' => 'nullable|string',
+        'image' => 'nullable|image|max:1024', // Image field is optional; validate if present
+    ]);
+
+    $event = Event::findOrFail($id);
+    $event->update($validatedData);
+
+    // If the event has an image and it's being updated, handle the image upload
+    return redirect()->route('admin.events-dashboard')->with('message', 'Event updated successfully.');
+}
+
+public function edit($id)
+{
+    $event = Event::findOrFail($id);
+
+    // Optionally, you can add code here to handle if the event has images or other related data
+
+    return Inertia::render('Admin/DashboardComponents/EditEvent/EditEvent', compact('event'));
 }
     
 }

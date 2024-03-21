@@ -1,0 +1,9 @@
+.events-dashboard {
+    background-color: #f5f3f4;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
