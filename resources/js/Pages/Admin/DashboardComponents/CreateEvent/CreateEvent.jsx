@@ -7,9 +7,9 @@ import ModalComponent from "@/components/Modal/ModalComponent";
 
 import { Link } from "@inertiajs/react";
 
-import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
+// import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 
-const CreateEvent = () => {
+const CreateEvent = ({ isVisible }) => {
     const { data, setData, post, reset } = useForm({
         image: null,
         title: "",
@@ -52,13 +52,36 @@ const CreateEvent = () => {
         });
     };
 
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
+
+    const toggleForm = () => {
+        if (isFormOpen) {
+            setIsClosing(true); // Start the closing animation
+            // Wait for the animation to finish before hiding the form
+            setTimeout(() => setIsFormOpen(false), 500);
+        } else {
+            setIsFormOpen(true); // Show the form immediately
+        }
+    };
+
+    const handleTransitionEnd = () => {
+        if (!isFormOpen) {
+            setIsClosing(false); // Reset the isClosing state after the transition
+        }
+    };
+
     return (
         <>
-            <DashboardSidebar />
+            {/* <DashboardSidebar /> */}
             <section className="create-event">
                 <h1 className="create-event__title">Create Event</h1>
 
-                <div className="create-event__form-container">
+                <div
+                    className={`create-event__form-container ${
+                        isVisible ? "open" : ""
+                    }`}
+                >
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="form-row">
                             <div className="col-1">

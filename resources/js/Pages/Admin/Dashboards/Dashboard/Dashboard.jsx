@@ -12,7 +12,6 @@ import DashboardLineChart from "../../DashboardComponents/DashBoardcharts/Dashbo
 import ListEvents from "../../DashboardComponents/CreateEvent/CreateEvent";
 
 const Dashboard = ({ events }) => {
-    console.log(events);
     return (
         <>
             <DashboardSidebar />
@@ -34,8 +33,6 @@ const Dashboard = ({ events }) => {
                         <DashboardPieChart />
                     </div>
                 </div>
-
-                <ListEvents events={events} />
             </section>
         </>
     );

@@ -11,7 +11,8 @@ class Event extends Model
     protected $fillable = [
         'title', 'event_time', 'location', 'type', 'event_date',
         'commissioned_by', 'venue', 'curator', 'outcome', 'document_url',
-        'textile_url', 'image', // Ensure 'image' is included if you are using it
+        'textile_url', 'image', 'facilitator', 'description', // Added here
     ];
+    
     
 }

@@ -62,6 +62,9 @@ public function create()
 
 public function store(Request $request)
 {
+    // Log::info($request->all());
+
+        // Validate the request
 
     $validatedData = $request->validate([
         'title' => 'required|string|max:255',
@@ -89,6 +92,7 @@ public function store(Request $request)
 
     $event->save();
 
+    // Redirect or return response
     return redirect()->route('dashboard');
 }
 
@@ -108,6 +112,8 @@ public function destroy($id)
 
 public function update(Request $request, $id)
 {
+    // Log::info($request->all());
+
     $validatedData = $request->validate([
         'title' => 'required|string|max:255',
         'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/', // Allowing nullable and validating format HH:MM or HH:MM:SS

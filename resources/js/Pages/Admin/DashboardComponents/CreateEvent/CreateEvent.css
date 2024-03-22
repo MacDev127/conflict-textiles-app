@@ -71,7 +71,7 @@ form textarea {
     border: 1px solid #888;
     border-radius: 4px;
     padding: 16px;
-    color: #5d657b;
+    color: #313131;
     resize: none;
     transition: all 0.3s;
 }
@@ -119,4 +119,27 @@ input:focus {
     form textarea {
         width: 100%;
     }
+}
+
+/* transition test */
+
+.create-event__form-container {
+    max-height: 0; /* Start with max-height at 0 */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
+        visibility 0.5s linear;
+    background-color: #f5f3f4; /* Match the search bar background */
+    padding: 20px; /* Match the horizontal padding */
+    /* width: 700px;  */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
+        visibility 0.5s linear;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Start fully transparent */
+    box-sizing: border-box;
+}
+
+.create-event__form-container.open {
+    max-height: 1000px;
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Fade in */
 }

@@ -19,8 +19,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import DashboardMenu from "../DashboardMenu/DashboardMenu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
@@ -88,10 +86,13 @@ const DashboardSidebar = () => {
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
 
-                <AppBar position="fixed" open={open}>
+                <AppBar
+                    position="fixed"
+                    open={open}
+                    sx={{ background: "crimson" }}
+                >
                     <Toolbar
                         sx={{
-                            background: "crimson",
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",

@@ -1,5 +1,8 @@
 .Dashboard {
     background-color: #f5f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
 }
 

@@ -1,6 +1,6 @@
 .events-dashboard {
     background-color: #f5f3f4;
-    height: 100%;
+    /* height: 100vh; */
     width: 100%;
     display: flex;
     flex-direction: column;
