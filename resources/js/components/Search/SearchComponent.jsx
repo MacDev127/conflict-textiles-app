@@ -53,11 +53,10 @@ const SearchComponent = ({ countries }) => {
 
     return (
         <div className="search-container">
+            <div className="search-bar__title">
+                <p>Search Collection</p>
+            </div>
             <div className="search-bar">
-                <div className="search-bar__title">
-                    <p>Search Collection</p>
-                </div>
-
                 <form onSubmit={handleSubmit} className="search-form">
                     {/* Keyword search input */}
                     <input

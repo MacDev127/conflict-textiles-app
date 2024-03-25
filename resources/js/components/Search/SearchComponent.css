@@ -3,11 +3,15 @@
     align-items: stretch;
     flex-direction: column;
     background-color: #f5f3f4;
-    padding: 50px 50px 30px 50px;
+    padding: 50px 50px 0px 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
         rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-    width: 750px; /* This should match the search input width */
-    margin: 100px auto 0 auto;
+    width: 750px;
+    margin: 50px auto 0 auto;
+}
+
+.search-container {
+    margin-top: 100px;
 }
 
 .search-bar__title p {
@@ -23,7 +27,7 @@
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
         visibility 0.5s linear;
-    background-color: #f5f3f4; /* Match the search bar background */
+    background-color: #f5f3f4;
     padding: 20px; /* Match the horizontal padding */
     /* width: 700px;  */
     transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,

@@ -31,6 +31,9 @@ export const ImageContainer = styled.div`
         }
     }
 `;
+export const SearchBarContainer = styled.div`
+    margin-bottom: 100px;
+`;
 
 export const CollectionItemStyle = styled.div`
     position: relative;

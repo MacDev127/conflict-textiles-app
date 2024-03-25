@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -83,41 +83,39 @@ const DashboardSidebar = () => {
 
     return (
         <>
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display: "flex", position: "relative" }}>
                 <CssBaseline />
 
-                <AppBar
-                    position="fixed"
-                    open={open}
-                    sx={{ background: "crimson" }}
+                <Toolbar
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        background: "crimson",
+                        position: "fixed",
+                        width: "100%",
+                        zIndex: 1,
+                    }}
                 >
-                    <Toolbar
+                    <IconButton
                         sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            position: "relative",
+                            mr: 2,
+                            ...(open && { display: "none" }),
                         }}
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
                     >
-                        <IconButton
+                        <MenuIcon
                             sx={{
-                                mr: 2,
-                                ...(open && { display: "none" }),
+                                fontSize: 30,
+                                color: "white",
                             }}
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                        >
-                            <MenuIcon
-                                sx={{
-                                    fontSize: 30,
-                                }}
-                            />
-                        </IconButton>
-                        <DashboardMenu />
-                    </Toolbar>
-                </AppBar>
+                        />
+                    </IconButton>
+                    <DashboardMenu />
+                </Toolbar>
                 <Drawer
                     sx={{
                         width: drawerWidth,

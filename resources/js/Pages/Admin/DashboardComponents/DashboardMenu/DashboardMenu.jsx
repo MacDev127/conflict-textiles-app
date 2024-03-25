@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { router } from "@inertiajs/react";
 
 const DashboardMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,6 +13,13 @@ const DashboardMenu = () => {
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleLogout = () => {
+        // Close the menu first
+        handleClose();
+        // Then send a POST request to the logout endpoint
+        router.post("/logout");
     };
     return (
         <div>
@@ -31,6 +39,7 @@ const DashboardMenu = () => {
                 <AccountCircleIcon
                     sx={{
                         fontSize: "30px",
+                        color: "white",
                     }}
                 />
             </Button>
@@ -45,7 +54,7 @@ const DashboardMenu = () => {
             >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
         </div>
     );

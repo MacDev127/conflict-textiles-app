@@ -75,14 +75,13 @@ const CreateEvent = ({ isVisible }) => {
         <>
             {/* <DashboardSidebar /> */}
             <section className="create-event">
-                <h1 className="create-event__title">Create Event</h1>
-
                 <div
                     className={`create-event__form-container ${
                         isVisible ? "open" : ""
                     }`}
                 >
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
+                        <h1 className="create-event__title">Create Event</h1>
                         <div className="form-row">
                             <div className="col-1">
                                 <label htmlFor="image">Image</label>

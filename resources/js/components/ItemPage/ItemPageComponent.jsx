@@ -13,9 +13,12 @@ import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import ReturnLinkComponent from "../Return/ReturnLinkComponent";
+import SearchComponent from "../Search/SearchComponent";
 import { CollectionItemStyle } from "./itemPageComponent.styled";
 import { ItemDescStyle } from "./itemPageComponent.styled";
 import { ImageContainer } from "./itemPageComponent.styled";
+import { SearchBarContainer } from "./itemPageComponent.styled";
+import "./itemPageComponent.css";
 
 const ItemPageComponent = ({
     type,
@@ -24,10 +27,12 @@ const ItemPageComponent = ({
     imageUrl,
     description,
     galleryImages,
+    countries,
 }) => {
     const handleImageClick = (imageId) => {
         router.visit(`/textile-details/${imageId}`);
     };
+    console.log(countries);
 
     return (
         <section className={`${type}`}>
@@ -35,9 +40,12 @@ const ItemPageComponent = ({
             <ImageHeaderComponent imageUrl={imageUrl} quoteText={quoteText} />
             <ContainerComponent>
                 <TitleComponent>{title}</TitleComponent>
-                <ContentComponent>
+                <ContentComponent className="item-page__content">
                     <TextComponent>{description}</TextComponent>
                 </ContentComponent>
+                <SearchBarContainer>
+                    <SearchComponent countries={countries} />
+                </SearchBarContainer>
                 <MasonryComponent
                     galleryImages={galleryImages}
                     onImageClick={handleImageClick}
