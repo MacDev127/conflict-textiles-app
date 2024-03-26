@@ -66,7 +66,7 @@ const ListEvents = ({ events, onToggleForm }) => {
                         <tr key={event.id} className="active-row">
                             <td>{event.title}</td>
                             <td>{event.type}</td>
-                            <td>{event.location}</td>
+                            <td title={event.location}>{event.location}</td>
                             <td>{event.event_date}</td>
                             <td>{event.event_time}</td>
                             <td>{event.venue}</td>
@@ -75,9 +75,11 @@ const ListEvents = ({ events, onToggleForm }) => {
                             <td>{event.commissioned_by}</td>
                             <td>{event.document_url}</td>
                             <td>{event.textile_url}</td>
-                            <td>{event.image}</td>
-                            <td>{event.outcome}</td>
-                            <td>{event.description}</td>
+                            <td title={event.image}>{event.image}</td>
+                            <td title={event.outcome}>{event.outcome}</td>
+                            <td title={event.description}>
+                                {event.description}
+                            </td>
 
                             <td className="table-icons">
                                 <Link

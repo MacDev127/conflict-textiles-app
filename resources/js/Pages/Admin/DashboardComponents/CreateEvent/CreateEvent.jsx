@@ -55,21 +55,19 @@ const CreateEvent = ({ isVisible }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
-    const toggleForm = () => {
-        if (isFormOpen) {
-            setIsClosing(true); // Start the closing animation
-            // Wait for the animation to finish before hiding the form
-            setTimeout(() => setIsFormOpen(false), 500);
-        } else {
-            setIsFormOpen(true); // Show the form immediately
-        }
-    };
+    // const toggleForm = () => {
+    //     isFormOpen
+    //         ? setIsClosing(true) || setTimeout(() => setIsFormOpen(false), 500)
+    //         : setIsFormOpen(true);
+    // };
 
-    const handleTransitionEnd = () => {
-        if (!isFormOpen) {
-            setIsClosing(false); // Reset the isClosing state after the transition
-        }
-    };
+    // const handleTransitionEnd = () => {
+
+    //     {!isFormOpen && !isClosing}
+    //     if (!isFormOpen) {
+    //         setIsClosing(false); // Reset the isClosing state after the transition
+    //     }
+    // };
 
     return (
         <>
@@ -81,7 +79,7 @@ const CreateEvent = ({ isVisible }) => {
                     }`}
                 >
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
-                        <h1 className="create-event__title">Create Event</h1>
+                        <div className="create-event__title">Create Event</div>
                         <div className="form-row">
                             <div className="col-1">
                                 <label htmlFor="image">Image</label>
@@ -119,14 +117,17 @@ const CreateEvent = ({ isVisible }) => {
                                     onChange={handleInputChange}
                                     placeholder="Enter event location"
                                 />
-                                <label htmlFor="facilitator">Facilitator</label>
-                                <input
-                                    type="text"
-                                    name="facilitator"
-                                    value={data.facilitator}
+                                {/* <label htmlFor="outcome">Outcome</label>
+                                <textarea
+                                    className="textarea__outcome"
+                                    id="outcome"
+                                    name="outcome"
+                                    value={data.outcome}
                                     onChange={handleInputChange}
-                                    placeholder="Facilitator"
-                                />
+                                    placeholder="Enter event outcome"
+                                    rows="6"
+                                    cols="30"
+                                ></textarea> */}
                             </div>
                             <div className="col-2">
                                 <label htmlFor="venue">Venue</label>
@@ -162,7 +163,7 @@ const CreateEvent = ({ isVisible }) => {
                                     onChange={handleInputChange}
                                     placeholder="Curator"
                                 />
-                                <label htmlFor="description">Description</label>
+                                {/* <label htmlFor="description">Description</label>
                                 <textarea
                                     className="textarea"
                                     id="description"
@@ -172,7 +173,7 @@ const CreateEvent = ({ isVisible }) => {
                                     placeholder="Enter event description"
                                     rows="6"
                                     cols="30"
-                                ></textarea>
+                                ></textarea> */}
                             </div>
                             <div className="col-3">
                                 <label htmlFor="commissioned_by">
@@ -186,13 +187,13 @@ const CreateEvent = ({ isVisible }) => {
                                     placeholder="Enter event date"
                                 />
 
-                                <label htmlFor="outcome">Outcome</label>
+                                <label htmlFor="facilitator">Facilitator</label>
                                 <input
                                     type="text"
-                                    name="outcome"
-                                    value={data.outcome}
+                                    name="facilitator"
+                                    value={data.facilitator}
                                     onChange={handleInputChange}
-                                    placeholder="Outcome"
+                                    placeholder="Facilitator"
                                 />
 
                                 <label htmlFor="document_url">
@@ -214,6 +215,36 @@ const CreateEvent = ({ isVisible }) => {
                                     onChange={handleInputChange}
                                     placeholder="textile_url"
                                 />
+                            </div>
+                        </div>
+
+                        <div className="textarea__wrapper">
+                            <div className="textarea__box">
+                                <label htmlFor="outcome">Outcome</label>
+                                <textarea
+                                    className="textarea"
+                                    id="outcome"
+                                    name="outcome"
+                                    value={data.outcome}
+                                    onChange={handleInputChange}
+                                    placeholder="Enter event outcome"
+                                    rows="6"
+                                    cols="30"
+                                ></textarea>
+                            </div>
+
+                            <div className="textarea__box">
+                                <label htmlFor="description">Description</label>
+                                <textarea
+                                    className="textarea"
+                                    id="description"
+                                    name="description"
+                                    value={data.description}
+                                    onChange={handleInputChange}
+                                    placeholder="Enter event description"
+                                    rows="6"
+                                    cols="30"
+                                ></textarea>
                             </div>
                         </div>
 

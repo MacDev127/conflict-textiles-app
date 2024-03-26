@@ -32,7 +32,7 @@ export const ImageContainer = styled.div`
     }
 `;
 export const SearchBarContainer = styled.div`
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 `;
 
 export const CollectionItemStyle = styled.div`

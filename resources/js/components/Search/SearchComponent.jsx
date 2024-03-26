@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SearchComponent.css";
-import { router } from "@inertiajs/react";
 import { useForm } from "@inertiajs/react";
-import { usePage } from "@inertiajs/react";
 import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
 // Access the current page's properties using the usePage hook from Inertia.js
 const SearchComponent = ({ countries }) => {
-    const { url } = usePage();
-
     // Initialize form data with useForm hook from Inertia.js, setting default values for each field
     const { data, setData, get } = useForm({
         type: "",
@@ -51,6 +47,7 @@ const SearchComponent = ({ countries }) => {
 
     //--------------------------------------Advanaced Search-----------------------------------//
 
+    console.log(countries);
     return (
         <div className="search-container">
             <div className="search-bar__title">

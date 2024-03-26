@@ -1,12 +1,11 @@
 table {
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 12px;
+    margin: 50px 20px;
+    font-size: 14px;
     font-family: "Mulish", sans-serif;
     font-weight: 400;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
         rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    min-width: 1000px;
     position: relative;
 }
 
@@ -34,6 +33,10 @@ th,
 td {
     padding: 10px;
     color: #313131;
+    max-width: 120px; /* Adjust as necessary to fit your layout */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 tbody tr {
