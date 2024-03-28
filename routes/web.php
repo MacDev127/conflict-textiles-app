@@ -16,6 +16,7 @@ use App\Http\Controllers\EmailSignUpController;
 use App\Http\Controllers\EventRegisterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AboutController;
 
 
 
@@ -26,15 +27,23 @@ use App\Http\Controllers\DashboardController;
 
 ///Admin / Dashboard functionality
 
+//------------------------------Textiles------------------------------------------///
 // Route to show the form to add a new textile
 Route::get('/admin/textiles/create', [TextileDetailController::class, 'create'])
     ->name('admin.textiles.create')
     ->middleware('is_admin');
 
 // Route to post the data to add a new textile
-Route::post('/admin/textiles/create', [TextileDetailController::class, 'store'])
+Route::post('/admin/textiles/store', [TextileDetailController::class, 'store'])
     ->name('admin.textiles.store')
     ->middleware('is_admin');
+
+
+//-------------------------------Textiles-----------------------------------///
+
+
+//----------------------Events---------------///
+
 
 // Route to show the form to add a new event
 Route::get('/admin/events/create', [EventController::class, 'create'])
@@ -58,6 +67,10 @@ Route::put('/events/{id}', [EventController::class, 'update'])->name('event.upda
  //Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 
+//----------------------Events---------------///
+
+
+//----------------------Dashboards---------------///
 
 
 /// main dashboard
@@ -70,8 +83,14 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'is_admin'])
     ->name('admin.events-dashboard');
 
+//textiles dashboard
+   Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
+    ->middleware(['auth', 'is_admin'])
+    ->name('admin.textiles-dashboard');
+
  ///-------Admin / Dashboard functionality--------
 
+//----------------------Dashboards---------------///
 
 
 // Event Controller
@@ -106,6 +125,7 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
 
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');

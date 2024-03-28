@@ -7,9 +7,10 @@ import IconButton from "@mui/material/IconButton";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 
 import Tooltip from "@mui/material/Tooltip"; // import EditIcon from "@mui/icons-material/Edit";
-import "./ListEvents.css";
+import "./ListTextile.css";
+import TextileDetail from "@/Pages/TextileDetails/TextileDetail";
 
-const ListEvents = ({ events, onToggleForm }) => {
+const ListTextiles = ({ onToggleForm, textileDetail }) => {
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this event?")) {
             router.delete(route("event.destroy", id), {
@@ -17,13 +18,13 @@ const ListEvents = ({ events, onToggleForm }) => {
             });
         }
     };
-    console.log(events);
+    // console.log(events);
 
     return (
         <div>
             <table>
                 <caption>
-                    Event Details
+                    Textile Details
                     <Tooltip title="Add Event" arrow>
                         <IconButton
                             onClick={onToggleForm}
@@ -46,43 +47,44 @@ const ListEvents = ({ events, onToggleForm }) => {
                         <th>Title</th>
                         <th>Type</th>
                         <th>Location</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Venue</th>
-                        <th>Curator</th>
-                        <th>Facilitator</th>
-                        <th>Commissioned By</th>
-                        <th>Document Url</th>
-                        <th>Textile Url</th>
+                        <th>Size</th>
+                        <th>Materials</th>
+                        <th>Provenance</th>
+                        <th>Country of Origin</th>
+                        <th>Authenticity</th>
+                        <th>Maker</th>
+                        <th>Owner</th>
+                        <th>Photographer</th>
                         <th>Image</th>
-                        <th>Outcome</th>
                         <th>Description</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {events.map((event) => (
-                        <tr key={event.id} className="active-row">
-                            <td>{event.title}</td>
-                            <td>{event.type}</td>
-                            <td title={event.location}>{event.location}</td>
-                            <td>{event.event_date}</td>
-                            <td>{event.event_time}</td>
-                            <td>{event.venue}</td>
-                            <td>{event.curator}</td>
-                            <td>{event.facilitator}</td>
-                            <td>{event.commissioned_by}</td>
-                            <td>{event.document_url}</td>
-                            <td>{event.textile_url}</td>
-                            <td title={event.image}>{event.image}</td>
-                            <td title={event.outcome}>{event.outcome}</td>
-                            <td title={event.description}>
-                                {event.description}
+                    {textileDetail.map((details) => (
+                        <tr key={textileDetail.id} className="active-row">
+                            <td>{textileDetail.title}</td>
+                            <td>{textileDetail.type}</td>
+                            <td title={textileDetail.location}>
+                                {textileDetail.location}
+                            </td>
+                            <td>{textileDetail.size}</td>
+                            <td>{textileDetail.materials}</td>
+                            <td>{textileDetail.provenance}</td>
+                            <td>{textileDetail.country_of_origin}</td>
+                            <td>{textileDetail.authenticity}</td>
+                            <td>{textileDetail.maker}</td>
+                            <td>{textileDetail.owner}</td>
+                            <td>{textileDetail.photographer}</td>
+                            <td title={textileDetail.image}>
+                                {textileDetail.image}
+                            </td>
+                            <td title={textileDetail.description}>
+                                {textileDetail.description}
                             </td>
 
                             <td className="table-icons">
                                 <Link
-                                    href={route("admin.events.edit", event.id)}
+                                // href={route("admin.events.edit", textileDetail.id)}
                                 >
                                     <Tooltip title="Edit" arrow>
                                         <IconButton
@@ -118,4 +120,4 @@ const ListEvents = ({ events, onToggleForm }) => {
     );
 };
 
-export default ListEvents;
+export default ListTextiles;

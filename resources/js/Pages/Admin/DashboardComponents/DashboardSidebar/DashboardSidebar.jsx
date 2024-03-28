@@ -94,7 +94,7 @@ const DashboardSidebar = () => {
                         background: "crimson",
                         position: "fixed",
                         width: "100%",
-                        zIndex: 1,
+                        zIndex: 11,
                     }}
                 >
                     <IconButton
@@ -175,7 +175,7 @@ const DashboardSidebar = () => {
                         </ListItem>
                         <ListItem disablePadding>
                             <Link
-                                href="/Admin/Dashboards/EventsDashboard/EventsDashboard.jsx"
+                                href="/textiles-dashboard"
                                 style={{ width: "100%" }}
                             >
                                 <ListItemButton>

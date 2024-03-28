@@ -1,0 +1,152 @@
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.create-textile {
+    height: 100vh;
+    background-color: #f5f3f4;
+}
+
+.create-textile__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+    font-size: 40px;
+    border-bottom: 1px solid #888;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.col-1,
+.col-2,
+.col-3 {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+form input,
+form label {
+    box-sizing: border-box;
+}
+
+form {
+    margin-top: 50px;
+    padding: 30px 20px;
+    /* background: #fff; */
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1rem;
+    min-height: 20px;
+    font-weight: bold;
+}
+
+form input[type="file"],
+form input[type="time"],
+form input[type="date"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.textarea {
+    background: #fff;
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 16px;
+    color: #313131;
+    resize: none;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.textarea__wrapper {
+    display: flex;
+    margin: 0 10px;
+    gap: 10px;
+}
+.textarea__box {
+    flex: 1; /* This ensures both text areas have equal width */
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 18px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    border: 1px solid #888;
+}
+input:focus {
+    outline: 1px solid crimson;
+}
+
+.create-textile__form-button {
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #df0144;
+    border-radius: 6px;
+}
+
+.create-textile__form-button:hover {
+    background: #dd294d;
+    transition: ease 0.1s;
+}
+
+.create-textile__form-container {
+    max-height: 0; /* Start with max-height at 0 */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
+        visibility 0.5s linear;
+    background-color: #f5f3f4; /* Match the search bar background */
+    padding: 20px; /* Match the horizontal padding */
+    /* width: 700px;  */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
+        visibility 0.5s linear;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Start fully transparent */
+    box-sizing: border-box;
+}
+
+.create-textile__form-container.open {
+    max-height: 1000px;
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Fade in */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3 {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    form textarea {
+        width: 15%;
+    }
+}

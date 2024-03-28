@@ -8,5 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class TextileDetail extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'image', 
+        'location',
+        'title', 
+        'type', 
+        'description',
+        'year_produced', 
+        'size', 
+        'materials', 
+        'provenance', 
+        'country_of_origin', 
+        'authenticity', 
+        'maker',
+        'owner', 
+        'photographer', 
+    ];
     
 }

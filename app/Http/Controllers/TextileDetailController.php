@@ -26,6 +26,20 @@ class TextileDetailController extends Controller
 
 
 }
+
+//test
+
+public function about(){
+    $textileDetail = TextileDetail::all()->map(function ($textileDetail) {
+        if ($textileDetail->image) {
+            $textileDetail->image = asset('storage/' . $textileDetail->image);
+        }
+        return $textileDetail;
+    });
+    return Inertia::render('About/About', ['textileDetail' => $textileDetail]);
+}
+
+//test
 public function create()
 {
     // Render a form for creating a new textile
@@ -34,14 +48,102 @@ public function create()
 
 public function store(Request $request)
 {
-    // Handle the form submission to add a new textile
-    // Validate and store the textile, then redirect or respond accordingly
+        // Validate the request
+        $validatedData = $request->validate([
+        'image' => 'nullable|image|max:1024',
+        'location' => 'nullable|string',
+        'title' => 'required|string|max:255',
+        'type' => 'nullable|string',
+        'description' => 'nullable|string',
+        'year_produced' => 'nullable|string',
+        'size' => 'nullable|string',
+        'materials' => 'nullable|string',
+        'provenance' => 'nullable|string',
+        'country_of_origin' => 'nullable|string',
+        'authenticity' => 'nullable|string',
+        'maker' => 'nullable|string',
+        'owner' => 'nullable|string',
+        'photographer' => 'nullable|string',
+    ]);
+
+    $textileDetail= new TextileDetail($validatedData);
+
+    // Handle file upload for the image (if applicable)
+    if ($request->hasFile('image')) {
+        $path = $request->file('image')->store('textiles', 'public');
+        $textileDetail->image = $path;
+        // $validatedData['image'] = $path;
+    }
+    $textileDetail->save();
+
+    // Create a new textile detail record
+    // $textileDetail = TextileDetail::create($validatedData);
+
+    // Redirect to a given route or return a success response
+    return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile created successfully.');
 }
 
 
 
 
+public function update(Request $request, $id)
+{
+    $textileDetail = TextileDetail::findOrFail($id);
 
+    $validatedData = $request->validate([
+        'image' => 'nullable|image|max:1024',
+        'location' => 'nullable|string',
+        'title' => 'required|string|max:255',
+        'type' => 'nullable|string',
+
+        'year_produced' => 'nullable|string',
+        'size' => 'nullable|string',
+        'materials' => 'nullable|string',
+        'provenance' => 'nullable|string',
+        'country_of_origin' => 'nullable|string',
+        'authenticity' => 'nullable|string',
+        'maker' => 'nullable|string',
+        'owner' => 'nullable|string',
+        'photographer' => 'nullable|string',
+        'description' => 'nullable|string',
+
+       
+
+
+      
+    ]);
+
+    // if ($request->hasFile('image')) {
+    //     $path = $request->file('image')->store('textiles', 'public');
+    //     $validatedData['image'] = $path;
+    // }
+
+    $textileDetail = TextileDetail::findOrFail($id);
+    $textileDetail->update($validatedData);
+
+    return redirect()->route('admin.textiles.index')->with('message', 'Textile updated successfully.');
+
+}
+
+
+public function destroy($id)
+{
+    $textileDetail = TextileDetail::findOrFail($id);
+    $textileDetail->delete();
+
+    // Optional: Delete associated files from storage
+
+    return redirect()->route('admin.textiles.index')->with('message', 'Textile deleted successfully.');
+}
+
+public function edit($id)
+{
+    $event = TextileDetail::findOrFail($id);
+
+    // Optionally, you can add code here to handle if the event has images or other related data
+
+    return Inertia::render('Admin/DashboardComponents/EditEvent/EditEvent', compact('event'));
+}
     /*
     |--------------------------------------------------------------------------
     | index method: 

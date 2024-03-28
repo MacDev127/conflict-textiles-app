@@ -2,33 +2,31 @@
 
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
-import "./CreateEvent.css";
-import ModalComponent from "@/components/Modal/ModalComponent";
+import "./Createtextile.css";
+// import ModalComponent from "@/components/Modal/ModalComponent";
 
 import { Link } from "@inertiajs/react";
 
-// import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
-
-const CreateEvent = ({ isVisible }) => {
+const CreateTextile = () => {
     const { data, setData, post, reset } = useForm({
         image: null,
-        title: "",
-        event_time: "",
         location: "",
+        title: "",
         type: "",
-        event_date: "",
-        commissioned_by: "",
-        venue: "",
-        curator: "",
-        facilitator: "",
         description: "",
-        outcome: "",
-        document_url: "",
-        textile_url: "",
+        year_produced: "",
+        size: "",
+        materials: "",
+        provenance: "",
+        country_of_origin: "",
+        authenticity: "",
+        maker: "",
+        owner: "",
+        photographer: "",
     });
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [successMessage, setSuccessMessage] = useState("");
     const handleInputChange = (e) => {
         const key = e.target.name;
         const value =
@@ -38,11 +36,11 @@ const CreateEvent = ({ isVisible }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission action (page reload)
-        post("/admin/events", {
+        post("/admin/textiles/store", {
             // Correct URL, no template literal or variable
             onSuccess: () => {
                 reset(); // Reset the fields, or you can specify which fields to reset
-                setSuccessMessage("Event Added");
+                setSuccessMessage("Textile Added");
                 setIsModalOpen(true);
             },
             onError: (errors) => {
@@ -55,14 +53,16 @@ const CreateEvent = ({ isVisible }) => {
     return (
         <>
             {/* <DashboardSidebar /> */}
-            <section className="create-event">
+            <section className="create-textile">
                 <div
-                    className={`create-event__form-container ${
-                        isVisible ? "open" : ""
-                    }`}
+                // className={`create-textile__form-container ${
+                //     isVisible ? "open" : ""
+                // }`}
                 >
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
-                        <div className="create-event__title">Create Event</div>
+                        <div className="create-textile__title">
+                            Create textile
+                        </div>
                         <div className="form-row">
                             <div className="col-1">
                                 <label htmlFor="image">Image</label>
@@ -80,7 +80,7 @@ const CreateEvent = ({ isVisible }) => {
                                     name="title"
                                     value={data.title}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event title"
+                                    placeholder="Enter textile title"
                                 />
 
                                 <label htmlFor="type">Type</label>
@@ -89,7 +89,7 @@ const CreateEvent = ({ isVisible }) => {
                                     name="type"
                                     value={data.type}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event type"
+                                    placeholder="Enter textile type"
                                 />
 
                                 <label htmlFor="location">Location</label>
@@ -98,139 +98,136 @@ const CreateEvent = ({ isVisible }) => {
                                     name="location"
                                     value={data.location}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event location"
+                                    placeholder="Enter textile location"
                                 />
                             </div>
                             <div className="col-2">
-                                <label htmlFor="venue">Venue</label>
+                                <label htmlFor="year_produced">
+                                    Year Produced
+                                </label>
                                 <input
                                     type="text"
-                                    name="venue"
-                                    value={data.venue}
+                                    name="year_produced"
+                                    value={data.year_produced}
                                     onChange={handleInputChange}
-                                    placeholder="Venue"
+                                    placeholder="year produced"
                                 />
-                                <label htmlFor="event_time">Time</label>
+                                <label htmlFor="size">Size</label>
                                 <input
-                                    type="time"
-                                    name="event_time"
-                                    value={data.event_time}
+                                    type="text"
+                                    name="size"
+                                    value={data.size}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event time"
+                                    placeholder="Size"
                                 />
-                                <label htmlFor="event_date">Date</label>
+                                <label htmlFor="materials">Materials</label>
                                 <input
-                                    type="date"
-                                    name="event_date"
-                                    value={data.event_date}
+                                    type="text"
+                                    name="materials"
+                                    value={data.materials}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event date"
+                                    placeholder="Materials"
                                 />
 
-                                <label htmlFor="curator">Curator</label>
+                                <label htmlFor="provenance">Provenance</label>
                                 <input
                                     type="text"
-                                    name="curator"
-                                    value={data.curator}
+                                    name="provenance"
+                                    value={data.provenance}
                                     onChange={handleInputChange}
-                                    placeholder="Curator"
+                                    placeholder="provenance"
                                 />
                             </div>
                             <div className="col-3">
-                                <label htmlFor="commissioned_by">
-                                    Commissioned_by
+                                <label htmlFor="country_of_origin">
+                                    Country of Origin
                                 </label>
                                 <input
                                     type="text"
-                                    name="commissioned_by"
-                                    value={data.commissioned_by}
+                                    name="country_of_origin"
+                                    value={data.country_of_origin}
                                     onChange={handleInputChange}
-                                    placeholder="Enter event date"
+                                    placeholder="Country of Origin"
                                 />
 
-                                <label htmlFor="facilitator">Facilitator</label>
-                                <input
-                                    type="text"
-                                    name="facilitator"
-                                    value={data.facilitator}
-                                    onChange={handleInputChange}
-                                    placeholder="Facilitator"
-                                />
-
-                                <label htmlFor="document_url">
-                                    Document url
+                                <label htmlFor="authenticity">
+                                    Authenticity
                                 </label>
                                 <input
                                     type="text"
-                                    name="document_url"
-                                    value={data.document_url}
+                                    name="authenticity"
+                                    value={data.authenticity}
                                     onChange={handleInputChange}
-                                    placeholder="document_url"
+                                    placeholder="Authenticity"
                                 />
-                                <label htmlFor="textile_url">Textile url</label>
+
+                                <label htmlFor="maker">Maker</label>
+                                <input
+                                    type="text"
+                                    name="maker"
+                                    value={data.maker}
+                                    onChange={handleInputChange}
+                                    placeholder="Maker"
+                                />
+                                <label htmlFor="owner">Owner</label>
 
                                 <input
                                     type="text"
-                                    name="textile_url"
-                                    value={data.textile_url}
+                                    name="owner"
+                                    value={data.owner}
                                     onChange={handleInputChange}
-                                    placeholder="textile_url"
+                                    placeholder="Owner"
+                                />
+                                <label htmlFor="photographer">
+                                    Photographer
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="photographer"
+                                    value={data.photographer}
+                                    onChange={handleInputChange}
+                                    placeholder="Photographer"
                                 />
                             </div>
                         </div>
 
-                        <div className="textarea__wrapper">
-                            <div className="textarea__box">
-                                <label htmlFor="outcome">Outcome</label>
-                                <textarea
-                                    className="textarea"
-                                    id="outcome"
-                                    name="outcome"
-                                    value={data.outcome}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter event outcome"
-                                    rows="6"
-                                    cols="30"
-                                ></textarea>
-                            </div>
-
-                            <div className="textarea__box">
-                                <label htmlFor="description">Description</label>
-                                <textarea
-                                    className="textarea"
-                                    id="description"
-                                    name="description"
-                                    value={data.description}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter event description"
-                                    rows="6"
-                                    cols="30"
-                                ></textarea>
-                            </div>
-                        </div>
+                        <label htmlFor="description">Description</label>
+                        <textarea
+                            className="textarea"
+                            id="description"
+                            name="description"
+                            value={data.description}
+                            onChange={handleInputChange}
+                            placeholder="Enter textile description"
+                            rows="6"
+                            cols="30"
+                        ></textarea>
 
                         <button
-                            className="create-event__form-button"
+                            className="create-textile__form-button"
                             type="submit"
                         >
-                            Add Event
+                            Add textile
                         </button>
                     </form>
                 </div>
-                <ModalComponent
+                {/* <ModalComponent
                     open={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                 >
                     <div className="success__message">
                         <h2>{successMessage}</h2>
                         <h5 className="return__link">
-                            <Link href={route("events")}>Back to Events</Link>
+                            <Link href={route("textiles")}>
+                                Back to textiles
+                            </Link>
                         </h5>
                     </div>
-                </ModalComponent>
+                </ModalComponent> */}
             </section>
         </>
     );
 };
 
-export default CreateEvent;
+export default CreateTextile;
