@@ -1,0 +1,60 @@
+table {
+    border-collapse: collapse;
+    margin: 50px 20px;
+    font-size: 14px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    position: relative;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 14px;
+    background-color: #df0144;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    color: #fff;
+}
+
+thead tr {
+    background-color: #f5f3f4;
+    color: #000;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 10px;
+    color: #313131;
+    max-width: 120px; /* Adjust as necessary to fit your layout */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+.IconButton:hover {
+    background-color: #000;
+}

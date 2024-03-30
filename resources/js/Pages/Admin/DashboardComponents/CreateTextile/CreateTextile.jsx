@@ -100,6 +100,17 @@ const CreateTextile = () => {
                                     onChange={handleInputChange}
                                     placeholder="Enter textile location"
                                 />
+                                <label htmlFor="photographer">
+                                    Photographer
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="photographer"
+                                    value={data.photographer}
+                                    onChange={handleInputChange}
+                                    placeholder="Photographer"
+                                />
                             </div>
                             <div className="col-2">
                                 <label htmlFor="year_produced">
@@ -137,6 +148,22 @@ const CreateTextile = () => {
                                     onChange={handleInputChange}
                                     placeholder="provenance"
                                 />
+                                <div className="textarea__box">
+                                    <label htmlFor="description">
+                                        Description
+                                    </label>
+
+                                    <textarea
+                                        className="textile-textarea"
+                                        id="description"
+                                        name="description"
+                                        value={data.description}
+                                        onChange={handleInputChange}
+                                        placeholder="Enter textile description"
+                                        rows="6"
+                                        cols="30"
+                                    ></textarea>
+                                </div>
                             </div>
                             <div className="col-3">
                                 <label htmlFor="country_of_origin">
@@ -178,31 +205,8 @@ const CreateTextile = () => {
                                     onChange={handleInputChange}
                                     placeholder="Owner"
                                 />
-                                <label htmlFor="photographer">
-                                    Photographer
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="photographer"
-                                    value={data.photographer}
-                                    onChange={handleInputChange}
-                                    placeholder="Photographer"
-                                />
                             </div>
                         </div>
-
-                        <label htmlFor="description">Description</label>
-                        <textarea
-                            className="textarea"
-                            id="description"
-                            name="description"
-                            value={data.description}
-                            onChange={handleInputChange}
-                            placeholder="Enter textile description"
-                            rows="6"
-                            cols="30"
-                        ></textarea>
 
                         <button
                             className="create-textile__form-button"

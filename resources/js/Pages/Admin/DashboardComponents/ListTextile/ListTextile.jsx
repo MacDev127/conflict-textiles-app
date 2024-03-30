@@ -8,7 +8,6 @@ import { MdOutlinePlaylistAdd } from "react-icons/md";
 
 import Tooltip from "@mui/material/Tooltip"; // import EditIcon from "@mui/icons-material/Edit";
 import "./ListTextile.css";
-import TextileDetail from "@/Pages/TextileDetails/TextileDetail";
 
 const ListTextiles = ({ onToggleForm, textileDetail }) => {
     const handleDelete = (id) => {
@@ -18,7 +17,7 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
             });
         }
     };
-    // console.log(events);
+    console.log(textileDetail);
 
     return (
         <div>
@@ -60,26 +59,22 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {textileDetail.map((details) => (
-                        <tr key={textileDetail.id} className="active-row">
-                            <td>{textileDetail.title}</td>
-                            <td>{textileDetail.type}</td>
-                            <td title={textileDetail.location}>
-                                {textileDetail.location}
-                            </td>
-                            <td>{textileDetail.size}</td>
-                            <td>{textileDetail.materials}</td>
-                            <td>{textileDetail.provenance}</td>
-                            <td>{textileDetail.country_of_origin}</td>
-                            <td>{textileDetail.authenticity}</td>
-                            <td>{textileDetail.maker}</td>
-                            <td>{textileDetail.owner}</td>
-                            <td>{textileDetail.photographer}</td>
-                            <td title={textileDetail.image}>
-                                {textileDetail.image}
-                            </td>
-                            <td title={textileDetail.description}>
-                                {textileDetail.description}
+                    {textileDetail.map((detail) => (
+                        <tr key={detail.id} className="active-row">
+                            <td>{detail.title}</td>
+                            <td>{detail.type}</td>
+                            <td title={detail.location}>{detail.location}</td>
+                            <td>{detail.size}</td>
+                            <td>{detail.materials}</td>
+                            <td>{detail.provenance}</td>
+                            <td>{detail.country_of_origin}</td>
+                            <td>{detail.authenticity}</td>
+                            <td>{detail.maker}</td>
+                            <td>{detail.owner}</td>
+                            <td>{detail.photographer}</td>
+                            <td title={detail.image}>{detail.image}</td>
+                            <td title={detail.description}>
+                                {detail.description}
                             </td>
 
                             <td className="table-icons">

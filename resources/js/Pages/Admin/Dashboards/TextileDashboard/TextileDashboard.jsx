@@ -4,14 +4,14 @@ import CreateTextile from "../../DashboardComponents/CreateTextile/CreateTextile
 import ListTextile from "../../DashboardComponents/ListTextile/ListTextile";
 import "./Textiledashboard.css";
 
-const TextileDashboard = () => {
+const TextileDashboard = ({ textileDetail }) => {
     return (
         <>
             <DashboardSidebar />
 
             <section className="textile-dashboard">
                 <div className="textile-dashboard__container">
-                    {/* <ListTextile /> */}
+                    <ListTextile textileDetail={textileDetail} />
 
                     <CreateTextile />
                 </div>

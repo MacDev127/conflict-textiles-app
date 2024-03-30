@@ -16,7 +16,7 @@
     justify-content: flex-start;
     margin-left: 10px;
     font-size: 40px;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     font-weight: 400;
 }
@@ -39,10 +39,11 @@ form label {
 form {
     margin-top: 50px;
     padding: 30px 20px;
+    min-width: 1300px;
     /* background: #fff; */
-    border-radius: 8px;
+    /* border-radius: 8px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 }
 
 form label {
@@ -60,14 +61,25 @@ form input[type="date"] {
     width: 100%;
     padding: 16px;
     margin-bottom: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ddd;
     border-radius: 4px;
     background: #fff;
 }
+form input[type="text"] {
+    width: 100%;
+    padding: 18px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /* border: 1px solid #888; */
+}
+input:focus {
+    outline: 1px solid crimson;
+}
 
-.textarea {
+.textile-textarea {
     background: #fff;
-    border: 1px solid #888;
+    border: 1px solid #ddd;
     border-radius: 4px;
     padding: 16px;
     color: #313131;
@@ -76,25 +88,16 @@ form input[type="date"] {
     width: 100%;
 }
 
+textarea:focus {
+    outline: 1px solid crimson;
+}
+
 .textarea__wrapper {
     display: flex;
-    margin: 0 10px;
-    gap: 10px;
+    flex-direction: column;
 }
 .textarea__box {
     flex: 1; /* This ensures both text areas have equal width */
-}
-
-form input[type="text"] {
-    width: 100%;
-    padding: 18px 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    border: 1px solid #888;
-}
-input:focus {
-    outline: 1px solid crimson;
 }
 
 .create-textile__form-button {
@@ -108,6 +111,7 @@ input:focus {
     transition: all 0.2s ease;
     background: #df0144;
     border-radius: 6px;
+    margin-left: 10px;
 }
 
 .create-textile__form-button:hover {

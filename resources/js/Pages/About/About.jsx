@@ -1,11 +1,11 @@
 import React from "react";
 
-const About = ({ textileDetail }) => {
+const About = ({ textileDetails }) => {
     return (
         <div>
             <h1>About Page</h1>
-            {textileDetail &&
-                textileDetail.map((detail) => (
+            {textileDetails &&
+                textileDetails.map((detail) => (
                     <div key={detail.id}>
                         <h2>{detail.title}</h2>
                         <h4>{detail.description}</h4>
