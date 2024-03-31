@@ -38,12 +38,25 @@ Route::post('/admin/textiles/store', [TextileDetailController::class, 'store'])
     ->name('admin.textiles.store')
     ->middleware('is_admin');
 
+    // Route to show the edit form for a textile
+Route::get('/admin/textileDetail/{id}/edit', [TextileDetailController::class, 'edit'])
+->name('admin.textileDetail.edit')
+->middleware('is_admin');
+
+
+    //update Textile
+Route::put('/textileDetail/{id}', [TextileDetailController::class, 'update'])->name('textileDetail.update');
+
+
+//Delete Textile
+Route::delete('/textileDetail/{id}', [TextileDetailController::class, 'destroy'])->name('textileDetail.destroy');
+
+
 
 //-------------------------------Textiles-----------------------------------///
 
 
 //----------------------Events---------------///
-
 
 // Route to show the form to add a new event
 Route::get('/admin/events/create', [EventController::class, 'create'])
@@ -54,7 +67,6 @@ Route::get('/admin/events/create', [EventController::class, 'create'])
 Route::get('/admin/events/{id}/edit', [EventController::class, 'edit'])
 ->name('admin.events.edit')
 ->middleware('is_admin');
-
 
 // Route to post the data to add a new event
 Route::post('/admin/events', [EventController::class, 'store'])

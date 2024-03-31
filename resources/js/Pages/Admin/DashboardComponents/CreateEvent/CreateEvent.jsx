@@ -224,7 +224,9 @@ const CreateEvent = ({ isVisible }) => {
                     <div className="success__message">
                         <h2>{successMessage}</h2>
                         <h5 className="return__link">
-                            <Link href={route("events")}>Back to Events</Link>
+                            <Link href={route("admin.events-dashboard")}>
+                                Back to Events
+                            </Link>
                         </h5>
                     </div>
                 </ModalComponent>

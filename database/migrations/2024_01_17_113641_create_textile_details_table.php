@@ -11,20 +11,20 @@ return new class extends Migration
     {
         Schema::create('textile_details', function (Blueprint $table) {
             $table->id();
-            $table->string('maker');
-            $table->string('country_of_origin');
-            $table->string('year_produced');   
-            $table->string('image');
-            $table->string('title');
-            $table->string('size');
-            $table->string('materials');      
-            $table->string('owner');
-            $table->text('provenance');
-            $table->string('location');
-            $table->string('authenticity');
-            $table->string('photographer');
-            $table->string('type');
-            $table->text('description');
+            $table->string('maker')->nullable();
+            $table->string('country_of_origin')->nullable();
+            $table->string('year_produced')->nullable();   
+            $table->string('image')->nullable();
+            $table->string('title')->nullable();
+            $table->string('size')->nullable();
+            $table->string('materials')->nullable();      
+            $table->string('owner')->nullable();
+            $table->text('provenance')->nullable();
+            $table->string('location')->nullable();
+            $table->string('authenticity')->nullable();
+            $table->string('photographer')->nullable();
+            $table->string('type')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
             // $table->foreignId('gallery_image_id')->constrained('gallery_images')->onDelete('cascade');
 

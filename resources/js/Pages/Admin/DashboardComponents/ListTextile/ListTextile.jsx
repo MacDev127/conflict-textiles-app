@@ -12,19 +12,18 @@ import "./ListTextile.css";
 const ListTextiles = ({ onToggleForm, textileDetail }) => {
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this event?")) {
-            router.delete(route("event.destroy", id), {
+            router.delete(route("textileDetail.destroy", id), {
                 onSuccess: () => {},
             });
         }
     };
-    console.log(textileDetail);
 
     return (
         <div>
             <table>
                 <caption>
                     Textile Details
-                    <Tooltip title="Add Event" arrow>
+                    <Tooltip title="Add Textile" arrow>
                         <IconButton
                             onClick={onToggleForm}
                             sx={{
@@ -79,7 +78,10 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
 
                             <td className="table-icons">
                                 <Link
-                                // href={route("admin.events.edit", textileDetail.id)}
+                                    href={route(
+                                        "admin.textileDetail.edit",
+                                        detail.id
+                                    )}
                                 >
                                     <Tooltip title="Edit" arrow>
                                         <IconButton
@@ -93,7 +95,7 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
                                 </Link>
                                 <Tooltip title="Delete" arrow>
                                     <IconButton
-                                        onClick={() => handleDelete(event.id)}
+                                        onClick={() => handleDelete(detail.id)}
                                         sx={{
                                             fontSize: "16px",
                                         }}
@@ -103,9 +105,6 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
                                         />
                                     </IconButton>
                                 </Tooltip>
-                                {/* <button onClick={() => handleDelete(event.id)}>
-                                    <FaTrashCan />
-                                </button> */}
                             </td>
                         </tr>
                     ))}

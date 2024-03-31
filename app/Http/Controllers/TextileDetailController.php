@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TextileDetail;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Log;
+
 
 
 class TextileDetailController extends Controller
@@ -48,6 +50,8 @@ public function create()
 
 public function store(Request $request)
 {
+        Log::info($request->all());
+
         // Validate the request
         $validatedData = $request->validate([
         'image' => 'nullable|image|max:1024',
@@ -87,15 +91,17 @@ public function store(Request $request)
 
 
 public function update(Request $request, $id)
+
+
 {
-    $textileDetail = TextileDetail::findOrFail($id);
+        Log::info($request->all());
+
 
     $validatedData = $request->validate([
-        'image' => 'nullable|image|max:1024',
+        // 'image' => 'nullable|image|max:1024',
         'location' => 'nullable|string',
         'title' => 'required|string|max:255',
         'type' => 'nullable|string',
-
         'year_produced' => 'nullable|string',
         'size' => 'nullable|string',
         'materials' => 'nullable|string',
@@ -106,22 +112,13 @@ public function update(Request $request, $id)
         'owner' => 'nullable|string',
         'photographer' => 'nullable|string',
         'description' => 'nullable|string',
-
-       
-
-
-      
     ]);
 
-    // if ($request->hasFile('image')) {
-    //     $path = $request->file('image')->store('textiles', 'public');
-    //     $validatedData['image'] = $path;
-    // }
-
     $textileDetail = TextileDetail::findOrFail($id);
-    $textileDetail->update($validatedData);
 
-    return redirect()->route('admin.textiles.index')->with('message', 'Textile updated successfully.');
+    $textileDetail->update($validatedData);
+    
+    return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile updated successfully.');
 
 }
 
@@ -133,17 +130,30 @@ public function destroy($id)
 
     // Optional: Delete associated files from storage
 
-    return redirect()->route('admin.textiles.index')->with('message', 'Textile deleted successfully.');
+    return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile deleted successfully.');
 }
 
 public function edit($id)
 {
-    $event = TextileDetail::findOrFail($id);
+    $textileDetail = TextileDetail::findOrFail($id);
 
     // Optionally, you can add code here to handle if the event has images or other related data
 
-    return Inertia::render('Admin/DashboardComponents/EditEvent/EditEvent', compact('event'));
+    return Inertia::render('Admin/DashboardComponents/EditTextile/EditTextile', compact('textileDetail'));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | index method: 

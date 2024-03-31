@@ -3,10 +3,11 @@ import { useForm } from "@inertiajs/react";
 import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import ModalComponent from "@/components/Modal/ModalComponent";
 import { router } from "@inertiajs/react";
+import Link from "@inertiajs/react";
 
 const EditEvent = ({ event }) => {
     // Initialize the form data with the existing event data
-    const { data, setData, put, processing } = useForm({
+    const { data, setData, put } = useForm({
         ...event, // Spread the event data into the form state
     });
 
@@ -28,9 +29,9 @@ const EditEvent = ({ event }) => {
                 setSuccessMessage("Event Updated Successfully");
                 setIsModalOpen(true);
             },
-            // onError: () => {
-            //     // Handle validation errors, you might want to set an error message here
-            // },
+            onError: () => {
+                console.error;
+            },
         });
     };
 
@@ -179,7 +180,6 @@ const EditEvent = ({ event }) => {
                         <button
                             className="edit-event__form-button"
                             type="submit"
-                            disabled={processing}
                         >
                             Update Event
                         </button>
@@ -193,11 +193,9 @@ const EditEvent = ({ event }) => {
                         <div className="success__message">
                             <h2>{successMessage}</h2>
                             <h5 className="return__link">
-                                <InertiaLink
-                                    href={route("admin.events-dashboard")}
-                                >
+                                <Link href={route("admin.events-dashboard")}>
                                     Back to Event Dashboard
-                                </InertiaLink>
+                                </Link>
                             </h5>
                         </div>
                     </ModalComponent>

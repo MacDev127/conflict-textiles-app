@@ -17,7 +17,6 @@ const ListEvents = ({ events, onToggleForm }) => {
             });
         }
     };
-    console.log(events);
 
     return (
         <div>

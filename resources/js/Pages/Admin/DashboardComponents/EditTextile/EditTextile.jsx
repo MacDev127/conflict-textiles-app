@@ -1,28 +1,14 @@
-// In your resources/js/Pages/Admin/Textiles/CreateTextile.jsx
-
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
-import "./Createtextile.css";
 import ModalComponent from "@/components/Modal/ModalComponent";
-
+import { router } from "@inertiajs/react";
+import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
+import "./EditTextile.css";
 import { Link } from "@inertiajs/react";
 
-const CreateTextile = () => {
-    const { data, setData, post, reset } = useForm({
-        // image: null,
-        location: "",
-        title: "",
-        type: "",
-        description: "",
-        year_produced: "",
-        size: "",
-        materials: "",
-        provenance: "",
-        country_of_origin: "",
-        authenticity: "",
-        maker: "",
-        owner: "",
-        photographer: "",
+const EditTextile = ({ textileDetail }) => {
+    const { data, setData, put } = useForm({
+        ...textileDetail,
     });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,12 +21,12 @@ const CreateTextile = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission action (page reload)
-        post("/admin/textiles/store", {
-            // Correct URL, no template literal or variable
+        e.preventDefault();
+        console.log("Submitting form", data);
+        router.put(route("textileDetail.update", textileDetail.id), data, {
+            preserveState: true,
             onSuccess: () => {
-                reset(); // Reset the fields, or you can specify which fields to reset
-                setSuccessMessage("Textile Added");
+                setSuccessMessage("Textile Updated Successfully");
                 setIsModalOpen(true);
             },
             onError: (errors) => {
@@ -53,13 +39,10 @@ const CreateTextile = () => {
 
     return (
         <>
-            {/* <DashboardSidebar /> */}
+            <DashboardSidebar />
+
             <section className="create-textile">
-                <div
-                // className={`create-textile__form-container ${
-                //     isVisible ? "open" : ""
-                // }`}
-                >
+                <div>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="create-textile__title">
                             Create textile
@@ -79,7 +62,7 @@ const CreateTextile = () => {
                                     type="text"
                                     id="title"
                                     name="title"
-                                    value={data.title}
+                                    value={data.title || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter textile title"
                                 />
@@ -88,7 +71,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="type"
-                                    value={data.type}
+                                    value={data.type || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter textile type"
                                 />
@@ -97,7 +80,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="location"
-                                    value={data.location}
+                                    value={data.location || ""}
                                     onChange={handleInputChange}
                                     placeholder="Enter textile location"
                                 />
@@ -108,7 +91,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="photographer"
-                                    value={data.photographer}
+                                    value={data.photographer || ""}
                                     onChange={handleInputChange}
                                     placeholder="Photographer"
                                 />
@@ -120,7 +103,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="year_produced"
-                                    value={data.year_produced}
+                                    value={data.year_produced || ""}
                                     onChange={handleInputChange}
                                     placeholder="year produced"
                                 />
@@ -128,7 +111,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="size"
-                                    value={data.size}
+                                    value={data.size || ""}
                                     onChange={handleInputChange}
                                     placeholder="Size"
                                 />
@@ -136,7 +119,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="materials"
-                                    value={data.materials}
+                                    value={data.materials || ""}
                                     onChange={handleInputChange}
                                     placeholder="Materials"
                                 />
@@ -145,7 +128,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="provenance"
-                                    value={data.provenance}
+                                    value={data.provenance || ""}
                                     onChange={handleInputChange}
                                     placeholder="provenance"
                                 />
@@ -158,7 +141,7 @@ const CreateTextile = () => {
                                         className="textile-textarea"
                                         id="description"
                                         name="description"
-                                        value={data.description}
+                                        value={data.description || ""}
                                         onChange={handleInputChange}
                                         placeholder="Enter textile description"
                                         rows="6"
@@ -173,7 +156,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="country_of_origin"
-                                    value={data.country_of_origin}
+                                    value={data.country_of_origin || ""}
                                     onChange={handleInputChange}
                                     placeholder="Country of Origin"
                                 />
@@ -184,7 +167,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="authenticity"
-                                    value={data.authenticity}
+                                    value={data.authenticity || ""}
                                     onChange={handleInputChange}
                                     placeholder="Authenticity"
                                 />
@@ -193,7 +176,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="maker"
-                                    value={data.maker}
+                                    value={data.maker || ""}
                                     onChange={handleInputChange}
                                     placeholder="Maker"
                                 />
@@ -202,7 +185,7 @@ const CreateTextile = () => {
                                 <input
                                     type="text"
                                     name="owner"
-                                    value={data.owner}
+                                    value={data.owner || ""}
                                     onChange={handleInputChange}
                                     placeholder="Owner"
                                 />
@@ -213,7 +196,7 @@ const CreateTextile = () => {
                             className="create-textile__form-button"
                             type="submit"
                         >
-                            Add textile
+                            Update textile
                         </button>
                     </form>
                 </div>
@@ -235,4 +218,4 @@ const CreateTextile = () => {
     );
 };
 
-export default CreateTextile;
+export default EditTextile;

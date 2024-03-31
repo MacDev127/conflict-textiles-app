@@ -134,7 +134,6 @@ public function update(Request $request, $id)
     $event = Event::findOrFail($id);
     $event->update($validatedData);
 
-    // If the event has an image and it's being updated, handle the image upload
     return redirect()->route('admin.events-dashboard')->with('message', 'Event updated successfully.');
 }
 
