@@ -50,7 +50,7 @@ public function create()
 
 public function store(Request $request)
 {
-        Log::info($request->all());
+        // Log::info($request->all());
 
         // Validate the request
         $validatedData = $request->validate([
@@ -76,7 +76,6 @@ public function store(Request $request)
     if ($request->hasFile('image')) {
         $path = $request->file('image')->store('textiles', 'public');
         $textileDetail->image = $path;
-        // $validatedData['image'] = $path;
     }
     $textileDetail->save();
 

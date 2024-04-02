@@ -9,20 +9,27 @@ class TextileDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'image', 
+        'image',
         'location',
-        'title', 
-        'type', 
+        'title',
+        'type',
         'description',
-        'year_produced', 
-        'size', 
-        'materials', 
-        'provenance', 
-        'country_of_origin', 
-        'authenticity', 
+        'year_produced',
+        'size',
+        'materials',
+        'provenance',
+        'country_of_origin',
+        'authenticity',
         'maker',
-        'owner', 
-        'photographer', 
+        'owner',
+        'photographer',
+        'gallery_image_id',
+
     ];
-    
+
+    public function galleryImage()
+    {
+        return $this->belongsTo(GalleryImage::class);
+    }
+
 }

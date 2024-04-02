@@ -19,6 +19,7 @@ import { ItemDescStyle } from "./itemPageComponent.styled";
 import { ImageContainer } from "./itemPageComponent.styled";
 import { SearchBarContainer } from "./itemPageComponent.styled";
 import "./itemPageComponent.css";
+import TextileDetail from "@/Pages/TextileDetails/TextileDetail";
 
 const ItemPageComponent = ({
     type,
@@ -29,10 +30,10 @@ const ItemPageComponent = ({
     galleryImages,
     countries,
 }) => {
-    const handleImageClick = (imageId) => {
-        router.visit(`/textile-details/${imageId}`);
+    const handleImageClick = (textileDetailId) => {
+        router.visit(`/textile-details/${textileDetailId}`);
     };
-    console.log(countries);
+    // console.log(countries);
 
     return (
         <section className={`${type}`}>
@@ -54,7 +55,9 @@ const ItemPageComponent = ({
                         <CollectionItemStyle
                             className={`${type}__collection-item`}
                             key={image.id}
-                            onClick={() => handleImageClick(image.id)}
+                            onClick={() =>
+                                handleImageClick(image.textileDetail.id)
+                            }
                         >
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>

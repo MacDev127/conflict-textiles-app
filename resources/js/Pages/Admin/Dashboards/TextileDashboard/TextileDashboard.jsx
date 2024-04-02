@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DashboardSidebar from "../../DashboardComponents/DashboardSidebar/DashboardSidebar";
 import CreateTextile from "../../DashboardComponents/CreateTextile/CreateTextile";
 import ListTextile from "../../DashboardComponents/ListTextile/ListTextile";
+import ImageUpload from "../../DashboardComponents/ImageUpload/ImageUpload";
 import "./Textiledashboard.css";
 
 const TextileDashboard = ({ textileDetail }) => {
@@ -22,6 +23,7 @@ const TextileDashboard = ({ textileDetail }) => {
                     />
 
                     <CreateTextile />
+                    <ImageUpload />
                 </div>
             </section>
         </>

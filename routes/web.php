@@ -27,6 +27,12 @@ use App\Http\Controllers\AboutController;
 
 ///Admin / Dashboard functionality
 
+//Image
+Route::post('/admin/gallery-images/store', [GalleryImagesController::class, 'store'])
+     ->name('gallery-images.store')
+     ->middleware('is_admin');
+
+
 //------------------------------Textiles------------------------------------------///
 // Route to show the form to add a new textile
 Route::get('/admin/textiles/create', [TextileDetailController::class, 'create'])
