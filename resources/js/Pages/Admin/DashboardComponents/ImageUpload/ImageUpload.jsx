@@ -12,9 +12,9 @@ const ImageUpload = () => {
         country_of_origin: "",
     });
 
-    const handleImageChange = (event) => {
-        setData("image", event.target.files[0]);
-    };
+    // const handleImageChange = (event) => {
+    //     setData("image", event.target.files[0]);
+    // };
 
     const handleInputChange = (e) => {
         const key = e.target.name;

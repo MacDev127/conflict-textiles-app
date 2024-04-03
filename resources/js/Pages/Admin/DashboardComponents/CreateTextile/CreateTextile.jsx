@@ -9,7 +9,7 @@ import { Link } from "@inertiajs/react";
 
 const CreateTextile = () => {
     const { data, setData, post, reset } = useForm({
-        // image: null,
+        image: null,
         location: "",
         title: "",
         type: "",
@@ -27,6 +27,7 @@ const CreateTextile = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+
     const handleInputChange = (e) => {
         const key = e.target.name;
         const value =
@@ -36,7 +37,7 @@ const CreateTextile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission action (page reload)
-        post("/admin/textiles/store", {
+        post(route("gallery-images.store"), {
             // Correct URL, no template literal or variable
             onSuccess: () => {
                 reset(); // Reset the fields, or you can specify which fields to reset
@@ -64,6 +65,7 @@ const CreateTextile = () => {
                         <div className="create-textile__title">
                             Create textile
                         </div>
+
                         <div className="form-row">
                             <div className="col-1">
                                 <label htmlFor="image">Image</label>
@@ -71,6 +73,7 @@ const CreateTextile = () => {
                                     type="file"
                                     id="image"
                                     name="image"
+                                    required
                                     onChange={handleInputChange}
                                 />
 

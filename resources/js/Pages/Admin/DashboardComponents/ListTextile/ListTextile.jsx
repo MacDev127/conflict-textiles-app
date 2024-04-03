@@ -9,7 +9,7 @@ import { MdOutlinePlaylistAdd } from "react-icons/md";
 import Tooltip from "@mui/material/Tooltip"; // import EditIcon from "@mui/icons-material/Edit";
 import "./ListTextile.css";
 
-const ListTextiles = ({ onToggleForm, textileDetail }) => {
+const ListTextiles = ({ onToggleForm, galleryImages }) => {
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this event?")) {
             router.delete(route("textileDetail.destroy", id), {
@@ -17,6 +17,8 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
             });
         }
     };
+
+    // console.log(galleryImages);
 
     return (
         <div>
@@ -58,29 +60,29 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {textileDetail.map((detail) => (
-                        <tr key={detail.id} className="active-row">
-                            <td>{detail.title}</td>
-                            <td>{detail.type}</td>
-                            <td title={detail.location}>{detail.location}</td>
-                            <td>{detail.size}</td>
-                            <td>{detail.materials}</td>
-                            <td>{detail.provenance}</td>
-                            <td>{detail.country_of_origin}</td>
-                            <td>{detail.authenticity}</td>
-                            <td>{detail.maker}</td>
-                            <td>{detail.owner}</td>
-                            <td>{detail.photographer}</td>
-                            <td title={detail.image}>{detail.image}</td>
-                            <td title={detail.description}>
-                                {detail.description}
+                    {galleryImages.map((image) => (
+                        <tr key={image.id} className="active-row">
+                            <td title={image.title}>{image.title}</td>
+                            <td>{image.type}</td>
+                            <td title={image.location}>{image.location}</td>
+                            <td>{image.size}</td>
+                            <td>{image.materials}</td>
+                            <td>{image.provenance}</td>
+                            <td>{image.country_of_origin}</td>
+                            <td>{image.authenticity}</td>
+                            <td>{image.maker}</td>
+                            <td>{image.owner}</td>
+                            <td>{image.photographer}</td>
+                            <td title={image.image}>{image.image}</td>
+                            <td title={image.description}>
+                                {image.description}
                             </td>
 
                             <td className="table-icons">
                                 <Link
                                     href={route(
                                         "admin.textileDetail.edit",
-                                        detail.id
+                                        image.id
                                     )}
                                 >
                                     <Tooltip title="Edit" arrow>
@@ -95,7 +97,7 @@ const ListTextiles = ({ onToggleForm, textileDetail }) => {
                                 </Link>
                                 <Tooltip title="Delete" arrow>
                                     <IconButton
-                                        onClick={() => handleDelete(detail.id)}
+                                        onClick={() => handleDelete(image.id)}
                                         sx={{
                                             fontSize: "16px",
                                         }}

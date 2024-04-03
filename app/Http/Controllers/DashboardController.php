@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
-use App\Models\TextileDetail;
+use App\Models\GalleryImage;
 
 use Inertia\Inertia;
 
@@ -19,21 +19,29 @@ class DashboardController extends Controller
             }
             return $event;
         });
-        
+
         return Inertia::render('Admin/Dashboards/Dashboard/Dashboard', ['events' => $events]);
     }
     public function eventsDashboard()
     {
-      
+
         $events = Event::all();
 
         return Inertia::render('Admin/Dashboards/EventsDashboard/EventsDashboard', ['events' => $events]);
     }
     public function textilesDashboard()
     {
-      
-        $textileDetail = TextileDetail::all();
+        // Assuming you have combined all the necessary fields in the GalleryImage model
+        $galleryImages = GalleryImage::all()->map(function ($image) {
+            if ($image->image) {
+                // Assuming the image is stored in the 'storage/gallery_images/' directory
+                $image->image = asset('storage/gallery_images/' . $image->image);
+            }
+            return $image;
+        });
 
-        return Inertia::render('Admin/Dashboards/TextileDashboard/TextileDashboard', ['textileDetail' => $textileDetail]);
+        // Now you will return gallery images instead of textile details
+        return Inertia::render('Admin/Dashboards/TextileDashboard/TextileDashboard', ['galleryImages' => $galleryImages]);
     }
+
 }

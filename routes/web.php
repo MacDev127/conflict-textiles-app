@@ -7,7 +7,6 @@ use Inertia\Inertia;
 
 //Controllers
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TextileDetailController;
 use App\Http\Controllers\GalleryImagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
@@ -29,33 +28,25 @@ use App\Http\Controllers\AboutController;
 
 //Image
 Route::post('/admin/gallery-images/store', [GalleryImagesController::class, 'store'])
-     ->name('gallery-images.store')
-     ->middleware('is_admin');
+    ->name('gallery-images.store')
+    ->middleware('is_admin');
+
 
 
 //------------------------------Textiles------------------------------------------///
-// Route to show the form to add a new textile
-Route::get('/admin/textiles/create', [TextileDetailController::class, 'create'])
-    ->name('admin.textiles.create')
+
+// Route to show the edit form for a textile
+Route::get('/admin/textileDetail/{id}/edit', [GalleryImagesController::class, 'edit'])
+    ->name('admin.textileDetail.edit')
     ->middleware('is_admin');
 
-// Route to post the data to add a new textile
-Route::post('/admin/textiles/store', [TextileDetailController::class, 'store'])
-    ->name('admin.textiles.store')
-    ->middleware('is_admin');
 
-    // Route to show the edit form for a textile
-Route::get('/admin/textileDetail/{id}/edit', [TextileDetailController::class, 'edit'])
-->name('admin.textileDetail.edit')
-->middleware('is_admin');
-
-
-    //update Textile
-Route::put('/textileDetail/{id}', [TextileDetailController::class, 'update'])->name('textileDetail.update');
+//update Textile
+Route::put('/textileDetail/{id}', [GalleryImagesController::class, 'update'])->name('textileDetail.update');
 
 
 //Delete Textile
-Route::delete('/textileDetail/{id}', [TextileDetailController::class, 'destroy'])->name('textileDetail.destroy');
+Route::delete('/textileDetail/{id}', [GalleryImagesController::class, 'destroy'])->name('textileDetail.destroy');
 
 
 
@@ -71,8 +62,8 @@ Route::get('/admin/events/create', [EventController::class, 'create'])
 
 // Route to show the edit form for an event
 Route::get('/admin/events/{id}/edit', [EventController::class, 'edit'])
-->name('admin.events.edit')
-->middleware('is_admin');
+    ->name('admin.events.edit')
+    ->middleware('is_admin');
 
 // Route to post the data to add a new event
 Route::post('/admin/events', [EventController::class, 'store'])
@@ -82,7 +73,7 @@ Route::post('/admin/events', [EventController::class, 'store'])
 // update event
 Route::put('/events/{id}', [EventController::class, 'update'])->name('event.update');
 
- //Delete Event
+//Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 
 //----------------------Events---------------///
@@ -97,16 +88,16 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 //events dashboard
-   Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
+Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
     ->middleware(['auth', 'is_admin'])
     ->name('admin.events-dashboard');
 
 //textiles dashboard
-   Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
+Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
     ->middleware(['auth', 'is_admin'])
     ->name('admin.textiles-dashboard');
 
- ///-------Admin / Dashboard functionality--------
+///-------Admin / Dashboard functionality--------
 
 //----------------------Dashboards---------------///
 
@@ -114,8 +105,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 // Event Controller
 Route::get('/events', [EventController::class, 'index']);
 
-// Textile Details Controller
-Route::get('/textile-details/{id}', [TextileDetailController::class, 'show'])->name('textile-details.show');
+// show textileDetails of image
+Route::get('/textile-details/{id}', [GalleryImagesController::class, 'showTextileDetail'])->name('textile-details.show');
 
 //Gallery images Controller
 Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
@@ -154,20 +145,20 @@ Route::get('/events', [EventController::class, 'events'])->name('events');
 // Collection Page
 Route::get('/collection', [CollectionPageImageController::class, 'index'])->name('collection');
 
- // Fetch specific images for the Arpillera collection page
- Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
+// Fetch specific images for the Arpillera collection page
+Route::get('/arpillera', [GalleryImagesController::class, 'arpillera'])->name('arpillera');
 
- // Fetch specific images for the Banner collection page
- Route::get('/banner', [GalleryImagesController::class, 'banner'])->name('banner');
+// Fetch specific images for the Banner collection page
+Route::get('/banner', [GalleryImagesController::class, 'banner'])->name('banner');
 
- // Fetch specific images for the Quilt collection page
- Route::get('/quilt', [GalleryImagesController::class, 'quilt'])->name('quilt');
+// Fetch specific images for the Quilt collection page
+Route::get('/quilt', [GalleryImagesController::class, 'quilt'])->name('quilt');
 
- // Fetch specific images for the Embroidered Cloth collection page
- Route::get('/embroidered-cloth', [GalleryImagesController::class, 'embroideredCloth'])->name('embroidered-cloth');
+// Fetch specific images for the Embroidered Cloth collection page
+Route::get('/embroidered-cloth', [GalleryImagesController::class, 'embroideredCloth'])->name('embroidered-cloth');
 
- // Fetch specific images for the Wall Hanging collection page
- Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
+// Fetch specific images for the Wall Hanging collection page
+Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
 // --------------------------------------Page Routes End-----------------------------------------------------------------//
 
@@ -209,4 +200,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

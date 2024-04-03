@@ -30,8 +30,8 @@ const ItemPageComponent = ({
     galleryImages,
     countries,
 }) => {
-    const handleImageClick = (textileDetailId) => {
-        router.visit(`/textile-details/${textileDetailId}`);
+    const handleImageClick = (imageId) => {
+        router.visit(`/textile-details/${imageId}`);
     };
     // console.log(countries);
 
@@ -55,9 +55,7 @@ const ItemPageComponent = ({
                         <CollectionItemStyle
                             className={`${type}__collection-item`}
                             key={image.id}
-                            onClick={() =>
-                                handleImageClick(image.textileDetail.id)
-                            }
+                            onClick={() => handleImageClick(image.id)}
                         >
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>

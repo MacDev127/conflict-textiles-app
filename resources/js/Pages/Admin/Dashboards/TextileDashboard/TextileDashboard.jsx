@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import DashboardSidebar from "../../DashboardComponents/DashboardSidebar/DashboardSidebar";
 import CreateTextile from "../../DashboardComponents/CreateTextile/CreateTextile";
 import ListTextile from "../../DashboardComponents/ListTextile/ListTextile";
-import ImageUpload from "../../DashboardComponents/ImageUpload/ImageUpload";
 import "./Textiledashboard.css";
 
-const TextileDashboard = ({ textileDetail }) => {
+const TextileDashboard = ({ galleryImages }) => {
     const [isFormVisible, setIsFormVisible] = useState(false);
 
     const toggleFormVisibility = () => {
         setIsFormVisible(!isFormVisible);
     };
+    console.log(galleryImages);
+
     return (
         <>
             <DashboardSidebar />
@@ -18,12 +19,11 @@ const TextileDashboard = ({ textileDetail }) => {
             <section className="textile-dashboard">
                 <div className="textile-dashboard__container">
                     <ListTextile
-                        textileDetail={textileDetail}
+                        galleryImages={galleryImages}
                         onToggleForm={toggleFormVisibility}
                     />
 
-                    <CreateTextile />
-                    <ImageUpload />
+                    <CreateTextile galleryImages={galleryImages} />
                 </div>
             </section>
         </>

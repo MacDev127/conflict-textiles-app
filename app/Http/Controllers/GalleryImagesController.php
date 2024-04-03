@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\GalleryImage;
-use App\Models\TextileDetail;
+// use App\Models\TextileDetail;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 use Illuminate\Support\Facades\Storage;
 
 
@@ -17,9 +19,14 @@ class GalleryImagesController extends Controller
     {
         // dd($images);
         // Retrieve all GalleryImage records and associated textileDetail relationship from the database in one query.
-        $images = GalleryImage::with('textileDetail')->get(); // This will eager load the related textile details
 
-        return Inertia::render('Home/Home', ['galleryImages' => $images->toArray()]);
+        // $images = GalleryImage::with('textileDetail')->get(); 
+
+        // return Inertia::render('Home/Home', ['galleryImages' => $images->toArray()]);
+
+        $galleryImages = GalleryImage::all();
+        return Inertia::render('Home/Home', ['galleryImages' => $galleryImages]);
+
 
     }
 
@@ -130,6 +137,14 @@ class GalleryImagesController extends Controller
             'maker' => 'nullable|string',
             'country_of_origin' => 'nullable|string',
             'year_produced' => 'nullable|string',
+            'size' => 'nullable|string',
+            'materials' => 'nullable|string',
+            'provenance' => 'nullable|string',
+            'owner' => 'nullable|string',
+            'photographer' => 'nullable|string',
+            'authenticity' => 'nullable|string',
+            'description' => 'nullable|string',
+            'location' => 'nullable|string',
 
         ]);
 
@@ -142,10 +157,6 @@ class GalleryImagesController extends Controller
             $galleryImage->image = $path;
             $galleryImage->save();
 
-            // Create a new TextileDetail associated with the uploaded GalleryImage
-            $textileDetail = new TextileDetail(['gallery_image_id' => $galleryImage->id,]);
-
-            $textileDetail->save();
 
 
             return redirect()->back()->with('success', 'Image uploaded successfully.');
@@ -154,10 +165,82 @@ class GalleryImagesController extends Controller
         return redirect()->back()->with('error', 'There was a problem uploading the image.');
     }
 
+    public function update(Request $request, $id)
+    {
+        Log::info('Update method called', ['requestData' => $request->all()]);
+
+        // Retrieve the existing gallery image.
+        $galleryImage = GalleryImage::findOrFail($id);
+
+        $validatedData = $request->validate([
+            // 'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
+            'location' => 'nullable|string',
+            'title' => 'nullable|string|max:255',
+            'type' => 'nullable|string',
+            'year_produced' => 'nullable|string',
+            'size' => 'nullable|string',
+            'materials' => 'nullable|string',
+            'provenance' => 'nullable|string',
+            'country_of_origin' => 'nullable|string',
+            'authenticity' => 'nullable|string',
+            'maker' => 'nullable|string',
+            'owner' => 'nullable|string',
+            'photographer' => 'nullable|string',
+            'description' => 'nullable|string',
+        ]);
+
+        // Check if a new image file is uploaded.
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
+            ]);
+            $path = $request->file('image')->store('gallery_images', 'public');
+            $galleryImage->image = $path;
+        }
+
+        // Update the gallery image with validated data.
+        $galleryImage->update($validatedData);
+
+        // If there was a new image, save the updated gallery image.
+        if ($request->hasFile('image')) {
+            $galleryImage->save();
+        }
+
+        return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile updated successfully.');
+
+    }
 
 
+    public function destroy($id)
+    {
+        $galleryImage = GalleryImage::findOrFail($id);
+        $galleryImage->delete();
 
 
-    //---------------------Search functionality-----------------------------//
+        return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile deleted successfully.');
+    }
+
+    public function edit($id)
+    {
+        $galleryImage = GalleryImage::findOrFail($id);
+
+
+        return Inertia::render('Admin/DashboardComponents/EditTextile/EditTextile', compact('galleryImage'));
+    }
+
+
+    public function showTextileDetail($id)
+    {
+        $galleryImage = GalleryImage::findOrFail($id);
+        // Optionally, add the asset() to the image URL here
+
+        if (!empty($galleryImage->image)) {
+            $galleryImage->image = asset('storage/' . $galleryImage->image);
+        }
+
+        return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $galleryImage]);
+    }
+
+
 
 }

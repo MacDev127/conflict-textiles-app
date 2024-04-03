@@ -5,9 +5,12 @@
     align-items: flex-start;
 }
 
-.create-textile {
+.edit-textile {
     height: 100vh;
     background-color: #f5f3f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-textile__title {
@@ -37,9 +40,8 @@ form label {
 }
 
 form {
-    margin-top: 50px;
     padding: 30px 20px;
-    min-width: 1300px;
+    min-width: 1200px;
     /* background: #fff; */
     /* border-radius: 8px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,

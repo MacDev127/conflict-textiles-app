@@ -6,9 +6,9 @@ import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import "./EditTextile.css";
 import { Link } from "@inertiajs/react";
 
-const EditTextile = ({ textileDetail }) => {
+const EditTextile = ({ galleryImage }) => {
     const { data, setData, put } = useForm({
-        ...textileDetail,
+        ...galleryImage,
     });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,8 +22,24 @@ const EditTextile = ({ textileDetail }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitting form", data);
-        router.put(route("textileDetail.update", textileDetail.id), data, {
+
+        //---------------Test-------------
+        // let formData = new FormData();
+
+        // Append all data fields to formData, except the image field.
+        // Object.keys(data).forEach((key) => {
+        //     if (key !== "image") {
+        //         formData.append(key, data[key]);
+        //     }
+        // });
+
+        // Append image only if a new file was selected (it's an instance of File).
+        // if (data.image instanceof File) {
+        //     formData.append("image", data.image);
+        // }
+        //---------------------Test---------
+
+        router.put(route("textileDetail.update", galleryImage.id), data, {
             preserveState: true,
             onSuccess: () => {
                 setSuccessMessage("Textile Updated Successfully");
@@ -41,165 +57,154 @@ const EditTextile = ({ textileDetail }) => {
         <>
             <DashboardSidebar />
 
-            <section className="create-textile">
-                <div>
-                    <form onSubmit={handleSubmit} encType="multipart/form-data">
-                        <div className="create-textile__title">
-                            Create textile
+            <section className="edit-textile">
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <div className="create-textile__title">Edit textile</div>
+                    <div className="form-row">
+                        <div className="col-1">
+                            <label htmlFor="image">Image</label>
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                onChange={handleInputChange}
+                            />
+
+                            <label htmlFor="title">Title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                value={data.title || ""}
+                                onChange={handleInputChange}
+                                placeholder="Enter textile title"
+                            />
+
+                            <label htmlFor="type">Type</label>
+                            <input
+                                type="text"
+                                name="type"
+                                value={data.type || ""}
+                                onChange={handleInputChange}
+                                placeholder="Enter textile type"
+                            />
+
+                            <label htmlFor="location">Location</label>
+                            <input
+                                type="text"
+                                name="location"
+                                value={data.location || ""}
+                                onChange={handleInputChange}
+                                placeholder="Enter textile location"
+                            />
+                            <label htmlFor="photographer">Photographer</label>
+
+                            <input
+                                type="text"
+                                name="photographer"
+                                value={data.photographer || ""}
+                                onChange={handleInputChange}
+                                placeholder="Photographer"
+                            />
                         </div>
-                        <div className="form-row">
-                            <div className="col-1">
-                                <label htmlFor="image">Image</label>
-                                <input
-                                    type="file"
-                                    id="image"
-                                    name="image"
-                                    onChange={handleInputChange}
-                                />
+                        <div className="col-2">
+                            <label htmlFor="year_produced">Year Produced</label>
+                            <input
+                                type="text"
+                                name="year_produced"
+                                value={data.year_produced || ""}
+                                onChange={handleInputChange}
+                                placeholder="year produced"
+                            />
+                            <label htmlFor="size">Size</label>
+                            <input
+                                type="text"
+                                name="size"
+                                value={data.size || ""}
+                                onChange={handleInputChange}
+                                placeholder="Size"
+                            />
+                            <label htmlFor="materials">Materials</label>
+                            <input
+                                type="text"
+                                name="materials"
+                                value={data.materials || ""}
+                                onChange={handleInputChange}
+                                placeholder="Materials"
+                            />
 
-                                <label htmlFor="title">Title</label>
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    value={data.title || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter textile title"
-                                />
+                            <label htmlFor="provenance">Provenance</label>
+                            <input
+                                type="text"
+                                name="provenance"
+                                value={data.provenance || ""}
+                                onChange={handleInputChange}
+                                placeholder="provenance"
+                            />
+                            <div className="textarea__box">
+                                <label htmlFor="description">Description</label>
 
-                                <label htmlFor="type">Type</label>
-                                <input
-                                    type="text"
-                                    name="type"
-                                    value={data.type || ""}
+                                <textarea
+                                    className="textile-textarea"
+                                    id="description"
+                                    name="description"
+                                    value={data.description || ""}
                                     onChange={handleInputChange}
-                                    placeholder="Enter textile type"
-                                />
-
-                                <label htmlFor="location">Location</label>
-                                <input
-                                    type="text"
-                                    name="location"
-                                    value={data.location || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter textile location"
-                                />
-                                <label htmlFor="photographer">
-                                    Photographer
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="photographer"
-                                    value={data.photographer || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Photographer"
-                                />
-                            </div>
-                            <div className="col-2">
-                                <label htmlFor="year_produced">
-                                    Year Produced
-                                </label>
-                                <input
-                                    type="text"
-                                    name="year_produced"
-                                    value={data.year_produced || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="year produced"
-                                />
-                                <label htmlFor="size">Size</label>
-                                <input
-                                    type="text"
-                                    name="size"
-                                    value={data.size || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Size"
-                                />
-                                <label htmlFor="materials">Materials</label>
-                                <input
-                                    type="text"
-                                    name="materials"
-                                    value={data.materials || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Materials"
-                                />
-
-                                <label htmlFor="provenance">Provenance</label>
-                                <input
-                                    type="text"
-                                    name="provenance"
-                                    value={data.provenance || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="provenance"
-                                />
-                                <div className="textarea__box">
-                                    <label htmlFor="description">
-                                        Description
-                                    </label>
-
-                                    <textarea
-                                        className="textile-textarea"
-                                        id="description"
-                                        name="description"
-                                        value={data.description || ""}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter textile description"
-                                        rows="6"
-                                        cols="30"
-                                    ></textarea>
-                                </div>
-                            </div>
-                            <div className="col-3">
-                                <label htmlFor="country_of_origin">
-                                    Country of Origin
-                                </label>
-                                <input
-                                    type="text"
-                                    name="country_of_origin"
-                                    value={data.country_of_origin || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Country of Origin"
-                                />
-
-                                <label htmlFor="authenticity">
-                                    Authenticity
-                                </label>
-                                <input
-                                    type="text"
-                                    name="authenticity"
-                                    value={data.authenticity || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Authenticity"
-                                />
-
-                                <label htmlFor="maker">Maker</label>
-                                <input
-                                    type="text"
-                                    name="maker"
-                                    value={data.maker || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Maker"
-                                />
-                                <label htmlFor="owner">Owner</label>
-
-                                <input
-                                    type="text"
-                                    name="owner"
-                                    value={data.owner || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Owner"
-                                />
+                                    placeholder="Enter textile description"
+                                    rows="6"
+                                    cols="30"
+                                ></textarea>
                             </div>
                         </div>
+                        <div className="col-3">
+                            <label htmlFor="country_of_origin">
+                                Country of Origin
+                            </label>
+                            <input
+                                type="text"
+                                name="country_of_origin"
+                                value={data.country_of_origin || ""}
+                                onChange={handleInputChange}
+                                placeholder="Country of Origin"
+                            />
 
-                        <button
-                            className="create-textile__form-button"
-                            type="submit"
-                        >
-                            Update textile
-                        </button>
-                    </form>
-                </div>
+                            <label htmlFor="authenticity">Authenticity</label>
+                            <input
+                                type="text"
+                                name="authenticity"
+                                value={data.authenticity || ""}
+                                onChange={handleInputChange}
+                                placeholder="Authenticity"
+                            />
+
+                            <label htmlFor="maker">Maker</label>
+                            <input
+                                type="text"
+                                name="maker"
+                                value={data.maker || ""}
+                                onChange={handleInputChange}
+                                placeholder="Maker"
+                            />
+                            <label htmlFor="owner">Owner</label>
+
+                            <input
+                                type="text"
+                                name="owner"
+                                value={data.owner || ""}
+                                onChange={handleInputChange}
+                                placeholder="Owner"
+                            />
+                        </div>
+                    </div>
+
+                    <button
+                        className="create-textile__form-button"
+                        type="submit"
+                    >
+                        Update textile
+                    </button>
+                </form>
+
                 <ModalComponent
                     open={isModalOpen}
                     onClose={() => setIsModalOpen(false)}

@@ -9,19 +9,23 @@ class GalleryImage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'image', 
-        'title', 
-        'type', 
-        'year_produced', 
-        'country_of_origin', 
+        'image',
+        'location',
+        'title',
+        'type',
+        'description',
+        'year_produced',
+        'size',
+        'materials',
+        'provenance',
+        'country_of_origin',
+        'authenticity',
         'maker',
-       
+        'owner',
+        'photographer',
+
     ];
 
-    public function textileDetail()
-    {
-        // Assuming one gallery image is associated with one textile detail
-        return $this->hasOne(TextileDetail::class);
-    }
-    
+
+
 }
