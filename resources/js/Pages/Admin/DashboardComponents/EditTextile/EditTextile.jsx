@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "@inertiajs/react";
-import ModalComponent from "@/components/Modal/ModalComponent";
 import { router } from "@inertiajs/react";
 import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import "./EditTextile.css";
-import { Link } from "@inertiajs/react";
+import AlertComponent from "@/components/Alert/AlertComponent";
 
 const EditTextile = ({ galleryImage }) => {
     const { data, setData, put } = useForm({
         ...galleryImage,
     });
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
+
     const handleInputChange = (e) => {
         const key = e.target.name;
         const value =
@@ -25,8 +29,9 @@ const EditTextile = ({ galleryImage }) => {
         router.put(route("textileDetail.update", galleryImage.id), data, {
             preserveState: true,
             onSuccess: () => {
-                setSuccessMessage("Textile Updated Successfully");
-                setIsModalOpen(true);
+                console.log("Update successful!");
+                setAlertMessage("Textile Updated Successfully!");
+                setSeverity("success");
             },
             onError: (errors) => {
                 // Handle validation errors
@@ -187,20 +192,16 @@ const EditTextile = ({ galleryImage }) => {
                         Update textile
                     </button>
                 </form>
-
-                <ModalComponent
-                    open={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                >
-                    <div className="success__message">
-                        <h2>{successMessage}</h2>
-                        <h5 className="return__link">
-                            <Link href={route("admin.textiles-dashboard")}>
-                                Back to textiles
-                            </Link>
-                        </h5>
-                    </div>
-                </ModalComponent>
+                <div className="form__alert">
+                    {alertMessage && (
+                        <AlertComponent
+                            severity={severity}
+                            closeHandler={handleAlertClose}
+                        >
+                            {alertMessage}
+                        </AlertComponent>
+                    )}
+                </div>
             </section>
         </>
     );

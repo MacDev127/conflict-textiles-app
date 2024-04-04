@@ -8,6 +8,7 @@
 .create-textile {
     height: 100vh;
     background-color: #f5f3f4;
+    position: relative;
 }
 
 .create-textile__title {
@@ -138,6 +139,14 @@ textarea:focus {
     max-height: 1000px;
     visibility: visible; /* Make visible when open */
     opacity: 1; /* Fade in */
+}
+
+.form__alert {
+    position: absolute;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
 }
 
 /* Responsive adjustments */

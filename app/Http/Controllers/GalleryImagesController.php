@@ -225,6 +225,7 @@ class GalleryImagesController extends Controller
         $galleryImage = GalleryImage::findOrFail($id);
 
 
+
         return Inertia::render('Admin/DashboardComponents/EditTextile/EditTextile', compact('galleryImage'));
     }
 

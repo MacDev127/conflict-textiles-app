@@ -1,11 +1,7 @@
-// In your resources/js/Pages/Admin/Textiles/CreateTextile.jsx
-
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import "./Createtextile.css";
-import ModalComponent from "@/components/Modal/ModalComponent";
-
-import { Link } from "@inertiajs/react";
+import AlertComponent from "@/components/Alert/AlertComponent";
 
 const CreateTextile = () => {
     const { data, setData, post, reset } = useForm({
@@ -25,8 +21,12 @@ const CreateTextile = () => {
         photographer: "",
     });
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
 
     const handleInputChange = (e) => {
         const key = e.target.name;
@@ -41,12 +41,10 @@ const CreateTextile = () => {
             // Correct URL, no template literal or variable
             onSuccess: () => {
                 reset(); // Reset the fields, or you can specify which fields to reset
-                setSuccessMessage("Textile Added");
-                setIsModalOpen(true);
+                setAlertMessage("Textile Added Successfully!");
+                setSeverity("success");
             },
             onError: (errors) => {
-                // Handle validation errors
-                // Log errors or set state to display them
                 console.error(errors);
             },
         });
@@ -216,19 +214,16 @@ const CreateTextile = () => {
                         </button>
                     </form>
                 </div>
-                <ModalComponent
-                    open={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                >
-                    <div className="success__message">
-                        <h2>{successMessage}</h2>
-                        <h5 className="return__link">
-                            <Link href={route("admin.textiles-dashboard")}>
-                                Back to textiles
-                            </Link>
-                        </h5>
-                    </div>
-                </ModalComponent>
+                <div className="form__alert">
+                    {alertMessage && (
+                        <AlertComponent
+                            severity={severity}
+                            closeHandler={handleAlertClose}
+                        >
+                            {alertMessage}
+                        </AlertComponent>
+                    )}
+                </div>
             </section>
         </>
     );
