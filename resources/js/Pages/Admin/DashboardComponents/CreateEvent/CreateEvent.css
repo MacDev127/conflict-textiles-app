@@ -93,11 +93,13 @@ textarea:focus {
 
 .textarea__wrapper {
     display: flex;
-    margin: 0 10px;
-    gap: 10px;
+    flex-wrap: wrap; /* Allow text areas to wrap on smaller screens */
+    gap: 10px; /* Keep a gap between text areas */
 }
+
 .textarea__box {
-    flex: 1; /* This ensures both text areas have equal width */
+    flex: 1; /* This ensures the textarea boxes take up available space */
+    min-width: 0; /* Fixes flexbox overflow issue on some browsers */
 }
 
 .create-event__form-button {
@@ -141,16 +143,50 @@ textarea:focus {
 }
 
 /* Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
+    .create-event {
+        height: auto; /* Allow the height to grow as needed on smaller screens */
+        padding-bottom: 50px; /* Add padding to the bottom for scrolling */
+    }
+
+    .form-row {
+        display: block; /* Stack the .col elements vertically */
+    }
+
     .col-1,
     .col-2,
     .col-3 {
-        flex: 0 0 100%;
+        flex-basis: auto; /* Let the columns take the necessary space */
+        max-width: 100%; /* Ensure they don't overflow the screen width */
         margin-right: 0;
         margin-bottom: 20px;
+        padding: 0 15px; /* Adjust padding to match the design */
     }
 
-    form textarea {
-        width: 15%;
+    form {
+        margin-top: 0; /* Adjust top margin if needed */
+        padding: 15px; /* Reduce padding on smaller screens */
+        width: auto; /* Adjust width to be auto on smaller screens */
+        max-width: 100%; /* Ensure form does not exceed the screen width */
+    }
+
+    .textarea__wrapper {
+        margin: 0; /* Reset margin for text area wrapper */
+    }
+
+    .textarea__box {
+        /* Make text areas full width */
+        flex: 0 0 100%;
+        width: 100%; /* Text areas should fill the available width */
+    }
+
+    .textarea {
+        width: 100%; /* Ensure textareas are full width */
+    }
+
+    .create-event__form-button {
+        width: 100%; /* Full width for the submit button */
+        margin: 20px 0; /* Adjust margin for better spacing */
     }
 }

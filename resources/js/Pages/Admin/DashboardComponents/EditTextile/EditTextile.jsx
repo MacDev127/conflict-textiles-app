@@ -22,23 +22,6 @@ const EditTextile = ({ galleryImage }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        //---------------Test-------------
-        // let formData = new FormData();
-
-        // Append all data fields to formData, except the image field.
-        // Object.keys(data).forEach((key) => {
-        //     if (key !== "image") {
-        //         formData.append(key, data[key]);
-        //     }
-        // });
-
-        // Append image only if a new file was selected (it's an instance of File).
-        // if (data.image instanceof File) {
-        //     formData.append("image", data.image);
-        // }
-        //---------------------Test---------
-
         router.put(route("textileDetail.update", galleryImage.id), data, {
             preserveState: true,
             onSuccess: () => {

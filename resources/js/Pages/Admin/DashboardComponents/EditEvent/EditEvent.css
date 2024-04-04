@@ -5,15 +5,16 @@
     align-items: flex-start;
 }
 
-.edit-textile {
+.edit-event {
     min-height: 100vh;
     background-color: #f5f3f4;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.create-textile__title {
+.edit-event__title {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -78,7 +79,7 @@ input:focus {
     outline: 1px solid crimson;
 }
 
-.textile-textarea {
+.textarea {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -101,7 +102,7 @@ textarea:focus {
     flex: 1; /* This ensures both text areas have equal width */
 }
 
-.create-textile__form-button {
+.edit-event__form-button {
     padding: 16px 20px;
     color: #fff;
     font-size: 16px;
@@ -115,7 +116,7 @@ textarea:focus {
     margin-left: 10px;
 }
 
-.create-textile__form-button:hover {
+.edit-event__form-button:hover {
     background: #dd294d;
     transition: ease 0.1s;
 }
@@ -137,8 +138,8 @@ textarea:focus {
 
 .create-textile__form-container.open {
     max-height: 1000px;
-    visibility: visible;
-    opacity: 1;
+    visibility: visible; /* Make visible when open */
+    opacity: 1; /* Fade in */
 }
 
 /* Responsive adjustments */
@@ -146,28 +147,28 @@ textarea:focus {
     .col-1,
     .col-2,
     .col-3 {
-        flex-basis: 100%;
+        flex-basis: 100%; /* Each column takes full width */
         max-width: 100%; /* Ensure the column doesn't exceed the screen width */
-        padding: 0;
-        margin-bottom: 20px;
+        padding: 0; /* Remove padding or adjust as needed */
+        margin-bottom: 20px; /* Add some space between stacked columns */
     }
 
     form {
-        padding: 20px;
-        width: auto;
-        max-width: none;
+        padding: 20px; /* Adjust padding for smaller screens */
+        width: auto; /* Let the form take the natural width */
+        max-width: none; /* Remove max-width constraint */
     }
 
     .textarea__box,
     .textile-textarea {
-        width: 100%;
+        width: 100%; /* Ensure text areas are full width */
     }
 
-    .edit-textile__title {
-        margin-left: 0;
+    .edit-event__title {
+        margin-left: 0; /* Align title properly on small screens */
     }
 
-    .create-textile__form-button {
+    .edit-event__form-button {
         margin: 0;
     }
 }

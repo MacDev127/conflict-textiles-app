@@ -167,7 +167,7 @@ class GalleryImagesController extends Controller
 
     public function update(Request $request, $id)
     {
-        Log::info('Update method called', ['requestData' => $request->all()]);
+        // Log::info('Update method called', ['requestData' => $request->all()]);
 
         // Retrieve the existing gallery image.
         $galleryImage = GalleryImage::findOrFail($id);

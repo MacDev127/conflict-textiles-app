@@ -56,11 +56,7 @@ const CreateTextile = () => {
         <>
             {/* <DashboardSidebar /> */}
             <section className="create-textile">
-                <div
-                // className={`create-textile__form-container ${
-                //     isVisible ? "open" : ""
-                // }`}
-                >
+                <div>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="create-textile__title">
                             Create textile
