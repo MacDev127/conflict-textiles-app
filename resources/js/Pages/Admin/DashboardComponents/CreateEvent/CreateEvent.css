@@ -1,15 +1,21 @@
 .form-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .create-event {
-    height: 100vh;
     background-color: #f5f3f4;
+    position: relative;
+    min-height: 100vh;
 }
 
+.create-event__form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .create-event__title {
     display: flex;
     align-items: center;
@@ -18,31 +24,23 @@
     font-size: 40px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.col-1,
-.col-2,
-.col-3 {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 33%;
-    box-sizing: border-box;
-    padding: 0 10px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
 }
 
 form input,
 form label {
-    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 form {
     margin-top: 50px;
     padding: 30px 20px;
-    /* background: #fff; */
-    /* border-radius: 8px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    width: auto;
+    min-width: 1400px;
+    box-sizing: border-box;
 }
 
 form label {
@@ -70,7 +68,6 @@ form input[type="text"] {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    /* border: 1px solid #888; */
 }
 input:focus {
     outline: 1px solid crimson;
@@ -80,7 +77,7 @@ input:focus {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 16px;
+    padding: 18px 16px;
     color: #313131;
     resize: none;
     transition: all 0.3s;
@@ -93,13 +90,10 @@ textarea:focus {
 
 .textarea__wrapper {
     display: flex;
-    flex-wrap: wrap; /* Allow text areas to wrap on smaller screens */
-    gap: 10px; /* Keep a gap between text areas */
+    gap: 10px;
 }
-
 .textarea__box {
-    flex: 1; /* This ensures the textarea boxes take up available space */
-    min-width: 0; /* Fixes flexbox overflow issue on some browsers */
+    flex: 1;
 }
 
 .create-event__form-button {
@@ -113,7 +107,6 @@ textarea:focus {
     transition: all 0.2s ease;
     background: #df0144;
     border-radius: 6px;
-    margin-left: 10px;
 }
 
 .create-event__form-button:hover {
@@ -121,72 +114,66 @@ textarea:focus {
     transition: ease 0.1s;
 }
 
-.create-event__form-container {
-    max-height: 0; /* Start with max-height at 0 */
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
-        visibility 0.5s linear;
-    background-color: #f5f3f4; /* Match the search bar background */
-    padding: 20px; /* Match the horizontal padding */
-    /* width: 700px;  */
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
-        visibility 0.5s linear;
-    visibility: hidden; /* Initially hidden */
-    opacity: 0; /* Start fully transparent */
-    box-sizing: border-box;
-}
-
-.create-event__form-container.open {
-    max-height: 1000px;
-    visibility: visible; /* Make visible when open */
-    opacity: 1; /* Fade in */
+.form__alert {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
 }
 
 /* Responsive adjustments */
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .create-event {
-        height: auto; /* Allow the height to grow as needed on smaller screens */
-        padding-bottom: 50px; /* Add padding to the bottom for scrolling */
-    }
-
+@media (max-width: 1024px) {
     .form-row {
-        display: block; /* Stack the .col elements vertically */
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .col-1,
-    .col-2,
-    .col-3 {
-        flex-basis: auto; /* Let the columns take the necessary space */
-        max-width: 100%; /* Ensure they don't overflow the screen width */
-        margin-right: 0;
-        margin-bottom: 20px;
-        padding: 0 15px; /* Adjust padding to match the design */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
     form {
-        margin-top: 0; /* Adjust top margin if needed */
-        padding: 15px; /* Reduce padding on smaller screens */
-        width: auto; /* Adjust width to be auto on smaller screens */
-        max-width: 100%; /* Ensure form does not exceed the screen width */
+        padding: 15px;
+        min-width: 400px !important;
+    }
+    form label {
+        font-size: 14px;
     }
 
-    .textarea__wrapper {
-        margin: 0; /* Reset margin for text area wrapper */
+    .create-event__title {
+        font-size: 24px;
     }
-
-    .textarea__box {
-        /* Make text areas full width */
-        flex: 0 0 100%;
-        width: 100%; /* Text areas should fill the available width */
-    }
-
-    .textarea {
-        width: 100%; /* Ensure textareas are full width */
-    }
-
     .create-event__form-button {
-        width: 100%; /* Full width for the submit button */
-        margin: 20px 0; /* Adjust margin for better spacing */
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #df0144;
+        border-radius: 6px;
+        width: 100%;
+    }
+    .textarea__box,
+    .textarea__wrapper {
+        flex-direction: column;
+    }
+    .event-textarea {
+        height: auto;
+        min-height: 100px;
+    }
+
+    .create-event__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form__alert {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }

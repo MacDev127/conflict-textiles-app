@@ -3,13 +3,9 @@
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import "./CreateEvent.css";
-import ModalComponent from "@/components/Modal/ModalComponent";
+import AlertComponent from "@/components/Alert/AlertComponent";
 
-import { Link } from "@inertiajs/react";
-
-// import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
-
-const CreateEvent = ({ isVisible }) => {
+const CreateEvent = () => {
     const { data, setData, post, reset } = useForm({
         image: null,
         title: "",
@@ -27,8 +23,13 @@ const CreateEvent = ({ isVisible }) => {
         textile_url: "",
     });
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
+
     const handleInputChange = (e) => {
         const key = e.target.name;
         const value =
@@ -42,27 +43,21 @@ const CreateEvent = ({ isVisible }) => {
             // Correct URL, no template literal or variable
             onSuccess: () => {
                 reset(); // Reset the fields, or you can specify which fields to reset
-                setSuccessMessage("Event Added");
-                setIsModalOpen(true);
+                setAlertMessage("Event Added Successfully!");
+                setSeverity("success");
             },
             onError: (errors) => {
-                // Handle validation errors
-                // Log errors or set state to display them
+                console.error(errors);
             },
         });
     };
 
     return (
         <>
-            {/* <DashboardSidebar /> */}
             <section className="create-event">
-                <div
-                    className={`create-event__form-container ${
-                        isVisible ? "open" : ""
-                    }`}
-                >
+                <div className="create-event__form-wrapper">
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
-                        <div className="create-event__title">Create Event</div>
+                        <h4 className="create-event__title">Create Event</h4>
                         <div className="form-row">
                             <div className="col-1">
                                 <label htmlFor="image">Image</label>
@@ -217,19 +212,16 @@ const CreateEvent = ({ isVisible }) => {
                         </button>
                     </form>
                 </div>
-                <ModalComponent
-                    open={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                >
-                    <div className="success__message">
-                        <h2>{successMessage}</h2>
-                        <h5 className="return__link">
-                            <Link href={route("admin.events-dashboard")}>
-                                Back to Events
-                            </Link>
-                        </h5>
-                    </div>
-                </ModalComponent>
+                <div className="form__alert">
+                    {alertMessage && (
+                        <AlertComponent
+                            severity={severity}
+                            closeHandler={handleAlertClose}
+                        >
+                            {alertMessage}
+                        </AlertComponent>
+                    )}
+                </div>
             </section>
         </>
     );

@@ -5,21 +5,13 @@ import ListEvents from "../../DashboardComponents/ListEvent/ListEvents";
 import "./EventsDashboard.css";
 
 const EventsDashboard = ({ events }) => {
-    const [isFormVisible, setIsFormVisible] = useState(false);
-
-    const toggleFormVisibility = () => {
-        setIsFormVisible(!isFormVisible);
-    };
     return (
         <>
             <DashboardSidebar />
             <section className="events-dashboard">
                 <div className="events-dashboard__container">
-                    <ListEvents
-                        onToggleForm={toggleFormVisibility}
-                        events={events}
-                    />
-                    <CreateEvent events={events} isVisible={isFormVisible} />
+                    <ListEvents events={events} />
+                    <CreateEvent events={events} />
                 </div>
             </section>
         </>

@@ -1,13 +1,15 @@
 .form-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .edit-textile {
-    min-height: 100vh;
     background-color: #f5f3f4;
+    position: relative;
+    padding-top: 100px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,27 +26,19 @@
     font-weight: 400;
 }
 
-.col-1,
-.col-2,
-.col-3 {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 33%;
-    box-sizing: border-box;
-    padding: 0 10px;
-}
-
 form input,
 form label {
-    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 form {
+    margin-top: 50px;
     padding: 30px 20px;
-    max-width: 1200px; /* This allows the form to shrink on smaller screens */
-    width: 100%; /* This makes the form responsive */
-    box-sizing: border-box; /* Ensures padding is included in the width */
-    margin: auto; /* Centers the form in the available space */
+    width: auto;
+    min-width: 1400px;
+    box-sizing: border-box;
 }
 
 form label {
@@ -82,7 +76,7 @@ input:focus {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 16px;
+    padding: 18px 16px;
     color: #313131;
     resize: none;
     transition: all 0.3s;
@@ -98,7 +92,7 @@ textarea:focus {
     flex-direction: column;
 }
 .textarea__box {
-    flex: 1; /* This ensures both text areas have equal width */
+    flex: 1;
 }
 
 .create-textile__form-button {
@@ -112,7 +106,6 @@ textarea:focus {
     transition: all 0.2s ease;
     background: #df0144;
     border-radius: 6px;
-    margin-left: 10px;
 }
 
 .create-textile__form-button:hover {
@@ -120,54 +113,66 @@ textarea:focus {
     transition: ease 0.1s;
 }
 
-.create-textile__form-container {
-    max-height: 0; /* Start with max-height at 0 */
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease,
-        visibility 0.5s linear;
-    background-color: #f5f3f4; /* Match the search bar background */
-    padding: 20px; /* Match the horizontal padding */
-    /* width: 700px;  */
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
-        visibility 0.5s linear;
-    visibility: hidden; /* Initially hidden */
-    opacity: 0; /* Start fully transparent */
-    box-sizing: border-box;
-}
-
-.create-textile__form-container.open {
-    max-height: 1000px;
-    visibility: visible;
-    opacity: 1;
+.form__alert {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .col-1,
-    .col-2,
-    .col-3 {
-        flex-basis: 100%;
-        max-width: 100%; /* Ensure the column doesn't exceed the screen width */
-        padding: 0;
-        margin-bottom: 20px;
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
     form {
-        padding: 20px;
-        width: auto;
-        max-width: none;
+        padding: 15px;
+        min-width: 400px !important;
+    }
+    form label {
+        font-size: 14px;
     }
 
-    .textarea__box,
-    .textile-textarea {
+    .create-textile__title {
+        font-size: 24px;
+    }
+    .create-textile__form-button {
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #df0144;
+        border-radius: 6px;
         width: 100%;
     }
-
-    .edit-textile__title {
-        margin-left: 0;
+    .textarea__box,
+    .textarea__wrapper {
+        flex-direction: column;
+    }
+    .textile-textarea {
+        height: auto;
+        min-height: 100px;
     }
 
-    .create-textile__form-button {
-        margin: 0;
+    .create-textile__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form__alert {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }

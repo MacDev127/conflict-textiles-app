@@ -93,7 +93,7 @@ class EventController extends Controller
         $event->save();
 
         // Redirect or return response
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.events-dashboard');
     }
 
     // Delete event from admin dashboard

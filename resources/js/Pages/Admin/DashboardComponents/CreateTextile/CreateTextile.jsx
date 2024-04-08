@@ -57,7 +57,7 @@ const CreateTextile = () => {
                 <div>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="create-textile__title">
-                            Create textile
+                            Create Textile
                         </div>
 
                         <div className="form-row">
@@ -146,22 +146,15 @@ const CreateTextile = () => {
                                     onChange={handleInputChange}
                                     placeholder="provenance"
                                 />
-                                <div className="textarea__box">
-                                    <label htmlFor="description">
-                                        Description
-                                    </label>
+                                <label htmlFor="owner">Owner</label>
 
-                                    <textarea
-                                        className="textile-textarea"
-                                        id="description"
-                                        name="description"
-                                        value={data.description}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter textile description"
-                                        rows="6"
-                                        cols="30"
-                                    ></textarea>
-                                </div>
+                                <input
+                                    type="text"
+                                    name="owner"
+                                    value={data.owner}
+                                    onChange={handleInputChange}
+                                    placeholder="Owner"
+                                />
                             </div>
                             <div className="col-3">
                                 <label htmlFor="country_of_origin">
@@ -194,15 +187,23 @@ const CreateTextile = () => {
                                     onChange={handleInputChange}
                                     placeholder="Maker"
                                 />
-                                <label htmlFor="owner">Owner</label>
 
-                                <input
-                                    type="text"
-                                    name="owner"
-                                    value={data.owner}
-                                    onChange={handleInputChange}
-                                    placeholder="Owner"
-                                />
+                                <div className="textarea__box">
+                                    <label htmlFor="description">
+                                        Description
+                                    </label>
+
+                                    <textarea
+                                        className="textile-textarea"
+                                        id="description"
+                                        name="description"
+                                        value={data.description}
+                                        onChange={handleInputChange}
+                                        placeholder="Enter textile description"
+                                        rows="8"
+                                        cols="30"
+                                    ></textarea>
+                                </div>
                             </div>
                         </div>
 

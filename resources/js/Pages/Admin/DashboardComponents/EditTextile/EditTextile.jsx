@@ -47,7 +47,8 @@ const EditTextile = ({ galleryImage }) => {
 
             <section className="edit-textile">
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
-                    <div className="create-textile__title">Edit textile</div>
+                    <div className="create-textile__title">Edit Textile</div>
+
                     <div className="form-row">
                         <div className="col-1">
                             <label htmlFor="image">Image</label>
@@ -63,7 +64,7 @@ const EditTextile = ({ galleryImage }) => {
                                 type="text"
                                 id="title"
                                 name="title"
-                                value={data.title || ""}
+                                value={data.title}
                                 onChange={handleInputChange}
                                 placeholder="Enter textile title"
                             />
@@ -72,7 +73,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="type"
-                                value={data.type || ""}
+                                value={data.type}
                                 onChange={handleInputChange}
                                 placeholder="Enter textile type"
                             />
@@ -81,7 +82,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="location"
-                                value={data.location || ""}
+                                value={data.location}
                                 onChange={handleInputChange}
                                 placeholder="Enter textile location"
                             />
@@ -90,7 +91,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="photographer"
-                                value={data.photographer || ""}
+                                value={data.photographer}
                                 onChange={handleInputChange}
                                 placeholder="Photographer"
                             />
@@ -100,7 +101,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="year_produced"
-                                value={data.year_produced || ""}
+                                value={data.year_produced}
                                 onChange={handleInputChange}
                                 placeholder="year produced"
                             />
@@ -108,7 +109,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="size"
-                                value={data.size || ""}
+                                value={data.size}
                                 onChange={handleInputChange}
                                 placeholder="Size"
                             />
@@ -116,7 +117,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="materials"
-                                value={data.materials || ""}
+                                value={data.materials}
                                 onChange={handleInputChange}
                                 placeholder="Materials"
                             />
@@ -125,24 +126,19 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="provenance"
-                                value={data.provenance || ""}
+                                value={data.provenance}
                                 onChange={handleInputChange}
                                 placeholder="provenance"
                             />
-                            <div className="textarea__box">
-                                <label htmlFor="description">Description</label>
+                            <label htmlFor="owner">Owner</label>
 
-                                <textarea
-                                    className="textile-textarea"
-                                    id="description"
-                                    name="description"
-                                    value={data.description || ""}
-                                    onChange={handleInputChange}
-                                    placeholder="Enter textile description"
-                                    rows="6"
-                                    cols="30"
-                                ></textarea>
-                            </div>
+                            <input
+                                type="text"
+                                name="owner"
+                                value={data.owner}
+                                onChange={handleInputChange}
+                                placeholder="Owner"
+                            />
                         </div>
                         <div className="col-3">
                             <label htmlFor="country_of_origin">
@@ -151,7 +147,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="country_of_origin"
-                                value={data.country_of_origin || ""}
+                                value={data.country_of_origin}
                                 onChange={handleInputChange}
                                 placeholder="Country of Origin"
                             />
@@ -160,7 +156,7 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="authenticity"
-                                value={data.authenticity || ""}
+                                value={data.authenticity}
                                 onChange={handleInputChange}
                                 placeholder="Authenticity"
                             />
@@ -169,19 +165,25 @@ const EditTextile = ({ galleryImage }) => {
                             <input
                                 type="text"
                                 name="maker"
-                                value={data.maker || ""}
+                                value={data.maker}
                                 onChange={handleInputChange}
                                 placeholder="Maker"
                             />
-                            <label htmlFor="owner">Owner</label>
 
-                            <input
-                                type="text"
-                                name="owner"
-                                value={data.owner || ""}
-                                onChange={handleInputChange}
-                                placeholder="Owner"
-                            />
+                            <div className="textarea__box">
+                                <label htmlFor="description">Description</label>
+
+                                <textarea
+                                    className="textile-textarea"
+                                    id="description"
+                                    name="description"
+                                    value={data.description}
+                                    onChange={handleInputChange}
+                                    placeholder="Enter textile description"
+                                    rows="8"
+                                    cols="30"
+                                ></textarea>
+                            </div>
                         </div>
                     </div>
 
@@ -189,7 +191,7 @@ const EditTextile = ({ galleryImage }) => {
                         className="create-textile__form-button"
                         type="submit"
                     >
-                        Update textile
+                        Add textile
                     </button>
                 </form>
                 <div className="form__alert">
