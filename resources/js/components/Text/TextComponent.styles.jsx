@@ -10,4 +10,14 @@ export const TextStyle = styled.div`
     font-size: 20px;
     font-weight: 400;
     font-family: "Mulish", sans-serif;
+
+    // Adding media queries
+    @media (max-width: 414px) {
+        font-size: 18px; // Smaller font size for smaller screens
+        width: 80%;
+    }
+    @media (max-width: 768px) {
+        font-size: 18px; // Smaller font size for smaller screens
+        width: 80%;
+    }
 `;

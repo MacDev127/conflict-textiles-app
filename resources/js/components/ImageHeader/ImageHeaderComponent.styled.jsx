@@ -47,4 +47,17 @@ export const ImageHeaderStyle = styled.div`
     .animate__animated.animate__fadeIn {
         --animate-duration: 4.5s;
     }
+
+    @media (max-width: 768px) {
+        .imageHeader__text {
+            font-size: 24px;
+            width: 80%;
+        }
+    }
+    @media (max-width: 414px) {
+        .imageHeader__text {
+            font-size: 20px;
+            width: 80%;
+        }
+    }
 `;

@@ -166,3 +166,130 @@ button[type="submit"]:hover {
     transform: rotate(180deg);
     transition: ease-in-out 0.2s;
 }
+
+/* This will apply to all screens smaller than 768px */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 100%; /* Take full width of the screen */
+        padding: 50px 20px 0 20px; /* Reduce padding */
+    }
+    .search-form .search-input::placeholder {
+        /* Style for placeholder text in smaller screens */
+        color: #999;
+        font-size: 16px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 16px 70px;
+        width: 100%; /* Adjust as needed */
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .advanced__search-container.open {
+        max-height: 700px;
+        visibility: visible; /* Make visible when open */
+        opacity: 1; /* Fade in */
+    }
+    .advanced__search-form__group1,
+    .advanced__search-form__group2 {
+        flex-direction: column; /* Stack the flex items vertically */
+    }
+
+    .advanced__search-form__date-container,
+    .advanced__input,
+    .advanced__input-date {
+        width: 100%; /* Allow inputs to take full width */
+    }
+
+    .advanced__search-form__date-container {
+        flex-basis: auto; /* Reset the flex basis */
+    }
+
+    .advanced__btn-wrapper {
+        width: 100%; /* Full width */
+        margin-top: 10px; /* Space between search input and advanced button */
+    }
+
+    .search-bar__title p {
+        font-size: 30px; /* Smaller font size for title */
+    }
+
+    /* Handle the search icon size responsively */
+    .search-button {
+        display: flex;
+    }
+
+    .search-button GoSearch {
+        font-size: 14px; /* Adjust icon size */
+    }
+
+    /* Ensure the advanced search form takes the full available width */
+    .advanced__search-form {
+        width: 100%;
+    }
+}
+@media (max-width: 414px) {
+    .search-bar {
+        width: 100%; /* Take full width of the screen */
+        padding: 50px 0px 0 0px; /* Reduce padding */
+    }
+    .search-form .search-input::placeholder {
+        /* Style for placeholder text in smaller screens */
+        color: #999;
+        font-size: 16px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 14px 10px;
+        width: 100%; /* Adjust as needed */
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .advanced__search-container.open {
+        max-height: 700px;
+        visibility: visible; /* Make visible when open */
+        opacity: 1; /* Fade in */
+    }
+    .advanced__search-form__group1,
+    .advanced__search-form__group2 {
+        flex-direction: column; /* Stack the flex items vertically */
+    }
+
+    .advanced__search-form__date-container,
+    .advanced__input,
+    .advanced__input-date {
+        width: 100%; /* Allow inputs to take full width */
+    }
+
+    .advanced__search-form__date-container {
+        flex-basis: auto; /* Reset the flex basis */
+    }
+
+    .advanced__btn-wrapper {
+        width: 100%; /* Full width */
+        margin-top: 10px; /* Space between search input and advanced button */
+    }
+
+    .search-bar__title p {
+        font-size: 30px; /* Smaller font size for title */
+    }
+
+    /* Handle the search icon size responsively */
+    .search-button {
+        display: flex;
+        height: 50px;
+    }
+
+    .search-button GoSearch {
+        font-size: 14px; /* Adjust icon size */
+    }
+
+    /* Ensure the advanced search form takes the full available width */
+    .advanced__search-form {
+        width: 100%;
+    }
+}

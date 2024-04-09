@@ -13,4 +13,10 @@ export const MasonryStyle = styled(Masonry)`
         padding: 18px;
         background-clip: padding-box;
     }
+    @media (max-width: 414px) {
+        width: 90%;
+    }
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `;
