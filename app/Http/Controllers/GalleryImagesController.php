@@ -77,6 +77,14 @@ class GalleryImagesController extends Controller
         });
         return Inertia::render('WallHanging/WallHanging', ['galleryImages' => $wallHangingImages]);
     }
+    public function installation()
+    {
+        $installationImages = GalleryImage::where('type', 'installation')->get()->map(function ($image) {
+            $image->img = asset('storage/' . $image->image);
+            return $image;
+        });
+        return Inertia::render('Installation/Installation', ['galleryImages' => $installationImages]);
+    }
 
 
     //-------------------Search functionality----------------///

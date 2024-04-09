@@ -2,7 +2,13 @@ import React from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
-const AlertComponent = ({ children, onToggle, closeHandler, severity }) => {
+const AlertComponent = ({
+    children,
+    onToggle,
+    closeHandler,
+    severity,
+    className,
+}) => {
     return (
         <Stack
             sx={{
@@ -14,6 +20,7 @@ const AlertComponent = ({ children, onToggle, closeHandler, severity }) => {
             spacing={2}
         >
             <Alert
+                className={className}
                 sx={{
                     display: "flex",
                     backgroundColor: "#b4deb4",

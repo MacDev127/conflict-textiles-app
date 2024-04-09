@@ -47,7 +47,7 @@ const SearchComponent = ({ countries }) => {
 
     //--------------------------------------Advanaced Search-----------------------------------//
 
-    console.log(countries);
+    // console.log(countries);
     return (
         <div className="search-container">
             <div className="search-bar__title">

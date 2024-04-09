@@ -8,8 +8,6 @@ use App\Models\Event;
 
 
 class DatabaseSeeder extends Seeder
-
-
 {
     /**
      * Seed the application's database.
@@ -29,7 +27,6 @@ class DatabaseSeeder extends Seeder
         // Event::factory(3)->create();
 
 
-        \App\Models\TextileDetail::factory(5)->create(); 
 
         // \App\Models\User::factory(10)->create();
 

@@ -160,6 +160,9 @@ Route::get('/embroidered-cloth', [GalleryImagesController::class, 'embroideredCl
 // Fetch specific images for the Wall Hanging collection page
 Route::get('/wall-hanging', [GalleryImagesController::class, 'wallHanging'])->name('wall-hanging');
 
+// Fetch specific images for the Wall Hanging collection page
+Route::get('/installation', [GalleryImagesController::class, 'installation'])->name('installation');
+
 // --------------------------------------Page Routes End-----------------------------------------------------------------//
 
 
