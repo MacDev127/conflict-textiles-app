@@ -2,27 +2,35 @@
     font-family: "Mulish", sans-serif;
 }
 
-.td__container {
-    width: 80%;
-    margin: auto;
+.textile__details {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+.td__container {
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center; /* Align items to the start */
     flex-direction: column;
     gap: 70px;
+    width: 100%; /* Use the full width */
 }
 
-.td__image {
-    margin: 4rem 0 1rem 0;
-    cursor: grab;
-}
-
-.td__image-container img {
-    height: 615px;
+.modalImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+}
+.modalImage img {
+    height: auto;
+    width: 100%; /* Make the image responsive */
     overflow: hidden;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    margin-top: 50px;
 }
 
 .td__item-card {
@@ -35,8 +43,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 50%;
     font-family: "Mulish", sans-serif;
+}
+
+.td__item-title-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
 }
 .td__item-title {
     margin-bottom: 20px;
@@ -59,6 +75,8 @@
     padding-top: 25px;
     color: #777777;
     margin-bottom: 2rem;
+    width: 80%;
+    text-align: justify;
 }
 
 .td__item-info {
@@ -85,12 +103,40 @@
 }
 
 .td__item-info-value {
-    width: 67%;
+    max-width: 100px;
+    margin: 0 20px;
     color: #777777;
 }
 
 .td__item-card {
     margin: 5rem 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    /* Responsive adjustments as needed for smaller screens */
+    .td__container {
+        width: 100%;
+    }
+
+    .td__item {
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .td__item-title {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .td__item-card {
+        display: flex;
+        justify-content: center;
+    }
+
+    .modalImage img {
+        margin: 2rem; /* Smaller margin on top and bottom for mobile */
+    }
 }
