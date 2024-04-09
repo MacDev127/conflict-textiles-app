@@ -103,7 +103,11 @@ class GalleryImagesController extends Controller
                 return $query->where('year_produced', '>=', $startYear)
                     ->where('year_produced', '<=', $endYear);
             })
-            ->get();
+            ->get()
+            ->map(function ($image) {
+                $image->img = asset('storage/' . $image->image);
+                return $image;
+            });
 
 
         return Inertia::render('Search/Search', [
