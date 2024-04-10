@@ -1,7 +1,6 @@
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 
-import ReactPlayer from "react-player";
 import styled from "styled-components";
 
 export const PlayIcon = styled(FaRegCirclePlay)`
@@ -10,12 +9,11 @@ export const PlayIcon = styled(FaRegCirclePlay)`
         color: #e30143;
     }
     margin-right: 20px;
-`;
 
-export const VideoPlayer = styled(ReactPlayer)`
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    @media (max-width: 768px) {
+        font-size: 22px; // Smaller font size for smaller screens
+        margin-right: 0;
+    }
 `;
 
 export const ArrowIcon = styled(FaArrowRight)`

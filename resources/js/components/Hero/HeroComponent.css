@@ -31,10 +31,9 @@
 
 .hero__content {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,11 +93,35 @@ video {
 
 @media (max-width: 768px) {
     .content {
-        top: 6rem;
+        width: 100%;
+    }
+    .hero__text {
+        font-size: 22px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero__title_top,
+    .hero__title_bottom {
+        font-size: 80px;
+    }
+    .hero__btn-container {
+        flex-direction: column;
+    }
+}
+@media (max-width: 414px) {
+    .hero__title_top,
+    .hero__title_bottom {
+        font-size: 60px;
     }
 
     .hero__text {
         font-size: 16px;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .hero__title {

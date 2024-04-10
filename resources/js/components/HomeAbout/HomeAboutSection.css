@@ -14,9 +14,9 @@
     position: relative;
     z-index: 1;
     margin: none;
-    height: 100vh;
+    min-height: 100vh;
 }
-.bg-test img {
+.home__about-bg img {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,4 +31,19 @@
 /* //--Modal end----// */
 
 @media (max-width: 768px) {
+    .home__about-bg img {
+        height: 40vh;
+    }
+
+    @media (max-width: 414px) {
+        .home__about-bg img {
+            height: 30vh;
+        }
+        .home__about-modal-player {
+            margin: 0 60px;
+        }
+        .video-test {
+            margin-top: 500px;
+        }
+    }
 }

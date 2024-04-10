@@ -37,16 +37,8 @@ const Hero = ({ translations }) => {
 
                             <p className="hero__text">
                                 {translations.hero__text}
-                                {/* Explore the rich tapestry of stories woven into
-                                our collection */}
                             </p>
                             <div className="hero__btn-container">
-                                {/* <Link to="/about">
-                                    <ButtonComponent className="hero__button">
-                                        Find out More
-                                    </ButtonComponent>
-                                </Link> */}
-
                                 <Link href={route("collection")}>
                                     <ButtonComponent className="hero__button">
                                         Explore Collection

@@ -77,3 +77,21 @@
     color: #eae0e0fa;
     transition: ease-in-out 0.2s;
 }
+
+@media (max-width: 414px) {
+}
+@media (max-width: 768px) {
+    .home__collection-masonry {
+        display: flex;
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 50px;
+        height: 100%;
+    }
+    .home__collection-item-desc h3 {
+        font-size: 16px;
+    }
+    .home__collection-item-desc h2 {
+        font-size: 40px;
+    }
+}

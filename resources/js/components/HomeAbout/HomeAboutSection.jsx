@@ -11,8 +11,12 @@ import ButtonComponent from "../Button/ButtonComponent";
 //Components end
 
 //styles
-import { PlayIcon, VideoPlayer } from "../styles/Icons.styled";
-import { ModalWrapper, IconWrapper } from "./HomeAboutSection.styled";
+import { PlayIcon } from "../styles/Icons.styled";
+import {
+    ModalWrapper,
+    IconWrapper,
+    VideoPlayer,
+} from "./HomeAboutSection.styled";
 import "./HomeAboutSection.css";
 //styles end
 
@@ -20,7 +24,7 @@ const About = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <section className="home__about">
-            <div className="bg-test">
+            <div className="home__about-bg">
                 <img src="/images/misc/hpbg2.png" alt="" />
             </div>
             <ContainerComponent>
@@ -52,12 +56,10 @@ const About = () => {
                         open={isOpen}
                         onClose={() => setIsOpen(!isOpen)}
                     >
-                        <div className="about__modal--player">
-                            <VideoPlayer
-                                url="https://www.youtube.com/watch?v=HYpWaI-3SZY"
-                                autoPlay={true}
-                            />
-                        </div>
+                        <VideoPlayer
+                            url="https://www.youtube.com/watch?v=HYpWaI-3SZY"
+                            autoPlay={true}
+                        />
                     </ModalComponent>
                 </ModalWrapper>
 
