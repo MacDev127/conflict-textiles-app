@@ -8,7 +8,23 @@ const TabsComponent = ({ event }) => {
         setValue(newValue);
     };
     return (
-        <Box>
+        <Box
+            sx={{
+                width: "100%", // Box takes the full width of its parent
+                overflowX: "auto", // Horizontal scroll appears when necessary
+                scrollbarWidth: "thin", // Thin scrollbar for non-webkit browsers
+                "&::-webkit-scrollbar": {
+                    height: "8px", // Height of the scrollbar for webkit browsers
+                },
+                "&::-webkit-scrollbar-track": {
+                    boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)", // Optional: style the track
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "darkgrey", // Optional: style the thumb
+                    outline: "1px solid slategrey", // Optional: style the thumb outline
+                },
+            }}
+        >
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList aria-label="tabs example" onChange={handleChange}>

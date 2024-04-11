@@ -79,13 +79,26 @@
 }
 
 @media (max-width: 414px) {
+    .home__collection-masonry {
+        width: 80%;
+        padding: 10px 0;
+        margin-bottom: 50px;
+        margin-right: 26px;
+        height: 100%;
+    }
+    .home__collection-item-desc h3 {
+        font-size: 16px;
+    }
+    .home__collection-item-desc h2 {
+        font-size: 40px;
+    }
 }
 @media (max-width: 768px) {
     .home__collection-masonry {
         display: flex;
         width: 80%;
-        padding: 10px;
         margin-bottom: 50px;
+        margin-right: 18px;
         height: 100%;
     }
     .home__collection-item-desc h3 {

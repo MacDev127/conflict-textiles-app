@@ -8,18 +8,22 @@ export const EmailStyle = styled.div`
     text-align: center;
     margin: 10px 0 50px 0;
     color: #333;
+
     form {
         display: flex;
-
+        gap: 10px;
+        @media (max-width: 414px) {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
         input[type="text"],
         input[type="email"] {
             height: 50px;
-            margin: 0 10px;
             padding: 0 10px;
             border: 1px solid #ccc;
             font-size: 16px;
             outline: none;
-            width: 340px;
+            width: 300px;
             font-family: "Mullish", sans-serif;
             font-weight: 300;
         }
@@ -33,7 +37,7 @@ export const EmailStyle = styled.div`
             cursor: pointer;
             transition: background-color 0.3s ease;
             text-transform: uppercase;
-            margin: 0 10px;
+            margin: 0px;
             font-family: "Mullish", sans-serif;
             font-weight: 300;
             letter-spacing: 1px;

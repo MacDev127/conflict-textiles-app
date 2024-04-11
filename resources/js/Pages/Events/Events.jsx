@@ -13,7 +13,7 @@ import Footer from "@/components/Footer/Footer";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 
-const Events = ({ events, imageUrl }) => {
+const Events = ({ events }) => {
     return (
         <section className="Events">
             <Navbar />

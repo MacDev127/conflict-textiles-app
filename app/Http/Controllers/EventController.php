@@ -118,7 +118,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/', // Allowing nullable and validating format HH:MM or HH:MM:SS
             'location' => 'nullable|string',
             'type' => 'nullable|string',

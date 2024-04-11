@@ -10,7 +10,7 @@ export const ImageHeaderStyle = styled.div`
     align-self: center;
 
     img {
-        width: 120%;
+        width: 100%;
         height: 100%;
         object-fit: cover;
         animation: scale 10s linear;

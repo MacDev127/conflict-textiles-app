@@ -1,5 +1,3 @@
-.tab__details-container {
-}
 .tab__details-container h1 {
     font-size: 30px;
     font-family: "Playfair Display", serif;
@@ -45,8 +43,8 @@
 .tab__details-container ul li span {
     margin-bottom: 10px; /* Add some spacing between the 'Documents' and the 'Textiles Displayed' items */
 }
-
-.map-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%;
+@media (max-width: 414px) {
+    .tab__details-container ul li {
+        align-items: center;
+    }
 }

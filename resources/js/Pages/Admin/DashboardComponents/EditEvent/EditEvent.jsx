@@ -30,7 +30,7 @@ const EditEvent = ({ event }) => {
         router.put(route("event.update", event.id), data, {
             preserveState: true,
             onSuccess: () => {
-                reset(); // Reset the fields, or you can specify which fields to reset
+                // reset();
                 setAlertMessage("Event Added Successfully!");
                 setSeverity("success");
             },

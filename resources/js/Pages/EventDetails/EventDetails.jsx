@@ -33,31 +33,15 @@ const EventDetails = ({ event }) => {
             <section className="event__details">
                 <div className="event__details-event__title">{event.title}</div>
                 <div className="event__details-wrapper">
-                    <div className="event__details-col-left">
+                    <div className="event__details-box-1">
                         <div className="event__details-image">
                             <img src={event.image} alt={event.title} />
                         </div>
 
-                        <div className="event__details-event__description">
-                            {event.description ? (
-                                <p>
-                                    {event.description
-                                        .split("\n")
-                                        .map((line, index) => (
-                                            <React.Fragment key={index}>
-                                                {line}
-                                                <br />
-                                            </React.Fragment>
-                                        ))}
-                                </p>
-                            ) : (
-                                <p>No description available.</p>
-                            )}
-                        </div>
-                    </div>
-                    <div className="event__details-col-right">
                         <div className="event__details-event__info">
-                            <h2>{event.type}</h2>
+                            <h2 className="event__details-event__type">
+                                {event.type}
+                            </h2>
                             <IconContext.Provider
                                 value={{ color: "#dc143c", size: "20px" }}
                             >
@@ -95,9 +79,21 @@ const EventDetails = ({ event }) => {
                                         </div>
                                         <div className="event__details-event__info-content">
                                             <h4>Enquiries</h4>
-                                            <p>info@conflicttextiles.com</p>
+                                            <p>info@ct.com</p>
                                         </div>
                                     </li>
+
+                                    <div className="event__details-btn-wrapper">
+                                        <ButtonComponent className="event__details-reg-btn">
+                                            <Link
+                                                href={`/event/${event.id}/registerPage`}
+                                            >
+                                                Register
+                                            </Link>
+                                        </ButtonComponent>
+                                    </div>
+                                </ul>
+                                <div className="event__details-extra-btn">
                                     <ButtonComponent className="event__details-reg-btn">
                                         <Link
                                             href={`/event/${event.id}/registerPage`}
@@ -105,12 +101,23 @@ const EventDetails = ({ event }) => {
                                             Register
                                         </Link>
                                     </ButtonComponent>
-                                </ul>
+                                </div>
                             </IconContext.Provider>
                         </div>
                     </div>
+                </div>
 
-                    <TabsComponent event={event} />
+                <div className="event__details-box-2">
+                    <div className="event__details-event__description">
+                        {event.description ? (
+                            <p>{event.description}</p>
+                        ) : (
+                            <p>No description available.</p>
+                        )}
+                    </div>
+                    <div className="event__details-tabs">
+                        <TabsComponent event={event} />
+                    </div>
                 </div>
             </section>
             <Footer />

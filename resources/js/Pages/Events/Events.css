@@ -23,21 +23,15 @@
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* @media (max-width: 992px) {
-    .cards_wrapper {
+@media (max-width: 768px) {
+    .event__cards-wrapper {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        width: 60%;
     }
 }
-@media (max-width: 768px) {
-    .cards_wrapper {
+@media (max-width: 414px) {
+    .event__cards-wrapper {
+        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        width: 60%;
-        padding: 30px;
     }
 }
-@media (max-width: 768px) {
-    .cards_wrapper {
-        flex-direction: column;
-    }
-} */
