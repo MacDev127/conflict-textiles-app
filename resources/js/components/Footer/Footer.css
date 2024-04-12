@@ -112,32 +112,83 @@ footer img {
 
 /* Adjustments for devices with a maximum width of 992px */
 @media (max-width: 992px) {
+    .footer__container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer__links li a {
+        font-size: 16px;
+    }
     .footer__widget,
     .footer__links {
+        width: 80%;
+        margin: 0px 10px;
+        text-align: left;
+    }
+
+    .footer__links ul {
+        padding: 0;
+    }
+
+    .footer__links li {
+        margin: 5px 15px; /* Adjust the margin as necessary */
+    }
+    .footer__copy {
+        padding-top: 10px;
         width: 100%;
-        margin-bottom: 30px; /* Adds space between stacked elements */
+    }
+    .footer__widget-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 18px;
+        background-color: var(--footbg);
     }
 }
 
 /* Adjustments for devices with a maximum width of 768px */
 @media (max-width: 768px) {
+    .footer__container {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer__links li a {
+        font-size: 16px;
+    }
     .footer__widget,
     .footer__links {
         width: 80%;
         margin: 0px 10px;
+        text-align: left;
     }
 
     .footer__links ul {
-        padding: 0; /* Remove padding if any */
+        padding: 0;
     }
 
     .footer__links li {
-        margin: 5px 20px; /* Adjust the margin as necessary */
+        margin: 5px 10px; /* Adjust the margin as necessary */
+    }
+    .footer__copy {
+        padding-top: 10px;
+        width: 100%;
+    }
+    .footer__widget-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 18px;
+        background-color: var(--footbg);
     }
 }
 
 /* Additional media query for smaller devices, such as phones */
 @media (max-width: 576px) {
+    .footer__container {
+        flex-wrap: wrap;
+    }
     .footer__widget,
     .footer__links {
         width: 80%;

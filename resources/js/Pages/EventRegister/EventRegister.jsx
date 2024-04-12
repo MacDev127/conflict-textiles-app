@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
-
-import ModalComponent from "@/components/Modal/ModalComponent";
-
-import "./EventRegister.css";
 import { Link } from "@inertiajs/react";
+import "./EventRegister.css";
+
+//Components
+import AlertComponent from "@/components/Alert/AlertComponent";
+import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
 
 const EventRegister = ({ eventId }) => {
     const { data, setData, post, errors, reset } = useForm({
@@ -15,20 +16,27 @@ const EventRegister = ({ eventId }) => {
         gender: "male",
     });
 
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         post(`/event/${eventId}/eventRegister`, {
             onSuccess: () => {
                 reset();
-                setSuccessMessage("Registration Successful See you soon!!");
-                setIsModalOpen(true);
+                setAlertMessage("Event Registration Sucessful!");
+                setSeverity("success");
+            },
+            onError: (errors) => {
+                console.error(errors);
             },
         });
     };
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
 
     return (
         <section className="event-register">
@@ -37,11 +45,11 @@ const EventRegister = ({ eventId }) => {
                     <img src="/images/misc/logo2.png" alt="Logo" />
                 </div>
             </Link>
-            <div className="container">
+            <div className="event-register__container">
                 <h2>Event Registration</h2>
                 <form onSubmit={handleSubmit} className="form">
                     {/* Bind each input to the useForm state */}
-                    <div className="input-box">
+                    <div className="event-register__input-box">
                         <label>Full Name</label>
                         <input
                             type="text"
@@ -56,7 +64,7 @@ const EventRegister = ({ eventId }) => {
                         )}
                     </div>
 
-                    <div className="input-box">
+                    <div className="event-register__input-box">
                         <label>Email Address</label>
                         <input
                             type="email" // Ensure type is email for proper validation
@@ -71,7 +79,7 @@ const EventRegister = ({ eventId }) => {
                         )}
                     </div>
 
-                    <div className="input-box">
+                    <div className="event-register__input-box">
                         <label>Phone Number</label>
                         <input
                             type="text" // Changed type to text to allow for international numbers
@@ -83,7 +91,7 @@ const EventRegister = ({ eventId }) => {
                         />
                     </div>
 
-                    <div className="input-box">
+                    {/* <div className="event-register__input-box">
                         <label>Birth Date</label>
                         <input
                             type="date"
@@ -94,14 +102,14 @@ const EventRegister = ({ eventId }) => {
                             }
                             required
                         />
-                    </div>
+                    </div> */}
 
                     {/* Gender Radio Buttons */}
-                    <div className="gender-box">
+                    <div className="event-register__gender-box">
                         <h3>Gender</h3>
-                        <div className="gender-option">
+                        <div className="event-register__gender-option">
                             {/* Inline onChange handler for radio buttons */}
-                            <div className="gender">
+                            <div className="event-register__gender">
                                 <input
                                     type="radio"
                                     id="check-male"
@@ -114,7 +122,7 @@ const EventRegister = ({ eventId }) => {
                                 />
                                 <label htmlFor="check-male">Male</label>
                             </div>
-                            <div className="gender">
+                            <div className="event-register__gender">
                                 <input
                                     type="radio"
                                     id="check-female"
@@ -127,7 +135,7 @@ const EventRegister = ({ eventId }) => {
                                 />
                                 <label htmlFor="check-female">Female</label>
                             </div>
-                            <div className="gender">
+                            <div className="event-register__gender">
                                 <input
                                     type="radio"
                                     id="check-other"
@@ -149,17 +157,19 @@ const EventRegister = ({ eventId }) => {
                     </div>
                 </form>
             </div>
-            <ModalComponent
-                open={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-            >
-                <div className="success__message">
-                    <h2>{successMessage}</h2>
-                    <h5 className="return__link">
-                        <Link href={route("events")}>Back to Events</Link>
-                    </h5>
-                </div>
-            </ModalComponent>
+            <div className="form__alert">
+                {alertMessage && (
+                    <AlertComponent
+                        severity={severity}
+                        closeHandler={handleAlertClose}
+                    >
+                        {alertMessage}
+                    </AlertComponent>
+                )}
+            </div>
+            <ReturnLinkComponent to="/events">
+                Back to Events
+            </ReturnLinkComponent>
         </section>
     );
 };

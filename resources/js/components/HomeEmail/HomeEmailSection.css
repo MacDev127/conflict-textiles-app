@@ -16,7 +16,7 @@
     margin: 20px 0 40px 0 !important;
 }
 
-@media (min-width: 414px) {
+@media (max-width: 414px) {
     .email__title {
         font-size: 2rem !important;
     }

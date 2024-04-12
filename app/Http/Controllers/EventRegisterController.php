@@ -15,11 +15,11 @@ class EventRegisterController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:events_register,email', 
-            'number' => 'required|string', 
-            'gender' => 'string', 
-            'birthDate' => 'string',
-   
+            'email' => 'required|email|unique:events_register,email',
+            'number' => 'required|string',
+            'gender' => 'string',
+            // 'birthDate' => 'string',
+
         ]);
 
         EventRegister::create($validatedData);
@@ -29,14 +29,14 @@ class EventRegisterController extends Controller
     }
 
     public function showRegistrationForm($eventId)
-{
-    // Optionally, retrieve the event details to pass to the view
-    // $event = Event::findOrFail($eventId);
+    {
+        // Optionally, retrieve the event details to pass to the view
+        // $event = Event::findOrFail($eventId);
 
-    return Inertia::render('EventRegister/EventRegister', [
-        'eventId' => $eventId, // Pass additional props as needed
-        // 'event' => $event, // If you need to pass the event data
-    ]);
+        return Inertia::render('EventRegister/EventRegister', [
+            'eventId' => $eventId, // Pass additional props as needed
+            // 'event' => $event, // If you need to pass the event data
+        ]);
 
-}
+    }
 }

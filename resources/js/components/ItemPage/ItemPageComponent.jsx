@@ -70,7 +70,9 @@ const ItemPageComponent = ({
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
-                <ReturnLinkComponent />
+                <ReturnLinkComponent to="/collection">
+                    Back to Collection
+                </ReturnLinkComponent>
             </ContainerComponent>
             <Footer />
         </section>

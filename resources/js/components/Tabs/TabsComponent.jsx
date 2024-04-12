@@ -23,14 +23,17 @@ const TabsComponent = ({ event }) => {
                     backgroundColor: "darkgrey", // Optional: style the thumb
                     outline: "1px solid slategrey", // Optional: style the thumb outline
                 },
+                "@media (max-width: 414px)": {
+                    width: "100%", // Box takes the full width of its parent0%", // Box takes the full width of its parent
+                },
             }}
         >
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList aria-label="tabs example" onChange={handleChange}>
                         <Tab label="Event Details" value="1" />
-                        <Tab label="Textiles Displayed" value="2" />
-                        <Tab label="Event Documents" value="3" />
+                        <Tab label="Event Items" value="2" />
+                        {/* <Tab label="Event Documents" value="3" /> */}
                     </TabList>
                 </Box>
 
@@ -52,8 +55,11 @@ const TabsComponent = ({ event }) => {
                                 Venue: <p>{event.venue}</p>
                             </li>
                             <li>
-                                <span>
-                                    Outcome: <p>{event.outcome}</p>
+                                <span className="event__outcome">
+                                    <span className="event__outcome-title">
+                                        <p>Outcome:</p>
+                                    </span>
+                                    <p>{event.outcome}</p>
                                 </span>
                             </li>
                         </ul>
@@ -64,7 +70,9 @@ const TabsComponent = ({ event }) => {
                         <ul>
                             <li>
                                 <span>
-                                    Textiles Displayed:
+                                    <p className="tab__details-container-title">
+                                        Textiles Displayed:
+                                    </p>
                                     <a
                                         href={event.textile_url}
                                         target="_blank"
@@ -89,14 +97,12 @@ const TabsComponent = ({ event }) => {
                                 </span>
                             </li>
                         </ul>
-                    </div>
-                </TabPanel>
-                <TabPanel value="3">
-                    <div className="tab__details-container">
                         <ul>
                             <li>
                                 <span>
-                                    Event Documents:
+                                    <p className="tab__details-container-title">
+                                        Event Documents:
+                                    </p>
                                     <a
                                         href={event.document_url}
                                         target="_blank"
@@ -123,6 +129,9 @@ const TabsComponent = ({ event }) => {
                         </ul>
                     </div>
                 </TabPanel>
+                {/* <TabPanel value="3">
+                    <div className="tab__details-container"></div>
+                </TabPanel> */}
             </TabContext>
         </Box>
     );

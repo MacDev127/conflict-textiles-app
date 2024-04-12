@@ -40,6 +40,9 @@
     font-family: "Playfair Display", serif;
     font-weight: 400;
     color: #313131;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    width: 100%;
 }
 
 .event__details-event__description p {
@@ -130,7 +133,7 @@
 @media (max-width: 768px) {
     .event__details-event__title {
         text-align: center;
-        text-transform: capitalize;
+        border: none;
     }
     .event__details-box-1 {
         width: 100%; /* Set to full width on smaller screens */
@@ -208,8 +211,10 @@
 @media (max-width: 414px) {
     .event__details-event__title {
         text-align: center;
-        text-transform: capitalize;
+        justify-content: center;
+        align-items: center;
         font-size: 40px;
+        border: none;
     }
     .event__details-box-1 {
         width: 100%; /* Set to full width on smaller screens */
@@ -278,9 +283,10 @@
     }
 
     .event__details-tabs {
-        width: 70%;
+        width: 80%;
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 }

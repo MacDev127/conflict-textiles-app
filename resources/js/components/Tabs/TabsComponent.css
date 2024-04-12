@@ -6,6 +6,7 @@
 .tab__details-container ul {
     display: flex;
     justify-content: center;
+    align-items: space-between;
     flex-direction: column;
     line-height: 60px;
 }
@@ -14,8 +15,8 @@
     list-style: none;
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: #313131;
     padding: 10px 0;
     border-bottom: 1px solid #e4e4e4;
@@ -37,14 +38,31 @@
 .tab__details-container ul li a {
     font-weight: 400;
     display: block;
-    line-height: 40px; /* Makes sure the <p>, <span>, and <a> tags behave as block elements */
 }
 
 .tab__details-container ul li span {
-    margin-bottom: 10px; /* Add some spacing between the 'Documents' and the 'Textiles Displayed' items */
+    margin-bottom: 10px;
+}
+
+.tab__details-container-title p {
+    font-weight: 600;
+}
+
+.event__outcome {
+    line-height: 40px;
+}
+
+.event__outcome-title p {
+    font-family: "Mullish", sans-serif;
+    text-align: left;
+    font-weight: 600px;
 }
 @media (max-width: 414px) {
     .tab__details-container ul li {
-        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .tab__details-container ul li p {
+        font-size: 16px;
     }
 }
