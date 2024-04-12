@@ -8,6 +8,7 @@ const AlertComponent = ({
     closeHandler,
     severity,
     className,
+    variant,
 }) => {
     return (
         <Stack
@@ -23,8 +24,9 @@ const AlertComponent = ({
                 className={className}
                 sx={{
                     display: "flex",
-                    backgroundColor: "#b4deb4",
+                    // backgroundColor: "#b4deb4",
                 }}
+                variant={variant}
                 severity={severity}
                 onClose={closeHandler}
             >

@@ -12,7 +12,6 @@ const EventRegister = ({ eventId }) => {
         name: "",
         email: "",
         number: "",
-        birthDate: "",
         gender: "male",
     });
 
@@ -32,7 +31,15 @@ const EventRegister = ({ eventId }) => {
                 setAlertMessage("Event Registration Sucessful!");
                 setSeverity("success");
             },
-            onError: (errors) => {
+
+            onError: () => {
+                if (errors.email) {
+                    setAlertMessage(errors.email);
+                    setSeverity("error");
+                } else if (errors.number) {
+                    setAlertMessage(errors.number);
+                    setSeverity("error");
+                }
                 console.error(errors);
             },
         });
@@ -59,30 +66,24 @@ const EventRegister = ({ eventId }) => {
                             onChange={(e) => setData("name", e.target.value)}
                             required
                         />
-                        {errors.name && (
-                            <div className="error">{errors.name}</div>
-                        )}
                     </div>
 
                     <div className="event-register__input-box">
                         <label>Email Address</label>
                         <input
-                            type="email" // Ensure type is email for proper validation
+                            type="email"
                             placeholder="Enter email address"
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
                             required
                             name="email"
                         />
-                        {errors.email && (
-                            <div className="error">{errors.email}</div>
-                        )}
                     </div>
 
                     <div className="event-register__input-box">
                         <label>Phone Number</label>
                         <input
-                            type="text" // Changed type to text to allow for international numbers
+                            type="text"
                             placeholder="Enter phone number"
                             value={data.number}
                             onChange={(e) => setData("number", e.target.value)}
@@ -90,19 +91,6 @@ const EventRegister = ({ eventId }) => {
                             name="number"
                         />
                     </div>
-
-                    {/* <div className="event-register__input-box">
-                        <label>Birth Date</label>
-                        <input
-                            type="date"
-                            name="birthDate"
-                            value={data.birthDate}
-                            onChange={(e) =>
-                                setData("birthDate", e.target.value)
-                            }
-                            required
-                        />
-                    </div> */}
 
                     {/* Gender Radio Buttons */}
                     <div className="event-register__gender-box">
@@ -160,6 +148,7 @@ const EventRegister = ({ eventId }) => {
             <div className="form__alert">
                 {alertMessage && (
                     <AlertComponent
+                        variant="outlined"
                         severity={severity}
                         closeHandler={handleAlertClose}
                     >

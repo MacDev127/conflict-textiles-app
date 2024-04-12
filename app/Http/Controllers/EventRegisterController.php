@@ -16,7 +16,7 @@ class EventRegisterController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:events_register,email',
-            'number' => 'required|string',
+            'number' => 'required|string|unique:events_register,number',
             'gender' => 'string',
             // 'birthDate' => 'string',
 

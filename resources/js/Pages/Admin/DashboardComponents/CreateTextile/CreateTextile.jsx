@@ -218,6 +218,7 @@ const CreateTextile = () => {
                 <div className="form__alert">
                     {alertMessage && (
                         <AlertComponent
+                            variant="outlined"
                             severity={severity}
                             closeHandler={handleAlertClose}
                         >

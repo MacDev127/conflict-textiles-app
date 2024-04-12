@@ -88,7 +88,9 @@ const Search = ({ galleryImages, type }) => {
                     </div>
                 )}
 
-                <ReturnLinkComponent />
+                <ReturnLinkComponent to="/collection">
+                    Back to Collection
+                </ReturnLinkComponent>
             </ContainerComponent>
 
             <Footer />
