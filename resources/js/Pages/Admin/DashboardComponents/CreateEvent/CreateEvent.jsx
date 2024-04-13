@@ -47,6 +47,10 @@ const CreateEvent = () => {
                 setSeverity("success");
             },
             onError: (errors) => {
+                if (errors.image) {
+                    setAlertMessage(errors.image);
+                    setSeverity("error");
+                }
                 console.error(errors);
             },
         });
@@ -215,6 +219,7 @@ const CreateEvent = () => {
                 <div className="form__alert">
                     {alertMessage && (
                         <AlertComponent
+                            variant="outlined"
                             severity={severity}
                             closeHandler={handleAlertClose}
                         >

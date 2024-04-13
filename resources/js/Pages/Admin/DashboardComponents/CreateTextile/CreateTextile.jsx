@@ -4,7 +4,7 @@ import "./Createtextile.css";
 import AlertComponent from "@/components/Alert/AlertComponent";
 
 const CreateTextile = () => {
-    const { data, setData, post, reset } = useForm({
+    const { data, setData, post, errors, reset } = useForm({
         image: null,
         location: "",
         title: "",
@@ -27,11 +27,17 @@ const CreateTextile = () => {
     const handleAlertClose = () => {
         setAlertMessage("");
     };
-
+    // Event handler for changes in the input fields
     const handleInputChange = (e) => {
-        const key = e.target.name;
+        const key = e.target.name; // Retrieve name attribute of the input element that triggered the event
+
+        // Check input type is 'file' to handle file inputs differently from text inputs
         const value =
-            e.target.type === "file" ? e.target.files[0] : e.target.value;
+            e.target.type === "file"
+                ? e.target.files[0] // If it's a file input, retrieve the first file from the files list
+                : e.target.value; // If it's not a file, retrieve the string value from the input
+
+        // Update the component's state with the new value for the field specified by 'key'
         setData(key, value);
     };
 
@@ -40,11 +46,15 @@ const CreateTextile = () => {
         post(route("gallery-images.store"), {
             // Correct URL, no template literal or variable
             onSuccess: () => {
-                reset(); // Reset the fields, or you can specify which fields to reset
+                reset();
                 setAlertMessage("Textile Added Successfully!");
                 setSeverity("success");
             },
             onError: (errors) => {
+                if (errors.image) {
+                    setAlertMessage(errors.image);
+                    setSeverity("error");
+                }
                 console.error(errors);
             },
         });

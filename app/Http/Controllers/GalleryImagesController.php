@@ -143,7 +143,7 @@ class GalleryImagesController extends Controller
     {
         //  validate the image data
         $validatedData = $request->validate([
-            'image' => 'required|image|max:1024',
+            'image' => 'required|image|max:1024|unique:gallery_image,image',
             'type' => 'nullable|string',
             'title' => 'nullable|string',
             'maker' => 'nullable|string',
@@ -159,6 +159,7 @@ class GalleryImagesController extends Controller
             'location' => 'nullable|string',
 
         ]);
+
 
         //create the GalleryImage
         $galleryImage = new GalleryImage($validatedData);

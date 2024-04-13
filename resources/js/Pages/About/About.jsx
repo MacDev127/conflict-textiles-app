@@ -1,19 +1,37 @@
 import React from "react";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import TitleComponent from "@/components/Title/TitleComponent";
+import ContainerComponent from "@/components/Container/ContainerComponent";
+import ContentComponent from "@/components/Content/ContentComponent";
+import TextComponent from "@/components/Text/TextComponent";
+import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 
-const About = ({ textileDetails }) => {
+import "./About.css";
+
+const About = () => {
     return (
-        <div>
-            <h1>About Page</h1>
-            {textileDetails &&
-                textileDetails.map((detail) => (
-                    <div key={detail.id}>
-                        <h2>{detail.title}</h2>
-                        <h4>{detail.description}</h4>
-                        <img src={detail.image} alt={detail.title} />
-                        {/* Render additional details as needed */}
-                    </div>
-                ))}
-        </div>
+        <>
+            <Navbar />
+            <ImageHeaderComponent
+                className="about__header-img"
+                imageUrl="/images/misc/about-header.jpeg"
+            />
+            <section className="About">
+                <ContainerComponent>
+                    <TitleComponent>About</TitleComponent>
+                    <ContentComponent>
+                        <TextComponent>
+                            This global textiles collection includes more than
+                            400 documented pieces, such as arpilleras, quilts,
+                            wall hangings, and more, all centered around themes
+                            of conflict and human rights violations.
+                        </TextComponent>
+                    </ContentComponent>
+                </ContainerComponent>
+            </section>
+            <Footer />
+        </>
     );
 };
 
