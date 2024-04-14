@@ -4,10 +4,13 @@ export const ImageHeaderStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    max-height: 70vh;
     position: relative;
     flex-direction: column;
     align-self: center;
+    width: 100%;
+    heght: 100%;
+    overflow: hidden;
 
     img {
         width: 100%;

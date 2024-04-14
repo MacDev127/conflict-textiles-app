@@ -1,5 +1,12 @@
 /* //--Modal----// */
 
+.home__about {
+    position: relative;
+    z-index: 1;
+    margin: none;
+    min-height: 100vh;
+}
+
 .modal-icon-text {
     line-height: 1 !important;
     font-size: 20px !important;
@@ -10,12 +17,6 @@
     white-space: nowrap;
 }
 
-.home__about {
-    position: relative;
-    z-index: 1;
-    margin: none;
-    min-height: 100vh;
-}
 .home__about-bg img {
     position: absolute;
     top: 0;

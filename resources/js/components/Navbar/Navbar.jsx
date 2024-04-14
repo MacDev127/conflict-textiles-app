@@ -35,15 +35,11 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav_list">
-                        <Link className="nav_link" to="/about">
+                        <Link className="nav_link" href={route("about")}>
                             About
                         </Link>
                     </li>
-                    {/* <li className="nav_list">
-                        <Link className="nav_link" href={route("search-page")}>
-                            Search
-                        </Link>
-                    </li> */}
+
                     <li className="nav_list">
                         <Link className="nav_link" href={route("collection")}>
                             Collection
