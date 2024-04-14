@@ -20,6 +20,7 @@ const Events = ({ events }) => {
             <ImageHeaderComponent
                 className="events__header-img"
                 imageUrl={"/images/misc/event-header.jpeg"}
+                quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
             />
             <ContainerComponent>
                 <TitleComponent>Events</TitleComponent>

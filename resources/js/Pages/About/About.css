@@ -6,19 +6,17 @@
     z-index: 1;
 }
 
-.about__header-img {
-    quotes: none;
-}
 .about__hessian-bg img {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    right: 0;
     opacity: 0.9;
     z-index: -1;
     height: 80vh;
     width: auto;
     margin: 0;
     padding: 0;
+    transform: rotate(180deg);
 }
 .about__image-wrapper,
 .about__image-wrapper-logo {
@@ -50,6 +48,10 @@
     padding-bottom: 90px !important;
     margin-bottom: 30px;
 }
+.about__logo-container {
+    padding-bottom: 90px !important;
+    margin-bottom: 30px;
+}
 
 @media (max-width: 768px) {
     .about__image-wrapper img,
@@ -59,7 +61,7 @@
     }
 
     .about__hessian-bg img {
-        height: 40vh;
+        height: 30vh;
     }
 }
 @media (max-width: 414px) {
@@ -70,6 +72,6 @@
     }
 
     .about__hessian-bg img {
-        height: 30vh;
+        height: 25vh;
     }
 }

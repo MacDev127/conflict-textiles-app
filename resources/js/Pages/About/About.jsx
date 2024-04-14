@@ -23,12 +23,13 @@ const About = () => {
 
     return (
         <>
-            <Navbar />
-            <ImageHeaderComponent
-                className="about__header-img"
-                imageUrl="/images/misc/about-header.jpeg"
-            />
             <section className="About">
+                <Navbar />
+                <ImageHeaderComponent
+                    className="about__header-img"
+                    imageUrl="/images/misc/about-4.jpg"
+                    quoteText="There is something very factual about Conflict Textiles, something that makes them a testimony or witness"
+                />
                 <div className="about__hessian-bg">
                     <img src="/images/misc/hpbg2.png" alt="" />
                 </div>
@@ -118,7 +119,7 @@ const About = () => {
                         historical dialogue
                     </TextComponent>
                 </ContainerComponent>
-                <ContainerComponent>
+                <ContainerComponent className="about__logo-container">
                     <SubtitleComponent>The Logo</SubtitleComponent>
 
                     <div className="about__image-wrapper-logo">

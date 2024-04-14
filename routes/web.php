@@ -16,6 +16,7 @@ use App\Http\Controllers\EventRegisterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -133,8 +134,10 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 
 
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
-
+//About Page
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+//About Page
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');

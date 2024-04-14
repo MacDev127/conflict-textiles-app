@@ -57,7 +57,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav_list">
-                        <Link className="nav_link" to="/contact">
+                        <Link className="nav_link" href={route("contact")}>
                             Contact
                             {/* {t("navbar_contact")} */}
                         </Link>

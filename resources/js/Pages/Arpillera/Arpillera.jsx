@@ -3,7 +3,7 @@ import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
 
 const Arpillera = ({ galleryImages, countries }) => {
     const content = {
-        type: "arpillera", // Used for className and routing
+        type: "arpillera",
         title: "Arpillera Collection",
         quoteText:
             "In this sense arpilleras may empower people, give them a way of expressing themselves",

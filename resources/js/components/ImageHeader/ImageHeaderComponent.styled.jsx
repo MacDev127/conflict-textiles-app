@@ -9,7 +9,6 @@ export const ImageHeaderStyle = styled.div`
     flex-direction: column;
     align-self: center;
     width: 100%;
-    heght: 100%;
     overflow: hidden;
 
     img {
@@ -29,7 +28,7 @@ export const ImageHeaderStyle = styled.div`
         height: 100%;
         position: absolute;
         top: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.7);
     }
 
     .imageHeader__text {
@@ -37,13 +36,13 @@ export const ImageHeaderStyle = styled.div`
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-        color: #f4f4f4;
-        font-size: 38px;
+        color: #fff;
+        font-size: 36px;
         font-family: "Playfair Display", serif;
         font-weight: 400;
-        letter-spacing: 1px;
-        text-align: left;
-        margin: 10px;
+        text-align: justify;
+        word-spacing: -2px;
+
         line-height: 1.8;
     }
 
@@ -59,8 +58,9 @@ export const ImageHeaderStyle = styled.div`
     }
     @media (max-width: 414px) {
         .imageHeader__text {
-            font-size: 20px;
+            font-size: 17px;
             width: 80%;
+            align-self: center;
         }
     }
 `;

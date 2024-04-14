@@ -1,0 +1,73 @@
+.Contact {
+    min-height: 100vh;
+}
+
+/* //contact form */
+.contact__form-container {
+    min-width: 800px;
+    margin-top: 100px;
+
+    padding: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/* FORM STYLES */
+
+.contact__form-contact form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.contact__form-contact form label {
+    display: block;
+}
+
+.contact__form-contact form p {
+    margin: 0;
+}
+
+.contact__form-contact form .full {
+    grid-column: 1 / 3;
+}
+
+.contact__form-contact form button,
+.contact__form-contact form input,
+.contact__form-contact form textarea {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #c9e6ff;
+}
+
+.contact__form-contact form button {
+    background: #c9e6ff;
+    border: 0;
+    text-transform: uppercase;
+}
+
+.contact__form-contact form button:hover,
+.contact__form-contact form button:focus {
+    background: #92bde7;
+    color: white;
+    outline: 0;
+    transition: background-color 2s ease-out;
+}
+
+/* LARGE SCREENS */
+@media (min-width: 700px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .wrapper > * {
+        padding: 2em;
+    }
+
+    .company-info h3,
+    .company-info ul,
+    .brand {
+        text-align: left;
+    }
+}
