@@ -1,73 +1,179 @@
+* {
+    font-family: "Mulish", sans-serif;
+}
+
 .Contact {
     min-height: 100vh;
 }
 
 /* //contact form */
 .contact__form-container {
-    min-width: 800px;
-    margin-top: 100px;
-
-    padding: 2rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-/* FORM STYLES */
-
-.contact__form-contact form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+.create-event__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+    font-size: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
 }
 
-.contact__form-contact form label {
+.contact__form-title {
+    font-size: 30px;
+    font-weight: 400;
+    padding-bottom: 30px;
+}
+
+form input,
+form label {
     display: block;
-}
-
-.contact__form-contact form p {
-    margin: 0;
-}
-
-.contact__form-contact form .full {
-    grid-column: 1 / 3;
-}
-
-.contact__form-contact form button,
-.contact__form-contact form input,
-.contact__form-contact form textarea {
     width: 100%;
-    padding: 1em;
-    border: 1px solid #c9e6ff;
+    margin-bottom: 10px;
 }
 
-.contact__form-contact form button {
-    background: #c9e6ff;
-    border: 0;
-    text-transform: uppercase;
+form {
+    margin-top: 50px;
+    padding: 30px 20px;
+    width: auto;
+    min-width: 600px;
+    box-sizing: border-box;
+    background-color: #f5f4f4;
 }
 
-.contact__form-contact form button:hover,
-.contact__form-contact form button:focus {
-    background: #92bde7;
-    color: white;
-    outline: 0;
-    transition: background-color 2s ease-out;
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1rem;
+    min-height: 20px;
+    font-weight: bold;
+    font-weight: 400;
 }
 
-/* LARGE SCREENS */
-@media (min-width: 700px) {
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
+form input[type="file"],
+form input[type="email"],
+form input[type="date"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+form input[type="text"] {
+    width: 100%;
+    padding: 18px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+input:focus {
+    outline: 1px solid crimson;
+}
+
+.textarea {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 18px 16px;
+    color: #313131;
+    resize: none;
+    transition: all 0.3s;
+    width: 100%;
+    height: auto;
+}
+
+textarea:focus {
+    outline: 1px solid crimson;
+}
+
+.contact__form-button {
+    padding: 16px 22px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #df0144;
+    border-radius: 6px;
+}
+
+.contact__form-button:hover {
+    background: #dd294d;
+    transition: ease 0.1s;
+}
+
+.form__alert {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
-    .wrapper > * {
-        padding: 2em;
+    form {
+        padding: 15px;
+        min-width: 400px !important;
+    }
+    form label {
+        font-size: 14px;
     }
 
-    .company-info h3,
-    .company-info ul,
-    .brand {
-        text-align: left;
+    .create-event__title {
+        font-size: 24px;
+    }
+    .create-event__form-button {
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #df0144;
+        border-radius: 6px;
+        width: 100%;
+    }
+    .textarea__box,
+    .textarea__wrapper {
+        flex-direction: column;
+    }
+    .event-textarea {
+        height: auto;
+        min-height: 100px;
+    }
+
+    .create-event__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form__alert {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }

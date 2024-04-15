@@ -136,8 +136,13 @@ Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, '
 // --------------------------------------Page Routes Start-----------------------------------------------------------------//
 //About Page
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-//About Page
+
+//Contact Page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+
+// Keep this line
+Route::post('/contact', [ContactController::class, 'store']);
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
