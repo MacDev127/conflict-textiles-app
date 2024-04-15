@@ -31,14 +31,39 @@ class EventController extends Controller
     //get event data from the database and pass to the events page
     public function events()
     {
-        $events = Event::all()->map(function ($event) {
+        $upcomingEvents = Event::where('event_date', '>=', now())->orderBy('event_date', 'asc')->get()->map(function ($event) {
             if ($event->image) {
                 $event->image = asset('storage/' . $event->image);
             }
             return $event;
         });
-        return Inertia::render('Events/Events', ['events' => $events]);
+
+
+
+        return Inertia::render('Events/Events', [
+            'upcomingEvents' => $upcomingEvents,
+        ]);
+
     }
+
+    public function previousEvents()
+    {
+        $previousEvents = Event::where('event_date', '<', now())
+            ->orderBy('event_date', 'desc')
+            ->get()
+            ->map(function ($event) {
+                if ($event->image) {
+                    $event->image = asset('storage/' . $event->image);
+                }
+                return $event;
+            });
+
+        return Inertia::render('Events/PreviousEvents', [
+            'previousEvents' => $previousEvents,
+        ]);
+    }
+
+
     public function show($id)
     {
         $event = Event::findOrFail($id); // Retrieve the event by its ID or throw an exception if not found.

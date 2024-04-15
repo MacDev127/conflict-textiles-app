@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -10,21 +10,30 @@ import AlertComponent from "@/components/Alert/AlertComponent";
 import "./Contact.css";
 
 const Contact = () => {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
         subject: "",
         message: "",
     });
 
+    //Alert
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         post("/contact", {
+            preserveScroll: true, // Preserve scroll stops scroll to top of homepage
+
             onSuccess: () => {
-                alert(
-                    "Message sent successfully! You will receive a confirmation email shortly."
-                );
-                setData({ name: "", email: "", subject: "", message: "" }); // Reset form
+                reset(); // Reset the fields, or you can specify which fields to reset
+                setAlertMessage("Message sent successfully!");
+                setSeverity("success");
             },
             onError: (errors) => {
                 console.log(errors);
@@ -109,6 +118,17 @@ const Contact = () => {
                                     Submit
                                 </button>
                             </form>
+                            <div className="form__alert">
+                                {alertMessage && (
+                                    <AlertComponent
+                                        variant="outlined"
+                                        severity={severity}
+                                        closeHandler={handleAlertClose}
+                                    >
+                                        {alertMessage}
+                                    </AlertComponent>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </ContainerComponent>

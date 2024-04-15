@@ -13,7 +13,7 @@ import Footer from "@/components/Footer/Footer";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 
-const Events = ({ upcomingEvents, previousEvents }) => {
+const PreviousEvents = ({ previousEvents }) => {
     return (
         <section className="Events">
             <Navbar />
@@ -25,27 +25,27 @@ const Events = ({ upcomingEvents, previousEvents }) => {
             <ContainerComponent>
                 <TitleComponent>Events</TitleComponent>
 
-                <ContentComponent>
+                {/* <ContentComponent>
                     <TextComponent>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Ut enim nesciunt beatae in, doloribus asperiores
                         laborum ullam nulla eveniet nihil! Deserunt cumque, non
                         autem facilis nulla sed? Adipisci, facilis tempora!
                     </TextComponent>
-                </ContentComponent>
+                </ContentComponent> */}
 
-                <SubtitleComponent>Current & Upcoming Events</SubtitleComponent>
+                <SubtitleComponent>Past Events</SubtitleComponent>
                 <div className="event__cards-wrapper">
-                    {upcomingEvents &&
-                        upcomingEvents.length > 0 &&
-                        upcomingEvents.map((event) => (
+                    {previousEvents &&
+                        previousEvents.length > 0 &&
+                        previousEvents.map((event) => (
                             <CardComponent key={event.id} {...event} />
                         ))}
                 </div>
 
-                <Link href="/events/previousEvents">
+                <Link to="/events">
                     <ButtonComponent>
-                        View Past Events
+                        View All Events
                         {/* {t("hero_button1_text")} */}
                     </ButtonComponent>
                 </Link>
@@ -55,4 +55,4 @@ const Events = ({ upcomingEvents, previousEvents }) => {
     );
 };
 
-export default Events;
+export default PreviousEvents;

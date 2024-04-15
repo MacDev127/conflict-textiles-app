@@ -140,15 +140,20 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 //Contact Page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-
-// Keep this line
+//Contact email
 Route::post('/contact', [ContactController::class, 'store']);
+
+
+
+//Previous events page
+Route::get('/events/previousEvents', [EventController::class, 'previousEvents'])->name('events.previous');
+
+// Events Page
+Route::get('/events', [EventController::class, 'events'])->name('events');
 
 //Event Route
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
-// Events Page
-Route::get('/events', [EventController::class, 'events'])->name('events');
 
 // Collection Page
 Route::get('/collection', [CollectionPageImageController::class, 'index'])->name('collection');
