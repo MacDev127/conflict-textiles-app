@@ -127,16 +127,17 @@ const About = () => {
                     </div>
 
                     <TextComponent>
-                        The logo of Conflict Textiles is woven with meanings
-                        that echo the very essence of the collection. At its
-                        heart is hessian, the material first chosen by the early
-                        arpilleristas, bridging the gap between past and
-                        present, and connecting us across diverse geographies
-                        and epochs. Encircled by this historic fabric is a
-                        globe, its borders intentionally uneven, symbolizing the
-                        imperfect world we inhabit—a world marred by conflicts
-                        and strife, reflecting the tumultuous narratives
-                        captured in the textiles themselves. <br /> <br />
+                        Created by Roser Corbera from Cataluña, the Conflict
+                        Textiles logo is woven with meanings that echo the very
+                        essence of the collection. At its heart is hessian, the
+                        material first chosen by the early arpilleristas,
+                        bridging the gap between past and present, and
+                        connecting us across diverse geographies and epochs.
+                        Encircled by this historic fabric is a globe, its
+                        borders intentionally uneven, symbolizing the imperfect
+                        world we inhabit—a world marred by conflicts and strife,
+                        reflecting the tumultuous narratives captured in the
+                        textiles themselves. <br /> <br />
                         Central to the design is the blanket stitch, a
                         fundamental element in textile art that highlights the
                         integral role of stitching in the formation of these

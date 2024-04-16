@@ -73,7 +73,8 @@ const EventDetails = ({ event }) => {
                                             <p>{event.location}</p>
                                         </div>
                                     </li>
-                                    <li>
+
+                                    {/* <li>
                                         <div className="event__details-event__info-icon">
                                             <FaEnvelope />
                                         </div>
@@ -81,7 +82,7 @@ const EventDetails = ({ event }) => {
                                             <h4>Enquiries</h4>
                                             <p>info@ct.com</p>
                                         </div>
-                                    </li>
+                                    </li> */}
 
                                     <div className="event__details-btn-wrapper">
                                         <ButtonComponent className="event__details-reg-btn">

@@ -235,7 +235,7 @@ const ListTextiles = ({ galleryImages }) => {
                     rows={rows}
                     columns={columns}
                     pageSize={5}
-                    rowsPerPageOptions={[5, 10]}
+                    pageSizeOptions={[5, 10, 25]}
                 />
             </Box>
         </>

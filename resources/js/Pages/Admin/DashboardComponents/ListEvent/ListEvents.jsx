@@ -110,7 +110,7 @@ const ListEvents = ({ events }) => {
         <>
             <Box
                 sx={{
-                    height: 600,
+                    minHeight: "1000px",
                     maxWidth: "1700px",
                     marginTop: "100px",
                     width: "100%",
@@ -151,7 +151,7 @@ const ListEvents = ({ events }) => {
                     rows={rows}
                     columns={columns}
                     pageSize={5}
-                    rowsPerPageOptions={[5, 10]}
+                    pageSizeOptions={[5, 10, 25]}
                 />
             </Box>
         </>

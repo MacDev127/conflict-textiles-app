@@ -27,10 +27,16 @@ const Events = ({ upcomingEvents, previousEvents }) => {
 
                 <ContentComponent>
                     <TextComponent>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Ut enim nesciunt beatae in, doloribus asperiores
-                        laborum ullam nulla eveniet nihil! Deserunt cumque, non
-                        autem facilis nulla sed? Adipisci, facilis tempora!
+                        Explore our range of dynamic events, including
+                        exhibitions of arpilleras, quilts, and wall hangings
+                        hosted in diverse venues worldwide such as museums,
+                        universities, and art galleries. Each event features
+                        engaging launches and a rich program of film screenings,
+                        workshops, and discussions, transforming attendees from
+                        observers to active participants. Stay updated with
+                        comprehensive details on pre-launch preparations and
+                        insights into the outcomes of each event, all available
+                        in our events section
                     </TextComponent>
                 </ContentComponent>
 

@@ -10,6 +10,7 @@ import HomeEmailSection from "@/components/HomeEmail/HomeEmailSection";
 import Footer from "@/components/Footer/Footer";
 
 const Home = ({ events, galleryImages, translations }) => {
+    console.log(events);
     return (
         <>
             <section className="Home">

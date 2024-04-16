@@ -15,16 +15,17 @@ class EventController extends Controller
     //get event data from the database and pass to the home page
     public function home()
     {
-        $events = Event::all()->map(function ($event) {
-            if ($event->image) {
-                // Use Laravel's asset() helper to generate a full URL for the image.
-                // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
-                // which is linked to the public/storage directory.
-                $event->image = asset('storage/' . $event->image);
-            }
-            return $event;
-        });
-        return Inertia::render('Home/Home', ['events' => $events]);
+        // Fetch only upcoming events, i.e., events whose date is today or in the future.
+        $events = Event::where('event_date', '>=', now())
+            ->orderBy('event_date', 'asc') // Optional: Order by event date ascending
+            ->get()
+            ->map(function ($event) {
+                if ($event->image) {
+                    $event->image = asset('storage/' . $event->image); // Ensuring the image URL is correctly formed
+                }
+                return $event;
+            });
+        return Inertia::render('Home/Home', ['events' => $events]); // Changed 'events' to 'upcomingEvents' if needed in React component
     }
 
 
@@ -37,8 +38,6 @@ class EventController extends Controller
             }
             return $event;
         });
-
-
 
         return Inertia::render('Events/Events', [
             'upcomingEvents' => $upcomingEvents,

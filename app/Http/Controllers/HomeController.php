@@ -12,27 +12,30 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $events = Event::all()->map(function ($event) {
-            if ($event->image) {
-            // Use Laravel's asset() helper to generate a full URL for the image.
-            // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
-            // which is linked to the public/storage directory.
-                $event->image = asset('storage/' . $event->image);
-            }
-            return $event;
-        });
+        // Fetch only upcoming events, i.e., events whose date is today or in the future.
+        $events = Event::where('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->get()
+            ->map(function ($event) {
+                if ($event->image) {
+                    // Use Laravel's asset() helper to generate a full URL for the image.
+                    // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
+                    // which is linked to the public/storage directory.
+                    $event->image = asset('storage/' . $event->image);
+                }
+                return $event;
+            });
+
         // Retrieve all gallery images from the database (seems to be used elsewhere on the homepage)
         $images = GalleryImage::all();
 
         // Get the current language setting of the application
         $locale = App::getLocale();
-         // Retrieve translation strings based on the current locale
+        // Retrieve translation strings based on the current locale
         $translations = trans('messages');
-    
 
-    // Render the Home component with Inertia, passing the modified events, gallery images,
-    // current locale, and translation strings as props
-
+        // Render the Home component with Inertia, passing the modified events, gallery images,
+        // current locale, and translation strings as props
         return Inertia::render('Home/Home', [
             'events' => $events,
             'galleryImages' => $images,

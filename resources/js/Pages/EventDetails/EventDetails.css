@@ -35,14 +35,28 @@
 
 /* Event title and description styles */
 .event__details-event__title {
+    display: flex;
+    align-items: center;
     font-size: 3rem;
     margin-bottom: 3rem;
     font-family: "Playfair Display", serif;
     font-weight: 400;
     color: #313131;
-    border-bottom: 1px solid #ccc;
     padding-bottom: 20px;
     width: 100%;
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+}
+
+.event__details-event__title::after {
+    content: ""; /* Necessary for the pseudo-element to show */
+    display: block;
+    width: 640px; /* Fixed width of the border */
+    height: 2px; /* Height of the border */
+    background-color: #ccc; /* Color of the border */
+    position: absolute;
+    bottom: 0; /* Align to the bottom of the title */
+    left: 36%; /* Start from the middle */
+    transform: translateX(-50%); /* Center the border */
 }
 
 .event__details-event__description p {
@@ -58,8 +72,6 @@
 
 /* Event info box */
 .event__details-event__info {
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
     max-width: 300px;
     max-height: 467px;
     padding: 20px 30px;
@@ -72,6 +84,14 @@
     margin-bottom: 1.5rem;
     font-weight: 400;
     font-family: "Playfair Display", serif;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.event__details-event-venue {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* Event info list */
@@ -100,7 +120,7 @@
 }
 
 .event__details-reg-btn {
-    margin: 10px !important;
+    margin: 30px 30px 0 0 !important;
     background-color: #dc143c !important;
     color: #fff !important;
     padding: 0.6em 1.8em !important;
@@ -132,15 +152,26 @@
 
 @media (max-width: 768px) {
     .event__details-event__title {
-        text-align: center;
-        border: none;
+        text-align: left;
+        padding-left: 70px;
+        width: 100%;
+    }
+    .event__details-event__title::after {
+        content: "";
+        display: block;
+        width: 600px;
+        height: 2px;
+        background-color: #ccc;
+        position: absolute;
+        bottom: 0;
+        left: 1;
+        transform: translateX(-33%); /* Center the border */
     }
     .event__details-box-1 {
-        width: 100%; /* Set to full width on smaller screens */
         max-width: none; /* Override any max-width set previously */
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         margin: 0 10px;
     }
     .event__details-event__info {
@@ -150,17 +181,17 @@
     }
     .event__details-event__info ul {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        gap: 40px;
+        /* flex-direction: row; */
+        /* justify-content: space-around; */
+        align-items: flex-start;
+        /* gap: 40px; */
     }
     .event__details-event__info ul li {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         justify-content: space-between;
         align-items: center;
-        text-align: center;
+        /* text-align: center; */
     }
 
     .event__details-event__info h2 {
@@ -185,12 +216,7 @@
         align-items: center;
     }
     .event__details-image img {
-        width: 70%;
-        height: auto;
-        object-fit: cover;
-        align-items: center;
-        justify-content: center;
-        align-self: center;
+        width: 90%;
     }
     .event__details-box-2 {
         width: 100%;
@@ -198,50 +224,48 @@
         align-items: center;
     }
     .event__details-event__description {
-        width: 70%;
+        width: 90%;
     }
 
     .event__details-tabs {
-        width: 70%;
+        width: 90%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 }
 @media (max-width: 414px) {
     .event__details-event__title {
-        text-align: center;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
         font-size: 40px;
-        border: none;
+        text-align: left;
+        padding-left: 50px;
     }
-    .event__details-box-1 {
-        width: 100%; /* Set to full width on smaller screens */
-        max-width: none; /* Override any max-width set previously */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 10px;
+    .event__details-event__title::after {
+        content: "";
+        display: block;
+        width: 300px;
+        height: 2px;
+        background-color: #ccc;
+        position: absolute;
+        bottom: 0;
+        left: 1;
+        transform: translateX(-32%);
     }
+
     .event__details-event__info {
         max-width: 90%;
-        padding: 10px;
         justify-content: center;
     }
     .event__details-event__info ul {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        gap: 20px;
+
+        align-items: flex-start;
     }
     .event__details-event__info ul li {
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        text-align: center;
     }
 
     .event__details-event__info h2 {
@@ -279,14 +303,13 @@
         align-items: center;
     }
     .event__details-event__description {
-        width: 70%;
+        width: 80%;
     }
 
     .event__details-tabs {
         width: 80%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
     }
 }
