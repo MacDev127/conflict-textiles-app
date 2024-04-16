@@ -150,8 +150,8 @@ const ListEvents = ({ events }) => {
                     autoHeight
                     rows={rows}
                     columns={columns}
-                    pageSize={5}
-                    pageSizeOptions={[5, 10, 25]}
+                    rowsPerPageOptions={[5, 10]}
+                    pageSizeOptions={[10, 25, { value: 100, label: "100" }]}
                 />
             </Box>
         </>

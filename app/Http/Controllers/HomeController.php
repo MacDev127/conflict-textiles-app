@@ -16,11 +16,10 @@ class HomeController extends Controller
         $events = Event::where('event_date', '>=', now())
             ->orderBy('event_date', 'asc')
             ->get()
+            ->take(6)
             ->map(function ($event) {
                 if ($event->image) {
-                    // Use Laravel's asset() helper to generate a full URL for the image.
-                    // The 'storage/' prefix is needed because the images are stored in the storage/app/public directory,
-                    // which is linked to the public/storage directory.
+
                     $event->image = asset('storage/' . $event->image);
                 }
                 return $event;

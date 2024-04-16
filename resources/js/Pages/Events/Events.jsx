@@ -12,8 +12,9 @@ import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import Footer from "@/components/Footer/Footer";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
+import PaginationComponent from "@/components/Pagination/PaginationComponent";
 
-const Events = ({ upcomingEvents, previousEvents }) => {
+const Events = ({ upcomingEvents }) => {
     return (
         <section className="Events">
             <Navbar />
@@ -42,18 +43,21 @@ const Events = ({ upcomingEvents, previousEvents }) => {
 
                 <SubtitleComponent>Current & Upcoming Events</SubtitleComponent>
                 <div className="event__cards-wrapper">
-                    {upcomingEvents &&
-                        upcomingEvents.length > 0 &&
-                        upcomingEvents.map((event) => (
+                    {upcomingEvents.data &&
+                        upcomingEvents.data.length > 0 &&
+                        upcomingEvents.data.map((event) => (
                             <CardComponent key={event.id} {...event} />
                         ))}
                 </div>
-
+                <PaginationComponent
+                    total={upcomingEvents.last_page}
+                    current={upcomingEvents.current_page}
+                    onChange={(page) => {
+                        /* handle page change if needed */
+                    }}
+                />
                 <Link href="/events/previousEvents">
-                    <ButtonComponent>
-                        View Past Events
-                        {/* {t("hero_button1_text")} */}
-                    </ButtonComponent>
+                    <ButtonComponent>View Past Events</ButtonComponent>
                 </Link>
             </ContainerComponent>
             <Footer />

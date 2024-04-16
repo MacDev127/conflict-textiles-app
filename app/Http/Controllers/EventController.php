@@ -32,17 +32,20 @@ class EventController extends Controller
     //get event data from the database and pass to the events page
     public function events()
     {
-        $upcomingEvents = Event::where('event_date', '>=', now())->orderBy('event_date', 'asc')->get()->map(function ($event) {
-            if ($event->image) {
-                $event->image = asset('storage/' . $event->image);
-            }
-            return $event;
-        });
+        // Fetch only upcoming events, paginate them, and use a map to modify the image path.
+        $upcomingEvents = Event::where('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->paginate(6)
+            ->through(function ($event) {
+                if ($event->image) {
+                    $event->image = asset('storage/' . $event->image);  // Modify image URL
+                }
+                return $event;
+            });
 
         return Inertia::render('Events/Events', [
             'upcomingEvents' => $upcomingEvents,
         ]);
-
     }
 
     public function previousEvents()
