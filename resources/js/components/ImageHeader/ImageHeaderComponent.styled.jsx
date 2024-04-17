@@ -40,19 +40,24 @@ export const ImageHeaderStyle = styled.div`
         font-size: 36px;
         font-family: "Playfair Display", serif;
         font-weight: 400;
-        text-align: justify;
-        word-spacing: -2px;
-
+        text-align: left;
         line-height: 1.8;
+        width: 60%;
     }
 
     .animate__animated.animate__fadeIn {
         --animate-duration: 4.5s;
     }
 
+    @media (max-width: 1080px) {
+        .imageHeader__text {
+            font-size: 30px;
+            width: 80%;
+        }
+    }
     @media (max-width: 768px) {
         .imageHeader__text {
-            font-size: 24px;
+            font-size: 26px;
             width: 80%;
         }
     }
@@ -61,6 +66,7 @@ export const ImageHeaderStyle = styled.div`
             font-size: 17px;
             width: 80%;
             align-self: center;
+            text-align: left;
         }
     }
 `;

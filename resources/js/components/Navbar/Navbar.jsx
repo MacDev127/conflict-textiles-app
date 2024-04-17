@@ -15,7 +15,7 @@ const Navbar = () => {
                     <img src="/images/misc/logo2.png" alt="Logo" />
                 </div>
             </Link>
-            <nav className={menuOpen ? "open active" : ""}>
+            <div id="navbar" className={menuOpen ? "open active" : ""}>
                 <div
                     className="menu"
                     onClick={() => {
@@ -69,7 +69,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                 </ul>
-            </nav>
+            </div>
 
             <div className="right-section">
                 <DropdownMenu />

@@ -11,7 +11,7 @@ const BreadcrumbComponent = ({ breadcrumbs }) => {
     };
     return (
         <div className="breadcrumbs" role="presentation">
-            <Breadcrumbs aria-label="breadcrumb">
+            <Breadcrumbs component="div" aria-label="breadcrumb">
                 {breadcrumbs.map((crumb, index) => (
                     <Link
                         key={index}

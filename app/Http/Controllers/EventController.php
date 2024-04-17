@@ -52,7 +52,8 @@ class EventController extends Controller
     {
         $previousEvents = Event::where('event_date', '<', now())
             ->orderBy('event_date', 'desc')
-            ->get()
+            ->paginate(6)
+
             ->map(function ($event) {
                 if ($event->image) {
                     $event->image = asset('storage/' . $event->image);

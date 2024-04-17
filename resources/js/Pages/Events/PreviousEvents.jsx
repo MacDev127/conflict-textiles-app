@@ -9,19 +9,21 @@ import CardComponent from "@/components/Cards/CardsComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import Footer from "@/components/Footer/Footer";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
-import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
+import PaginationComponent from "@/components/Pagination/PaginationComponent";
+
+import "./Events.css";
 
 const PreviousEvents = ({ previousEvents }) => {
     return (
-        <section className="Events">
+        <section className="PreviousEvents">
             <Navbar />
-            <ImageHeaderComponent
-                className="events__header-img"
-                imageUrl={"/images/misc/event-header.jpeg"}
-                quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
-            />
-            <ContainerComponent>
+            <div className="image__header-container">
+                <ImageHeaderComponent
+                    className="events__header-img"
+                    imageUrl={"/images/misc/event-header.jpeg"}
+                    quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
+                />
                 <BreadcrumbComponent
                     breadcrumbs={[
                         // { label: "Home", href: "/home" },
@@ -29,7 +31,10 @@ const PreviousEvents = ({ previousEvents }) => {
                         { label: "Past Events", href: "/previousEvents" },
                     ]}
                 />
-                <TitleComponent>Events</TitleComponent>
+            </div>
+
+            <ContainerComponent>
+                <TitleComponent className="event__title">Events</TitleComponent>
                 <SubtitleComponent>Past Events</SubtitleComponent>
                 <div className="event__cards-wrapper">
                     {previousEvents &&
@@ -38,9 +43,16 @@ const PreviousEvents = ({ previousEvents }) => {
                             <CardComponent key={event.id} {...event} />
                         ))}
                 </div>
-                <ReturnLinkComponent to="/events">
+                <PaginationComponent
+                    total={previousEvents.last_page}
+                    current={previousEvents.current_page}
+                    onChange={(page) => {
+                        /* handle page change if needed */
+                    }}
+                />
+                {/* <ReturnLinkComponent to="/events">
                     Back to Events
-                </ReturnLinkComponent>
+                </ReturnLinkComponent> */}
             </ContainerComponent>
 
             <Footer />

@@ -28,16 +28,16 @@ header {
         rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     padding: 0px 40px 0px 0px;
 }
-nav {
+#navbar {
     font-weight: 500;
 }
 
-nav ul {
+#navbar ul {
     display: flex;
     list-style: none;
 }
 
-nav ul li a {
+#navbar ul li a {
     text-decoration: none;
     color: #313131;
     padding: 0.5rem;
@@ -48,7 +48,7 @@ nav ul li a {
     font-family: "Mulish", sans-serif;
 }
 
-nav .menu {
+#navbar .menu {
     display: none;
     position: fixed;
     top: -5rem;
@@ -114,14 +114,14 @@ nav .menu {
 }
 
 @media (max-width: 1080px) {
-    nav .menu {
+    #navbar .menu {
         display: flex;
         position: fixed;
         right: 0.75rem;
         top: 1.5rem;
     }
 
-    nav {
+    #navbar {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
@@ -136,19 +136,19 @@ nav .menu {
         margin-top: 6px;
         transition: ease-in-out 0.3s;
     }
-    nav.active {
+    #navbar.active {
         right: 0;
     }
 
-    nav ul {
+    #navbar ul {
         flex-direction: column;
     }
 
-    nav ul li {
+    #navbar ul li {
         width: 100%;
         padding: 0.5rem;
     }
-    nav ul li a {
+    #navbar ul li a {
         color: #f4f4f4 !important;
         font-weight: 300;
     }
@@ -181,7 +181,7 @@ nav .menu {
     }
 }
 @media (max-width: 768px) {
-    nav .menu {
+    #navbar.menu {
         display: flex;
         position: fixed;
         right: 1rem;
@@ -189,13 +189,13 @@ nav .menu {
     }
 }
 @media (max-width: 414px) {
-    nav .menu {
+    #navbar.menu {
         display: flex;
         position: fixed;
         right: 1rem;
         top: 1.5rem;
     }
-    nav {
+    #navbar {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
@@ -210,7 +210,7 @@ nav .menu {
         margin-top: 6px;
         transition: ease-in-out 0.3s;
     }
-    nav.active {
+    #navbar.active {
         right: 0;
     }
 }

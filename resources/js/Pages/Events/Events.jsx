@@ -24,7 +24,7 @@ const Events = ({ upcomingEvents }) => {
                 quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
             />
             <ContainerComponent>
-                <TitleComponent>Events</TitleComponent>
+                <TitleComponent className="event__title">Events</TitleComponent>
 
                 <ContentComponent>
                     <TextComponent>
