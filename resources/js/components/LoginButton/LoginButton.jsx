@@ -5,7 +5,7 @@ import { FaRegUser } from "react-icons/fa6";
 const LoginButton = ({ children }) => {
     return (
         <LoginButtonStyles>
-            <FaRegUser style={{ fontSize: "22px", color: "#df0144" }} />
+            <FaRegUser style={{ fontSize: "22px", color: "#3a3335" }} />
             {children}
         </LoginButtonStyles>
     );

@@ -1,8 +1,7 @@
 /* Dropdown button */
 
 .dropdown_btn {
-    color: #313131;
-    padding: 16px;
+    padding: 12px;
     font-size: 18px;
     cursor: pointer;
     display: flex;

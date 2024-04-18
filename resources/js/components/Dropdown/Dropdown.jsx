@@ -36,7 +36,7 @@ const DropdownMenu = () => {
         <div className="dropdown">
             <button className="dropdown_btn" onClick={toggleDropdown}>
                 <GrLanguage
-                    style={{ fontSize: "22px", color: "#df0144" }}
+                    style={{ fontSize: "22px", color: "#3a3335" }}
                     className={`icon ${isOpen ? "open" : ""}`}
                 />
             </button>
