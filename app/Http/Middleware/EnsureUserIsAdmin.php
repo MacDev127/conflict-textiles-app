@@ -17,7 +17,7 @@ class EnsureUserIsAdmin
     {
         if (!auth()->user()->is_admin) {
             // Redirect them or deny access
-            return redirect('collection')->with('error', 'You do not have access to this section.');
+            return redirect('home')->with('error', 'You do not have access to this section.');
         }
         return $next($request);
     }

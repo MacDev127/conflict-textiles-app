@@ -1,5 +1,5 @@
 // GenericItemPage.js
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 
@@ -18,8 +18,11 @@ import { CollectionItemStyle } from "./itemPageComponent.styled";
 import { ItemDescStyle } from "./itemPageComponent.styled";
 import { ImageContainer } from "./itemPageComponent.styled";
 import { SearchBarContainer } from "./itemPageComponent.styled";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { Tooltip } from "@mui/material";
+import AlertComponent from "@/components/Alert/AlertComponent";
+
 import "./itemPageComponent.css";
-import TextileDetail from "@/Pages/TextileDetails/TextileDetail";
 
 const ItemPageComponent = ({
     type,
@@ -33,6 +36,31 @@ const ItemPageComponent = ({
     const handleImageClick = (imageId) => {
         router.visit(`/textile-details/${imageId}`);
     };
+
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("success");
+
+    const handleAlertClose = () => {
+        setAlertMessage("");
+    };
+
+    const handleBookmark = (imageId) => {
+        console.log("Bookmark success");
+
+        e.preventDefault();
+        // This function will send a POST request to the bookmark route
+        router.post(`/bookmark/${imageId}`, {
+            onSuccess: () => {
+                setAlertMessage("Bookmark added");
+                setSeverity("success");
+            },
+            onError: () => {
+                setAlertMessage("Bookmark already added!");
+                setSeverity("error");
+            },
+        });
+    };
+
     // console.log(countries);
 
     return (
@@ -57,6 +85,9 @@ const ItemPageComponent = ({
                             key={image.id}
                             onClick={() => handleImageClick(image.id)}
                         >
+                            {/* //test */}
+
+                            {/* test */}
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>
                                     <img src={image.img} alt={image.title} />
@@ -66,10 +97,34 @@ const ItemPageComponent = ({
 
                             <ItemDescStyle className={`${type}__item-desc`}>
                                 <h2>{image.title}</h2>
+                                <Tooltip title="Bookmark" arrow>
+                                    <BookmarkIcon
+                                        sx={{
+                                            color: "#3a3335",
+                                            fontSize: "18px",
+                                        }}
+                                        style={{ cursor: "pointer" }}
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent the gallery image click handler from firing
+                                            handleBookmark(image.id, e);
+                                        }}
+                                    />
+                                </Tooltip>
                             </ItemDescStyle>
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
+                <div className="form__alert">
+                    {alertMessage && (
+                        <AlertComponent
+                            variant="outlined"
+                            severity={severity}
+                            closeHandler={handleAlertClose}
+                        >
+                            {alertMessage}
+                        </AlertComponent>
+                    )}
+                </div>
                 <ReturnLinkComponent to="/collection">
                     Back to Collection
                 </ReturnLinkComponent>

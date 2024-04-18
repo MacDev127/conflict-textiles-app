@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\GalleryImage;
-// use App\Models\TextileDetail;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;

@@ -1,3 +1,9 @@
 .item-page__content {
     margin: 80px 0 0 !important;
 }
+
+.form__alert {
+    top: 10% !important;
+    left: 50% !;
+    transform: translate(-50%, 0) !;
+}

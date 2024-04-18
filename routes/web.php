@@ -17,6 +17,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ResearcherController;
 
 
 
@@ -99,6 +100,22 @@ Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboar
     ->name('admin.textiles-dashboard');
 
 ///-------Admin / Dashboard functionality--------
+
+// researcher functionlaity
+
+// Web.php routes for researchers
+Route::group(['middleware' => ['auth', 'is_researcher']], function () {
+    Route::get('/researcher-dashboard', [ResearcherController::class, 'index'])->name('researcher.dashboard');
+});
+Route::get('/researcher/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('researcher.get-bookmarks');
+
+Route::post('/bookmark/{galleryImageId}', [ResearcherController::class, 'bookmark'])->name('researcher.bookmark');
+
+Route::delete('/delete-bookmark/{id}', [ResearcherController::class, 'deleteBookmark'])->name('delete-bookmark');
+
+
+
+
 
 //----------------------Dashboards---------------///
 
