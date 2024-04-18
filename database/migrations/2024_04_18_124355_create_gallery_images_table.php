@@ -27,8 +27,6 @@ return new class extends Migration {
             $table->string('authenticity')->nullable();
             $table->string('photographer')->nullable();
             $table->text('description')->nullable();
-
-
         });
     }
 
