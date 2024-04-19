@@ -7,8 +7,15 @@ import "./Textiledashboard.css";
 const TextileDashboard = ({ galleryImages }) => {
     return (
         <>
-            <DashboardSidebar />
-
+            <DashboardSidebar
+                menuItems={{
+                    dashboard: true,
+                    events: true,
+                    textiles: true,
+                    home: true,
+                    bookmarks: false,
+                }}
+            />
             <section className="textile-dashboard">
                 <div className="textile-dashboard__container">
                     <ListTextile galleryImages={galleryImages} />

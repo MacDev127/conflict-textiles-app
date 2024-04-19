@@ -5,8 +5,10 @@ import "./ResearchDashboard.css";
 import { router } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 import PageTitleComponent from "@/components/PageTitle/PageTitleComponent";
-import { FaRegTrashCan } from "react-icons/fa6";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import AlertComponent from "@/components/Alert/AlertComponent";
+import { Tooltip } from "@mui/material";
 
 const ResearchDashboard = ({ bookmarks, galleryImages }) => {
     const [alertMessage, setAlertMessage] = useState("");
@@ -22,16 +24,27 @@ const ResearchDashboard = ({ bookmarks, galleryImages }) => {
     const handleDeleteBookmark = (bookmarkId) => {
         router.delete(`/delete-bookmark/${bookmarkId}`, {
             onSuccess: () => {
-                reset();
-                setAlertMessage("Textile Added Successfully!");
+                setAlertMessage("Bookmark Removed!");
                 setSeverity("success");
+            },
+            onError: (errors) => {
+                setAlertMessage("Failed to delete the bookmark.");
+                setSeverity("error");
             },
         });
     };
 
     return (
         <>
-            <DashboardSidebar />
+            <DashboardSidebar
+                menuItems={{
+                    dashboard: false,
+                    events: false,
+                    textiles: false,
+                    home: true,
+                    bookmarks: true,
+                }}
+            />
             <div className="bookmark-gallery">
                 <PageTitleComponent className="page__title">
                     Bookmarked Items
@@ -47,30 +60,58 @@ const ResearchDashboard = ({ bookmarks, galleryImages }) => {
                             <div key={bookmark.id} className="bookmark-item">
                                 {galleryImage ? (
                                     <div className="bookmark__container">
-                                        <Link
-                                            href={`/textile-details/${galleryImage.id}`}
-                                        >
-                                            <div className="bookmark__image-container">
-                                                <img
-                                                    src={galleryImage.image}
-                                                    alt={galleryImage.title}
-                                                />
-                                                <div className="image__overlay"></div>
-                                            </div>
-                                        </Link>
-
+                                        <div className="bookmark__image-container">
+                                            <img
+                                                src={galleryImage.image}
+                                                alt={galleryImage.title}
+                                            />
+                                            <div className="image__overlay"></div>
+                                        </div>
                                         <div className="bookmark__text-container">
                                             <p className="bookmark__title">
                                                 {galleryImage.title}
                                             </p>
-                                            <FaRegTrashCan
-                                                onClick={() =>
-                                                    handleDeleteBookmark(
-                                                        bookmark.id
-                                                    )
-                                                }
-                                                aria-label="Delete Bookmark"
-                                            />
+                                            <div className="bookmark__icons">
+                                                <Tooltip
+                                                    title="View Details"
+                                                    arrow
+                                                >
+                                                    <Link
+                                                        href={`/textile-details/${galleryImage.id}`}
+                                                    >
+                                                        <ImageSearchIcon
+                                                            sx={{
+                                                                cursor: "pointer",
+                                                                color: "#3a3335",
+                                                            }}
+                                                            onClick={() =>
+                                                                handleDeleteBookmark(
+                                                                    bookmark.id
+                                                                )
+                                                            }
+                                                            aria-label="View Details"
+                                                        />
+                                                    </Link>
+                                                </Tooltip>
+                                                <Tooltip
+                                                    title="Delete bookmark"
+                                                    arrow
+                                                >
+                                                    <DeleteIcon
+                                                        sx={{
+                                                            cursor: "pointer",
+                                                            marginLeft: "10px",
+                                                            color: "#3a3335",
+                                                        }}
+                                                        onClick={() =>
+                                                            handleDeleteBookmark(
+                                                                bookmark.id
+                                                            )
+                                                        }
+                                                        aria-label="Delete Bookmark"
+                                                    />
+                                                </Tooltip>
+                                            </div>
                                         </div>
                                     </div>
                                 ) : (

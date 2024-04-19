@@ -7,7 +7,15 @@ import "./EventsDashboard.css";
 const EventsDashboard = ({ events }) => {
     return (
         <>
-            <DashboardSidebar />
+            <DashboardSidebar
+                menuItems={{
+                    dashboard: true,
+                    events: true,
+                    textiles: true,
+                    home: true,
+                    bookmarks: false,
+                }}
+            />{" "}
             <section className="events-dashboard">
                 <div className="events-dashboard__container">
                     <ListEvents events={events} />

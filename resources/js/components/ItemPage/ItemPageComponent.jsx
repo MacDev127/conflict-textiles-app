@@ -1,7 +1,18 @@
 // GenericItemPage.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
+
+//styles
+import { CollectionItemStyle } from "./itemPageComponent.styled";
+import { ItemDescStyle } from "./itemPageComponent.styled";
+import { ImageContainer } from "./itemPageComponent.styled";
+import { SearchBarContainer } from "./itemPageComponent.styled";
+import { Tooltip } from "@mui/material";
+import "./itemPageComponent.css";
+
+//icons
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 //Components
 import Navbar from "@/components/Navbar/Navbar";
@@ -12,17 +23,9 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
-import ReturnLinkComponent from "../Return/ReturnLinkComponent";
 import SearchComponent from "../Search/SearchComponent";
-import { CollectionItemStyle } from "./itemPageComponent.styled";
-import { ItemDescStyle } from "./itemPageComponent.styled";
-import { ImageContainer } from "./itemPageComponent.styled";
-import { SearchBarContainer } from "./itemPageComponent.styled";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import { Tooltip } from "@mui/material";
 import AlertComponent from "@/components/Alert/AlertComponent";
-
-import "./itemPageComponent.css";
+import BreadcrumbComponent from "../Breadcrumbs/BreadcrumbComponent";
 
 const ItemPageComponent = ({
     type,
@@ -32,41 +35,77 @@ const ItemPageComponent = ({
     description,
     galleryImages,
     countries,
+    flash,
+    breadcrumbs,
 }) => {
+    //------------------flash message section that took hours to figure out---------------//
+
+    // This section initializes and manages the alert system for displaying flash messages.
+    // `flash?.message` checks if there is a flash message available, using optional chaining to avoid errors if `flash` is undefined.
+    // The `useState` hooks initialize `alertMessage` and `severity`. If a flash message exists, `alertMessage` is set to that message,
+    // and `severity` is set to "success". If no message is present, `severity` defaults to "info".
+    // The `useEffect` hook listens for changes in the `flash` object. If `flash.message` changes (indicating a new message),
+    // it updates `alertMessage` to the new message and sets `severity` to "success". This ensures the UI reflects current state,
+    // displaying new flash messages as they occur.
+
+    const [alertMessage, setAlertMessage] = useState("");
+    const [severity, setSeverity] = useState("");
+
+    // Assuming flash is an object with potential 'success' and 'error' properties
+    useEffect(() => {
+        if (flash?.success) {
+            setAlertMessage(flash.success);
+            setSeverity("success");
+        } else if (flash?.error) {
+            setAlertMessage(flash.error);
+            setSeverity("error");
+        }
+    }, [flash]);
+
+    //------------------flash message section that took hours to figure out---------------//
+
     const handleImageClick = (imageId) => {
         router.visit(`/textile-details/${imageId}`);
     };
-
-    const [alertMessage, setAlertMessage] = useState("");
-    const [severity, setSeverity] = useState("success");
 
     const handleAlertClose = () => {
         setAlertMessage("");
     };
 
-    const handleBookmark = (imageId) => {
-        console.log("Bookmark success");
-
+    const handleBookmark = (imageId, e) => {
         e.preventDefault();
-        // This function will send a POST request to the bookmark route
-        router.post(`/bookmark/${imageId}`, {
-            onSuccess: () => {
-                setAlertMessage("Bookmark added");
-                setSeverity("success");
-            },
-            onError: () => {
-                setAlertMessage("Bookmark already added!");
-                setSeverity("error");
-            },
-        });
+        e.stopPropagation();
+        router.post(
+            `/bookmark/${imageId}`,
+            {},
+            {
+                preserveScroll: true,
+                onSuccess: () => {
+                    setAlertMessage("Bookmark added");
+                    setSeverity("success");
+                },
+                onError: () => {
+                    setAlertMessage("Bookmark already added!");
+                    setSeverity("error");
+                },
+            }
+        );
     };
-
-    // console.log(countries);
 
     return (
         <section className={`${type}`}>
             <Navbar />
             <ImageHeaderComponent imageUrl={imageUrl} quoteText={quoteText} />
+            <BreadcrumbComponent
+                type={type}
+                breadcrumbs={[
+                    { label: "Collection", href: "/collection" },
+                    {
+                        label: type.charAt(0).toUpperCase() + type.slice(1),
+                        href: "",
+                    },
+                ]}
+            />
             <ContainerComponent>
                 <TitleComponent>{title}</TitleComponent>
                 <ContentComponent className="item-page__content">
@@ -85,9 +124,6 @@ const ItemPageComponent = ({
                             key={image.id}
                             onClick={() => handleImageClick(image.id)}
                         >
-                            {/* //test */}
-
-                            {/* test */}
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>
                                     <img src={image.img} alt={image.title} />
@@ -125,9 +161,6 @@ const ItemPageComponent = ({
                         </AlertComponent>
                     )}
                 </div>
-                <ReturnLinkComponent to="/collection">
-                    Back to Collection
-                </ReturnLinkComponent>
             </ContainerComponent>
             <Footer />
         </section>

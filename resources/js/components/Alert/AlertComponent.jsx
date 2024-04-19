@@ -4,7 +4,6 @@ import Stack from "@mui/material/Stack";
 
 const AlertComponent = ({
     children,
-    onToggle,
     closeHandler,
     severity,
     className,
@@ -26,6 +25,7 @@ const AlertComponent = ({
                     display: "flex",
                     // backgroundColor: "#b4deb4",
                 }}
+                // autoHideDuration={6000}
                 variant={variant}
                 severity={severity}
                 onClose={closeHandler}

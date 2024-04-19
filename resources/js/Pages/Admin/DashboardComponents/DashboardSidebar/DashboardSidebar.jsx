@@ -22,8 +22,9 @@ import ListItemText from "@mui/material/ListItemText";
 import DashboardMenu from "../DashboardMenu/DashboardMenu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
-const DashboardSidebar = () => {
+const DashboardSidebar = ({ menuItems }) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -140,90 +141,105 @@ const DashboardSidebar = () => {
                     </DrawerHeader>
                     <Divider />
                     <List>
-                        <ListItem disablePadding>
-                            <Link href="/dashboard" style={{ width: "100%" }}>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <DashboardCustomizeIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        sx={{
-                                            color: "black",
-                                        }}
-                                        primary="Dashboard"
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <Link
-                                href="/events-dashboard"
-                                style={{ width: "100%" }}
-                            >
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <EventIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        sx={{
-                                            color: "black",
-                                        }}
-                                        primary="Add Event"
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <Link
-                                href="/textiles-dashboard"
-                                style={{ width: "100%" }}
-                            >
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <AddPhotoAlternateIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        sx={{
-                                            color: "black",
-                                        }}
-                                        primary="Add Textile"
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <Link href="/" style={{ width: "100%" }}>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <HomeIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        sx={{
-                                            color: "black",
-                                        }}
-                                        primary="Home"
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
+                        {menuItems.dashboard && (
+                            <ListItem disablePadding>
+                                <Link
+                                    href="/dashboard"
+                                    style={{ width: "100%" }}
+                                >
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <DashboardCustomizeIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Dashboard"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
+                        {menuItems.events && (
+                            <ListItem disablePadding>
+                                <Link
+                                    href="/events-dashboard"
+                                    style={{ width: "100%" }}
+                                >
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <EventIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Add Event"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
+                        {menuItems.textiles && (
+                            <ListItem disablePadding>
+                                <Link
+                                    href="/textiles-dashboard"
+                                    style={{ width: "100%" }}
+                                >
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <AddPhotoAlternateIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Add Textile"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
+                        {menuItems.home && (
+                            <ListItem disablePadding>
+                                <Link href="/" style={{ width: "100%" }}>
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <HomeIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Home"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
+                        {menuItems.bookmarks && (
+                            <ListItem disablePadding>
+                                <Link
+                                    href="/researcher-dashboard"
+                                    style={{ width: "100%" }}
+                                >
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <BookmarkIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Bookmarks"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
                     </List>
                     <Divider />
-                    {/* <List>
-                        {["All mail", "Trash", "Spam"].map((text, index) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        {index % 2 === 0 ? (
-                                            <InboxIcon />
-                                        ) : (
-                                            <MailIcon />
-                                        )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List> */}
                 </Drawer>
                 <Main open={open}>
                     <DrawerHeader />

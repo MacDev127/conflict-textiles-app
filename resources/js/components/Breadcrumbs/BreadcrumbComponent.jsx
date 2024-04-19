@@ -3,37 +3,39 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import { router } from "@inertiajs/react";
 import "./BreadcrumbComponent.css";
-
-const BreadcrumbComponent = ({ breadcrumbs }) => {
+const BreadcrumbComponent = ({ breadcrumbs, type }) => {
     const handleClick = (event, href) => {
         e.preventDefault();
         router.visit(href);
     };
     return (
-        <div className="breadcrumbs" role="presentation">
-            <Breadcrumbs component="div" aria-label="breadcrumb">
-                {breadcrumbs.map((crumb, index) => (
-                    <Link
-                        key={index}
-                        underline="hover"
-                        color={
-                            index === breadcrumbs.length - 1
-                                ? "text.primary"
-                                : "inherit"
-                        }
-                        href={crumb.href}
-                        onClick={(event) => handleClick(event, crumb.href)}
-                        aria-current={
-                            index === breadcrumbs.length - 1
-                                ? "page"
-                                : undefined
-                        }
-                    >
-                        {crumb.label}
-                    </Link>
-                ))}
-            </Breadcrumbs>
-        </div>
+        <Breadcrumbs
+            sx={{
+                marginTop: "10px",
+                marginLeft: "20px",
+            }}
+            component="div"
+            aria-label="breadcrumb"
+        >
+            {breadcrumbs.map((crumb, index) => (
+                <Link
+                    key={index}
+                    underline="hover"
+                    color={
+                        index === breadcrumbs.length - 1
+                            ? "text.primary"
+                            : "inherit"
+                    }
+                    href={crumb.href}
+                    onClick={(event) => handleClick(event, crumb.href)}
+                    aria-current={
+                        index === breadcrumbs.length - 1 ? "page" : undefined
+                    }
+                >
+                    {crumb.label}
+                </Link>
+            ))}
+        </Breadcrumbs>
     );
 };
 

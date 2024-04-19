@@ -3,7 +3,7 @@
 }
 
 .form__alert {
-    top: 10% !important;
-    left: 50% !;
-    transform: translate(-50%, 0) !;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }

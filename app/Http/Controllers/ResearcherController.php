@@ -15,11 +15,9 @@ class ResearcherController extends Controller
     {
         $bookmarks = Bookmark::with([
             'galleryImage' => function ($query) {
-                // Make sure to include the 'id' field as it's needed for the relationship
                 $query->select(['id', 'image', 'title', 'description']);
             }
         ])->get()->map(function ($bookmark) {
-            // Add the full URL to the image, if it exists
             if ($bookmark->galleryImage && $bookmark->galleryImage->image) {
                 $bookmark->galleryImage->image = asset('storage/' . $bookmark->galleryImage->image);
             }
@@ -35,31 +33,26 @@ class ResearcherController extends Controller
     public function bookmark(Request $request, $galleryImageId)
     {
         $userId = auth()->user()->id;
-
-        // Check if the bookmark already exists
         $exists = Bookmark::where('user_id', $userId)
             ->where('gallery_image_id', $galleryImageId)
             ->exists();
 
         if (!$exists) {
-            // Create a new bookmark
             Bookmark::create([
                 'user_id' => $userId,
                 'gallery_image_id' => $galleryImageId,
             ]);
 
-            // return response()->json(['message' => 'Textile bookmarked successfully.']);
-        }
 
-        // return response()->json(['message' => 'Textile already bookmarked.']);
+            return back()->with('success', 'Bookmark added successfully!');
+
+        }
+        return back()->with('error', 'Bookmark already exists!');
     }
 
     public function getBookmarks()
     {
         $bookmarks = auth()->user()->bookmarks()->with('galleryImage')->get();
-
-        // Transform bookmarks as needed for the front-end
-        // ...
 
         return Inertia::render('Researcher/Bookmarks', ['bookmarks' => $bookmarks]);
     }

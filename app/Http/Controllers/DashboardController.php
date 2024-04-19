@@ -31,16 +31,14 @@ class DashboardController extends Controller
     }
     public function textilesDashboard()
     {
-        // Assuming you have combined all the necessary fields in the GalleryImage model
+
         $galleryImages = GalleryImage::all()->map(function ($image) {
             if ($image->image) {
-                // Assuming the image is stored in the 'storage/gallery_images/' directory
                 $image->image = asset('storage/gallery_images/' . $image->image);
             }
             return $image;
         });
 
-        // Now you will return gallery images instead of textile details
         return Inertia::render('Admin/Dashboards/TextileDashboard/TextileDashboard', ['galleryImages' => $galleryImages]);
     }
 
