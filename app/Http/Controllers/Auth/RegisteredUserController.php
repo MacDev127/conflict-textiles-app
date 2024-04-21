@@ -41,6 +41,11 @@ class RegisteredUserController extends Controller
 
         $defaultRole = Role::where('name', 'user')->firstOrFail(); // Make sure this exists
 
+        if (!$defaultRole) {
+            // Optionally, create the role if it doesn't exist or handle this scenario appropriately
+            abort(500, 'Default user role does not exist. Please contact the administrator.');
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

@@ -22,6 +22,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserRoleDashboardController;
 
 
+Route::post("/admin/users/create", [UserRoleDashboardController::class, 'store'])->name('users.create');
+
 
 
 // super admiin test routes

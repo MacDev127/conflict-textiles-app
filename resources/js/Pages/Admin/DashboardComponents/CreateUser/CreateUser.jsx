@@ -11,9 +11,22 @@ const CreateUser = () => {
         role_id: "",
     });
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     post("/admin/users/create");
+    // };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        post("/admin/users/create"); // Ensure this endpoint matches your Laravel route
+        post(route("users.create"), {
+            // Using 'users.create' based on your route name in Laravel
+            onSuccess: () => {
+                // Reset form or handle success
+            },
+            onError: (errors) => {
+                console.error(errors);
+            },
+        });
     };
 
     const handleInputChange = (e) => {
@@ -21,9 +34,8 @@ const CreateUser = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <>
             <div className="create-user__title">Create User</div>
-
             <form onSubmit={handleSubmit} className="create-user-form">
                 <h2>Create User</h2>
                 <div className="form-field">
@@ -82,7 +94,7 @@ const CreateUser = () => {
                     Create User
                 </button>
             </form>
-        </form>
+        </>
     );
 };
 
