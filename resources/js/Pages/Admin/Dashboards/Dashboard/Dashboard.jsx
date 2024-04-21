@@ -14,7 +14,15 @@ import ListEvents from "../../DashboardComponents/CreateEvent/CreateEvent";
 const Dashboard = ({ events }) => {
     return (
         <>
-            <DashboardSidebar />
+            <DashboardSidebar
+                menuItems={{
+                    dashboard: true,
+                    events: true,
+                    textiles: true,
+                    home: true,
+                    bookmarks: false,
+                }}
+            />
 
             <section className="Dashboard">
                 <div className="dashboard-chart__container">
