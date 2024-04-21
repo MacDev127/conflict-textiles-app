@@ -20,7 +20,8 @@ const Dashboard = ({ events }) => {
                     events: true,
                     textiles: true,
                     home: true,
-                    bookmarks: false,
+                    bookmarks: true,
+                    roles: true,
                 }}
             />
 

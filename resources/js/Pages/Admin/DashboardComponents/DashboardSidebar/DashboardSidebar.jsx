@@ -23,6 +23,7 @@ import DashboardMenu from "../DashboardMenu/DashboardMenu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
 const DashboardSidebar = ({ menuItems }) => {
     const theme = useTheme();
@@ -233,6 +234,26 @@ const DashboardSidebar = ({ menuItems }) => {
                                                 color: "black",
                                             }}
                                             primary="Bookmarks"
+                                        />
+                                    </ListItemButton>
+                                </Link>
+                            </ListItem>
+                        )}
+                        {menuItems.roles && (
+                            <ListItem disablePadding>
+                                <Link
+                                    href="/admin/user-role-dashboard"
+                                    style={{ width: "100%" }}
+                                >
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                            <ManageAccountsIcon />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            sx={{
+                                                color: "black",
+                                            }}
+                                            primary="Roles"
                                         />
                                     </ListItemButton>
                                 </Link>

@@ -1,0 +1,131 @@
+.create-textile {
+    background-color: #f5f3f4;
+    position: relative;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.create-user__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 10px;
+    font-size: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+form input,
+form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 50px;
+    padding: 30px 20px;
+    width: auto;
+    min-width: 1400px;
+    box-sizing: border-box;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1rem;
+    min-height: 20px;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form input[type="text"],
+form input[type="password"],
+form input[type="number"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+input:focus {
+    outline: 1px solid crimson;
+}
+
+.create-user__button {
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #df0144;
+    border-radius: 6px;
+}
+
+.create-user__button:hover {
+    background: #dd294d;
+    transition: ease 0.1s;
+}
+
+.form__alert {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 15px;
+        min-width: 400px !important;
+    }
+    form label {
+        font-size: 14px;
+    }
+
+    .create-user__title {
+        font-size: 24px;
+    }
+    .create-user__button {
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #df0144;
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    .create-user__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .form__alert {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}

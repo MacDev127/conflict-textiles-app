@@ -18,11 +18,38 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ResearcherController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserRoleDashboardController;
 
 
 
 
+// super admiin test routes
+// Inside your routes file (web.php)
+Route::post('/admin/users/assign-role', [UserRoleDashboardController::class, 'assignRole'])
+    ->name('admin.users.assign-role')
+    ->middleware('is_admin');
 
+
+// routes/web.php
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/roles', [RoleController::class, 'index'])->name('admin.roles.index');
+    Route::post('/admin/roles', [RoleController::class, 'store'])->name('admin.roles.store');
+    Route::get('/admin/roles/{role}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit');
+    Route::put('/admin/roles/{role}', [RoleController::class, 'update'])->name('admin.roles.update');
+    Route::delete('/admin/roles/{role}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
+});
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/user-role-dashboard', [UserRoleDashboardController::class, 'index'])
+        ->name('admin.user-role-dashboard.index');
+});
+
+Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
+    ->middleware(['auth', 'is_admin'])
+    ->name('admin.events-dashboard');
+// super admiin test routes
 
 
 
@@ -95,6 +122,10 @@ Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
     ->name('admin.events-dashboard');
 
 //textiles dashboard
+Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
+    ->middleware(['auth', 'is_admin'])
+    ->name('admin.textiles-dashboard');
+
 Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
     ->middleware(['auth', 'is_admin'])
     ->name('admin.textiles-dashboard');

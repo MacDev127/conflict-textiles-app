@@ -9,10 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 class EnsureUserIsResearcher
 {
     public function handle(Request $request, Closure $next): Response
-    {
-        if (!auth()->user()->is_researcher) {
-            return redirect('home')->with('error', 'Access restricted to researchers.');
+    { {
+            $user = auth()->user();
+            if ($user && $user->role && $user->role->name == 'reseacrher') {
+                return $next($request);
+            }
+            return redirect('/about')->with('error', 'You do not have access to this section.');
         }
-        return $next($request);
     }
 }

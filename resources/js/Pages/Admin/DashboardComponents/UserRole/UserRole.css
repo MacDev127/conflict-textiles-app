@@ -1,0 +1,4 @@
+.MuiDataGrid-container--top [role="row"] {
+    background-color: #545352 !important ;
+    color: white !important;
+}
