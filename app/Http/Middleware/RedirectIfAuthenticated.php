@@ -7,6 +7,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
+
 
 class RedirectIfAuthenticated
 {
@@ -21,7 +23,20 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Get the authenticated user
+                $user = Auth::guard($guard)->user();
+                Log::info('User is already authenticated', ['user_id' => $user->id, 'user_role' => $user->role]);
+
+
+                // Redirect based on user role
+                if ($user->isAdmin()) {
+                    return redirect('/metrics-dashboard');
+                } elseif ($user->isResearcher()) {
+                    return redirect('/researcher-dashboard');
+                }
+
+                // Default redirect if no specific role is found
+                return redirect('/');
             }
         }
 

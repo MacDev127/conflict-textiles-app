@@ -66,16 +66,16 @@ class AuthenticatedSessionController extends Controller
         }
     }
 
-    protected function redirectTo()
-    {
-        $user = auth()->user();
-        if ($user->isAdmin()) {
-            return '/metrics-dashboard';
-        } elseif ($user->isResearcher()) {
-            return '/researcher-dashboard';
-        }
-        return '/home'; // Default path
-    }
+    // protected function redirectTo()
+    // {
+    //     $user = auth()->user();
+    //     if ($user->isAdmin()) {
+    //         return '/metrics-dashboard';
+    //     } elseif ($user->isResearcher()) {
+    //         return '/researcher-dashboard';
+    //     }
+    //     return '/'; // Default path
+    // }
 
     /**
      * Destroy an authenticated session.

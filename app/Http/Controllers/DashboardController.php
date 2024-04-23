@@ -5,23 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\Log;
+
 use App\Models\GalleryImage;
 
 use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function index()
-    {
-        $events = Event::all()->map(function ($event) {
-            if ($event->image) {
-                $event->image = asset('storage/' . $event->image);
-            }
-            return $event;
-        });
+    // public function index()
+    // {
+    //     $events = Event::all()->map(function ($event) {
 
-        return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard', ['events' => $events]);
-    }
+    //         if ($event->image) {
+    //             $event->image = asset('storage/' . $event->image);
+    //         }
+    //         return $event;
+    //     });
+
+    //     return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard', ['events' => $events]);
+    // }
     public function eventsDashboard()
     {
 

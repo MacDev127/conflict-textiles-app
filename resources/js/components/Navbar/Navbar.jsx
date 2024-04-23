@@ -2,9 +2,9 @@ import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { Link } from "@inertiajs/react";
 import "./Navbar.css";
-import LoginButton from "@/components/LoginButton/LoginButton";
 import DropdownMenu from "../Dropdown/Dropdown";
 import { FaCircleUser } from "react-icons/fa6";
+import MenuComponent from "@/components/Menu/MenuComponent";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -73,9 +73,8 @@ const Navbar = () => {
 
             <div className="right-section">
                 <DropdownMenu />
-                <Link href="/login">
-                    <LoginButton className="nav_log"></LoginButton>
-                </Link>
+
+                <MenuComponent />
             </div>
         </header>
     );
