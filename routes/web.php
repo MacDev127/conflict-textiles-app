@@ -114,9 +114,15 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.
 
 
 /// main dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'is_admin'])
-    ->name('dashboard');
+Route::get('/metrics-dashboard', function () {
+    return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard');
+})->middleware(['auth', 'is_admin'])->name('metrics-dashboard');
+
+//------- Bolier plate laravel Routes-----//
+Route::get('/dashboards/metrics-dashboard', function () {
+    return Inertia::render('MetricsDashboard');
+})->middleware(['auth', 'verified'])->name('metrics-dashboard');
+
 
 //events dashboard
 Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
@@ -255,9 +261,9 @@ Route::get('/welcome', function () {
 
 
 //------- Bolier plate laravel Routes-----//
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboards/metrics-dashboard', function () {
+    return Inertia::render('MetricsDashboard');
+})->middleware(['auth', 'verified'])->name('metrics-dashboard');
 
 //------- Bolier plate laravel Routes-----//
 Route::middleware('auth')->group(function () {

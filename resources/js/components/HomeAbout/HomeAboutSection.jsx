@@ -63,7 +63,7 @@ const About = () => {
                     </ModalComponent>
                 </ModalWrapper>
 
-                <Link to="/about">
+                <Link href="/about">
                     <ButtonComponent>
                         Find Out More
                         {/* {t("hero_button1_text")} */}

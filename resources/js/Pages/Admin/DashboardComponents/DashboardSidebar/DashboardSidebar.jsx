@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
 import MenuIcon from "@mui/icons-material/Menu";
 import EventIcon from "@mui/icons-material/Event";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -142,21 +142,21 @@ const DashboardSidebar = ({ menuItems }) => {
                     </DrawerHeader>
                     <Divider />
                     <List>
-                        {menuItems.dashboard && (
+                        {menuItems.metrics && (
                             <ListItem disablePadding>
                                 <Link
-                                    href="/dashboard"
+                                    href="/metrics-dashboard"
                                     style={{ width: "100%" }}
                                 >
                                     <ListItemButton>
                                         <ListItemIcon>
-                                            <DashboardCustomizeIcon />
+                                            <AnalyticsIcon />
                                         </ListItemIcon>
                                         <ListItemText
                                             sx={{
                                                 color: "black",
                                             }}
-                                            primary="Dashboard"
+                                            primary="Metrics"
                                         />
                                     </ListItemButton>
                                 </Link>

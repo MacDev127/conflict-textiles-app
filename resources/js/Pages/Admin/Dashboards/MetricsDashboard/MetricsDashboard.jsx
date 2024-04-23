@@ -1,22 +1,18 @@
 import React from "react";
 
-import "./Dashboard.css";
-
-import { Link } from "@inertiajs/react";
+import "./MetricsDashboard.css";
 
 import DashboardSidebar from "../../DashboardComponents/DashboardSidebar/DashboardSidebar";
 import DashboardBarChart from "../../DashboardComponents/DashBoardcharts/DashboardBarChart";
 import DashboardPieChart from "../../DashboardComponents/DashBoardcharts/DashoardPieChart";
 import DashboardLineChart from "../../DashboardComponents/DashBoardcharts/DashboardLineChart";
-// import DashboardVerticalBarChart from "./DashboardComponents/DashBoardcharts/DashboardVerticalBarChart";
-import ListEvents from "../../DashboardComponents/CreateEvent/CreateEvent";
 
-const Dashboard = ({ events }) => {
+const MetricsDashboard = () => {
     return (
         <>
             <DashboardSidebar
                 menuItems={{
-                    dashboard: true,
+                    metrics: true,
                     events: true,
                     textiles: true,
                     home: true,
@@ -47,4 +43,4 @@ const Dashboard = ({ events }) => {
     );
 };
 
-export default Dashboard;
+export default MetricsDashboard;

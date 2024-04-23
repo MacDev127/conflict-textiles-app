@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import Checkbox from "@/components/LaravelComponents/Checkbox";
-import GuestLayout from "@/Layouts/GuestLayout";
+// import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/components/LaravelComponents/InputError";
-import InputLabel from "@/components/LaravelComponents/InputLabel";
+// import InputLabel from "@/components/LaravelComponents/InputLabel";
 import PrimaryButton from "@/components/LaravelComponents/PrimaryButton";
-import TextInput from "@/components/LaravelComponents/TextInput";
+// import TextInput from "@/components/LaravelComponents/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
-import "./Auth.css";
+import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
+// import "./Auth.css";
+import "./Login.css";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -28,7 +30,10 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <GuestLayout>
+        <section className="login__page">
+            <Link href={route("home")}>
+                <ApplicationLogo />
+            </Link>
             <Head title="Log in" />
 
             {status && (
@@ -37,76 +42,88 @@ export default function Login({ status, canResetPassword }) {
                 </div>
             )}
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <div className="form__container">
+                <form className="login-form" onSubmit={submit}>
+                    <div className="form-group">
+                        <label htmlFor="email" value="Email">
+                            Email
+                        </label>
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="block w-full mt-1"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={(e) => setData("email", e.target.value)}
-                    />
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            className="input-text"
+                            autoComplete="username"
+                            isFocused={true}
+                            onChange={(e) => setData("email", e.target.value)}
+                        />
 
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                        <InputError
+                            message={errors.email}
+                            className="error-message"
+                        />
+                    </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <div className="form-group">
+                        <label htmlFor="password" value="Password">
+                            Password
+                        </label>
 
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="block w-full mt-1"
-                        autoComplete="current-password"
-                        onChange={(e) => setData("password", e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="input-text"
+                            autoComplete="current-password"
                             onChange={(e) =>
-                                setData("remember", e.target.checked)
+                                setData("password", e.target.value)
                             }
                         />
-                        <span className="text-sm text-gray-600 ms-2">
-                            Remember me
-                        </span>
-                    </label>
-                </div>
 
-                <div className="flex items-center mt-4 justify-evenly ">
-                    {canResetPassword && (
-                        <Link
-                            href={route("password.request")}
-                            className="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
+                        <InputError
+                            message={errors.password}
+                            className="error-message"
+                        />
+                    </div>
+
+                    <div className="form-group large-margin">
+                        <label className="checkbox-container">
+                            <Checkbox
+                                name="remember"
+                                checked={data.remember}
+                                onChange={(e) =>
+                                    setData("remember", e.target.checked)
+                                }
+                            />
+                            <span className="checkbox-label">Remember me</span>
+                        </label>
+                    </div>
+
+                    <div className="form-action-group">
+                        {canResetPassword && (
+                            <Link
+                                href={route("password.request")}
+                                className="link"
+                            >
+                                Forgot your password?
+                            </Link>
+                        )}
+                        <Link href={route("register")} className="link">
+                            New here?
                         </Link>
-                    )}
-                    <Link
-                        href={route("register")}
-                        className="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        New here?
-                    </Link>
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+                        <PrimaryButton
+                            className="login-button"
+                            disabled={processing}
+                        >
+                            Log in
+                        </PrimaryButton>
+                    </div>
+                </form>
+            </div>
+        </section>
     );
 }

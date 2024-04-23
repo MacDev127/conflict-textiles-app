@@ -9,11 +9,11 @@ const UserRoleDashboard = ({ users, roles }) => {
         <>
             <DashboardSidebar
                 menuItems={{
-                    dashboard: false,
-                    events: false,
-                    textiles: false,
+                    metrics: true,
+                    events: true,
+                    textiles: true,
                     home: true,
-                    bookmarks: true,
+                    bookmarks: false,
                     roles: true,
                 }}
             />

@@ -46,16 +46,35 @@ class AuthenticatedSessionController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
         if (Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
             $request->session()->regenerate();
+            $user = Auth::user();
 
-            return redirect()->intended('dashboard'); // Redirects to dashboard if user is authenticated
+            \Log::info('Authenticated user role:', ['role' => $user->role->name ?? 'undefined']);
+
+            switch ($user->role->name) {
+                case 'admin':
+                    \Log::info('Redirecting admin to metrics dashboard');
+                    return redirect()->intended('/metrics-dashboard');
+                case 'researcher':
+                    \Log::info('Redirecting researcher to researcher dashboard');
+                    return redirect()->intended('/researcher-dashboard');
+                default:
+                    \Log::info('Redirecting to default home');
+                    return redirect()->intended('/');
+            }
         }
+    }
 
-        throw ValidationException::withMessages([
-            'email' => [__('auth.failed')], // Ensure this key matches your language files or directly put your message
-        ]);
+    protected function redirectTo()
+    {
+        $user = auth()->user();
+        if ($user->isAdmin()) {
+            return '/metrics-dashboard';
+        } elseif ($user->isResearcher()) {
+            return '/researcher-dashboard';
+        }
+        return '/home'; // Default path
     }
 
     /**

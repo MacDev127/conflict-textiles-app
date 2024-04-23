@@ -9,11 +9,12 @@ const TextileDashboard = ({ galleryImages }) => {
         <>
             <DashboardSidebar
                 menuItems={{
-                    dashboard: true,
+                    metrics: true,
                     events: true,
                     textiles: true,
                     home: true,
                     bookmarks: false,
+                    roles: true,
                 }}
             />
             <section className="textile-dashboard">

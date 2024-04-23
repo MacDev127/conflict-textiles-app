@@ -38,7 +38,7 @@ const ResearchDashboard = ({ bookmarks, galleryImages }) => {
         <>
             <DashboardSidebar
                 menuItems={{
-                    dashboard: false,
+                    metrics: false,
                     events: false,
                     textiles: false,
                     home: true,

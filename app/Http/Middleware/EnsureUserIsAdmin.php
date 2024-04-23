@@ -5,19 +5,20 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class EnsureUserIsAdmin
 {
-    /**
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        $user = auth()->user();
-        if ($user && $user->role && $user->role->name == 'admin') {
+        $user = Auth::user();
+        if ($user && $user->role && $user->role->name === 'admin') {
             return $next($request);
         }
-        return redirect('/collection')->with('error', 'You do not have access to this section.');
+
+        // Redirect non-admins to a common page with an error message
+        return redirect('/about')->with('error', 'You do not have administrative access.');
     }
 }

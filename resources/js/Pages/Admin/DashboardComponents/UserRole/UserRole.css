@@ -2,3 +2,8 @@
     background-color: #545352 !important ;
     color: white !important;
 }
+
+.css-aubnum-MuiDataGrid-root .MuiDataGrid-columnHeader:focus-within,
+.css-aubnum-MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+    outline: none !important;
+}

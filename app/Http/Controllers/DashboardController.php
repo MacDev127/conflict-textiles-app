@@ -20,7 +20,7 @@ class DashboardController extends Controller
             return $event;
         });
 
-        return Inertia::render('Admin/Dashboards/Dashboard/Dashboard', ['events' => $events]);
+        return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard', ['events' => $events]);
     }
     public function eventsDashboard()
     {

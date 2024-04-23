@@ -1,0 +1,107 @@
+/* Login.css */
+
+.login__page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f9f9f9;
+}
+
+.login-form {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 430px;
+    width: 90%;
+}
+
+.form__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-right: 10px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:focus {
+    outline: 2px solid #007bff;
+    border-color: #007bff;
+}
+
+.error-message {
+    color: #d32f2f;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.checkbox-container {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+.form-action-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: #c82333;
+}
+
+.login-button:disabled {
+    background-color: #e2e3e5;
+    color: #6c757d;
+    cursor: not-allowed;
+}

@@ -55,4 +55,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; // Adjust according to your role setup
+    }
+
+    // Check if the user is a researcher
+    public function isResearcher()
+    {
+        return $this->role === 'researcher'; // Adjust according to your role setup
+    }
 }
