@@ -1,6 +1,6 @@
-import GuestLayout from "@/Layouts/GuestLayout";
-import PrimaryButton from "@/components/LaravelComponents/PrimaryButton";
 import { Head, Link, useForm } from "@inertiajs/react";
+import "./Auth.css";
+import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
 
 export default function VerifyEmail({ status }) {
     const { post, processing } = useForm({});
@@ -12,10 +12,13 @@ export default function VerifyEmail({ status }) {
     };
 
     return (
-        <GuestLayout>
+        <section className="login__page">
             <Head title="Email Verification" />
+            <Link href={route("home")}>
+                <ApplicationLogo />
+            </Link>
 
-            <div className="mb-4 text-sm text-gray-600">
+            <div className="verification-message">
                 Thanks for signing up! Before getting started, could you verify
                 your email address by clicking on the link we just emailed to
                 you? If you didn't receive the email, we will gladly send you
@@ -23,15 +26,18 @@ export default function VerifyEmail({ status }) {
             </div>
 
             {status === "verification-link-sent" && (
-                <div className="mb-4 font-medium text-sm text-green-600">
+                <div className="status-message">
                     A new verification link has been sent to the email address
                     you provided during registration.
                 </div>
             )}
 
-            <form onSubmit={submit}>
-                <div className="mt-4 flex items-center justify-between">
-                    <PrimaryButton disabled={processing}>
+            <form className="login-form" onSubmit={submit}>
+                <div className="form-action-group">
+                    <PrimaryButton
+                        className="login-button"
+                        disabled={processing}
+                    >
                         Resend Verification Email
                     </PrimaryButton>
 
@@ -39,12 +45,12 @@ export default function VerifyEmail({ status }) {
                         href={route("logout")}
                         method="post"
                         as="button"
-                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="link"
                     >
                         Log Out
                     </Link>
                 </div>
             </form>
-        </GuestLayout>
+        </section>
     );
 }

@@ -65,8 +65,7 @@ class User extends Authenticatable
         return $this->role && $this->role->name === 'researcher';
     }
 
-    //redirection issue that took 3 days to figure out
-
+    // redirection issue that took 3 days to figure out
     // You didnt handle the roles properly you were checking the role to look for a simple string input as opposed to the "name" attribute
 
 

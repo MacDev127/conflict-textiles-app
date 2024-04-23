@@ -26,8 +26,9 @@
 }
 
 .form-group {
-    margin-bottom: 1rem;
-    gap: 10px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
@@ -72,6 +73,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 20px;
 }
 
 .link {
@@ -105,3 +107,50 @@
     color: #6c757d;
     cursor: not-allowed;
 }
+
+.status-message {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #059669; /* Tailwind's green-600 */
+}
+
+.description {
+    margin: 1rem;
+    padding-top: 10px;
+    font-size: 1rem;
+    color: #4b5563; /* Tailwind's gray-600 */
+    text-align: left;
+    line-height: 1.2;
+}
+
+.reset__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.verification-message,
+.status-message {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #4b5563; /* Gray text */
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.status-message {
+    color: #059669; /* Green text */
+    font-weight: 500;
+}
+
+.form-action-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* Make sure the rest of the input and button styles are already included in the Auth.css */

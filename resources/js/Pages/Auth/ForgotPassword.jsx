@@ -1,8 +1,8 @@
-import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/components/LaravelComponents/InputError";
 import PrimaryButton from "@/components/LaravelComponents/PrimaryButton";
-import TextInput from "@/components/LaravelComponents/TextInput";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
+import "./Auth.css";
+import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -16,40 +16,47 @@ export default function ForgotPassword({ status }) {
     };
 
     return (
-        <GuestLayout>
+        <section className="login__page">
             <Head title="Forgot Password" />
-
-            <div className="mb-4 text-sm text-gray-600">
-                Forgot your password? No problem. Just let us know your email
-                address and we will email you a password reset link that will
-                allow you to choose a new one.
-            </div>
-
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {status}
+            <Link href={route("home")}>
+                <ApplicationLogo />
+            </Link>
+            <form className="login-form" onSubmit={submit}>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={data.email}
+                        className="input-text"
+                        isFocused={true}
+                        required
+                        onChange={(e) => setData("email", e.target.value)}
+                    />
+                    <InputError
+                        message={errors.email}
+                        className="error-message"
+                    />
                 </div>
-            )}
 
-            <form onSubmit={submit}>
-                <TextInput
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={data.email}
-                    className="block w-full mt-1"
-                    isFocused={true}
-                    onChange={(e) => setData("email", e.target.value)}
-                />
+                {status && <div className="status-message">{status}</div>}
 
-                <InputError message={errors.email} className="mt-2" />
+                <div className="form-group description">
+                    Forgot your password? No problem. Just let us know your
+                    email address and we will email you a password reset link
+                    that will allow you to choose a new one.
+                </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                <div className="reset__button-container">
+                    <PrimaryButton
+                        className="login-button"
+                        disabled={processing}
+                    >
                         Email Password Reset Link
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </section>
     );
 }

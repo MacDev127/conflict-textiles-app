@@ -8,7 +8,7 @@ import PrimaryButton from "@/components/LaravelComponents/PrimaryButton";
 import { Head, Link, useForm } from "@inertiajs/react";
 import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
 // import "./Auth.css";
-import "./Login.css";
+import "./Auth.css";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({

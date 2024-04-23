@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/LaravelComponents/InputError";
-import InputLabel from "@/Components/LaravelComponents/InputLabel";
 import PrimaryButton from "@/Components/LaravelComponents/PrimaryButton";
-import TextInput from "@/Components/LaravelComponents/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import "./Auth.css";
+import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -28,99 +26,102 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <section className="login__page">
+            <Link href={route("home")}>
+                <ApplicationLogo />
+            </Link>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
-                    <TextInput
+            <form className="login-form" onSubmit={submit}>
+                <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input
                         id="name"
                         name="name"
+                        type="text"
                         value={data.name}
-                        className="block w-full mt-1"
+                        className="input-text"
                         autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData("name", e.target.value)}
                         required
+                        onChange={(e) => setData("name", e.target.value)}
                     />
-
-                    <InputError message={errors.name} className="mt-2" />
+                    <InputError
+                        message={errors.name}
+                        className="error-message"
+                    />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
                         id="email"
                         type="email"
                         name="email"
                         value={data.email}
-                        className="block w-full mt-1"
+                        className="input-text"
                         autoComplete="username"
-                        onChange={(e) => setData("email", e.target.value)}
                         required
+                        onChange={(e) => setData("email", e.target.value)}
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError
+                        message={errors.email}
+                        className="error-message"
+                    />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
                         id="password"
                         type="password"
                         name="password"
                         value={data.password}
-                        className="block w-full mt-1"
+                        className="input-text"
                         autoComplete="new-password"
-                        onChange={(e) => setData("password", e.target.value)}
                         required
+                        onChange={(e) => setData("password", e.target.value)}
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError
+                        message={errors.password}
+                        className="error-message"
+                    />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
+                <div className="form-group">
+                    <label htmlFor="password_confirmation">
+                        Confirm Password
+                    </label>
+                    <input
                         id="password_confirmation"
                         type="password"
                         name="password_confirmation"
                         value={data.password_confirmation}
-                        className="block w-full mt-1"
+                        className="input-text"
                         autoComplete="new-password"
+                        required
                         onChange={(e) =>
                             setData("password_confirmation", e.target.value)
                         }
-                        required
                     />
-
                     <InputError
                         message={errors.password_confirmation}
-                        className="mt-2"
+                        className="error-message"
                     />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route("login")}
-                        className="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
+                <div className="form-action-group">
+                    <Link href={route("login")} className="link">
                         Already registered?
                     </Link>
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <PrimaryButton
+                        className="login-button"
+                        disabled={processing}
+                    >
                         Register
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </section>
     );
 }

@@ -27,6 +27,8 @@ class UserRoleDashboardController extends Controller
 
     public function assignRole(Request $request)
     {
+        logger()->info('Received role assignment request:', $request->all());
+
         // Validate the incoming request data
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',

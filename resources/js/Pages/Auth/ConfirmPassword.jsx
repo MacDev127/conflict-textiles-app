@@ -1,10 +1,8 @@
-import { useEffect } from "react";
-import GuestLayout from "@/Layouts/GuestLayout";
+import { Head, useForm, Link } from "@inertiajs/react";
 import InputError from "@/components/LaravelComponents/InputError";
-import InputLabel from "@/components/LaravelComponents/InputLabel";
 import PrimaryButton from "@/components/LaravelComponents/PrimaryButton";
-import TextInput from "@/components/LaravelComponents/TextInput";
-import { Head, useForm } from "@inertiajs/react";
+import "./Auth.css";
+import ApplicationLogo from "@/components/LaravelComponents/ApplicationLogo";
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -24,37 +22,44 @@ export default function ConfirmPassword() {
     };
 
     return (
-        <GuestLayout>
+        <section className="login__page">
+            <Link href={route("home")}>
+                <ApplicationLogo />
+            </Link>
             <Head title="Confirm Password" />
 
-            <div className="mb-4 text-sm text-gray-600">
-                This is a secure area of the application. Please confirm your
-                password before continuing.
-            </div>
-
-            <form onSubmit={submit}>
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
+            <form className="login-form" onSubmit={submit}>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
                         id="password"
                         type="password"
                         name="password"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        isFocused={true}
+                        className="input-text"
+                        required
                         onChange={(e) => setData("password", e.target.value)}
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
+                    <InputError
+                        message={errors.password}
+                        className="error-message"
+                    />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                <div className="verification-message">
+                    This is a secure area of the application. Please confirm
+                    your password before continuing.
+                </div>
+
+                <div className="form-action-group">
+                    <PrimaryButton
+                        className="login-button"
+                        disabled={processing}
+                    >
                         Confirm
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </section>
     );
 }

@@ -6,6 +6,10 @@ import LoginButton from "@/components/LoginButton/LoginButton";
 import { Link } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 
 const MenuComponent = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -67,16 +71,37 @@ const MenuComponent = () => {
                         href={dashboardLink()}
                         style={{ textDecoration: "none" }}
                     >
-                        <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                        <MenuItem
+                            onClick={handleClose}
+                            sx={{ color: "black", gap: "" }}
+                        >
+                            <ListItemIcon>
+                                <DashboardCustomizeIcon />
+                            </ListItemIcon>
+                            Dashboard
+                        </MenuItem>
                     </Link>
                 )}
                 {!auth.user && (
-                    <Link href="/login" style={{ textDecoration: "none" }}>
-                        <MenuItem onClick={handleClose}>Login</MenuItem>
+                    <Link href="/login" style={{ color: "black" }}>
+                        <MenuItem
+                            onClick={handleClose}
+                            sx={{ paddingRight: "30px" }}
+                        >
+                            <ListItemIcon>
+                                <LoginIcon />
+                            </ListItemIcon>
+                            Login
+                        </MenuItem>
                     </Link>
                 )}
                 {auth.user && (
-                    <MenuItem onClick={handleLogout}>Log out</MenuItem>
+                    <MenuItem onClick={handleLogout} sx={{ gap: "" }}>
+                        <ListItemIcon>
+                            <LogoutIcon />
+                        </ListItemIcon>
+                        Log out
+                    </MenuItem>
                 )}
             </Menu>
         </div>

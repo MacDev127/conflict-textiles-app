@@ -12,7 +12,8 @@ const UserRole = ({ users, roles }) => {
     const handleRoleChange = (userId, newRoleId) => {
         // Set data for POST request
         setData({ user_id: userId, role_id: newRoleId });
-        // Post data to server
+        console.log("Updating role:", userId, newRoleId);
+
         post("/admin/users/assign-role", {
             onSuccess: () => {
                 // Optionally reset form or provide feedback
@@ -33,7 +34,7 @@ const UserRole = ({ users, roles }) => {
             width: 150,
             renderCell: (params) => (
                 <Select
-                    value={params.value}
+                    value={params.value || ""}
                     onChange={(e) =>
                         handleRoleChange(params.id, e.target.value)
                     }
@@ -56,6 +57,7 @@ const UserRole = ({ users, roles }) => {
     const rows = users.map((user) => ({
         id: user.id,
         name: user.name,
+        role_id: user.role_id,
         roles: user.roles,
     }));
 

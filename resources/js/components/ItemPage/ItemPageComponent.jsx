@@ -36,7 +36,7 @@ const ItemPageComponent = ({
     galleryImages,
     countries,
     flash,
-    breadcrumbs,
+    auth,
 }) => {
     //------------------flash message section that took hours to figure out---------------//
 
@@ -53,6 +53,8 @@ const ItemPageComponent = ({
 
     // Assuming flash is an object with potential 'success' and 'error' properties
     useEffect(() => {
+        console.log(auth); // Check the user authentication object
+
         if (flash?.success) {
             setAlertMessage(flash.success);
             setSeverity("success");
@@ -133,19 +135,25 @@ const ItemPageComponent = ({
 
                             <ItemDescStyle className={`${type}__item-desc`}>
                                 <h2>{image.title}</h2>
-                                <Tooltip title="Bookmark" arrow>
-                                    <BookmarkIcon
-                                        sx={{
-                                            color: "#3a3335",
-                                            fontSize: "18px",
-                                        }}
-                                        style={{ cursor: "pointer" }}
-                                        onClick={(e) => {
-                                            e.stopPropagation(); // Prevent the gallery image click handler from firing
-                                            handleBookmark(image.id, e);
-                                        }}
-                                    />
-                                </Tooltip>
+                                {auth.user &&
+                                    auth.user &&
+                                    auth.user.role_id === 3 && (
+                                        <Tooltip title="Bookmark" arrow>
+                                            <BookmarkIcon
+                                                sx={{
+                                                    color: "#3a3335",
+                                                    fontSize: "18px",
+                                                }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                }}
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); // Prevent the gallery image click handler from firing
+                                                    handleBookmark(image.id, e);
+                                                }}
+                                            />
+                                        </Tooltip>
+                                    )}
                             </ItemDescStyle>
                         </CollectionItemStyle>
                     ))}
