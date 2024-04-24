@@ -237,9 +237,9 @@ Route::get('/installation', [GalleryImagesController::class, 'installation'])->n
 
 //----------search functionality----------//
 
-Route::get('/search', [GalleryImagesController::class, 'search'])->name('gallery_images.search');
-Route::get('/search-page', [SearchController::class, 'index'])->name('search-page');
-
+// Updated routes for search functionality
+Route::get('/search', [SearchController::class, 'search'])->name('search'); // Perform search
+Route::get('/search-page', [SearchController::class, 'index'])->name('search-page'); // Display search page
 //----------search functionality----------//
 
 

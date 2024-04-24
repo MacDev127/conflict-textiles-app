@@ -25,7 +25,7 @@ const SearchComponent = ({ countries, auth }) => {
     // Event handler for form submission
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission action (page reload)
-        get(route("gallery_images.search")); // Submit the form data using a GET request to the 'gallery_images.search'  controller route
+        get(route("search")); // Submit the form data using a GET request to the 'gallery_images.search'  controller route
     };
 
     //--------------------------------Advanaced Search----------------------------------------------//

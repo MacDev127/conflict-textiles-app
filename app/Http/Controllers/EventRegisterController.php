@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
+
+
 use Illuminate\Http\Request;
 use App\Models\EventRegister;
 // use App\Models\Event;
@@ -13,16 +16,20 @@ class EventRegisterController extends Controller
 {
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:events_register,email',
             'number' => 'required|string|unique:events_register,number',
             'gender' => 'string',
-            // 'birthDate' => 'string',
-
         ]);
 
-        EventRegister::create($validatedData);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
+
+        EventRegister::create($validator->validated());
 
         // Redirect back with success message
         return back()->with('status', 'Registration successful!');
@@ -30,8 +37,7 @@ class EventRegisterController extends Controller
 
     public function showRegistrationForm($eventId)
     {
-        // Optionally, retrieve the event details to pass to the view
-        // $event = Event::findOrFail($eventId);
+
 
         return Inertia::render('EventRegister/EventRegister', [
             'eventId' => $eventId, // Pass additional props as needed
