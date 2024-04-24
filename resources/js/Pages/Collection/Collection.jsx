@@ -13,7 +13,7 @@ import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import SearchComponent from "@/components/Search/SearchComponent";
 
-const Collection = ({ collectionPageImages, countries }) => {
+const Collection = ({ collectionPageImages, countries, auth }) => {
     return (
         <section className="Collection">
             <Navbar />
@@ -34,7 +34,7 @@ const Collection = ({ collectionPageImages, countries }) => {
                         hangings, and more, all centered around themes of
                         conflict and human rights violations.
                     </TextComponent>
-                    <SearchComponent countries={countries} />
+                    <SearchComponent countries={countries} auth={auth} />
                 </ContentComponent>
                 <SubtitleComponent>Theme</SubtitleComponent>
                 <div className="collection__wrapper">

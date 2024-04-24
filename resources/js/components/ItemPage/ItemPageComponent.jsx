@@ -114,7 +114,7 @@ const ItemPageComponent = ({
                     <TextComponent>{description}</TextComponent>
                 </ContentComponent>
                 <SearchBarContainer>
-                    <SearchComponent countries={countries} />
+                    <SearchComponent auth={auth} countries={countries} />
                 </SearchBarContainer>
                 <MasonryComponent
                     galleryImages={galleryImages}

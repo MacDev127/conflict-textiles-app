@@ -5,7 +5,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
 // Access the current page's properties using the usePage hook from Inertia.js
-const SearchComponent = ({ countries }) => {
+const SearchComponent = ({ countries, auth }) => {
     // Initialize form data with useForm hook from Inertia.js, setting default values for each field
     const { data, setData, get } = useForm({
         type: "",
@@ -69,17 +69,19 @@ const SearchComponent = ({ countries }) => {
                         <GoSearch style={{ fontSize: "18px" }} />
                     </button>
                 </form>
-                <div className="advanced__btn-wrapper">
-                    <button
-                        onClick={toggleAdvancedSearch}
-                        className="advanced__btn"
-                    >
-                        Advanced
-                        <FaAngleDown
-                            className={`icon ${showAdvanced ? "true" : ""}`}
-                        />
-                    </button>
-                </div>
+                {auth.user && auth.user && auth.user.role_id === 3 && (
+                    <div className="advanced__btn-wrapper">
+                        <button
+                            onClick={toggleAdvancedSearch}
+                            className="advanced__btn"
+                        >
+                            Advanced
+                            <FaAngleDown
+                                className={`icon ${showAdvanced ? "true" : ""}`}
+                            />
+                        </button>
+                    </div>
+                )}
                 <div
                     className={`advanced__search-container ${
                         showAdvanced ? "open" : ""
