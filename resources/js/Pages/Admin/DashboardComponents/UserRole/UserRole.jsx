@@ -15,6 +15,8 @@ const UserRole = ({ users, roles }) => {
         console.log("Updating role:", userId, newRoleId);
 
         post("/admin/users/assign-role", {
+            preserveState: true,
+
             onSuccess: () => {
                 // Optionally reset form or provide feedback
                 console.log("Role updated successfully");

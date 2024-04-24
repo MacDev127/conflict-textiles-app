@@ -50,7 +50,9 @@ const ResearchDashboard = ({ bookmarks, galleryImages }) => {
                     Bookmarked Items
                 </PageTitleComponent>
                 <MasonryComponent
-                    galleryImages={galleryImages}
+                    galleryImages={bookmarks.map(
+                        (bookmark) => bookmark.galleryImage
+                    )}
                     onImageClick={handleImageClick}
                 >
                     {bookmarks.map((bookmark) => {
