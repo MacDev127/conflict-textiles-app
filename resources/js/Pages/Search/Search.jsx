@@ -15,6 +15,7 @@ import { ImageContainer } from "./Search.styled";
 import { ItemDescStyle } from "./Search.styled";
 import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
 import AlertComponent from "@/components/Alert/AlertComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 import "./Search.css";
 
@@ -46,6 +47,12 @@ const Search = ({ galleryImages, type }) => {
     return (
         <>
             <Navbar />
+            <BreadcrumbComponent
+                breadcrumbs={[
+                    { label: "Collection", href: "/collection" },
+                    { label: "Search Results", href: "/search" },
+                ]}
+            />
             <ContainerComponent>
                 <TitleComponent>Search Results</TitleComponent>
                 <ContentComponent>
@@ -87,10 +94,6 @@ const Search = ({ galleryImages, type }) => {
                         )}
                     </div>
                 )}
-
-                <ReturnLinkComponent to="/collection">
-                    Back to Collection
-                </ReturnLinkComponent>
             </ContainerComponent>
 
             <Footer />

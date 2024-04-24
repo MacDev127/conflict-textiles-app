@@ -15,11 +15,16 @@ export const ImageHeaderStyle = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
-        animation: scale 10s linear;
+        animation: zoomOut 10s linear;
+        transform-origin: center center; // Ensures scaling happens uniformly from the center
     }
-    @keyframes scale {
-        100% {
-            width: 100%;
+
+    @keyframes zoomOut {
+        from {
+            transform: scale(1.2); // Start the image at 120% of its normal size
+        }
+        to {
+            transform: scale(1); // Gradually scale down to its normal size
         }
     }
 
