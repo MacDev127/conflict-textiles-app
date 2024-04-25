@@ -1,7 +1,7 @@
 import { React } from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
 import { usePage } from "@inertiajs/react";
-const Arpillera = ({ galleryImages, countries }) => {
+const Arpillera = ({ galleryImages, countries, auth }) => {
     const { props } = usePage();
     const { flash } = props;
     const content = {
@@ -15,8 +15,8 @@ const Arpillera = ({ galleryImages, countries }) => {
 
         galleryImages,
         flash,
+        auth,
     };
-    console.log(countries);
     return (
         <>
             <ItemPageComponent countries={countries} {...content} />

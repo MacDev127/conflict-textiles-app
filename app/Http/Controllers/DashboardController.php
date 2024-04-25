@@ -13,18 +13,7 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    // public function index()
-    // {
-    //     $events = Event::all()->map(function ($event) {
 
-    //         if ($event->image) {
-    //             $event->image = asset('storage/' . $event->image);
-    //         }
-    //         return $event;
-    //     });
-
-    //     return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard', ['events' => $events]);
-    // }
     public function eventsDashboard()
     {
 
@@ -46,3 +35,14 @@ class DashboardController extends Controller
     }
 
 }
+
+/*
+|--------------------------------------------------------------------------
+| DashBoard controller
+|--------------------------------------------------------------------------
+|DashboardController manages data presentation in dashboards, with tests focusing on:
+|Events Dashboard Test: Ensures accurate retrieval and display of all events.
+|Textiles Dashboard Test: Validates retrieval and display of textiles or gallery images, similar to the events dashboard.
+
+|
+*/

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Validation\Rule;
+
 
 
 class RoleController extends Controller
@@ -11,8 +13,9 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return inertia('admin/roles/index', ['roles' => $roles]);
+        return inertia('Admin/DashboardComponents/UserRole/UserRole', ['roles' => $roles]);  // Update to the correct path
     }
+
 
     public function store(Request $request)
     {
@@ -30,13 +33,16 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        return inertia('admin/roles/edit', ['role' => $role]);
+        return inertia('Admin/DashboardComponents/UserRole/UserRole', ['role' => $role]);
     }
 
     public function update(Request $request, Role $role)
     {
+        // $request->validate([
+        //     'name' => ['required', 'string', Role::unique('roles', 'name')->ignore($role->id)],
+        // ]);
         $request->validate([
-            'name' => ['required', 'string', Role::unique('roles', 'name')->ignore($role->id)],
+            'name' => ['required', 'string', Rule::unique('roles')->ignore($role->id)],
         ]);
 
         $role->update([
@@ -55,3 +61,19 @@ class RoleController extends Controller
             ->with('success', 'Role deleted successfully.');
     }
 }
+
+
+/*
+|--------------------------------------------------------------------------
+| Role controller
+|--------------------------------------------------------------------------
+|
+|RoleController oversees CRUD operations for roles, with tests covering:
+|Index Test: Validates retrieval and display of all roles.
+|Create Role Test: Ensures proper addition of new roles, validating unique constraints.
+|Edit Role Test: Verifies retrieval of a specific role for editing.
+|Update Role Test: Validates correct processing of role updates, including validation.
+|Delete Role Test: Confirms deletion of roles and appropriate system updates.
+
+|
+*/

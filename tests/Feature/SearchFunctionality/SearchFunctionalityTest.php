@@ -33,10 +33,8 @@ class SearchFunctionalityTest extends TestCase
             'image' => 'images/landscape.jpg'
         ]);
 
-        // Act: Perform a search based on keyword
         $response = $this->get('/search?keyword=Landscape');
 
-        // Assert: Check the response and data
         $response->assertStatus(200);
         $response->assertInertia(
             fn($assert) => $assert

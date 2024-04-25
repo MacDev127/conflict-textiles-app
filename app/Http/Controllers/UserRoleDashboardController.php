@@ -73,3 +73,15 @@ class UserRoleDashboardController extends Controller
 
 }
 
+
+/*
+|--------------------------------------------------------------------------
+| UserRole Dashboard controller
+|--------------------------------------------------------------------------
+|
+| The UserRoleDashboardController manages users and roles in the admin dashboard. 
+| It lists users and their roles, assigns roles, and creates new users with assigned roles, 
+| streamlining user management for admins.
+|
+*/
+

@@ -14,6 +14,8 @@ class GalleryImageFactory extends Factory
         return [
             'country_of_origin' => $this->faker->country,
             'image' => $this->faker->imageUrl,
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph
 
             // Add other fields as necessary
         ];

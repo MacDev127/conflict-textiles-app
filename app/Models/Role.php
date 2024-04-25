@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    use HasFactory; // Ensure that this line is included
+
     protected $fillable = ['name'];
 
     public function users()
