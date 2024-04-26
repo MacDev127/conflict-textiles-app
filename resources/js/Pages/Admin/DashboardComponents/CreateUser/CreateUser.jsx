@@ -35,9 +35,9 @@ const CreateUser = () => {
 
     return (
         <>
-            <div className="create-user__title">Create User</div>
+            {/* <div className="create-user__title">Create User</div> */}
             <form onSubmit={handleSubmit} className="create-user-form">
-                <h2>Create User</h2>
+                <h2 className="create-user__title">Create User</h2>
                 <div className="form-field">
                     <label htmlFor="name">Name</label>
                     <input

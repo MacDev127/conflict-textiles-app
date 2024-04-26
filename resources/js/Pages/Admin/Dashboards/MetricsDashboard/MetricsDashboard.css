@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .dashboard-chart__container {
@@ -43,6 +43,15 @@
 
 @media (max-width: 768px) {
     .Dashboard {
-        height: 100%;
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    .dashboard-chart__container {
+        display: flex;
+        justify-content: center;
+
+        flex-direction: column;
     }
 }

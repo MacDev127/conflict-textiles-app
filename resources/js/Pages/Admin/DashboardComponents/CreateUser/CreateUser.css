@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 10px;
+
     font-size: 40px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
@@ -24,7 +24,7 @@ form label {
 }
 
 form {
-    margin-top: 50px;
+    margin-top: 100px;
     padding: 30px 20px;
     width: auto;
     min-width: 1400px;

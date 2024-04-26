@@ -110,7 +110,7 @@ const ListEvents = ({ events }) => {
         <>
             <Box
                 sx={{
-                    minHeight: "1000px",
+                    minHeight: "500px",
                     maxWidth: "1700px",
                     marginTop: "100px",
                     width: "100%",

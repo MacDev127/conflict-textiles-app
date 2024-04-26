@@ -8,20 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
 
-// class EnsureUserIsResearcher
-// {
-//     public function handle(Request $request, Closure $next)
-//     {
-//         $user = Auth::user();
-//         if ($user && $user->role && $user->role->name === 'researcher') {
-//             return $next($request);
-//         }
-
-//         return redirect('/events')->with('error', 'You do not have access to researcher resources.');
-//     }
-// }
-
-
 
 namespace App\Http\Middleware;
 
