@@ -5,7 +5,7 @@ import { router } from "@inertiajs/react";
 import "./BreadcrumbComponent.css";
 const BreadcrumbComponent = ({ breadcrumbs, type }) => {
     const handleClick = (event, href) => {
-        e.preventDefault();
+        event.preventDefault();
         router.visit(href);
     };
     return (

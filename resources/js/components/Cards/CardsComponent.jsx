@@ -68,7 +68,7 @@ const CardComponent = ({
                             <h3>{formattedTime}</h3>
                         </div>
                         <div className="cards__btn-wrapper">
-                            <Link href={route("events.show", { id })}>
+                            <Link href={`/events/show/${id}`}>
                                 <button className="cards__btn">Details</button>
                             </Link>
                         </div>

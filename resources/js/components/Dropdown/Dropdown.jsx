@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Dropdown.css";
 // import { FaAngleDown } from "react-icons/fa";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -34,7 +34,11 @@ const DropdownMenu = () => {
 
     return (
         <div className="dropdown">
-            <button className="dropdown_btn" onClick={toggleDropdown}>
+            <button
+                aria-label="Language"
+                className="dropdown_btn"
+                onClick={toggleDropdown}
+            >
                 <GrLanguage
                     style={{ fontSize: "22px", color: "#3a3335" }}
                     className={`icon ${isOpen ? "open" : ""}`}
@@ -46,6 +50,7 @@ const DropdownMenu = () => {
                     {languages.map(({ code, name, country_code }) => (
                         <li key={country_code}>
                             <button
+                                aria-label="Language"
                                 className="lang_btn"
                                 onClick={() => changeLanguage(code)}
                             >
