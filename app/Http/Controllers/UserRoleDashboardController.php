@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -19,9 +21,11 @@ class UserRoleDashboardController extends Controller
     {
         $users = User::all(); // Get all users
         $roles = Role::all(); // Get all roles
+        $authUser = Auth::user(); // Get the currently authenticated user
+
 
         // Return the Inertia response with the data
-        return inertia('Admin/Dashboards/UserRoleDashboard/UserRoleDashboard', ['users' => $users, 'roles' => $roles]);
+        return inertia('Admin/Dashboards/UserRoleDashboard/UserRoleDashboard', ['users' => $users, 'roles' => $roles, 'authUser' => $authUser]);
 
     }
 

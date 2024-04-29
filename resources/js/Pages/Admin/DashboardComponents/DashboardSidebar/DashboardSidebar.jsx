@@ -25,7 +25,7 @@ import { Link } from "@inertiajs/react";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
-const DashboardSidebar = ({ menuItems }) => {
+const DashboardSidebar = ({ menuItems, authUser }) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -116,7 +116,8 @@ const DashboardSidebar = ({ menuItems }) => {
                             }}
                         />
                     </IconButton>
-                    <DashboardMenu />
+                    <DashboardMenu authUser={authUser} />
+                    {/* Pass authUser to DashboardMenu */}
                 </Toolbar>
                 <Drawer
                     sx={{

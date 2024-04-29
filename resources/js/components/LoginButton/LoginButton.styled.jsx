@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const LoginButtonStyles = styled.button`
     padding: 10px;
+    gap: 6px;
     font-size: 18px;
     cursor: pointer;
     display: flex;

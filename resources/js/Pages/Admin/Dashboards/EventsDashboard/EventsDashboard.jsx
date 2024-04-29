@@ -4,10 +4,11 @@ import CreateEvent from "../../DashboardComponents/CreateEvent/CreateEvent";
 import ListEvents from "../../DashboardComponents/ListEvent/ListEvents";
 import "./EventsDashboard.css";
 
-const EventsDashboard = ({ events }) => {
+const EventsDashboard = ({ events, authUser }) => {
     return (
         <>
             <DashboardSidebar
+                authUser={authUser}
                 menuItems={{
                     metrics: true,
                     events: true,
@@ -16,7 +17,7 @@ const EventsDashboard = ({ events }) => {
                     bookmarks: false,
                     roles: true,
                 }}
-            />{" "}
+            />
             <section className="events-dashboard">
                 <div className="events-dashboard__container">
                     <ListEvents events={events} />

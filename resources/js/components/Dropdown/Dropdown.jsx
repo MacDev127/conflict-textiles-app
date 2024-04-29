@@ -3,7 +3,7 @@ import "./Dropdown.css";
 // import { FaAngleDown } from "react-icons/fa";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { router } from "@inertiajs/react";
-import { GrLanguage } from "react-icons/gr";
+import { FaGlobe } from "react-icons/fa";
 
 const DropdownMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +39,7 @@ const DropdownMenu = () => {
                 className="dropdown_btn"
                 onClick={toggleDropdown}
             >
-                <GrLanguage
+                <FaGlobe
                     style={{ fontSize: "22px", color: "#3a3335" }}
                     className={`icon ${isOpen ? "open" : ""}`}
                 />

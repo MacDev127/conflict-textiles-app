@@ -1,14 +1,18 @@
 import React from "react";
 import { LoginButtonStyles } from "./LoginButton.styled";
-import { FaRegUser } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
 
-const LoginButton = ({ children }) => {
+const LoginButton = ({ children, authUser }) => {
     return (
         <LoginButtonStyles>
-            <FaRegUser
-                style={{ fontSize: "22px", color: "#3a3335" }}
+            <FaUser
+                style={{
+                    fontSize: "22px",
+                    color: authUser ? "#df0144" : "#3a3335",
+                }}
                 data-testid="user-icon"
             />
+
             {children}
         </LoginButtonStyles>
     );

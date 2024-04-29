@@ -47,7 +47,6 @@ const SearchComponent = ({ countries, auth }) => {
 
     //--------------------------------------Advanaced Search-----------------------------------//
 
-    // console.log(countries);
     return (
         <div className="search-container">
             <div className="search-bar__title">

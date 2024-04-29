@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
 use App\Models\GalleryImage;
+use App\Models\User;
+
 
 class HomeController extends Controller
 {
     public function index()
     {
+        \Log::info('Current User:', ['user' => Auth::user()]);
+
         // Fetch only upcoming events, i.e., events whose date is today or in the future.
         $events = Event::where('event_date', '>=', now())
             ->orderBy('event_date', 'asc')
@@ -33,9 +38,12 @@ class HomeController extends Controller
         // Retrieve translation strings based on the current locale
         $translations = trans('messages');
 
+        $authUser = Auth::user(); // Get the currently authenticated user
+
         // Render the Home component with Inertia, passing the modified events, gallery images,
         // current locale, and translation strings as props
         return Inertia::render('Home/Home', [
+            'authUser' => Auth::user(),
             'events' => $events,
             'galleryImages' => $images,
             'locale' => $locale,

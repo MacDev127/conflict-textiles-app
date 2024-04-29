@@ -4,10 +4,11 @@ import DashboardSidebar from "../../DashboardComponents/DashboardSidebar/Dashboa
 import UserRole from "../../DashboardComponents/UserRole/UserRole";
 import CreateRole from "../../DashboardComponents/CreateUser/CreateUser";
 
-const UserRoleDashboard = ({ users, roles }) => {
+const UserRoleDashboard = ({ users, authUser, roles }) => {
     return (
         <>
             <DashboardSidebar
+                authUser={authUser}
                 menuItems={{
                     metrics: true,
                     events: true,

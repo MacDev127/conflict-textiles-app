@@ -11,7 +11,8 @@ import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 
-const MenuComponent = () => {
+const MenuComponent = ({ authUser }) => {
+    console.log(authUser);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
@@ -55,7 +56,9 @@ const MenuComponent = () => {
             >
                 {/* <Link href="/login">
                 </Link> */}
-                <LoginButton className="nav_log"></LoginButton>
+                <LoginButton authUser={authUser} className="nav_log">
+                    {authUser?.name}
+                </LoginButton>
             </Button>
             <Menu
                 id="basic-menu"
@@ -71,10 +74,7 @@ const MenuComponent = () => {
                         href={dashboardLink()}
                         style={{ textDecoration: "none" }}
                     >
-                        <MenuItem
-                            onClick={handleClose}
-                            sx={{ color: "black", gap: "" }}
-                        >
+                        <MenuItem onClick={handleClose} sx={{ color: "black" }}>
                             <ListItemIcon>
                                 <DashboardCustomizeIcon />
                             </ListItemIcon>

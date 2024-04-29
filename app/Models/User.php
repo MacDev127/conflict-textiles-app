@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class); // Ensure 'role_id' is the correct foreign key
     }
     public function isAdmin()
     {

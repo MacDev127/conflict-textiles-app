@@ -9,12 +9,11 @@ import HomeEventsSection from "@/components/HomeEvent/HomeEventsSection";
 import HomeEmailSection from "@/components/HomeEmail/HomeEmailSection";
 import Footer from "@/components/Footer/Footer";
 
-const Home = ({ events, galleryImages, translations }) => {
-    console.log(events);
+const Home = ({ events, galleryImages, translations, authUser }) => {
     return (
         <>
             <section className="Home">
-                <Navbar />
+                <Navbar authUser={authUser} />
                 <Hero translations={translations} />
                 <HomeAboutSection />
                 <HomeCollectionSection galleryImages={galleryImages} />

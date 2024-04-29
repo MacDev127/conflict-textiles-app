@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
+use Illuminate\Support\Facades\Auth;
+
 
 class HandleInertiaRequests extends Middleware
 {
@@ -43,6 +45,11 @@ class HandleInertiaRequests extends Middleware
                 'success' => $request->session()->get('success'),
                 'error' => $request->session()->get('error')
             ],
+            'authUser' => function () use ($request) { // Make sure $request is included in the use clause
+                if (Auth::check()) {
+                    return Auth::user();
+                }
+            },
 
         ];
     }

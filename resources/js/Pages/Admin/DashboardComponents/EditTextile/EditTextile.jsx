@@ -29,7 +29,6 @@ const EditTextile = ({ galleryImage }) => {
         router.put(route("textileDetail.update", galleryImage.id), data, {
             preserveState: true,
             onSuccess: () => {
-                console.log("Update successful!");
                 setAlertMessage("Textile Updated Successfully!");
                 setSeverity("success");
             },

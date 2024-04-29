@@ -7,16 +7,17 @@ import DashboardBarChart from "../../DashboardComponents/DashBoardcharts/Dashboa
 import DashboardPieChart from "../../DashboardComponents/DashBoardcharts/DashoardPieChart";
 import DashboardLineChart from "../../DashboardComponents/DashBoardcharts/DashboardLineChart";
 
-const MetricsDashboard = () => {
+const MetricsDashboard = ({ authUser }) => {
     return (
         <>
             <DashboardSidebar
+                authUser={authUser}
                 menuItems={{
                     metrics: true,
                     events: true,
                     textiles: true,
                     home: true,
-                    bookmarks: true,
+                    bookmarks: false,
                     roles: true,
                 }}
             />

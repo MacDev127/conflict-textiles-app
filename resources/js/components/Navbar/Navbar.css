@@ -26,7 +26,7 @@ header {
     z-index: 1000;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
         rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-    padding: 0px 40px 0px 0px;
+    padding: 0px 12px 0px 0px;
 }
 #navbar {
     font-weight: 500;
@@ -137,7 +137,7 @@ header {
         background: #dc143c;
         box-sizing: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 40px 0 0 10px;
-        margin-top: 6px;
+        margin-top: 2px;
         transition: ease-in-out 0.3s;
     }
     #navbar.active {
@@ -211,7 +211,7 @@ header {
         background: #dc143c;
         box-sizing: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 40px 0 0 10px;
-        margin-top: 6px;
+        margin-top: px;
         transition: ease-in-out 0.3s;
     }
     #navbar.active {

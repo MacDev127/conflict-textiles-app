@@ -4,10 +4,11 @@ import CreateTextile from "../../DashboardComponents/CreateTextile/CreateTextile
 import ListTextile from "../../DashboardComponents/ListTextile/ListTextile";
 import "./Textiledashboard.css";
 
-const TextileDashboard = ({ galleryImages }) => {
+const TextileDashboard = ({ galleryImages, authUser }) => {
     return (
         <>
             <DashboardSidebar
+                authUser={authUser}
                 menuItems={{
                     metrics: true,
                     events: true,

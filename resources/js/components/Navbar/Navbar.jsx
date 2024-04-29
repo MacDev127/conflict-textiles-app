@@ -3,10 +3,10 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { Link, usePage } from "@inertiajs/react";
 import "./Navbar.css";
 import DropdownMenu from "../Dropdown/Dropdown";
-import { FaCircleUser } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
 import MenuComponent from "../Menu/MenuComponent";
 
-const Navbar = () => {
+const Navbar = ({ authUser }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { url } = usePage(); // Use usePage to get the current URL from InertiaJS
 
@@ -60,15 +60,15 @@ const Navbar = () => {
                     ))}
                     <li className="nav_icon">
                         <Link href="/login" className="login_link">
-                            <FaCircleUser />
-                            <p>Log In</p>
+                            <FaUser style={{ fontSize: "20px" }} />{" "}
+                            {authUser?.name || "Log In"}
                         </Link>
                     </li>
                 </ul>
             </div>
             <div className="right-section">
                 <DropdownMenu />
-                <MenuComponent />
+                <MenuComponent authUser={authUser} />
             </div>
         </header>
     );

@@ -53,8 +53,6 @@ const ItemPageComponent = ({
 
     // Assuming flash is an object with potential 'success' and 'error' properties
     useEffect(() => {
-        console.log(auth); // Check the user authentication object
-
         if (flash?.success) {
             setAlertMessage(flash.success);
             setSeverity("success");
