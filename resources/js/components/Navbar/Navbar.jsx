@@ -1,20 +1,30 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import "./Navbar.css";
 import DropdownMenu from "../Dropdown/Dropdown";
 import { FaCircleUser } from "react-icons/fa6";
-import MenuComponent from "@/components/Menu/MenuComponent";
+import MenuComponent from "../Menu/MenuComponent";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { url } = usePage(); // Use usePage to get the current URL from InertiaJS
+
+    // Automatically update the active link based on URL changes
+    const [activeLink, setActiveLink] = useState(url); // Initialize with current URL
+
+    // Update active link when URL changes
+    useEffect(() => {
+        setActiveLink(url);
+    }, [url]);
+
     return (
         <header>
-            <Link href={route("home")}>
-                <div className="nav-logo">
+            <div className="nav-logo">
+                <Link href="/">
                     <img src="/images/misc/logo2.png" alt="Logo" />
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div id="navbar" className={menuOpen ? "open active" : ""}>
                 <div
                     className="menu"
@@ -29,40 +39,26 @@ const Navbar = () => {
                     )}
                 </div>
                 <ul>
-                    <li className="nav_list">
-                        <Link className="nav_link" href={route("home")}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className="nav_list">
-                        <Link className="nav_link" href={route("about")}>
-                            About
-                        </Link>
-                    </li>
-
-                    <li className="nav_list">
-                        <Link className="nav_link" href={route("collection")}>
-                            Collection
-                        </Link>
-                    </li>
-
-                    <li className="nav_list">
-                        <Link className="nav_link" href={route("events")}>
-                            Events
-                        </Link>
-                    </li>
-                    <li className="nav_list">
-                        <Link className="nav_link" to="/links">
-                            Links
-                        </Link>
-                    </li>
-                    <li className="nav_list">
-                        <Link className="nav_link" href={route("contact")}>
-                            Contact
-                            {/* {t("navbar_contact")} */}
-                        </Link>
-                    </li>
-                    <li className="nav_icon" to="/contact">
+                    {[
+                        { path: "/", label: "Home" },
+                        { path: "/about", label: "About" },
+                        { path: "/collection", label: "Collections" },
+                        { path: "/events", label: "Events" },
+                        { path: "/links", label: "Links" },
+                        { path: "/contact", label: "Contact" },
+                    ].map((item) => (
+                        <li className="nav_list" key={item.path}>
+                            <Link
+                                className={`nav_link ${
+                                    activeLink === item.path ? "active" : ""
+                                }`}
+                                href={item.path}
+                            >
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                    <li className="nav_icon">
                         <Link href="/login" className="login_link">
                             <FaCircleUser />
                             <p>Log In</p>
@@ -70,10 +66,8 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-
             <div className="right-section">
                 <DropdownMenu />
-
                 <MenuComponent />
             </div>
         </header>

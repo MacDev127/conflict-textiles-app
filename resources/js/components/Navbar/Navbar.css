@@ -88,6 +88,10 @@ header {
     opacity: 1;
 }
 
+.nav_link.active::after {
+    opacity: 1;
+}
+
 .nav_link:hover,
 .nav_link:focus {
     color: #000;
