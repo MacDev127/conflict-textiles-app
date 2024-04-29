@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import LoginButton from "@/components/LoginButton/LoginButton";
+import LoginButton from "../LoginButton/LoginButton";
 import { Link } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
