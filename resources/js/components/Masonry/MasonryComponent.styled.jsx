@@ -6,6 +6,7 @@ export const MasonryStyle = styled(Masonry)`
     width: 60%;
     background: #ececec;
     padding: 10px;
+    margin-top: 100px;
     margin-bottom: 100px;
 
     height: 100%;

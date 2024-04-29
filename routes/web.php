@@ -208,7 +208,7 @@ Route::get('/events/previousEvents', [EventController::class, 'previousEvents'])
 Route::get('/events', [EventController::class, 'events'])->name('events');
 
 //Event Route
-Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/show/{id}', [EventController::class, 'show'])->name('events.show');
 
 
 // Collection Page

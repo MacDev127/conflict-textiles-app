@@ -3,18 +3,14 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import TabsComponent from "@/components/Tabs/TabsComponent";
 import ButtonComponent from "@/components/Button/ButtonComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 import { Link } from "@inertiajs/react";
 
-import {
-    FaEnvelope,
-    FaLocationDot,
-    FaCalendarDays,
-    FaClock,
-} from "react-icons/fa6";
+import { FaLocationDot, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import "./EventDetails.css";
 
-const EventDetails = ({ event }) => {
+const EventDetails = ({ event, authUser, type }) => {
     const formattedDate = new Date(event.event_date).toLocaleDateString(
         "en-US",
         {
@@ -29,7 +25,19 @@ const EventDetails = ({ event }) => {
 
     return (
         <>
-            <Navbar />
+            <Navbar authUser={authUser} />
+            {/* <BreadcrumbComponent
+                type={type}
+                breadcrumbs={[
+                    { label: "Events", href: "/events" },
+                    {
+                        label: type
+                            ? type.charAt(0).toUpperCase() + type.slice(1)
+                            : "Default",
+                        href: "",
+                    },
+                ]}
+            /> */}
             <section className="event__details">
                 <div className="event__details-event__title">{event.title}</div>
                 <div className="event__details-wrapper">

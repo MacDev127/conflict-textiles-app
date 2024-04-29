@@ -11,7 +11,9 @@
     margin: 0;
     display: block;
 }
-
+.search__title {
+    font-size: 30px !important;
+}
 .search__error {
     margin-bottom: 100px;
 }

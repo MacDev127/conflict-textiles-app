@@ -13,10 +13,16 @@ import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import SearchComponent from "@/components/Search/SearchComponent";
 
-const Collection = ({ collectionPageImages, countries, auth }) => {
+const Collection = ({
+    collectionPageImages,
+    countries,
+    auth,
+    type,
+    authUser,
+}) => {
     return (
         <section className="Collection">
-            <Navbar />
+            <Navbar authUser={authUser} />
 
             <ImageHeaderComponent
                 imageUrl="/images/misc/test2.jpg"
@@ -34,9 +40,14 @@ const Collection = ({ collectionPageImages, countries, auth }) => {
                         hangings, and more, all centered around themes of
                         conflict and human rights violations.
                     </TextComponent>
-                    <SearchComponent countries={countries} auth={auth} />
+                    <SearchComponent
+                        countries={countries}
+                        type={type}
+                        auth={auth}
+                        children="Search Collection"
+                    />
                 </ContentComponent>
-                <SubtitleComponent>Theme</SubtitleComponent>
+                <SubtitleComponent></SubtitleComponent>
                 <div className="collection__wrapper">
                     {collectionPageImages.map((image) => (
                         <div key={image.id}>

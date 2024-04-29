@@ -13,16 +13,28 @@ import Footer from "@/components/Footer/Footer";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import PaginationComponent from "@/components/Pagination/PaginationComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
-const Events = ({ upcomingEvents }) => {
+const Events = ({ type, upcomingEvents, authUser }) => {
+    console.log(type);
     return (
         <section className="Events">
-            <Navbar />
+            <Navbar authUser={authUser} />
             <ImageHeaderComponent
                 className="events__header-img"
                 imageUrl={"/images/misc/event-header.jpeg"}
                 quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
             />
+            {/* <BreadcrumbComponent
+                type={type}
+                breadcrumbs={[
+                    { label: "Home", href: "/home" },
+                    {
+                        label: type.charAt(0).toUpperCase() + type.slice(1),
+                        href: "",
+                    },
+                ]}
+            /> */}
             <ContainerComponent>
                 <TitleComponent className="event__title">Events</TitleComponent>
 

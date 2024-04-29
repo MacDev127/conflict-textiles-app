@@ -61,6 +61,10 @@ export const CollectionItemStyle = styled.div`
     //
 `;
 
+export const SearchBarContainer = styled.div`
+    margin-bottom: 120px;
+`;
+
 export const ItemDescStyle = styled.div`
     display: flex;
     justify-content: flex-start;

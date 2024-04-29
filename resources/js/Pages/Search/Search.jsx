@@ -7,19 +7,18 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import TitleComponent from "@/components/Title/TitleComponent";
 import ContainerComponent from "@/components/Container/ContainerComponent";
-import ContentComponent from "@/components/Content/ContentComponent";
-import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import { CollectionItemStyle } from "./Search.styled";
 import { ImageContainer } from "./Search.styled";
 import { ItemDescStyle } from "./Search.styled";
-import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
+import { SearchBarContainer } from "./Search.styled";
 import AlertComponent from "@/components/Alert/AlertComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
+import SearchComponent from "@/components/Search/SearchComponent";
 
 import "./Search.css";
 
-const Search = ({ galleryImages, type }) => {
+const Search = ({ galleryImages, type, countries, auth, authUser }) => {
     const handleImageClick = (imageId) => {
         router.visit(`/textile-details/${imageId}`);
     };
@@ -46,7 +45,7 @@ const Search = ({ galleryImages, type }) => {
 
     return (
         <>
-            <Navbar />
+            <Navbar authUser={authUser} />
             <BreadcrumbComponent
                 breadcrumbs={[
                     { label: "Collection", href: "/collection" },
@@ -54,10 +53,16 @@ const Search = ({ galleryImages, type }) => {
                 ]}
             />
             <ContainerComponent>
-                <TitleComponent>Search Results</TitleComponent>
-                <ContentComponent>
-                    <TextComponent></TextComponent>
-                </ContentComponent>
+                <TitleComponent className=" search__title">
+                    Search Results
+                </TitleComponent>
+                <SearchBarContainer>
+                    <SearchComponent
+                        auth={auth}
+                        countries={countries}
+                        type={type}
+                    />
+                </SearchBarContainer>
 
                 {hasImages ? (
                     <MasonryComponent

@@ -7,7 +7,6 @@ import { router } from "@inertiajs/react";
 import { CollectionItemStyle } from "./itemPageComponent.styled";
 import { ItemDescStyle } from "./itemPageComponent.styled";
 import { ImageContainer } from "./itemPageComponent.styled";
-import { SearchBarContainer } from "./itemPageComponent.styled";
 import { Tooltip } from "@mui/material";
 import "./itemPageComponent.css";
 
@@ -23,7 +22,6 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
-import SearchComponent from "../Search/SearchComponent";
 import AlertComponent from "@/components/Alert/AlertComponent";
 import BreadcrumbComponent from "../Breadcrumbs/BreadcrumbComponent";
 
@@ -34,9 +32,9 @@ const ItemPageComponent = ({
     imageUrl,
     description,
     galleryImages,
-    countries,
     flash,
     auth,
+    authuser,
 }) => {
     //------------------flash message section that took hours to figure out---------------//
 
@@ -94,7 +92,7 @@ const ItemPageComponent = ({
 
     return (
         <section className={`${type}`}>
-            <Navbar />
+            <Navbar authUser={authuser} />
             <ImageHeaderComponent imageUrl={imageUrl} quoteText={quoteText} />
             <BreadcrumbComponent
                 type={type}
@@ -111,9 +109,7 @@ const ItemPageComponent = ({
                 <ContentComponent className="item-page__content">
                     <TextComponent>{description}</TextComponent>
                 </ContentComponent>
-                <SearchBarContainer>
-                    <SearchComponent auth={auth} countries={countries} />
-                </SearchBarContainer>
+
                 <MasonryComponent
                     galleryImages={galleryImages}
                     onImageClick={handleImageClick}

@@ -17,10 +17,12 @@ class CollectionPageImageController extends Controller
         $collectionPageImages = CollectionPageImage::all(); //pass all the collection page images to the $collectionPageImages variable
         // Advanced search country of origin
         $countries = GalleryImage::distinct()->pluck('country_of_origin')->sort()->values(); // pass the list of values from country_of_origin column to $countries variable
+        $type = GalleryImage::distinct()->pluck('type')->sort()->values(); // pass the list of values from country_of_origin column to $countries variable
 
         return Inertia::render('Collection/Collection', [
             'collectionPageImages' => $collectionPageImages,
-            'countries' => $countries
+            'countries' => $countries,
+            "type" => $type,
         ]);
     }
 

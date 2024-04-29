@@ -14,10 +14,10 @@ import PaginationComponent from "@/components/Pagination/PaginationComponent";
 
 import "./Events.css";
 
-const PreviousEvents = ({ previousEvents }) => {
+const PreviousEvents = ({ previousEvents, authUser }) => {
     return (
         <section className="PreviousEvents">
-            <Navbar />
+            <Navbar authUser={authUser} />
             <div className="image__header-container">
                 <ImageHeaderComponent
                     className="events__header-img"
@@ -50,9 +50,6 @@ const PreviousEvents = ({ previousEvents }) => {
                         /* handle page change if needed */
                     }}
                 />
-                {/* <ReturnLinkComponent to="/events">
-                    Back to Events
-                </ReturnLinkComponent> */}
             </ContainerComponent>
 
             <Footer />

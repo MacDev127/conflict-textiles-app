@@ -9,7 +9,7 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import AlertComponent from "@/components/Alert/AlertComponent";
 import "./Contact.css";
 
-const Contact = () => {
+const Contact = ({ authUser }) => {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
@@ -44,7 +44,7 @@ const Contact = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar authUser={authUser} />
 
             <section className="Contact">
                 <ContainerComponent>

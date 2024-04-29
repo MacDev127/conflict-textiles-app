@@ -5,7 +5,8 @@ import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
 // Access the current page's properties using the usePage hook from Inertia.js
-const SearchComponent = ({ countries, auth }) => {
+
+const SearchComponent = ({ countries, auth, children, type }) => {
     // Initialize form data with useForm hook from Inertia.js, setting default values for each field
     const { data, setData, get } = useForm({
         type: "",
@@ -50,7 +51,7 @@ const SearchComponent = ({ countries, auth }) => {
     return (
         <div className="search-container">
             <div className="search-bar__title">
-                <p>Search Collection</p>
+                <p>{children}</p>
             </div>
             <div className="search-bar">
                 <form onSubmit={handleSubmit} className="search-form">
@@ -95,14 +96,28 @@ const SearchComponent = ({ countries, auth }) => {
                             <div className="advanced__search-form__group1-container">
                                 <label htmlFor="type">Type</label>
 
-                                <input
+                                {/* <input
                                     type="text"
                                     name="type"
                                     value={data.type}
                                     onChange={handleInputChange}
                                     placeholder="Arpillera, Quilt, Banner etc..."
                                     className="advanced__input"
-                                />
+                                /> */}
+                                <select
+                                    name="type"
+                                    value={data.type}
+                                    onChange={handleInputChange}
+                                    className="advanced__input"
+                                >
+                                    <option value="">Select</option>
+                                    {type &&
+                                        type.map((types, index) => (
+                                            <option key={index} value={types}>
+                                                {types}
+                                            </option>
+                                        ))}
+                                </select>
                             </div>
 
                             <div className="advanced__search-form__group1-container">

@@ -16,6 +16,9 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
+        $type = GalleryImage::distinct()->pluck('type');
+
+
         $images = GalleryImage::query()
             ->when($request->filled('type'), function ($query) use ($request) {
                 return $query->where('type', $request->type);
@@ -45,6 +48,10 @@ class SearchController extends Controller
 
         return Inertia::render('Search/Search', [
             'galleryImages' => $images,
+            'type' => $type,
+
+
+
         ]);
     }
 
