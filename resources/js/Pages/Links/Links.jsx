@@ -3,10 +3,11 @@ import Navbar from "@/components/Navbar/Navbar";
 import ContainerComponent from "@/components/Container/ContainerComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 import Footer from "@/components/Footer/Footer";
 import "./Links.css";
-const Links = ({ authUser }) => {
+const Links = ({ authUser, type }) => {
     const links = [
         {
             img: "images/misc/about-1.jpeg",
@@ -49,6 +50,14 @@ const Links = ({ authUser }) => {
     return (
         <section className="Links">
             <Navbar authUser={authUser} />
+            <BreadcrumbComponent
+                type={type}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+
+                    { label: "Links", href: "" },
+                ]}
+            />
             <ContainerComponent className="links__container">
                 <SubtitleComponent>Useful links</SubtitleComponent>
                 <TextComponent>

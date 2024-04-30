@@ -43,7 +43,9 @@ class EventController extends Controller
                 return $event;
             });
 
+
         return Inertia::render('Events/Events', [
+            'type' => 'events',
             'upcomingEvents' => $upcomingEvents,
         ]);
     }
@@ -76,7 +78,9 @@ class EventController extends Controller
             $event->image = asset('storage/' . $event->image);
         }
 
-        return Inertia::render('EventDetails/EventDetails', ['event' => $event]); // Pass the event data to the React component.
+        return Inertia::render('EventDetails/EventDetails', [
+            'event' => $event,
+        ]); // Pass the event data to the React component.
     }
 
 
@@ -90,7 +94,6 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        // Log::info($request->all());
 
         // Validate the request
 

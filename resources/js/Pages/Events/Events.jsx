@@ -25,16 +25,15 @@ const Events = ({ type, upcomingEvents, authUser }) => {
                 imageUrl={"/images/misc/event-header.jpeg"}
                 quoteText="We explore the process of curating conflict textiles as a way to responsibly care for and preserve the complex knowledge these artifacts hold"
             />
-            {/* <BreadcrumbComponent
-                type={type}
+            <BreadcrumbComponent
                 breadcrumbs={[
-                    { label: "Home", href: "/home" },
+                    { label: "Home", href: "/" },
                     {
-                        label: type.charAt(0).toUpperCase() + type.slice(1),
+                        label: "Events",
                         href: "",
                     },
                 ]}
-            /> */}
+            />
             <ContainerComponent>
                 <TitleComponent className="event__title">Events</TitleComponent>
 

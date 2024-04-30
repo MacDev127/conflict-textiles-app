@@ -12,6 +12,7 @@ import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import SearchComponent from "@/components/Search/SearchComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 const Collection = ({
     collectionPageImages,
@@ -29,6 +30,15 @@ const Collection = ({
                 quoteText="When words are not enough to express lived experiences
                          of violence, stitching and sewing emerge as textile
                          language."
+            />
+            <BreadcrumbComponent
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    {
+                        label: "Collection",
+                        href: "",
+                    },
+                ]}
             />
 
             <ContainerComponent>

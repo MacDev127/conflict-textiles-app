@@ -107,6 +107,9 @@ Route::put('/events/{id}', [EventController::class, 'update'])->name('event.upda
 //Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 
+// web.php
+Route::get('/event/{id}/details', [EventController::class, 'show'])->name('event.details');
+
 //----------------------Events---------------///
 
 

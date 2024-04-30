@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use App\Models\EventRegister;
-// use App\Models\Event;
+use App\Models\Event;
 use Inertia\Inertia;
 
 
@@ -37,12 +37,12 @@ class EventRegisterController extends Controller
 
     public function showRegistrationForm($eventId)
     {
-
+        $event = Event::find($eventId);
+        $type = $event ? $event->type : 'Event';  // Default to 'Event' if not found
 
         return Inertia::render('EventRegister/EventRegister', [
-            'eventId' => $eventId, // Pass additional props as needed
-            // 'event' => $event, // If you need to pass the event data
+            'eventId' => $eventId,
         ]);
-
     }
+
 }

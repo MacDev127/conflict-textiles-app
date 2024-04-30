@@ -26,18 +26,15 @@ const EventDetails = ({ event, authUser, type }) => {
     return (
         <>
             <Navbar authUser={authUser} />
-            {/* <BreadcrumbComponent
-                type={type}
+            <BreadcrumbComponent
                 breadcrumbs={[
                     { label: "Events", href: "/events" },
                     {
-                        label: type
-                            ? type.charAt(0).toUpperCase() + type.slice(1)
-                            : "Default",
+                        label: "Event Details",
                         href: "",
                     },
                 ]}
-            /> */}
+            />
             <section className="event__details">
                 <div className="event__details-event__title">{event.title}</div>
                 <div className="event__details-wrapper">

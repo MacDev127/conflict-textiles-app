@@ -7,9 +7,10 @@ import ContainerComponent from "@/components/Container/ContainerComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import ContentComponent from "@/components/Content/ContentComponent";
 import AlertComponent from "@/components/Alert/AlertComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 import "./Contact.css";
 
-const Contact = ({ authUser }) => {
+const Contact = ({ authUser, type }) => {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
@@ -47,6 +48,14 @@ const Contact = ({ authUser }) => {
             <Navbar authUser={authUser} />
 
             <section className="Contact">
+                <BreadcrumbComponent
+                    type={type}
+                    breadcrumbs={[
+                        { label: "Home", href: "/" },
+
+                        { label: "Contact Us", href: "" },
+                    ]}
+                />
                 <ContainerComponent>
                     <TitleComponent>Contact Us</TitleComponent>
                     <ContentComponent>

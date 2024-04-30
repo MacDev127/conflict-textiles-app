@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 import "./EventRegister.css";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 //Components
 import AlertComponent from "@/components/Alert/AlertComponent";
-import ReturnLinkComponent from "@/components/Return/ReturnLinkComponent";
 
-const EventRegister = ({ eventId }) => {
+const EventRegister = ({ eventId, type }) => {
     const { data, setData, post, errors, reset } = useForm({
         name: "",
         email: "",
@@ -156,9 +156,16 @@ const EventRegister = ({ eventId }) => {
                     </AlertComponent>
                 )}
             </div>
-            <ReturnLinkComponent to="/events">
-                Back to Events
-            </ReturnLinkComponent>
+            <BreadcrumbComponent
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    {
+                        label: "Event Details",
+                        href: `/event/${eventId}/details`,
+                    },
+                    { label: "Register", href: "" },
+                ]}
+            />
         </section>
     );
 };
