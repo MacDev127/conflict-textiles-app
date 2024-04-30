@@ -10,7 +10,7 @@ import AlertComponent from "@/components/Alert/AlertComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 import "./Contact.css";
 
-const Contact = ({ authUser, type }) => {
+const Contact = ({ authUser, type, auth }) => {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
@@ -45,7 +45,7 @@ const Contact = ({ authUser, type }) => {
 
     return (
         <>
-            <Navbar authUser={authUser} />
+            <Navbar authUser={authUser} auth={auth} />
 
             <section className="Contact">
                 <BreadcrumbComponent

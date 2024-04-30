@@ -34,7 +34,7 @@ const ItemPageComponent = ({
     galleryImages,
     flash,
     auth,
-    authuser,
+    authUser,
 }) => {
     //------------------flash message section that took hours to figure out---------------//
 
@@ -92,7 +92,7 @@ const ItemPageComponent = ({
 
     return (
         <section className={`${type}`}>
-            <Navbar authUser={authuser} />
+            <Navbar authUser={authUser} auth={auth} />
             <ImageHeaderComponent imageUrl={imageUrl} quoteText={quoteText} />
             <BreadcrumbComponent
                 type={type}

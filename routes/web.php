@@ -143,23 +143,18 @@ Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboar
 
 ///-------Admin / Dashboard functionality--------
 
+//----------------------Dashboards---------------///
+
+
+
 // researcher functionlaity
 
-// Web.php routes for researchers
-Route::group(['middleware' => ['auth', 'is_researcher']], function () {
-    Route::get('/researcher-dashboard', [ResearcherController::class, 'index'])->name('researcher.dashboard');
+Route::middleware(['auth', 'is_researcher'])->group(function () {
+    Route::get('/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('bookmarks');
+    Route::post('/bookmark/{galleryImageId}', [ResearcherController::class, 'bookmark'])->name('researcher.bookmark');
+    Route::delete('/delete-bookmark/{id}', [ResearcherController::class, 'deleteBookmark'])->name('delete-bookmark');
 });
-Route::get('/researcher/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('researcher.get-bookmarks');
 
-Route::post('/bookmark/{galleryImageId}', [ResearcherController::class, 'bookmark'])->name('researcher.bookmark');
-
-Route::delete('/delete-bookmark/{id}', [ResearcherController::class, 'deleteBookmark'])->name('delete-bookmark');
-
-
-
-
-
-//----------------------Dashboards---------------///
 
 
 // Event Controller

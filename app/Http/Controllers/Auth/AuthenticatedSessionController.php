@@ -58,7 +58,7 @@ class AuthenticatedSessionController extends Controller
                     return redirect()->intended('/metrics-dashboard');
                 case 'researcher':
                     \Log::info('Redirecting researcher to researcher dashboard');
-                    return redirect()->intended('/researcher-dashboard');
+                    return redirect()->intended('/');
                 default:
                     \Log::info('Redirecting to default home');
                     return redirect()->intended('/');

@@ -2,7 +2,7 @@ import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
 import { usePage } from "@inertiajs/react";
 
-const Installation = ({ galleryImages, countries, auth }) => {
+const Installation = ({ galleryImages, countries, auth, authUser }) => {
     const { props } = usePage();
     const { flash } = props;
     const content = {
@@ -16,6 +16,7 @@ const Installation = ({ galleryImages, countries, auth }) => {
         galleryImages,
         flash,
         auth,
+        authUser,
     };
 
     return <ItemPageComponent {...content} countries={countries} />;

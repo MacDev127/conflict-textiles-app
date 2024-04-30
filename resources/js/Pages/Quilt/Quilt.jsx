@@ -1,7 +1,8 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
+import { usePage } from "@inertiajs/react";
 
-const Quilt = ({ galleryImages, countries, auth }) => {
+const Quilt = ({ galleryImages, countries, auth, authUser }) => {
     const { props } = usePage();
     const { flash } = props;
     const content = {
@@ -15,6 +16,7 @@ const Quilt = ({ galleryImages, countries, auth }) => {
         galleryImages,
         flash,
         auth,
+        authUser,
     };
 
     return <ItemPageComponent {...content} countries={countries} />;

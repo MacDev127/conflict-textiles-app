@@ -18,13 +18,13 @@ import {
 import "./About.css";
 //styles end
 
-const About = ({ authUser }) => {
+const About = ({ authUser, auth }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
             <section className="About">
-                <Navbar authUser={authUser} />
+                <Navbar authUser={authUser} auth={auth} />
                 <ImageHeaderComponent
                     className="about__header-img"
                     imageUrl="/images/misc/about-4.jpg"

@@ -1,0 +1,70 @@
+.Bookmarks {
+    min-height: 100vh !important;
+}
+.bookmark-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.page__title {
+    margin-top: 4rem !important;
+    display: flex;
+}
+
+.bookmark__image-container {
+    position: relative;
+    overflow: hidden; /* Ensures the overlay fits within the container */
+}
+
+img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space under image */
+}
+
+.image__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.1) 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.bookmark__title {
+    display: flex;
+    justify-content: flex-start;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.bookmark__text-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    justify-content: space-between;
+}
+
+.bookmark__image-container:hover .image__overlay {
+    opacity: 0.9; /* Show the overlay on hover */
+}
+
+.bookmark__text-container {
+    padding: 5px; /* Padding around text */
+}

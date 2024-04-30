@@ -7,7 +7,7 @@ import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 import Footer from "@/components/Footer/Footer";
 import "./Links.css";
-const Links = ({ authUser, type }) => {
+const Links = ({ authUser, type, auth }) => {
     const links = [
         {
             img: "images/misc/about-1.jpeg",
@@ -49,7 +49,7 @@ const Links = ({ authUser, type }) => {
     ];
     return (
         <section className="Links">
-            <Navbar authUser={authUser} />
+            <Navbar authUser={authUser} auth={auth} />
             <BreadcrumbComponent
                 type={type}
                 breadcrumbs={[

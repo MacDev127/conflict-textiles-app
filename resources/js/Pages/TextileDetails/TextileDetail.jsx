@@ -5,10 +5,10 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import "./TextileDetails.css";
 
-const TextileDetail = ({ textileDetail }) => {
+const TextileDetail = ({ textileDetail, authUser, auth }) => {
     return (
         <>
-            <Navbar />
+            <Navbar auth={auth} authUser={authUser} />
             <section className="textile__details">
                 <div className="td__container">
                     <div className="modalImage">

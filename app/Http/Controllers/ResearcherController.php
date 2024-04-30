@@ -27,7 +27,7 @@ class ResearcherController extends Controller
             return $bookmark;
         });
 
-        return Inertia::render('Admin/Dashboards/ResearchDashboard/ResearchDashboard', [
+        return Inertia::render('Bookmarks/Bookmarks', [
             'bookmarks' => $bookmarks
         ]);
     }
@@ -58,8 +58,10 @@ class ResearcherController extends Controller
         // This retrieves only the bookmarks associated with the authenticated user.
 
         $bookmarks = auth()->user()->bookmarks()->with('galleryImage')->get();
+        \Log::info('Accessing bookmarks for user: ' . auth()->id());
 
-        return Inertia::render('Researcher/Bookmarks', ['bookmarks' => $bookmarks]);
+        return Inertia::render('Bookmarks/Bookmarks', ['bookmarks' => $bookmarks]);
+
     }
 
 
@@ -67,14 +69,12 @@ class ResearcherController extends Controller
     {
         $bookmark = Bookmark::where('id', $id)->where('user_id', auth()->id())->first();
 
-        // Check if the bookmark exists.
         if ($bookmark) {
             $bookmark->delete();
-            return response()->json(['success' => 'Bookmark removed successfully.']);
+            return redirect()->back()->with('success', 'Bookmark removed successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Failed to delete the bookmark.');
         }
-
-        // Delete the bookmark directly without checking if the current user owns it.
-        $bookmark->delete();
     }
 }
 

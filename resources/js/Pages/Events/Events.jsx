@@ -15,11 +15,11 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import PaginationComponent from "@/components/Pagination/PaginationComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
-const Events = ({ type, upcomingEvents, authUser }) => {
+const Events = ({ type, upcomingEvents, authUser, auth }) => {
     console.log(type);
     return (
         <section className="Events">
-            <Navbar authUser={authUser} />
+            <Navbar authUser={authUser} auth={auth} />
             <ImageHeaderComponent
                 className="events__header-img"
                 imageUrl={"/images/misc/event-header.jpeg"}

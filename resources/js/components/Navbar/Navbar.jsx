@@ -6,17 +6,26 @@ import DropdownMenu from "../Dropdown/Dropdown";
 import { FaUser } from "react-icons/fa";
 import MenuComponent from "../Menu/MenuComponent";
 
-const Navbar = ({ authUser }) => {
+const Navbar = ({ authUser, auth }) => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { url } = usePage(); // Use usePage to get the current URL from InertiaJS
+    const { url } = usePage();
+    const [activeLink, setActiveLink] = useState(url);
 
-    // Automatically update the active link based on URL changes
-    const [activeLink, setActiveLink] = useState(url); // Initialize with current URL
-
-    // Update active link when URL changes
     useEffect(() => {
         setActiveLink(url);
     }, [url]);
+
+    let menuItems = [
+        { path: "/", label: "Home" },
+        { path: "/about", label: "About" },
+        { path: "/collection", label: "Collections" },
+        { path: "/events", label: "Events" },
+        { path: "/contact", label: "Contact" },
+    ];
+
+    if (auth && auth.user && auth.user.role_id === 3) {
+        menuItems.push({ path: "/bookmarks", label: "Bookmarks" });
+    }
 
     return (
         <header>
@@ -39,14 +48,7 @@ const Navbar = ({ authUser }) => {
                     )}
                 </div>
                 <ul>
-                    {[
-                        { path: "/", label: "Home" },
-                        { path: "/about", label: "About" },
-                        { path: "/collection", label: "Collections" },
-                        { path: "/events", label: "Events" },
-                        // { path: "/links", label: "Links" },
-                        { path: "/contact", label: "Contact" },
-                    ].map((item) => (
+                    {menuItems.map((item) => (
                         <li className="nav_list" key={item.path}>
                             <Link
                                 className={`nav_link ${

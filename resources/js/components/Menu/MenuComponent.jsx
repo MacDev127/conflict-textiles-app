@@ -46,19 +46,17 @@ const MenuComponent = ({ authUser }) => {
 
     return (
         <div>
-            <Button
+            <a
                 id="basic-button"
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
             >
-                {/* <Link href="/login">
-                </Link> */}
                 <LoginButton authUser={authUser} className="nav_log">
                     {authUser?.name}
                 </LoginButton>
-            </Button>
+            </a>
             <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}

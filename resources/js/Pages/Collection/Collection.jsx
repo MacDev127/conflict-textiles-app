@@ -23,7 +23,7 @@ const Collection = ({
 }) => {
     return (
         <section className="Collection">
-            <Navbar authUser={authUser} />
+            <Navbar authUser={authUser} auth={auth} />
 
             <ImageHeaderComponent
                 imageUrl="/images/misc/test2.jpg"

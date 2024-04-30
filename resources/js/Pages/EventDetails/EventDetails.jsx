@@ -10,7 +10,7 @@ import { FaLocationDot, FaCalendarDays, FaClock } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import "./EventDetails.css";
 
-const EventDetails = ({ event, authUser, type }) => {
+const EventDetails = ({ event, authUser, auth }) => {
     const formattedDate = new Date(event.event_date).toLocaleDateString(
         "en-US",
         {
@@ -25,7 +25,7 @@ const EventDetails = ({ event, authUser, type }) => {
 
     return (
         <>
-            <Navbar authUser={authUser} />
+            <Navbar authUser={authUser} auth={auth} />
             <BreadcrumbComponent
                 breadcrumbs={[
                     { label: "Events", href: "/events" },
