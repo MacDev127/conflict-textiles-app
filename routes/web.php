@@ -151,9 +151,10 @@ Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboar
 
 Route::middleware(['auth', 'is_researcher'])->group(function () {
     Route::get('/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('bookmarks');
-    Route::post('/bookmark/{galleryImageId}', [ResearcherController::class, 'bookmark'])->name('researcher.bookmark');
+    Route::post('/toggle-bookmark/{galleryImageId}', [ResearcherController::class, 'toggleBookmark'])->name('researcher.toggleBookmark');
     Route::delete('/delete-bookmark/{id}', [ResearcherController::class, 'deleteBookmark'])->name('delete-bookmark');
 });
+
 
 
 

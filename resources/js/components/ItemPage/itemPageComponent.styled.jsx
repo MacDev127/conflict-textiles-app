@@ -9,6 +9,7 @@ export const ImageContainer = styled.div`
         padding: 0;
         margin: 0;
         display: block;
+        transition: transform 0.3s ease-in-out;
     }
 
     .overlay {
@@ -20,8 +21,8 @@ export const ImageContainer = styled.div`
         cursor: pointer;
         background: linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.1) 60%
+            rgba(0, 0, 0, 0.2) 100%,
+            rgba(0, 0, 0, 0.2) 100%
         );
         opacity: 0;
         transition: opacity 0.1s;

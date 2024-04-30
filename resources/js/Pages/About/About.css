@@ -54,19 +54,19 @@
 @media (max-width: 768px) {
     .about__image-wrapper img,
     .about__image-wrapper-logo img {
-        height: auto; /* Adjust height to auto for proper scaling */
-        width: 70%; /* Adjust width to 100% for full container width */
+        height: auto;
+        width: 70%;
     }
 
     .about__hessian-bg img {
-        height: 30vh;
+        height: 28vh;
     }
 }
 @media (max-width: 414px) {
     .about__image-wrapper img,
     .about__image-wrapper-logo img {
-        height: auto; /* Adjust height to auto for proper scaling */
-        width: 80%; /* Adjust width to 100% for full container width */
+        height: auto;
+        width: 80%;
     }
 
     .about__hessian-bg img {

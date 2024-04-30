@@ -51,7 +51,7 @@ const Bookmarks = ({ authUser, bookmarks, galleryImages, auth, type }) => {
 
             <div className="bookmark-gallery">
                 <PageTitleComponent className="page__title">
-                    Bookmarked Items
+                    Bookmarks
                 </PageTitleComponent>
                 <MasonryComponent
                     galleryImages={bookmarks.map(

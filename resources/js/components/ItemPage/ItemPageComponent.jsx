@@ -1,7 +1,7 @@
 // GenericItemPage.js
 import React, { useState, useEffect } from "react";
 import { Link } from "@inertiajs/react";
-import { router } from "@inertiajs/react";
+import { router, usePage } from "@inertiajs/react";
 
 //styles
 import { CollectionItemStyle } from "./itemPageComponent.styled";
@@ -22,7 +22,6 @@ import ContentComponent from "@/components/Content/ContentComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
-import AlertComponent from "@/components/Alert/AlertComponent";
 import BreadcrumbComponent from "../Breadcrumbs/BreadcrumbComponent";
 
 const ItemPageComponent = ({
@@ -36,133 +35,84 @@ const ItemPageComponent = ({
     auth,
     authUser,
 }) => {
-    //------------------flash message section that took hours to figure out---------------//
+    // Retrieve the shared data using usePage
+    const { props } = usePage();
+    const [bookmarkedItems, setBookmarkedItems] = useState(
+        new Set(props.bookmarkedItems)
+    );
 
-    // This section initializes and manages the alert system for displaying flash messages.
-    // `flash?.message` checks if there is a flash message available, using optional chaining to avoid errors if `flash` is undefined.
-    // The `useState` hooks initialize `alertMessage` and `severity`. If a flash message exists, `alertMessage` is set to that message,
-    // and `severity` is set to "success". If no message is present, `severity` defaults to "info".
-    // The `useEffect` hook listens for changes in the `flash` object. If `flash.message` changes (indicating a new message),
-    // it updates `alertMessage` to the new message and sets `severity` to "success". This ensures the UI reflects current state,
-    // displaying new flash messages as they occur.
+    const handleToggleBookmark = (imageId) => {
+        const newBookmarks = new Set(bookmarkedItems);
+        const currentlyBookmarked = newBookmarks.has(imageId);
 
-    const [alertMessage, setAlertMessage] = useState("");
-    const [severity, setSeverity] = useState("");
-
-    // Assuming flash is an object with potential 'success' and 'error' properties
-    useEffect(() => {
-        if (flash?.success) {
-            setAlertMessage(flash.success);
-            setSeverity("success");
-        } else if (flash?.error) {
-            setAlertMessage(flash.error);
-            setSeverity("error");
+        // Toggle the bookmark status locally
+        if (currentlyBookmarked) {
+            newBookmarks.delete(imageId);
+        } else {
+            newBookmarks.add(imageId);
         }
-    }, [flash]);
+        setBookmarkedItems(newBookmarks);
 
-    //------------------flash message section that took hours to figure out---------------//
-
-    const handleImageClick = (imageId) => {
-        router.visit(`/textile-details/${imageId}`);
-    };
-
-    const handleAlertClose = () => {
-        setAlertMessage("");
-    };
-
-    const handleBookmark = (imageId, e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        // Post to server to update the backend
         router.post(
-            `/bookmark/${imageId}`,
-            {},
+            `/toggle-bookmark/${imageId}`,
             {
-                preserveScroll: true,
-                onSuccess: () => {
-                    setAlertMessage("Bookmark added");
-                    setSeverity("success");
-                },
-                onError: () => {
-                    setAlertMessage("Bookmark already added!");
-                    setSeverity("error");
-                },
+                bookmarked: !currentlyBookmarked,
+            },
+            {
+                preserveState: true, // Opt-in to preserve the state (like scroll position)
             }
         );
     };
 
     return (
-        <section className={`${type}`}>
+        <section className={type}>
             <Navbar authUser={authUser} auth={auth} />
             <ImageHeaderComponent imageUrl={imageUrl} quoteText={quoteText} />
             <BreadcrumbComponent
                 type={type}
                 breadcrumbs={[
                     { label: "Collection", href: "/collection" },
-                    {
-                        label: type.charAt(0).toUpperCase() + type.slice(1),
-                        href: "",
-                    },
+                    { label: title, href: "" },
                 ]}
             />
             <ContainerComponent>
                 <TitleComponent>{title}</TitleComponent>
-                <ContentComponent className="item-page__content">
+                <ContentComponent>
                     <TextComponent>{description}</TextComponent>
                 </ContentComponent>
-
                 <MasonryComponent
                     galleryImages={galleryImages}
-                    onImageClick={handleImageClick}
+                    onImageClick={(imageId) => handleToggleBookmark(imageId)}
                 >
                     {galleryImages.map((image) => (
-                        <CollectionItemStyle
-                            className={`${type}__collection-item`}
-                            key={image.id}
-                            onClick={() => handleImageClick(image.id)}
-                        >
+                        <CollectionItemStyle key={image.id}>
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>
                                     <img src={image.img} alt={image.title} />
                                     <div className="overlay"></div>
                                 </ImageContainer>
                             </Link>
-
-                            <ItemDescStyle className={`${type}__item-desc`}>
+                            <ItemDescStyle>
                                 <h2>{image.title}</h2>
-                                {auth.user &&
-                                    auth.user &&
-                                    auth.user.role_id === 3 && (
-                                        <Tooltip title="Bookmark" arrow>
-                                            <BookmarkIcon
-                                                sx={{
-                                                    color: "#3a3335",
-                                                    fontSize: "18px",
-                                                }}
-                                                style={{
-                                                    cursor: "pointer",
-                                                }}
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Prevent the gallery image click handler from firing
-                                                    handleBookmark(image.id, e);
-                                                }}
-                                            />
-                                        </Tooltip>
-                                    )}
+                                <Tooltip title="Toggle Bookmark" arrow>
+                                    <BookmarkIcon
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleToggleBookmark(image.id);
+                                        }}
+                                        style={{
+                                            cursor: "pointer",
+                                            color: bookmarkedItems.has(image.id)
+                                                ? "#df0144"
+                                                : "gray",
+                                        }}
+                                    />
+                                </Tooltip>
                             </ItemDescStyle>
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
-                <div className="form__alert">
-                    {alertMessage && (
-                        <AlertComponent
-                            variant="outlined"
-                            severity={severity}
-                            closeHandler={handleAlertClose}
-                        >
-                            {alertMessage}
-                        </AlertComponent>
-                    )}
-                </div>
             </ContainerComponent>
             <Footer />
         </section>

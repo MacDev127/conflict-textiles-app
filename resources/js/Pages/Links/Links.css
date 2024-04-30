@@ -37,21 +37,21 @@
 }
 
 .grid-container a {
-    display: block; /* Ensures the link takes up the full grid cell */
-    position: relative; /* Allows absolute positioning inside the link */
-    width: 100%; /* Full width of the cell */
-    padding-top: 70%; /* Reduced from 125% to 75% to make the cell and image appear smaller */
-    overflow: hidden; /* Ensures no content spills out */
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 70%;
+    overflow: hidden;
 }
 
 .grid-container a img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Makes the image fill the container */
-    height: 100%; /* Makes the image fill the container */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    transition: transform 0.3s ease-in-out; /* Adds a subtle zoom effect on hover */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
 }
 
 .grid-container a:hover img {
