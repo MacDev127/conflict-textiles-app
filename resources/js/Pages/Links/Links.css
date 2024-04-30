@@ -1,0 +1,59 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default to 4 columns */
+    gap: 6px; /* Reduced gap for a more compact layout */
+    margin: 0 auto;
+    width: 70%;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.Links {
+    min-height: 100vh !important;
+}
+
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(
+            2,
+            1fr
+        ); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 414px) {
+    .grid-container {
+        grid-template-columns: repeat(
+            1,
+            1fr
+        ); /* 2 columns on smaller screens */
+    }
+}
+
+.grid-container a {
+    display: block; /* Ensures the link takes up the full grid cell */
+    position: relative; /* Allows absolute positioning inside the link */
+    width: 100%; /* Full width of the cell */
+    padding-top: 70%; /* Reduced from 125% to 75% to make the cell and image appear smaller */
+    overflow: hidden; /* Ensures no content spills out */
+}
+
+.grid-container a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the image fill the container */
+    height: 100%; /* Makes the image fill the container */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    transition: transform 0.3s ease-in-out; /* Adds a subtle zoom effect on hover */
+}
+
+.grid-container a:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+}

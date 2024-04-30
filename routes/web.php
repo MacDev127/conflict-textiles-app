@@ -199,7 +199,27 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 //Contact email
 Route::post('/contact', [ContactController::class, 'store']);
 
+// Disclaimer Page
 
+Route::get('/disclaimer', function () {
+    return Inertia::render('Disclaimer/Disclaimer');
+})->name('disclaimer');
+
+// Accessibility Page
+
+Route::get('/accessibility', function () {
+    return Inertia::render('Accessibility/Accessibility');
+})->name('accessibility');
+// Accessibility Page
+
+Route::get('/cookies', function () {
+    return Inertia::render('Cookies/Cookies');
+})->name('cookies');
+// Accessibility Page
+
+Route::get('/links', function () {
+    return Inertia::render('Links/Links');
+})->name('links');
 
 //Previous events page
 Route::get('/events/previousEvents', [EventController::class, 'previousEvents'])->name('events.previous');

@@ -86,7 +86,7 @@ class EventFunctionalityTest extends TestCase
             'image' => 'path/to/fake/image.jpg'
         ]);
 
-        $response = $this->actingAs($this->admin)->get("/events/{$event->id}");
+        $response = $this->actingAs($this->admin)->get("/events/show{$event->id}");
 
         $response->assertStatus(200);
         $response->assertInertia(fn($page) => $page

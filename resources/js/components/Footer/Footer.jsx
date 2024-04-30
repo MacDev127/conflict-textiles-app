@@ -67,9 +67,7 @@ const Footer = () => {
                             <li>
                                 <a href="#">About</a>
                             </li>
-                            <li>
-                                <a href="#">Search</a>
-                            </li>
+
                             <li>
                                 <a href="#">Collection</a>
                             </li>
@@ -77,7 +75,7 @@ const Footer = () => {
                                 <a href="#">Events</a>
                             </li>
                             <li>
-                                <a href="#">Links</a>
+                                <a href="/links">Links</a>
                             </li>
 
                             <li>
@@ -114,16 +112,13 @@ const Footer = () => {
                                 <a href="#">Terms & Conditions</a>
                             </li>
                             <li>
-                                <a href="#">Privacy Policy</a>
+                                <a href="/disclaimer">Disclaimer</a>
                             </li>
                             <li>
-                                <a href="#">Cookie Policy</a>
+                                <a href="/cookies">Cookie Policy</a>
                             </li>
                             <li>
-                                <a href="#">Accessibility</a>
-                            </li>
-                            <li>
-                                <a href="#">My Account</a>
+                                <a href="/accessibility">Accessibility</a>
                             </li>
                         </ul>
                     </div>

@@ -110,7 +110,6 @@ footer img {
     background-color: var(--footbg);
 }
 
-/* Adjustments for devices with a maximum width of 992px */
 @media (max-width: 992px) {
     .footer__container {
         flex-wrap: nowrap;
@@ -132,7 +131,7 @@ footer img {
     }
 
     .footer__links li {
-        margin: 5px 15px; /* Adjust the margin as necessary */
+        margin: 5px 15px;
     }
     .footer__copy {
         padding-top: 10px;
@@ -147,7 +146,6 @@ footer img {
     }
 }
 
-/* Adjustments for devices with a maximum width of 768px */
 @media (max-width: 768px) {
     .footer__container {
         flex-wrap: nowrap;
@@ -169,7 +167,7 @@ footer img {
     }
 
     .footer__links li {
-        margin: 5px 10px; /* Adjust the margin as necessary */
+        margin: 5px 10px;
     }
     .footer__copy {
         padding-top: 10px;
@@ -184,7 +182,6 @@ footer img {
     }
 }
 
-/* Additional media query for smaller devices, such as phones */
 @media (max-width: 576px) {
     .footer__container {
         flex-wrap: wrap;
@@ -192,14 +189,14 @@ footer img {
     .footer__widget,
     .footer__links {
         width: 80%;
-        margin-bottom: 20px; /* Adds space between stacked elements */
+        margin-bottom: 20px;
     }
 
     .footer__links ul {
-        padding: 0; /* Remove padding if any */
+        padding: 0;
     }
 
     .footer__links li {
-        margin: 5px 20px; /* Adjust the margin as necessary */
+        margin: 5px 20px;
     }
 }

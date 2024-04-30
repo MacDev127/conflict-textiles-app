@@ -44,7 +44,7 @@ const Navbar = ({ authUser }) => {
                         { path: "/about", label: "About" },
                         { path: "/collection", label: "Collections" },
                         { path: "/events", label: "Events" },
-                        { path: "/links", label: "Links" },
+                        // { path: "/links", label: "Links" },
                         { path: "/contact", label: "Contact" },
                     ].map((item) => (
                         <li className="nav_list" key={item.path}>
