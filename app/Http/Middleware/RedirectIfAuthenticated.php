@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
                 if ($user->isAdmin()) {
                     return redirect('/metrics-dashboard');
                 } elseif ($user->isResearcher()) {
-                    return redirect('/researcher-dashboard');
+                    return redirect('/');
                 }
 
                 // Default redirect if no specific role is found

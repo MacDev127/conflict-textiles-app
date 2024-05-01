@@ -26,10 +26,6 @@ const Bookmarks = ({ authUser, bookmarks, galleryImages, auth, type }) => {
 
     const handleDeleteBookmark = (bookmarkId) => {
         router.delete(`/delete-bookmark/${bookmarkId}`, {
-            onSuccess: () => {
-                setAlertMessage("Bookmark Removed!");
-                setSeverity("success");
-            },
             onError: (errors) => {
                 setAlertMessage("Failed to delete the bookmark.");
                 setSeverity("error");

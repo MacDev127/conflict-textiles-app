@@ -220,26 +220,7 @@ const DashboardSidebar = ({ menuItems, authUser }) => {
                                 </Link>
                             </ListItem>
                         )}
-                        {menuItems.bookmarks && (
-                            <ListItem disablePadding>
-                                <Link
-                                    href="/researcher-dashboard"
-                                    style={{ width: "100%" }}
-                                >
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <BookmarkIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Bookmarks"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
+
                         {menuItems.roles && (
                             <ListItem disablePadding>
                                 <Link

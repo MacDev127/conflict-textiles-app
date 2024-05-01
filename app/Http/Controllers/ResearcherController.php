@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bookmark;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
+
 
 class ResearcherController extends Controller
 {
@@ -46,9 +48,11 @@ class ResearcherController extends Controller
         }
 
         // Return the new bookmark status with Inertia
-        return Inertia::render('YourComponentHere', [
-            'isBookmarked' => $isBookmarked
-        ]);
+        // return Inertia::render('YourComponentHere', [
+        //     'isBookmarked' => $isBookmarked
+        // ]);
+        return Redirect::back();
+
     }
 
 

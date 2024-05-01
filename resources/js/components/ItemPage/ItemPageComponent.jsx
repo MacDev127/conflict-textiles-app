@@ -31,7 +31,6 @@ const ItemPageComponent = ({
     imageUrl,
     description,
     galleryImages,
-    flash,
     auth,
     authUser,
 }) => {
@@ -60,7 +59,8 @@ const ItemPageComponent = ({
                 bookmarked: !currentlyBookmarked,
             },
             {
-                preserveState: true, // Opt-in to preserve the state (like scroll position)
+                preserveState: true,
+                preventScroll: true,
             }
         );
     };
@@ -95,20 +95,29 @@ const ItemPageComponent = ({
                             </Link>
                             <ItemDescStyle>
                                 <h2>{image.title}</h2>
-                                <Tooltip title="Toggle Bookmark" arrow>
-                                    <BookmarkIcon
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleToggleBookmark(image.id);
-                                        }}
-                                        style={{
-                                            cursor: "pointer",
-                                            color: bookmarkedItems.has(image.id)
-                                                ? "#df0144"
-                                                : "gray",
-                                        }}
-                                    />
-                                </Tooltip>
+                                {auth.user &&
+                                    auth.user &&
+                                    auth.user.role_id === 3 && (
+                                        <Tooltip title="Toggle Bookmark" arrow>
+                                            <BookmarkIcon
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    handleToggleBookmark(
+                                                        image.id
+                                                    );
+                                                }}
+                                                style={{
+                                                    cursor: "pointer",
+                                                    color: bookmarkedItems.has(
+                                                        image.id
+                                                    )
+                                                        ? "#df0144"
+                                                        : "gray",
+                                                }}
+                                            />
+                                        </Tooltip>
+                                    )}
                             </ItemDescStyle>
                         </CollectionItemStyle>
                     ))}

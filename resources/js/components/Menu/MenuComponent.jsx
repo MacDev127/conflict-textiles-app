@@ -36,7 +36,7 @@ const MenuComponent = ({ authUser }) => {
                 case "admin":
                     return "/metrics-dashboard";
                 case "researcher":
-                    return "/researcher-dashboard";
+                    return "/";
                 default:
                     return "/"; // Some default fallback
             }

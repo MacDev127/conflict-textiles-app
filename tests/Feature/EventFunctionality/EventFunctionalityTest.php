@@ -79,6 +79,7 @@ class EventFunctionalityTest extends TestCase
     }
 
     /** @test */
+    /** @test */
     public function can_view_individual_event_details()
     {
         $event = Event::factory()->create([
@@ -86,7 +87,8 @@ class EventFunctionalityTest extends TestCase
             'image' => 'path/to/fake/image.jpg'
         ]);
 
-        $response = $this->actingAs($this->admin)->get("/events/show{$event->id}");
+        // Ensure the route includes a slash before the event ID
+        $response = $this->actingAs($this->admin)->get("/events/show/{$event->id}");
 
         $response->assertStatus(200);
         $response->assertInertia(fn($page) => $page
@@ -94,6 +96,7 @@ class EventFunctionalityTest extends TestCase
             ->has('event')
             ->where('event.title', $event->title));
     }
+
 
     /** @test */
     public function admin_can_create_an_event()
