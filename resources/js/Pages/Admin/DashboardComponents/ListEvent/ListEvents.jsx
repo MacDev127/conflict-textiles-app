@@ -7,29 +7,31 @@ import { Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
+import { MdAdd } from "react-icons/md";
+import "./ListEvents.css";
 
-const ListEvents = ({ events }) => {
+const ListEvents = ({ events, toggleForm }) => {
     const columns = [
-        {
-            field: "id",
-            headerName: "ID",
-            width: 30,
-            headerClassName: "table-header",
-        },
-        { field: "title", headerName: "Title", width: 110 },
-        { field: "type", headerName: "Type", width: 110 },
-        { field: "location", headerName: "Location", width: 110 },
-        { field: "event_date", headerName: "Date", width: 110 },
-        { field: "event_time", headerName: "Time", width: 110 },
-        { field: "venue", headerName: "Venue", width: 110 },
-        { field: "curator", headerName: "Curator", width: 110 },
-        { field: "facilitator", headerName: "Facilitator", width: 110 },
-        { field: "commissioned_by", headerName: "Commissioned By", width: 110 },
-        { field: "document_url", headerName: "Document Url", width: 110 },
-        { field: "textile_url", headerName: "Textile_url", width: 110 },
-        { field: "image", headerName: "Image", width: 110 },
-        { field: "outcome", headerName: "Outcome", width: 110 },
-        { field: "description", headerName: "Description", width: 110 },
+        // {
+        //     field: "id",
+        //     headerName: "ID",
+        //     width: 30,
+        //     headerClassName: "table-header",
+        // },
+        { field: "title", headerName: "Title", width: 130 },
+        { field: "type", headerName: "Type", width: 120 },
+        { field: "location", headerName: "Location", width: 120 },
+        { field: "event_date", headerName: "Date", width: 120 },
+        { field: "event_time", headerName: "Time", width: 120 },
+        { field: "venue", headerName: "Venue", width: 120 },
+        { field: "curator", headerName: "Curator", width: 120 },
+        { field: "facilitator", headerName: "Facilitator", width: 120 },
+        { field: "commissioned_by", headerName: "Commissioned By", width: 120 },
+        // { field: "document_url", headerName: "Document Url", width: 110 },
+        // { field: "textile_url", headerName: "Textile_url", width: 110 },
+        // { field: "image", headerName: "Image", width: 110 },
+        // { field: "outcome", headerName: "Outcome", width: 110 },
+        // { field: "description", headerName: "Description", width: 110 },
         {
             field: "actions",
             headerName: "Actions",
@@ -110,13 +112,13 @@ const ListEvents = ({ events }) => {
         <>
             <Box
                 sx={{
-                    minHeight: "500px",
-                    maxWidth: "1700px",
+                    // minHeight: "300px",
+                    maxWidth: "1200px",
                     marginTop: "100px",
                     width: "100%",
                     overflow: "hidden", // Ensures no scrollbars are visible by default
                     // Use media query to apply styles based on the screen width
-                    "@media (max-width: 600px)": {
+                    "@media (max-width: 800px)": {
                         // Adjust '600px' to the breakpoint you need
                         "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
                             {
@@ -132,18 +134,54 @@ const ListEvents = ({ events }) => {
                                 },
                             },
                     },
+                    "@media (max-width: 414px)": {
+                        // Adjust '600px' to the breakpoint you need
+                        "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
+                            {
+                                overflowX: "auto",
+                                maxWidth: "400px", // Enables horizontal scrolling for small screens
+                                overflowY: "hidden", // Keeps vertical scrolling disabled
+                                scrollbarWidth: "thin", // Keeps the scrollbar thin
+                                "&::-webkit-scrollbar": {
+                                    height: "10px", // Sets the scrollbar height
+                                },
+                                "&::-webkit-scrollbar-thumb": {
+                                    backgroundColor: "rgba(0, 0, 0, 0.2)", // Sets the scrollbar color
+                                },
+                            },
+                    },
                 }}
             >
                 <Typography
                     sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                         borderBottom: "1px solid #ccc",
                         marginBottom: "20px",
                         paddingBottom: "10px",
                         fontSize: "40px",
+                        "@media (max-width: 600px)": {
+                            fontSize: "30px",
+                            marginX: "10px",
+                        },
+                        "@media (max-width: 414px)": {
+                            fontSize: "30px",
+                        },
                     }}
                     variant="h4"
                 >
                     Event Details
+                    <button
+                        aria-label="open form"
+                        className="show__button"
+                        onClick={toggleForm}
+                        variant="contained"
+                        color="primary"
+                    >
+                        Create Event
+                        <MdAdd style={{ fontSize: "20px" }} />
+                    </button>
                 </Typography>
 
                 <DataGrid

@@ -7,102 +7,103 @@ import { Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
+import { MdAdd } from "react-icons/md";
 
 import "./ListTextile.css";
 
-const ListTextiles = ({ galleryImages }) => {
+const ListTextiles = ({ galleryImages, toggleForm }) => {
     // Define columns for DataGrid
     const columns = [
-        {
-            field: "id",
-            headerName: "ID",
-            width: 30,
-            headerClassName: "table-header",
-        },
-        {
-            field: "image",
-            headerName: "Image",
-            width: 110,
-            headerClassName: "table-header",
-        },
+        // {
+        //     field: "id",
+        //     headerName: "ID",
+        //     width: 30,
+        //     headerClassName: "table-header",
+        // },
+        // {
+        //     field: "image",
+        //     headerName: "Image",
+        //     width: 110,
+        //     headerClassName: "table-header",
+        // },
         {
             field: "title",
             headerName: "Title",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "type",
             headerName: "Type",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "location",
             headerName: "Location",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "photographer",
             headerName: "Photographer",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "year_produced",
             headerName: "Year Produced",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "size",
             headerName: "Size",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
-        {
-            field: "materials",
-            headerName: "Materials",
-            width: 110,
-            headerClassName: "table-header",
-        },
+        // {
+        //     field: "materials",
+        //     headerName: "Materials",
+        //     width: 120,
+        //     headerClassName: "table-header",
+        // },
         {
             field: "provenance",
             headerName: "Provenance",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "country_of_origin",
             headerName: "Country of Origin",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "authenticity",
             headerName: "Authenticity",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "maker",
             headerName: "Maker",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
         {
             field: "owner",
             headerName: "Owner",
-            width: 110,
+            width: 120,
             headerClassName: "table-header",
         },
-        {
-            field: "description",
-            headerName: "Description",
-            width: 110,
-            headerClassName: "table-header",
-        },
+        // {
+        //     field: "description",
+        //     headerName: "Description",
+        //     width: 110,
+        //     headerClassName: "table-header",
+        // },
         {
             field: "actions",
             headerName: "Actions",
@@ -195,18 +196,18 @@ const ListTextiles = ({ galleryImages }) => {
         <>
             <Box
                 sx={{
-                    height: 700,
-                    maxWidth: "1700px",
+                    // minheight: 300,
+                    maxWidth: "1400px",
                     marginTop: "100px",
                     width: "100%",
                     overflow: "hidden", // Ensures no scrollbars are visible by default
                     // Use media query to apply styles based on the screen width
-                    "@media (max-width: 600px)": {
+                    "@media (max-width: 768px)": {
                         // Adjust '600px' to the breakpoint you need
                         "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
                             {
                                 overflowX: "auto",
-                                maxWidth: "500px", // Enables horizontal scrolling for small screens
+                                maxWidth: "900px", // Enables horizontal scrolling for small screens
                                 overflowY: "hidden", // Keeps vertical scrolling disabled
                                 scrollbarWidth: "thin", // Keeps the scrollbar thin
                                 "&::-webkit-scrollbar": {
@@ -224,10 +225,23 @@ const ListTextiles = ({ galleryImages }) => {
                         borderBottom: "1px solid #ccc",
                         marginBottom: "20px",
                         paddingBottom: "10px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                     }}
                     variant="h4"
                 >
                     Textile Details
+                    <button
+                        aria-label="open form"
+                        className="show__button"
+                        onClick={toggleForm}
+                        variant="contained"
+                        color="primary"
+                    >
+                        Create Event
+                        <MdAdd style={{ fontSize: "20px" }} />
+                    </button>
                 </Typography>
 
                 <DataGrid

@@ -15,7 +15,7 @@ const Navbar = ({ authUser, auth }) => {
         setActiveLink(url);
     }, [url]);
 
-    let menuItems = [
+    let navItems = [
         { path: "/", label: "Home" },
         { path: "/about", label: "About" },
         { path: "/collection", label: "Collections" },
@@ -24,7 +24,7 @@ const Navbar = ({ authUser, auth }) => {
     ];
 
     if (auth && auth.user && auth.user.role_id === 3) {
-        menuItems.push({ path: "/bookmarks", label: "Bookmarks" });
+        navItems.push({ path: "/bookmarks", label: "Bookmarks" });
     }
 
     return (
@@ -48,7 +48,7 @@ const Navbar = ({ authUser, auth }) => {
                     )}
                 </div>
                 <ul>
-                    {menuItems.map((item) => (
+                    {navItems.map((item) => (
                         <li className="nav_list" key={item.path}>
                             <Link
                                 className={`nav_link ${

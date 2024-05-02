@@ -1,58 +1,44 @@
-/* table {
-    border-collapse: collapse;
-    margin: 50px 20px;
-    font-size: 14px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 400;
-    position: relative;
+.MuiDataGrid-container--top [role="row"] {
+    background-color: #545352 !important ;
+    color: white !important;
+}
+.css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone {
+    background: #ccc;
 }
 
-caption {
-    caption-side: top;
-    text-align: left;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 14px;
-    background-color: #df0144;
-    font-family: "Mulish", sans-serif;
-    font-weight: 500;
+.show__button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 14px;
     color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #df0144;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
-
-thead tr {
-    background-color: #f5f3f4;
-    color: #000;
-    text-align: left;
-    border-bottom: 1px solid #dddddd;
-    font-size: 14px;
+.show__button:hover {
+    background: #dd294d;
+    transition: ease 0.1s;
 }
-
-th,
-td {
-    padding: 10px;
-    color: #313131;
-    max-width: 120px; 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+@media (max-width: 768px) {
+    .show__button {
+        font-size: 12px;
+        padding: 8px 10px;
+        margin-right: 10px;
+    }
 }
-
-tbody tr {
-    border-bottom: 1px solid #dddddd;
+@media (max-width: 414px) {
+    .show__button {
+        font-size: 12px;
+        padding: 4px 8px;
+        margin-right: 50px;
+    }
 }
-
-tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-tbody tr:last-of-type {
-    border-bottom: 1px solid #dddddd;
-}
-
-tbody tr:hover {
-    background-color: #ddd;
-}
-
-.IconButton:hover {
-    background-color: #000;
-} */

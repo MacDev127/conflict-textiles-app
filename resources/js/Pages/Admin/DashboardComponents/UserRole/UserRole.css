@@ -7,3 +7,45 @@
 .css-aubnum-MuiDataGrid-root .MuiDataGrid-cell:focus-within {
     outline: none !important;
 }
+
+.show__button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 14px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #df0144;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.data-grid-container {
+    width: 100% !important;
+    max-width: 1200px !important;
+}
+
+.show__button:hover {
+    background: #dd294d;
+    transition: ease 0.1s;
+}
+@media (max-width: 600px) {
+    .show__button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+@media (max-width: 414px) {
+    .show__button {
+        font-size: 12px;
+        padding: 4px 8px;
+        margin-right: 50px;
+    }
+}
