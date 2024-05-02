@@ -219,6 +219,18 @@ class GalleryImagesController extends Controller
         return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $galleryImage]);
     }
 
+    public function showAdminTextile($id)
+    {
+        $textile = GalleryImage::findOrFail($id);
+        if ($textile->image) {
+            $textile->image = asset('storage/' . $textile->image);
+        }
+
+        return Inertia::render('Admin/ShowTextile/ShowTextile', [
+            'textile' => $textile,
+        ]);
+    }
+
 
 
 }

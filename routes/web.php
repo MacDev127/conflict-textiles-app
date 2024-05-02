@@ -107,6 +107,12 @@ Route::put('/events/{id}', [EventController::class, 'update'])->name('event.upda
 //Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 
+// dashboard show events
+Route::get('/admin/events/{id}/details', [EventController::class, 'showAdmin'])
+    ->name('admin.events.details')
+    ->middleware('is_admin');
+
+
 // web.php
 Route::get('/event/{id}/details', [EventController::class, 'show'])->name('event.details');
 
@@ -114,6 +120,10 @@ Route::get('/event/{id}/details', [EventController::class, 'show'])->name('event
 
 
 //----------------------Dashboards---------------///
+// show textiles in dashboard
+Route::get('/admin/textiles/{id}/details', [GalleryImagesController::class, 'showAdminTextile'])
+    ->name('admin.textiles.details')
+    ->middleware('is_admin');
 
 
 /// main dashboard

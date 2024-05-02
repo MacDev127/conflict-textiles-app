@@ -1,0 +1,90 @@
+.show__textiles {
+    font-family: "Mulish", sans-serif; /* Changed to match the TextileDetail style */
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-y: auto; /* Adds scroll to the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: relative;
+}
+
+.textile-image-container {
+    margin: 30px 0;
+}
+
+.textile-container {
+    display: flex;
+    flex-direction: column; /* Adjust for side-by-side layout */
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.textile-image-container img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.show__textiles-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+.textile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Align text to the start */
+    width: 100%;
+    max-width: 800px;
+    min-height: 100vh;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #ccc; /* Adds a separator */
+    width: 100%;
+}
+
+.detail span {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 32px; /* Larger font size for headings */
+    color: #333;
+    padding-bottom: 15px; /* More padding below the title */
+}
+
+@media (max-width: 768px) {
+    .textile-details {
+        max-width: 80%; /* Full width for details on small screens */
+    }
+}
+
+@media (max-width: 414px) {
+    .textile-image-container {
+        max-width: 90%; /* Full width on small screens */
+    }
+    .textile-details {
+        min-height: 100vh;
+    }
+}

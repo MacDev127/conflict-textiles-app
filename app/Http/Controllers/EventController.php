@@ -196,6 +196,19 @@ class EventController extends Controller
         return Inertia::render('Admin/DashboardComponents/EditEvent/EditEvent', compact('event'));
     }
 
+    public function showAdmin($id)
+    {
+        $event = Event::findOrFail($id);
+        if ($event->image) {
+            $event->image = asset('storage/' . $event->image);
+        }
+
+        return Inertia::render('Admin/ShowEvents/ShowEvents', [
+            'event' => $event,
+        ]);
+    }
+
+
 }
 
 

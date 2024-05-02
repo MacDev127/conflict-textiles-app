@@ -8,6 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Box from "@mui/material/Box";
 import { MdAdd } from "react-icons/md";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 import "./ListTextile.css";
 
@@ -29,73 +30,73 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
         {
             field: "title",
             headerName: "Title",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         {
             field: "type",
             headerName: "Type",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         {
             field: "location",
             headerName: "Location",
-            width: 120,
-            headerClassName: "table-header",
-        },
-        {
-            field: "photographer",
-            headerName: "Photographer",
-            width: 120,
-            headerClassName: "table-header",
-        },
-        {
-            field: "year_produced",
-            headerName: "Year Produced",
-            width: 120,
-            headerClassName: "table-header",
-        },
-        {
-            field: "size",
-            headerName: "Size",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         // {
-        //     field: "materials",
-        //     headerName: "Materials",
-        //     width: 120,
+        //     field: "photographer",
+        //     headerName: "Photographer",
+        //     width: 130,
         //     headerClassName: "table-header",
         // },
         {
-            field: "provenance",
-            headerName: "Provenance",
-            width: 120,
+            field: "year_produced",
+            headerName: "Year Produced",
+            width: 130,
             headerClassName: "table-header",
         },
+        // {
+        //     field: "size",
+        //     headerName: "Size",
+        //     width: 130,
+        //     headerClassName: "table-header",
+        // },
+        // {
+        //     field: "materials",
+        //     headerName: "Materials",
+        //     width: 130,
+        //     headerClassName: "table-header",
+        // },
+        // {
+        //     field: "provenance",
+        //     headerName: "Provenance",
+        //     width: 130,
+        //     headerClassName: "table-header",
+        // },
         {
             field: "country_of_origin",
             headerName: "Country of Origin",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         {
             field: "authenticity",
             headerName: "Authenticity",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         {
             field: "maker",
             headerName: "Maker",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         {
             field: "owner",
             headerName: "Owner",
-            width: 120,
+            width: 130,
             headerClassName: "table-header",
         },
         // {
@@ -108,6 +109,7 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
             field: "actions",
             headerName: "Actions",
             headerClassName: "table-header",
+            width: 130,
 
             sortable: false,
             renderCell: (params) => {
@@ -133,30 +135,44 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
                 };
                 return (
                     <>
-                        <Link
-                            href={route("admin.textileDetail.edit", params.id)}
-                        >
-                            <Tooltip title="Edit" arrow>
-                                <EditIcon
-                                    sx={{
-                                        color: "#df0144",
-                                        marginRight: "10px",
-                                    }}
-                                    aria-label="Edit textile"
-                                >
-                                    {/* <FaPen /> */}
-                                </EditIcon>
-                            </Tooltip>
-                        </Link>
-                        <Tooltip title="Delete" arrow>
-                            <DeleteIcon
-                                sx={{ color: "#df0144" }}
-                                aria-label="Delete textile"
-                                onClick={handleDelete}
+                        <div className="actions__container">
+                            <Link
+                                href={route(
+                                    "admin.textileDetail.edit",
+                                    params.id
+                                )}
                             >
-                                {/* <FaTrashCan style={{ color: "crimson" }} /> */}
-                            </DeleteIcon>
-                        </Tooltip>
+                                <Tooltip title="Edit" arrow>
+                                    <EditIcon
+                                        sx={{
+                                            color: "#df0144",
+                                        }}
+                                        aria-label="Edit textile"
+                                    >
+                                        {/* <FaPen /> */}
+                                    </EditIcon>
+                                </Tooltip>
+                            </Link>
+                            <Tooltip title="Delete" arrow>
+                                <DeleteIcon
+                                    sx={{ color: "#df0144", cursor: "pointer" }}
+                                    aria-label="Delete textile"
+                                    onClick={handleDelete}
+                                >
+                                    {/* <FaTrashCan style={{ color: "crimson" }} /> */}
+                                </DeleteIcon>
+                            </Tooltip>
+                            <Tooltip title="View Details">
+                                <Link
+                                    href={route(
+                                        "admin.textiles.details",
+                                        params.id
+                                    )}
+                                >
+                                    <VisibilityIcon sx={{ color: "#df0144" }} />
+                                </Link>
+                            </Tooltip>
+                        </div>
                     </>
                 );
             },
@@ -197,7 +213,7 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
             <Box
                 sx={{
                     // minheight: 300,
-                    maxWidth: "1400px",
+                    maxWidth: "1200px",
                     marginTop: "100px",
                     width: "100%",
                     overflow: "hidden", // Ensures no scrollbars are visible by default

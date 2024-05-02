@@ -5,6 +5,9 @@
 .css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone {
     background: #ccc;
 }
+.css-qcqlck-MuiDataGrid-root {
+    background-color: #ccc;
+}
 
 .show__button {
     outline: none;
@@ -23,6 +26,11 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+.actions__container {
+    display: flex;
+    align-items: first baseline;
+    gap: 12px;
 }
 .show__button:hover {
     background: #dd294d;

@@ -9,6 +9,7 @@ import { usePage } from "@inertiajs/react";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 
 const MenuComponent = ({ authUser }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -78,6 +79,20 @@ const MenuComponent = ({ authUser }) => {
                         </MenuItem>
                     </Link>
                 )}
+                {auth.user && (
+                    <Link href="/metrics-dashboard" style={{ color: "black" }}>
+                        <MenuItem
+                            onClick={handleClose}
+                            sx={{ paddingRight: "30px" }}
+                        >
+                            <DashboardCustomizeIcon>
+                                <LoginIcon />
+                            </DashboardCustomizeIcon>
+                            Dashboard
+                        </MenuItem>
+                    </Link>
+                )}
+
                 {auth.user && (
                     <MenuItem onClick={handleLogout} sx={{ gap: "" }}>
                         <ListItemIcon>

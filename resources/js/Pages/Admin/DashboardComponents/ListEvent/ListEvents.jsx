@@ -6,6 +6,7 @@ import { Tooltip } from "@mui/material";
 import { Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import Box from "@mui/material/Box";
 import { MdAdd } from "react-icons/md";
 import "./ListEvents.css";
@@ -61,7 +62,7 @@ const ListEvents = ({ events, toggleForm }) => {
                                 <EditIcon
                                     sx={{
                                         color: "#df0144",
-                                        marginRight: "10px",
+                                        marginRight: "8px",
                                     }}
                                     aria-label="Edit Event"
                                 >
@@ -71,12 +72,24 @@ const ListEvents = ({ events, toggleForm }) => {
                         </Link>
                         <Tooltip title="Delete" arrow>
                             <DeleteIcon
-                                sx={{ color: "#df0144" }}
+                                sx={{ color: "#df0144", marginRight: "8px" }}
                                 aria-label="Delete Event"
                                 onClick={handleDelete}
+                            ></DeleteIcon>
+                        </Tooltip>
+                        <Tooltip title="View Details">
+                            <Link
+                                href={route("admin.events.details", {
+                                    id: params.id,
+                                })}
                             >
-                                {/* <FaTrashCan style={{ color: "crimson" }} /> */}
-                            </DeleteIcon>
+                                <VisibilityIcon
+                                    sx={{
+                                        color: "#df0144",
+                                        marginRight: "10px",
+                                    }}
+                                />
+                            </Link>
                         </Tooltip>
                     </>
                 );
@@ -116,37 +129,34 @@ const ListEvents = ({ events, toggleForm }) => {
                     maxWidth: "1200px",
                     marginTop: "100px",
                     width: "100%",
-                    overflow: "hidden", // Ensures no scrollbars are visible by default
-                    // Use media query to apply styles based on the screen width
+                    overflow: "hidden",
                     "@media (max-width: 800px)": {
-                        // Adjust '600px' to the breakpoint you need
                         "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
                             {
                                 overflowX: "auto",
-                                maxWidth: "500px", // Enables horizontal scrolling for small screens
-                                overflowY: "hidden", // Keeps vertical scrolling disabled
-                                scrollbarWidth: "thin", // Keeps the scrollbar thin
+                                maxWidth: "500px",
+                                overflowY: "hidden",
+                                scrollbarWidth: "thin",
                                 "&::-webkit-scrollbar": {
-                                    height: "10px", // Sets the scrollbar height
+                                    height: "10px",
                                 },
                                 "&::-webkit-scrollbar-thumb": {
-                                    backgroundColor: "rgba(0, 0, 0, 0.2)", // Sets the scrollbar color
+                                    backgroundColor: "rgba(0, 0, 0, 0.2)",
                                 },
                             },
                     },
                     "@media (max-width: 414px)": {
-                        // Adjust '600px' to the breakpoint you need
                         "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
                             {
                                 overflowX: "auto",
-                                maxWidth: "400px", // Enables horizontal scrolling for small screens
-                                overflowY: "hidden", // Keeps vertical scrolling disabled
-                                scrollbarWidth: "thin", // Keeps the scrollbar thin
+                                maxWidth: "400px",
+                                overflowY: "hidden",
+                                scrollbarWidth: "thin",
                                 "&::-webkit-scrollbar": {
-                                    height: "10px", // Sets the scrollbar height
+                                    height: "10px",
                                 },
                                 "&::-webkit-scrollbar-thumb": {
-                                    backgroundColor: "rgba(0, 0, 0, 0.2)", // Sets the scrollbar color
+                                    backgroundColor: "rgba(0, 0, 0, 0.2)",
                                 },
                             },
                     },
