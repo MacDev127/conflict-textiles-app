@@ -24,8 +24,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import "./DashboardSidebar.css";
 
-const DashboardSidebar = ({ menuItems, authUser }) => {
+const DashboardSidebar = ({ authUser }) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -143,104 +144,96 @@ const DashboardSidebar = ({ menuItems, authUser }) => {
                     </DrawerHeader>
                     <Divider />
                     <List>
-                        {menuItems.metrics && (
-                            <ListItem disablePadding>
-                                <Link
-                                    href="/metrics-dashboard"
-                                    style={{ width: "100%" }}
-                                >
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <AnalyticsIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Metrics"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
-                        {menuItems.events && (
-                            <ListItem disablePadding>
-                                <Link
-                                    href="/events-dashboard"
-                                    style={{ width: "100%" }}
-                                >
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <EventIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Add Event"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
-                        {menuItems.textiles && (
-                            <ListItem disablePadding>
-                                <Link
-                                    href="/textiles-dashboard"
-                                    style={{ width: "100%" }}
-                                >
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <AddPhotoAlternateIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Add Textile"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
-                        {menuItems.home && (
-                            <ListItem disablePadding>
-                                <Link href="/" style={{ width: "100%" }}>
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <HomeIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Home"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
+                        <ListItem disablePadding>
+                            <Link
+                                href="/metrics-dashboard"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <AnalyticsIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Metrics"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <Link
+                                href="/events-dashboard"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <EventIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Add Event"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
 
-                        {menuItems.roles && (
-                            <ListItem disablePadding>
-                                <Link
-                                    href="/admin/user-role-dashboard"
-                                    style={{ width: "100%" }}
-                                >
-                                    <ListItemButton>
-                                        <ListItemIcon>
-                                            <ManageAccountsIcon />
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            sx={{
-                                                color: "black",
-                                            }}
-                                            primary="Roles"
-                                        />
-                                    </ListItemButton>
-                                </Link>
-                            </ListItem>
-                        )}
+                        <ListItem disablePadding>
+                            <Link
+                                href="/textiles-dashboard"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <AddPhotoAlternateIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Add Textile"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+
+                        <ListItem disablePadding>
+                            <Link href="/" style={{ width: "100%" }}>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <HomeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Home"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+
+                        <ListItem disablePadding>
+                            <Link
+                                href="/admin/user-role-dashboard"
+                                style={{ width: "100%" }}
+                            >
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <ManageAccountsIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Roles"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
                     </List>
                     <Divider />
                 </Drawer>

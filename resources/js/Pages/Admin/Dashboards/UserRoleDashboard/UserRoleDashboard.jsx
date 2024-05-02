@@ -14,17 +14,7 @@ const UserRoleDashboard = ({ users, authUser, roles }) => {
 
     return (
         <>
-            <DashboardSidebar
-                authUser={authUser}
-                menuItems={{
-                    metrics: true,
-                    events: true,
-                    textiles: true,
-                    home: true,
-                    bookmarks: false,
-                    roles: true,
-                }}
-            />
+            <DashboardSidebar authUser={authUser} />
             <section className="user-role__dashboard">
                 <div className="user-role__dashboard-container">
                     <UserRole

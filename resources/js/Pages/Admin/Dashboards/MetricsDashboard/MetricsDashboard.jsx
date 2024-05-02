@@ -10,17 +10,7 @@ import DashboardLineChart from "../../DashboardComponents/DashBoardcharts/Dashbo
 const MetricsDashboard = ({ authUser }) => {
     return (
         <>
-            <DashboardSidebar
-                authUser={authUser}
-                menuItems={{
-                    metrics: true,
-                    events: true,
-                    textiles: true,
-                    home: true,
-                    bookmarks: false,
-                    roles: true,
-                }}
-            />
+            <DashboardSidebar authUser={authUser} />
 
             <section className="Dashboard">
                 <div className="dashboard-chart__container">

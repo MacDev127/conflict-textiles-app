@@ -9,17 +9,9 @@ const TextileDashboard = ({ galleryImages, authUser }) => {
     const [showForm, setShowForm] = useState(false);
     const toggleForm = () => setShowForm(!showForm);
 
-    // You imported defaultMenuItems but are overwriting it here, let's merge properly:
-    const menuItems = {
-        ...defaultMenuItems,
-        bookmarks: false, // Define or override specific settings here
-    };
-
-    console.log(menuItems); // Should now print the merged menu items correctly
-
     return (
         <>
-            <DashboardSidebar authUser={authUser} menuItems={menuItems} />
+            <DashboardSidebar authUser={authUser} />
             <section className="textile-dashboard">
                 <div className="textile-dashboard__container">
                     <ListTextile

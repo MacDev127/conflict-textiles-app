@@ -14,17 +14,7 @@ const EventsDashboard = ({ events, authUser }) => {
 
     return (
         <>
-            <DashboardSidebar
-                authUser={authUser}
-                menuItems={{
-                    metrics: true,
-                    events: true,
-                    textiles: true,
-                    home: true,
-                    bookmarks: false,
-                    roles: true,
-                }}
-            />
+            <DashboardSidebar authUser={authUser} />
             <section className="events-dashboard">
                 <div className="events-dashboard__container">
                     <ListEvents
