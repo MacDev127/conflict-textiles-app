@@ -49,17 +49,5 @@ class EnsureUserIsResearcherTest extends TestCase
     }
 
 
-    /** @test */
-    // public function it_redirects_guest_users()
-    // {
-    //     $request = Request::create('/researcher/dashboard', 'GET');
-    //     $middleware = new EnsureUserIsResearcher();
 
-    //     $response = $middleware->handle($request, function ($req) {
-    //         return response(null, 200);
-    //     });
-
-    //     $this->assertEquals(302, $response->getStatusCode());
-    //     $this->assertEquals(url('/about'), $response->headers->get('Location'));
-    // }
 }

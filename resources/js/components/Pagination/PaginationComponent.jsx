@@ -2,7 +2,7 @@ import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { router } from "@inertiajs/react";
-import "./pag.css";
+import "./pagination.css";
 
 const PaginationComponent = ({ total, current, onChange }) => {
     // Handles page change events

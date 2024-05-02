@@ -35,18 +35,17 @@ const Navbar = ({ authUser, auth }) => {
                 </Link>
             </div>
             <div id="navbar" className={menuOpen ? "open active" : ""}>
-                <div
+                <button
+                    aria-label="Toggle Menu"
                     className="menu"
-                    onClick={() => {
-                        setMenuOpen(!menuOpen);
-                    }}
+                    onClick={() => setMenuOpen(!menuOpen)}
                 >
                     {menuOpen ? (
                         <BiX className="close-icon" />
                     ) : (
                         <BiMenu className="menu-icon" />
                     )}
-                </div>
+                </button>
                 <ul>
                     {navItems.map((item) => (
                         <li className="nav_list" key={item.path}>

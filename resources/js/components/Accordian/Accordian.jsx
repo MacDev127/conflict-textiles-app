@@ -4,9 +4,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Fade from "@mui/material/Fade";
 
-const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
+const Accordian = ({ textileDetail }) => {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -22,8 +21,6 @@ const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
-                    TransitionComponent={Fade}
-                    TransitionProps={{ timeout: 200 }}
                     style={{ minHeight: "80px" }}
                 >
                     <Typography sx={{ width: "33%", flexShrink: 0 }}>
@@ -44,8 +41,6 @@ const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
-                    TransitionComponent={Fade}
-                    TransitionProps={{ timeout: 200 }}
                     style={{ minHeight: "80px" }}
                 >
                     <Typography sx={{ width: "33%", flexShrink: 0 }}>
@@ -68,8 +63,6 @@ const Accordian = ({ TransitionComponent, TransitionProps, textileDetail }) => {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3bh-content"
                     id="panel3bh-header"
-                    TransitionComponent={Fade}
-                    TransitionProps={{ timeout: 200 }}
                     style={{ minHeight: "80px" }}
                 >
                     <Typography sx={{ width: "33%", flexShrink: 0 }}>

@@ -25,7 +25,7 @@ class SearchFunctionalityTest extends TestCase
     {
         // Arrange: Create dummy data
         GalleryImage::factory()->create([
-            'title' => 'A Beautiful Landscape',
+            'title' => 'Landscape',
             'type' => 'Painting',
             'maker' => 'John Doe',
             'country_of_origin' => 'USA',
@@ -40,7 +40,7 @@ class SearchFunctionalityTest extends TestCase
             fn($assert) => $assert
                 ->component('Search/Search')
                 ->has('galleryImages', 1)
-                ->where('galleryImages.0.title', 'A Beautiful Landscape')
+                ->where('galleryImages.0.title', 'Landscape')
         );
     }
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Link } from "@inertiajs/react";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
@@ -13,7 +15,7 @@ const Footer = () => {
                 <div className="footer__container">
                     <div className="footer__widget">
                         <div>
-                            <Link href={route("home")}>
+                            <Link href="/">
                                 <img
                                     src="/images/misc/footer-logo.png"
                                     alt="Logo"

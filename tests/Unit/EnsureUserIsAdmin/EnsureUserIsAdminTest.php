@@ -36,7 +36,8 @@ class EnsureUserIsAdminTest extends TestCase
             return response(null, 200); // This represents the next middleware in the stack
         });
 
-        $this->assertEquals(302, $response->getStatusCode());
+        $this->assertEquals(302, $response->getStatusCode()); //fail
+        // $this->assertEquals(302, $response->getStatusCode());
     }
 
     /** @test */
