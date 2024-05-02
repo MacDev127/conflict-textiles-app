@@ -7,7 +7,6 @@ import { Link } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 
@@ -66,19 +65,6 @@ const MenuComponent = ({ authUser }) => {
                     "aria-labelledby": "basic-button",
                 }}
             >
-                {auth.user && (
-                    <Link
-                        href={dashboardLink()}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <MenuItem onClick={handleClose} sx={{ color: "black" }}>
-                            <ListItemIcon>
-                                <DashboardCustomizeIcon />
-                            </ListItemIcon>
-                            Dashboard
-                        </MenuItem>
-                    </Link>
-                )}
                 {!auth.user && (
                     <Link href="/login" style={{ color: "black" }}>
                         <MenuItem

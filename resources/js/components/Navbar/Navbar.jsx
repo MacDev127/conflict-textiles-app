@@ -61,8 +61,8 @@ const Navbar = ({ authUser, auth }) => {
                     ))}
                     <li className="nav_icon">
                         <Link href="/login" className="login_link">
-                            <FaUser style={{ fontSize: "20px" }} />{" "}
-                            {authUser?.name || "Log In"}
+                            {authUser?.name || "Login"}
+                            <FaUser style={{ fontSize: "20px" }} />
                         </Link>
                     </li>
                 </ul>

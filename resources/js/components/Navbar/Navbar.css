@@ -117,6 +117,10 @@ header {
 .login_link {
     display: none;
 }
+.menu {
+    border: none;
+    background: none;
+}
 
 @media (max-width: 1080px) {
     #navbar .menu {
@@ -166,8 +170,9 @@ header {
         background-color: antiquewhite;
     }
 
-    .login_link:hover {
-        color: rgb(213, 207, 201) !important;
+    ul li .login_link:hover {
+        transform: scale(0.99);
+        transition: ease 0.3ss;
     }
 
     .login_link {
