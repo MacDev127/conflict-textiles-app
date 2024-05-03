@@ -12,6 +12,10 @@ export const EmailStyle = styled.div`
     form {
         display: flex;
         gap: 10px;
+        @media (max-width: 768px) {
+            justify-content: flex-start;
+            flex-direction: column;
+        }
         @media (max-width: 414px) {
             flex-direction: column;
             justify-content: flex-start;

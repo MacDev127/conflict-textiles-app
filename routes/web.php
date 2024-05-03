@@ -24,17 +24,15 @@ use App\Http\Controllers\UserRoleDashboardController;
 
 Route::post("/admin/users/create", [UserRoleDashboardController::class, 'store'])->name('users.create');
 
-
-
-// super admiin test routes
-// Inside your routes file (web.php)
+//Admin Routes
 Route::post('/admin/users/assign-role', [UserRoleDashboardController::class, 'assignRole'])
     ->name('admin.users.assign-role')
     ->middleware('is_admin');
 
 
-// routes/web.php
 
+
+// Role management
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/admin/roles', [RoleController::class, 'index'])->name('admin.roles.index');
     Route::post('/admin/roles', [RoleController::class, 'store'])->name('admin.roles.store');
@@ -43,28 +41,18 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::delete('/admin/roles/{role}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
 });
 
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/admin/user-role-dashboard', [UserRoleDashboardController::class, 'index'])
-        ->name('admin.user-role-dashboard.index');
-});
-
-Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
-    ->middleware(['auth', 'is_admin'])
-    ->name('admin.events-dashboard');
-// super admiin test routes
 
 
 
-///Admin / Dashboard functionality
 
-//Image
+
+// --------------Gallery and Textile Image Management--------------/
+
+//Create Textile
 Route::post('/admin/gallery-images/store', [GalleryImagesController::class, 'store'])
     ->name('gallery-images.store')
     ->middleware('is_admin');
 
-
-
-//------------------------------Textiles------------------------------------------///
 
 // Route to show the edit form for a textile
 Route::get('/admin/textileDetail/{id}/edit', [GalleryImagesController::class, 'edit'])
@@ -81,10 +69,19 @@ Route::delete('/textileDetail/{id}', [GalleryImagesController::class, 'destroy']
 
 
 
-//-------------------------------Textiles-----------------------------------///
+// view individual textile details 
+Route::get('/textile-details/{id}', [GalleryImagesController::class, 'showTextileDetail'])->name('textile-details.show');
+
+// list all gallery images
+Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
+
+// show textiles in dashboard
+Route::get('/admin/textiles/{id}/details', [GalleryImagesController::class, 'showAdminTextile'])
+    ->name('admin.textiles.details')
+    ->middleware('is_admin');
 
 
-//----------------------Events---------------///
+//----------------------Events ---------------///
 
 // Route to show the form to add a new event
 Route::get('/admin/events/create', [EventController::class, 'create'])
@@ -105,10 +102,11 @@ Route::post('/admin/events', [EventController::class, 'store'])
 Route::put('/events/{id}', [EventController::class, 'update'])->name('event.update');
 
 
-
-
 //Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
+
+// show all events
+Route::get('/events', [EventController::class, 'index']);
 
 // dashboard show events
 Route::get('/admin/events/{id}/details', [EventController::class, 'showAdmin'])
@@ -116,29 +114,39 @@ Route::get('/admin/events/{id}/details', [EventController::class, 'showAdmin'])
     ->middleware('is_admin');
 
 
-// web.php
+//  show details of a specific event
 Route::get('/event/{id}/details', [EventController::class, 'show'])->name('event.details');
 
-//----------------------Events---------------///
+//Previous events page
+Route::get('/events/previousEvents', [EventController::class, 'previousEvents'])->name('events.previous');
+
+// Events Page
+Route::get('/events', [EventController::class, 'events'])->name('events');
+
+//Event Route
+Route::get('/events/show/{id}', [EventController::class, 'show'])->name('events.show');
+
+
+// Route to show registration form
+Route::get('/event/{eventId}/registerPage', [EventRegisterController::class, 'showRegistrationForm'])->name('event.registerPage');
+
+// Route to handle event register form submission
+Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, 'store'])->name('event.eventRegister.store');
+
 
 
 //----------------------Dashboards---------------///
-// show textiles in dashboard
-Route::get('/admin/textiles/{id}/details', [GalleryImagesController::class, 'showAdminTextile'])
-    ->name('admin.textiles.details')
-    ->middleware('is_admin');
 
 
-/// main dashboard
+/// Metrics dashboard
 Route::get('/metrics-dashboard', function () {
     return Inertia::render('Admin/Dashboards/MetricsDashboard/MetricsDashboard');
 })->middleware(['auth', 'is_admin'])->name('metrics-dashboard');
 
-//------- Bolier plate laravel Routes-----//
+//Metrics Dashboard
 Route::get('/dashboards/metrics-dashboard', function () {
     return Inertia::render('MetricsDashboard');
 })->middleware(['auth', 'verified'])->name('metrics-dashboard');
-
 
 //events dashboard
 Route::get('/events-dashboard', [DashboardController::class, 'eventsDashboard'])
@@ -150,17 +158,18 @@ Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboar
     ->middleware(['auth', 'is_admin'])
     ->name('admin.textiles-dashboard');
 
-Route::get('/textiles-dashboard', [DashboardController::class, 'textilesDashboard'])
-    ->middleware(['auth', 'is_admin'])
-    ->name('admin.textiles-dashboard');
-
-///-------Admin / Dashboard functionality--------
-
-//----------------------Dashboards---------------///
+//user role dashboard
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/user-role-dashboard', [UserRoleDashboardController::class, 'index'])
+        ->name('admin.user-role-dashboard.index');
+});
 
 
 
-// researcher functionlaity
+
+
+
+// researcher functionlaity-------//
 
 Route::middleware(['auth', 'is_researcher'])->group(function () {
     Route::get('/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('bookmarks');
@@ -170,15 +179,6 @@ Route::middleware(['auth', 'is_researcher'])->group(function () {
 
 
 
-
-// Event Controller
-Route::get('/events', [EventController::class, 'index']);
-
-// show textileDetails of image
-Route::get('/textile-details/{id}', [GalleryImagesController::class, 'showTextileDetail'])->name('textile-details.show');
-
-//Gallery images Controller
-Route::get('/galleryImages', [GalleryImagesController::class, 'index'])->name('galleryImages');
 
 //Home Controller
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -190,18 +190,14 @@ Route::get('/collectionPageImages', [CollectionPageImageController::class, 'inde
 Route::post('/email-signup', [EmailSignUpController::class, 'store']);
 
 
-// Route to show registration form
-Route::get('/event/{eventId}/registerPage', [EventRegisterController::class, 'showRegistrationForm'])->name('event.registerPage');
-
-// Route to handle event register form submission
-Route::post('/event/{eventId}/eventRegister', [EventRegisterController::class, 'store'])->name('event.eventRegister.store');
 
 
 
 
 
 
-// --------------------------------------Page Routes Start-----------------------------------------------------------------//
+// -------------------- Static Page Routes ---------------------------
+
 //About Page
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -212,35 +208,26 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store']);
 
 // Disclaimer Page
-
 Route::get('/disclaimer', function () {
     return Inertia::render('Disclaimer/Disclaimer');
 })->name('disclaimer');
 
 // Accessibility Page
-
 Route::get('/accessibility', function () {
     return Inertia::render('Accessibility/Accessibility');
 })->name('accessibility');
-// Accessibility Page
 
+// Cookies Page
 Route::get('/cookies', function () {
     return Inertia::render('Cookies/Cookies');
 })->name('cookies');
-// Accessibility Page
 
+//Links page
 Route::get('/links', function () {
     return Inertia::render('Links/Links');
 })->name('links');
 
-//Previous events page
-Route::get('/events/previousEvents', [EventController::class, 'previousEvents'])->name('events.previous');
 
-// Events Page
-Route::get('/events', [EventController::class, 'events'])->name('events');
-
-//Event Route
-Route::get('/events/show/{id}', [EventController::class, 'show'])->name('events.show');
 
 
 // Collection Page
@@ -269,14 +256,19 @@ Route::get('/installation', [GalleryImagesController::class, 'installation'])->n
 
 //----------search functionality----------//
 
-// Updated routes for search functionality
-Route::get('/search', [SearchController::class, 'search'])->name('search'); // Perform search
-Route::get('/search-page', [SearchController::class, 'index'])->name('search-page'); // Display search page
-//----------search functionality----------//
+// Perform search
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+// Display search page
+Route::get('/search-page', [SearchController::class, 'index'])->name('search-page');
 
 
 // --------Change language Route-----/
 Route::get('/change-language/{lang}', "App\Http\Controllers\HomeController@changeLanguage");
+
+
+
+
 
 
 //------- Bolier plate laravel Routes-----//
@@ -289,15 +281,6 @@ Route::get('/welcome', function () {
     ]);
 });
 
-
-
-
-//------- Bolier plate laravel Routes-----//
-Route::get('/dashboards/metrics-dashboard', function () {
-    return Inertia::render('MetricsDashboard');
-})->middleware(['auth', 'verified'])->name('metrics-dashboard');
-
-//------- Bolier plate laravel Routes-----//
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

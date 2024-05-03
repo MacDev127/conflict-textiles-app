@@ -30,7 +30,6 @@ const ShowEvents = ({ event }) => {
         ) {
             router.delete(route("event.destroy", { id: event.id }), {
                 onSuccess: () => {
-                    // Redirect or refresh the list as necessary
                     router.visit(route("admin.events-dashboard"));
                 },
             });

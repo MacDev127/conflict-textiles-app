@@ -6,7 +6,7 @@ import DropdownMenu from "../Dropdown/Dropdown";
 import { FaUser } from "react-icons/fa";
 import MenuComponent from "../Menu/MenuComponent";
 
-const Navbar = ({ authUser, auth }) => {
+const Navbar = ({ authUser, auth, translations }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const { url } = usePage();
     const [activeLink, setActiveLink] = useState(url);

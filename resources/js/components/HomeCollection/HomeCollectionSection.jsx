@@ -9,7 +9,7 @@ import TextComponent from "../Text/TextComponent";
 import ButtonComponent from "../Button/ButtonComponent";
 import Masonry from "react-masonry-css";
 
-const Collection = () => {
+const Collection = ({ translations }) => {
     const breakpoints = {
         default: 2,
         1100: 2,
@@ -19,15 +19,12 @@ const Collection = () => {
     return (
         <section className="home__collection">
             <ContainerComponent>
-                <TitleComponent>Collection</TitleComponent>
+                <TitleComponent className="home__collection_title">
+                    {translations.home__collection_title}
+                </TitleComponent>
                 <ContentComponent>
-                    <TextComponent>
-                        The Conflict Textiles collection predominantly consists
-                        of a diverse range of local and international fabrics,
-                        including arpilleras, quilts, and wall hangings.
-                        Additionally, textiles from other collections that have
-                        been featured in various exhibitions are
-                        well-documented.
+                    <TextComponent className="home__collection_intro">
+                        {translations.home__collection_intro}
                     </TextComponent>
                 </ContentComponent>
 
@@ -81,7 +78,9 @@ const Collection = () => {
                 </Masonry>
 
                 <Link href={"collection"}>
-                    <ButtonComponent>Explore Collection</ButtonComponent>
+                    <ButtonComponent className="home__collection_button">
+                        {translations.home__collection_button}
+                    </ButtonComponent>
                 </Link>
             </ContainerComponent>
         </section>

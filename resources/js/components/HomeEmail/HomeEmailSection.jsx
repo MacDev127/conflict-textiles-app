@@ -5,16 +5,15 @@ import ContainerComponent from "../Container/ContainerComponent";
 import EmailSignUpComponent from "../Email/EmailSignUpComponent";
 import "./HomeEmailSection.css";
 
-const HomeEmailSection = () => {
+const HomeEmailSection = ({ translations }) => {
     return (
         <section className="HomeEmailSection">
             <TitleComponent className="email__title">
-                Join Our Email List
+                {translations.email__title}
             </TitleComponent>
             <ContainerComponent>
                 <SubtitleComponent className="email__subtitle">
-                    Hear about collections, exhibitions and events from Conflict
-                    Textiles.
+                    {translations.email__subtitle}
                 </SubtitleComponent>
                 <EmailSignUpComponent />
             </ContainerComponent>

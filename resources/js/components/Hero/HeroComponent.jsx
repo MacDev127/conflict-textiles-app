@@ -41,7 +41,7 @@ const Hero = ({ translations }) => {
                             <div className="hero__btn-container">
                                 <Link href={route("collection")}>
                                     <ButtonComponent className="hero__button">
-                                        Explore Collection
+                                        {translations.hero__button}
                                     </ButtonComponent>
                                 </Link>
                             </div>

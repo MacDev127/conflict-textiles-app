@@ -12,13 +12,17 @@ import SubtitleComponent from "../Subtitle/SubtitleComponent";
 
 //Components end
 
-const HomeEventsSection = ({ events }) => {
+const HomeEventsSection = ({ events, translations }) => {
     return (
         <>
             <ContainerComponent>
-                <TitleComponent>Events</TitleComponent>
+                <TitleComponent className="home__events_title">
+                    {translations.home__events_title}
+                </TitleComponent>
 
-                <SubtitleComponent>Upcoming Events</SubtitleComponent>
+                <SubtitleComponent className="home__events_subtitle">
+                    {translations.home__events_subtitle}
+                </SubtitleComponent>
 
                 <div className="cards_wrapper">
                     {events &&
@@ -28,7 +32,9 @@ const HomeEventsSection = ({ events }) => {
                 </div>
 
                 <Link href={route("events")}>
-                    <ButtonComponent>View All Events</ButtonComponent>
+                    <ButtonComponent className="home__events_button">
+                        {translations.home__events_button}
+                    </ButtonComponent>
                 </Link>
             </ContainerComponent>
         </>

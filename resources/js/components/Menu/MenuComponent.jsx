@@ -10,13 +10,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import "./MenuComponent.css";
 
 const MenuComponent = ({ authUser }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => {
-        event.preventDefault(); // Prevent the default action
+        event.preventDefault();
 
         setAnchorEl(event.currentTarget);
     };
@@ -24,11 +25,10 @@ const MenuComponent = ({ authUser }) => {
         setAnchorEl(null);
     };
     const handleLogout = () => {
-        // Close the menu first
         handleClose();
         router.post("/logout");
     };
-    const { auth } = usePage().props; // Assuming your backend sends `auth` prop with `user` and `role`
+    const { auth } = usePage().props;
 
     const dashboardLink = () => {
         if (auth.user && auth.user.role) {
@@ -38,10 +38,10 @@ const MenuComponent = ({ authUser }) => {
                 case "researcher":
                     return "/";
                 default:
-                    return "/"; // Some default fallback
+                    return "/";
             }
         }
-        return "/login"; // If not logged in or role not defined, go to login page
+        return "/login";
     };
 
     return (
@@ -83,9 +83,13 @@ const MenuComponent = ({ authUser }) => {
                     <Link href="/metrics-dashboard" style={{ color: "black" }}>
                         <MenuItem
                             onClick={handleClose}
-                            sx={{ paddingRight: "30px" }}
+                            sx={{ marginRight: "30px" }}
                         >
-                            <DashboardCustomizeIcon>
+                            <DashboardCustomizeIcon
+                                sx={{
+                                    color: "#00000080",
+                                }}
+                            >
                                 <LoginIcon />
                             </DashboardCustomizeIcon>
                             Dashboard

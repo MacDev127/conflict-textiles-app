@@ -1,39 +1,15 @@
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default to 4 columns */
-    gap: 6px; /* Reduced gap for a more compact layout */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     margin: 0 auto;
     width: 70%;
     min-height: 100vh;
-    padding-bottom: 100px;
+    padding: 100px 0;
 }
 
 .Links {
     min-height: 100vh !important;
-}
-
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(
-            2,
-            1fr
-        ); /* 2 columns on smaller screens */
-    }
-}
-
-@media (max-width: 414px) {
-    .grid-container {
-        grid-template-columns: repeat(
-            1,
-            1fr
-        ); /* 2 columns on smaller screens */
-    }
 }
 
 .grid-container a {
@@ -42,6 +18,11 @@
     width: 100%;
     padding-top: 70%;
     overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 4px;
 }
 
 .grid-container a img {
@@ -55,5 +36,48 @@
 }
 
 .grid-container a:hover img {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.05);
+}
+
+.grid-container .link-title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.grid-container a:hover .link-title {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 414px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        place-self: center;
+    }
+
+    .link-title {
+        font-size: 14px;
+    }
 }

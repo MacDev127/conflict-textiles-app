@@ -15,10 +15,16 @@ const Home = ({ events, galleryImages, translations, authUser, auth }) => {
             <section className="Home">
                 <Navbar authUser={authUser} auth={auth} />
                 <Hero translations={translations} />
-                <HomeAboutSection />
-                <HomeCollectionSection galleryImages={galleryImages} />
-                <HomeEventsSection events={events} />
-                <HomeEmailSection />
+                <HomeAboutSection translations={translations} />
+                <HomeCollectionSection
+                    galleryImages={galleryImages}
+                    translations={translations}
+                />
+                <HomeEventsSection
+                    events={events}
+                    translations={translations}
+                />
+                <HomeEmailSection translations={translations} />
                 <Footer />
             </section>
         </>

@@ -20,7 +20,7 @@ import {
 import "./HomeAboutSection.css";
 //styles end
 
-const About = () => {
+const About = ({ translations }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <section className="home__about">
@@ -28,17 +28,13 @@ const About = () => {
                 <img src="/images/misc/hpbg2.png" alt="" />
             </div>
             <ContainerComponent>
-                <TitleComponent>About</TitleComponent>
+                <TitleComponent className="about__title">
+                    {translations.about__title}
+                </TitleComponent>
 
                 <ContentComponent className="about-content">
-                    <TextComponent>
-                        Conflict Textiles is home to a large collection of
-                        international textiles, exhibitions and associated
-                        events, all of which focus on elements of conflict and
-                        human rights abuses. The collection is mainly comprised
-                        of arpilleras, quilts and wall hangings. Making visible
-                        the struggle for the disappeared remains at thevery core
-                        of the collection.
+                    <TextComponent className="home__about-intro">
+                        {translations.home__about_intro}
                     </TextComponent>
                 </ContentComponent>
 
@@ -49,7 +45,7 @@ const About = () => {
                             className="modal-icon-text"
                             onClick={() => setIsOpen(true)}
                         >
-                            Watch Video
+                            {translations.home__about_video}
                         </TextComponent>
                     </IconWrapper>
                     <ModalComponent
@@ -65,8 +61,7 @@ const About = () => {
 
                 <Link href="/about">
                     <ButtonComponent>
-                        Find Out More
-                        {/* {t("hero_button1_text")} */}
+                        {translations.home__about_button}
                     </ButtonComponent>
                 </Link>
             </ContainerComponent>
