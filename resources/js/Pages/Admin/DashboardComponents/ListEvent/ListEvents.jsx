@@ -25,14 +25,14 @@ const ListEvents = ({ events, toggleForm }) => {
         { field: "event_date", headerName: "Date", width: 120 },
         { field: "event_time", headerName: "Time", width: 120 },
         { field: "venue", headerName: "Venue", width: 120 },
-        { field: "curator", headerName: "Curator", width: 120 },
-        { field: "facilitator", headerName: "Facilitator", width: 120 },
-        { field: "commissioned_by", headerName: "Commissioned By", width: 120 },
+        // { field: "curator", headerName: "Curator", width: 120 },
+        // { field: "facilitator", headerName: "Facilitator", width: 120 },
+        // { field: "commissioned_by", headerName: "Commissioned By", width: 120 },
         // { field: "document_url", headerName: "Document Url", width: 110 },
         // { field: "textile_url", headerName: "Textile_url", width: 110 },
-        // { field: "image", headerName: "Image", width: 110 },
-        // { field: "outcome", headerName: "Outcome", width: 110 },
-        // { field: "description", headerName: "Description", width: 110 },
+        { field: "image", headerName: "Image", width: 110 },
+        { field: "outcome", headerName: "Outcome", width: 110 },
+        { field: "description", headerName: "Description", width: 110 },
         {
             field: "actions",
             headerName: "Actions",
@@ -189,7 +189,7 @@ const ListEvents = ({ events, toggleForm }) => {
                         variant="contained"
                         color="primary"
                     >
-                        Create Event
+                        Add Event
                         <MdAdd style={{ fontSize: "20px" }} />
                     </button>
                 </Typography>

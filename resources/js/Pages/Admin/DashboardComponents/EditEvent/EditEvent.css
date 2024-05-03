@@ -12,6 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.css-kp4qul-MuiTypography-root-MuiBreadcrumbs-root {
+    background-color: #f5f3f4 !important;
 }
 
 .create-event__form-wrapper {

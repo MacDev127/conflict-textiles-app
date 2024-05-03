@@ -221,7 +221,7 @@ const CreateTextile = () => {
                             className="create-textile__form-button"
                             type="submit"
                         >
-                            Add textile
+                            Create Textile
                         </button>
                     </form>
                 </div>

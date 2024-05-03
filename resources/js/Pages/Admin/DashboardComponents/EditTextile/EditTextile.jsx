@@ -4,6 +4,7 @@ import { router } from "@inertiajs/react";
 import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import "./EditTextile.css";
 import AlertComponent from "@/components/Alert/AlertComponent";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 const EditTextile = ({ galleryImage }) => {
     const { data, setData, put } = useForm({
@@ -43,6 +44,16 @@ const EditTextile = ({ galleryImage }) => {
     return (
         <>
             <DashboardSidebar />
+            <BreadcrumbComponent
+                className="crumbs"
+                breadcrumbs={[
+                    { label: "Dashboard", href: "/textiles-dashboard" },
+                    {
+                        label: "Edit Textile",
+                        href: "",
+                    },
+                ]}
+            />
 
             <section className="edit-textile">
                 <form onSubmit={handleSubmit} encType="multipart/form-data">

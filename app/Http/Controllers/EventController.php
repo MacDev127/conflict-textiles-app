@@ -162,7 +162,7 @@ class EventController extends Controller
             'outcome' => 'nullable|string',
             'document_url' => 'nullable|string', // Allowing nullable, consider using 'nullable|url' if you expect a URL format
             'textile_url' => 'nullable|string',
-            // 'image' => 'nullable|image|max:1024',
+            'image' => 'nullable|image|max:1024',
         ]);
 
         // Check if a new image file is uploaded.

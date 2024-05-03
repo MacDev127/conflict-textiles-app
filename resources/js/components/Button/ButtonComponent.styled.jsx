@@ -15,8 +15,8 @@ export const ButtonStyles = styled.button`
     font-size: 19px;
 
     &:hover {
-        background: #df0144;
+        background: crimson;
         color: #ffffff;
-        transition: ease-in 0.2s;
+        transition: ease-in 0.1s;
     }
 `;

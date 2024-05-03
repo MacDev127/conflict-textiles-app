@@ -14,16 +14,16 @@ const MetricsDashboard = ({ authUser }) => {
 
             <section className="Dashboard">
                 <div className="dashboard-chart__container">
-                    <div className="dashboard-chart1">
+                    <div className="dashboard-chart">
                         <p>Most Viewed Items</p>
 
                         <DashboardBarChart />
                     </div>
-                    <div className="dashboard-chart2">
+                    <div className="dashboard-chart">
                         <p>Activity</p>
                         <DashboardLineChart />
                     </div>
-                    <div className="dashboard-chart3">
+                    <div className="dashboard-chart">
                         <p> User Location</p>
 
                         <DashboardPieChart />

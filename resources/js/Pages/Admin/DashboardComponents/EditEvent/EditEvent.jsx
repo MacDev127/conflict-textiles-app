@@ -3,6 +3,7 @@ import { useForm } from "@inertiajs/react";
 import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import AlertComponent from "@/components/Alert/AlertComponent";
 import { router } from "@inertiajs/react";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 import "./EditEvent.css";
 
 const EditEvent = ({ event }) => {
@@ -43,6 +44,16 @@ const EditEvent = ({ event }) => {
     return (
         <>
             <DashboardSidebar />
+            <BreadcrumbComponent
+                className="crumbs"
+                breadcrumbs={[
+                    { label: "Dashboard", href: "/events-dashboard" },
+                    {
+                        label: "Edit Event",
+                        href: "",
+                    },
+                ]}
+            />
             <section className="edit-event">
                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <h4 className="create-event__title">Edit Event</h4>

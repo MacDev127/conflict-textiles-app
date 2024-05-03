@@ -9,6 +9,10 @@
     background-color: #ccc;
 }
 
+.css-qcqlck-MuiDataGrid-root .MuiDataGrid-columnHeader:focus {
+    outline: none !important;
+}
+
 .show__button {
     outline: none;
     border: none;

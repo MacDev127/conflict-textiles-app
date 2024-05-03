@@ -212,7 +212,7 @@ const CreateEvent = () => {
                             className="create-event__form-button"
                             type="submit"
                         >
-                            Add Event
+                            Create Event
                         </button>
                     </form>
                 </div>

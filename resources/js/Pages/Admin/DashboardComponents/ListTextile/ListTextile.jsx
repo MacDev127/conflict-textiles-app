@@ -15,18 +15,18 @@ import "./ListTextile.css";
 const ListTextiles = ({ galleryImages, toggleForm }) => {
     // Define columns for DataGrid
     const columns = [
-        // {
-        //     field: "id",
-        //     headerName: "ID",
-        //     width: 30,
-        //     headerClassName: "table-header",
-        // },
-        // {
-        //     field: "image",
-        //     headerName: "Image",
-        //     width: 110,
-        //     headerClassName: "table-header",
-        // },
+        {
+            field: "id",
+            headerName: "ID",
+            width: 30,
+            headerClassName: "table-header",
+        },
+        {
+            field: "image",
+            headerName: "Image",
+            width: 110,
+            headerClassName: "table-header",
+        },
         {
             field: "title",
             headerName: "Title",
@@ -45,36 +45,36 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
             width: 130,
             headerClassName: "table-header",
         },
-        // {
-        //     field: "photographer",
-        //     headerName: "Photographer",
-        //     width: 130,
-        //     headerClassName: "table-header",
-        // },
+        {
+            field: "photographer",
+            headerName: "Photographer",
+            width: 130,
+            headerClassName: "table-header",
+        },
         {
             field: "year_produced",
             headerName: "Year Produced",
             width: 130,
             headerClassName: "table-header",
         },
-        // {
-        //     field: "size",
-        //     headerName: "Size",
-        //     width: 130,
-        //     headerClassName: "table-header",
-        // },
-        // {
-        //     field: "materials",
-        //     headerName: "Materials",
-        //     width: 130,
-        //     headerClassName: "table-header",
-        // },
-        // {
-        //     field: "provenance",
-        //     headerName: "Provenance",
-        //     width: 130,
-        //     headerClassName: "table-header",
-        // },
+        {
+            field: "size",
+            headerName: "Size",
+            width: 130,
+            headerClassName: "table-header",
+        },
+        {
+            field: "materials",
+            headerName: "Materials",
+            width: 130,
+            headerClassName: "table-header",
+        },
+        {
+            field: "provenance",
+            headerName: "Provenance",
+            width: 130,
+            headerClassName: "table-header",
+        },
         {
             field: "country_of_origin",
             headerName: "Country of Origin",
@@ -99,12 +99,12 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
             width: 130,
             headerClassName: "table-header",
         },
-        // {
-        //     field: "description",
-        //     headerName: "Description",
-        //     width: 110,
-        //     headerClassName: "table-header",
-        // },
+        {
+            field: "description",
+            headerName: "Description",
+            width: 110,
+            headerClassName: "table-header",
+        },
         {
             field: "actions",
             headerName: "Actions",
@@ -255,7 +255,7 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
                         variant="contained"
                         color="primary"
                     >
-                        Create Event
+                        Add Textile
                         <MdAdd style={{ fontSize: "20px" }} />
                     </button>
                 </Typography>

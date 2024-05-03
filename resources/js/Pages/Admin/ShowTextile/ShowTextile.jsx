@@ -21,6 +21,7 @@ const ShowTextiles = ({ textile }) => {
         { label: "Authenticity", value: textile.authenticity },
         { label: "Materials", value: textile.materials },
         { label: "Photographer", value: textile.photgrapher },
+        { label: "Description", value: textile.descrioption },
         // Add other details as needed
     ];
 

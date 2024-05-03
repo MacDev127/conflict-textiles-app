@@ -11,8 +11,9 @@ const BreadcrumbComponent = ({ breadcrumbs, type }) => {
     return (
         <Breadcrumbs
             sx={{
-                marginTop: "10px",
-                marginLeft: "20px",
+                paddingTop: "10px",
+                paddingLeft: "20px",
+                backgroundColor: "transparent",
             }}
             component="div"
             aria-label="breadcrumb"

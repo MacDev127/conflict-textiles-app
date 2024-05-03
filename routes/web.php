@@ -104,6 +104,9 @@ Route::post('/admin/events', [EventController::class, 'store'])
 // update event
 Route::put('/events/{id}', [EventController::class, 'update'])->name('event.update');
 
+
+
+
 //Delete Event
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('event.destroy');
 

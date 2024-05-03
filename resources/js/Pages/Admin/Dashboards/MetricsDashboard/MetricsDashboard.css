@@ -6,17 +6,18 @@
     min-height: 100vh;
 }
 
+.css-1lbgfbl-MuiResponsiveChart-container {
+    height: 300px !important;
+}
+
 .dashboard-chart__container {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     margin: 10px 10px;
     padding: 100px 0;
-    flex-wrap: wrap;
 }
-.dashboard-chart1,
-.dashboard-chart2,
-.dashboard-chart3,
-.dashboard-chart4 {
+.dashboard-chart {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -43,15 +44,30 @@
 
 @media (max-width: 768px) {
     .Dashboard {
-        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .dashboard-chart__container {
+        flex-direction: column;
     }
 }
-
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+@media (max-width: 414px) {
+    .css-1lbgfbl-MuiResponsiveChart-container {
+        height: 200px !important;
+    }
+    .css-1k2pbbn-MuiResponsiveChart-container {
+        width: 350px !important;
+    }
+    .css-10vg0a6-MuiResponsiveChart-container {
+        width: 300px !important;
+    }
+    .Dashboard {
+        display: block;
+    }
     .dashboard-chart__container {
-        display: flex;
-        justify-content: center;
-
-        flex-direction: column;
+        margin: 0;
+        padding: 50px 0;
+    }
+    .dashboard-chart {
     }
 }

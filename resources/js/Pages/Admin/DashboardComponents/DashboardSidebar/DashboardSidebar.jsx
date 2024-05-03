@@ -22,7 +22,6 @@ import ListItemText from "@mui/material/ListItemText";
 import DashboardMenu from "../DashboardMenu/DashboardMenu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link } from "@inertiajs/react";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import "./DashboardSidebar.css";
 
@@ -118,7 +117,6 @@ const DashboardSidebar = ({ authUser }) => {
                         />
                     </IconButton>
                     <DashboardMenu authUser={authUser} />
-                    {/* Pass authUser to DashboardMenu */}
                 </Toolbar>
                 <Drawer
                     sx={{
@@ -144,6 +142,21 @@ const DashboardSidebar = ({ authUser }) => {
                     </DrawerHeader>
                     <Divider />
                     <List>
+                        <ListItem disablePadding>
+                            <Link href="/" style={{ width: "100%" }}>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <HomeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        sx={{
+                                            color: "black",
+                                        }}
+                                        primary="Home"
+                                    />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
                         <ListItem disablePadding>
                             <Link
                                 href="/metrics-dashboard"
@@ -175,7 +188,7 @@ const DashboardSidebar = ({ authUser }) => {
                                         sx={{
                                             color: "black",
                                         }}
-                                        primary="Add Event"
+                                        primary="Events"
                                     />
                                 </ListItemButton>
                             </Link>
@@ -194,23 +207,7 @@ const DashboardSidebar = ({ authUser }) => {
                                         sx={{
                                             color: "black",
                                         }}
-                                        primary="Add Textile"
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-
-                        <ListItem disablePadding>
-                            <Link href="/" style={{ width: "100%" }}>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <HomeIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        sx={{
-                                            color: "black",
-                                        }}
-                                        primary="Home"
+                                        primary="Textiles"
                                     />
                                 </ListItemButton>
                             </Link>

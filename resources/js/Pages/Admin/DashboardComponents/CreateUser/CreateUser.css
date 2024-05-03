@@ -65,7 +65,7 @@ input:focus {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: #df0144;
+    background: crimson;
     border-radius: 6px;
 }
 

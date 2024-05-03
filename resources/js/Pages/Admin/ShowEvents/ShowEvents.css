@@ -1,7 +1,8 @@
 /* ShowEvents.css */
+
 .show__events {
     font-family: "Mulish", sans-serif; /* Changed to match the TextileDetail style */
-    background-color: #f4f4f4;
+    background-color: #fff;
     color: #333;
     margin: 0;
     padding: 0;
