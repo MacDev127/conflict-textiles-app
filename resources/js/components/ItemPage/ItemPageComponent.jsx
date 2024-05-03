@@ -23,6 +23,7 @@ import TextComponent from "@/components/Text/TextComponent";
 import MasonryComponent from "@/components/Masonry/MasonryComponent";
 import ImageHeaderComponent from "@/components/ImageHeader/ImageHeaderComponent";
 import BreadcrumbComponent from "../Breadcrumbs/BreadcrumbComponent";
+import PaginationComponent from "@/components/Pagination/PaginationComponent";
 
 const ItemPageComponent = ({
     type,
@@ -31,9 +32,25 @@ const ItemPageComponent = ({
     imageUrl,
     description,
     galleryImages,
+    onPaginationChange, // Function to handle page changes
+    paginationData, // Object containing pagination details
     auth,
     authUser,
 }) => {
+    // Pagination component is conditionally rendered
+    const renderPagination = () => {
+        if (paginationData && paginationData.totalPages > 1) {
+            return (
+                <PaginationComponent
+                    total={paginationData.lastPage}
+                    current={paginationData.currentPage}
+                    onChange={onPaginationChange}
+                />
+            );
+        }
+        return null;
+    };
+
     // Retrieve the shared data using usePage
     const { props } = usePage();
     const [bookmarkedItems, setBookmarkedItems] = useState(
@@ -82,10 +99,10 @@ const ItemPageComponent = ({
                     <TextComponent>{description}</TextComponent>
                 </ContentComponent>
                 <MasonryComponent
-                    galleryImages={galleryImages}
+                    galleryImages={galleryImages.data}
                     onImageClick={(imageId) => handleToggleBookmark(imageId)}
                 >
-                    {galleryImages.map((image) => (
+                    {galleryImages.data.map((image) => (
                         <CollectionItemStyle key={image.id}>
                             <Link href={`/textile-details/${image.id}`}>
                                 <ImageContainer>
@@ -122,7 +139,13 @@ const ItemPageComponent = ({
                         </CollectionItemStyle>
                     ))}
                 </MasonryComponent>
+                <PaginationComponent
+                    total={paginationData.lastPage}
+                    current={paginationData.currentPage}
+                    onChange={onPaginationChange}
+                />
             </ContainerComponent>
+
             <Footer />
         </section>
     );

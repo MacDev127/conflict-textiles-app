@@ -10,21 +10,21 @@ const TabsComponent = ({ event }) => {
     return (
         <Box
             sx={{
-                width: "100%", // Box takes the full width of its parent
-                overflowX: "auto", // Horizontal scroll appears when necessary
-                scrollbarWidth: "thin", // Thin scrollbar for non-webkit browsers
+                width: "100%",
+                overflowX: "auto",
+                scrollbarWidth: "thin",
                 "&::-webkit-scrollbar": {
-                    height: "8px", // Height of the scrollbar for webkit browsers
+                    height: "8px",
                 },
                 "&::-webkit-scrollbar-track": {
-                    boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)", // Optional: style the track
+                    boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
                 },
                 "&::-webkit-scrollbar-thumb": {
-                    backgroundColor: "darkgrey", // Optional: style the thumb
-                    outline: "1px solid slategrey", // Optional: style the thumb outline
+                    backgroundColor: "darkgrey",
+                    outline: "1px solid slategrey",
                 },
                 "@media (max-width: 414px)": {
-                    width: "100%", // Box takes the full width of its parent0%", // Box takes the full width of its parent
+                    width: "100%",
                 },
             }}
         >
@@ -33,7 +33,6 @@ const TabsComponent = ({ event }) => {
                     <TabList aria-label="tabs example" onChange={handleChange}>
                         <Tab label="Event Details" value="1" />
                         <Tab label="Event Items" value="2" />
-                        {/* <Tab label="Event Documents" value="3" /> */}
                     </TabList>
                 </Box>
 
@@ -129,9 +128,6 @@ const TabsComponent = ({ event }) => {
                         </ul>
                     </div>
                 </TabPanel>
-                {/* <TabPanel value="3">
-                    <div className="tab__details-container"></div>
-                </TabPanel> */}
             </TabContext>
         </Box>
     );

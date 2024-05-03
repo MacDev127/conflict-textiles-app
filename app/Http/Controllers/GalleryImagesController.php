@@ -16,12 +16,6 @@ class GalleryImagesController extends Controller
 
     public function index()
     {
-        // dd($images);
-        // Retrieve all GalleryImage records and associated textileDetail relationship from the database in one query.
-
-        // $images = GalleryImage::with('textileDetail')->get(); 
-
-        // return Inertia::render('Home/Home', ['galleryImages' => $images->toArray()]);
 
         $galleryImages = GalleryImage::all();
         return Inertia::render('Home/Home', ['galleryImages' => $galleryImages]);
@@ -32,7 +26,7 @@ class GalleryImagesController extends Controller
     public function arpillera()
     {
         // Fetch specific images for the Arpillera collection
-        $arpilleraImages = GalleryImage::where('type', 'arpillera')->get()->map(function ($image) {
+        $arpilleraImages = GalleryImage::where('type', 'arpillera')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;
         });
@@ -40,8 +34,8 @@ class GalleryImagesController extends Controller
     }
     public function banner()
     {
-        // Fetch specific images for the banner collection
-        $bannerImages = GalleryImage::where('type', 'banner')->get()->map(function ($image) {
+        // Fetch specific images for the banner collection with pagination
+        $bannerImages = GalleryImage::where('type', 'banner')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;
         });
@@ -53,7 +47,7 @@ class GalleryImagesController extends Controller
     public function quilt()
     {
         // Fetch specific images for the quilt collection
-        $quiltImages = GalleryImage::where('type', 'quilt')->get()->map(function ($image) {
+        $quiltImages = GalleryImage::where('type', 'quilt')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;
         });
@@ -63,14 +57,14 @@ class GalleryImagesController extends Controller
     // Fetch specific images for the quilt collection
     public function embroideredCloth()
     {
-        $embroideredClothImages = GalleryImage::where('type', 'embroidered-cloth')->get()->map(function ($image) {
+        $embroideredClothImages = GalleryImage::where('type', 'embroidered-cloth')->paginate(10)->through(function ($image) {
 
         });
         return Inertia::render('EmbroideredCloth/EmbroideredCloth', ['galleryImages' => $embroideredClothImages]);
     }
     public function wallHanging()
     {
-        $wallHangingImages = GalleryImage::where('type', 'wall-hanging')->get()->map(function ($image) {
+        $wallHangingImages = GalleryImage::where('type', 'wall-hanging')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;
         });
@@ -78,7 +72,7 @@ class GalleryImagesController extends Controller
     }
     public function installation()
     {
-        $installationImages = GalleryImage::where('type', 'installation')->get()->map(function ($image) {
+        $installationImages = GalleryImage::where('type', 'installation')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;
         });
@@ -144,13 +138,12 @@ class GalleryImagesController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Log::info('Update method called', ['requestData' => $request->all()]);
 
         // Retrieve the existing gallery image.
         $galleryImage = GalleryImage::findOrFail($id);
 
         $validatedData = $request->validate([
-            // 'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
+            'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
             'location' => 'nullable|string',
             'title' => 'nullable|string|max:255',
             'type' => 'nullable|string',
@@ -187,30 +180,27 @@ class GalleryImagesController extends Controller
 
     }
 
-
+    // Deletes a specific gallery image record based on the provided ID, then redirects to the textiles dashboard with a success message.
     public function destroy($id)
     {
         $galleryImage = GalleryImage::findOrFail($id);
         $galleryImage->delete();
 
-
         return redirect()->route('admin.textiles-dashboard')->with('message', 'Textile deleted successfully.');
     }
 
+    // Fetches a specific gallery image by its ID and renders the edit textile view in the admin dashboard with this image data.
     public function edit($id)
     {
         $galleryImage = GalleryImage::findOrFail($id);
 
-
-
         return Inertia::render('Admin/DashboardComponents/EditTextile/EditTextile', compact('galleryImage'));
     }
 
-
+    // Retrieves detailed information for a specific textile by its ID, ensures the image URL is correctly formatted, and returns this data to the textile details view.
     public function showTextileDetail($id)
     {
         $galleryImage = GalleryImage::findOrFail($id);
-        // Optionally, add the asset() to the image URL here
 
         if (!empty($galleryImage->image)) {
             $galleryImage->image = asset('storage/' . $galleryImage->image);
@@ -219,6 +209,7 @@ class GalleryImagesController extends Controller
         return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $galleryImage]);
     }
 
+    // Fetches a specific textile by its ID for administrative viewing, formats the image URL, and returns this data to the admin show textile view.
     public function showAdminTextile($id)
     {
         $textile = GalleryImage::findOrFail($id);

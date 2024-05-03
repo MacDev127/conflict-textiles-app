@@ -1,12 +1,16 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
-import { usePage } from "@inertiajs/react";
+import { usePage, router } from "@inertiajs/react";
 
 const EmbroideredCloth = ({ galleryImages, countries, auth, authUser }) => {
+    const handlePageChange = (page) => {
+        router.visit(`/embroidered-cloth?page=${page}`);
+    };
+
     const { props } = usePage();
     const { flash } = props;
     const content = {
-        type: "quilt",
+        type: "embroidered-cloth",
         title: "Embroidered Cloth Collection",
         quoteText:
             "As in one way or another, with each stitch, it’s like letting go of those burdens that one carries",
@@ -19,7 +23,19 @@ const EmbroideredCloth = ({ galleryImages, countries, auth, authUser }) => {
         authUser,
     };
 
-    return <ItemPageComponent {...content} countries={countries} />;
+    return (
+        <>
+            <ItemPageComponent
+                {...content}
+                onPaginationChange={handlePageChange}
+                paginationData={{
+                    currentPage: galleryImages.current_page,
+                    lastPage: galleryImages.last_page,
+                    totalPages: galleryImages.total,
+                }}
+            />
+        </>
+    );
 };
 
 export default EmbroideredCloth;

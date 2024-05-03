@@ -1,10 +1,15 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
-import { usePage } from "@inertiajs/react";
+import { usePage, router } from "@inertiajs/react";
 
 const Quilt = ({ galleryImages, countries, auth, authUser }) => {
     const { props } = usePage();
     const { flash } = props;
+
+    const handlePageChange = (page) => {
+        router.visit(`/quilt?page=${page}`);
+    };
+
     const content = {
         type: "quilt", // Used for className and routing
         title: "Quilt Collection",
@@ -19,7 +24,19 @@ const Quilt = ({ galleryImages, countries, auth, authUser }) => {
         authUser,
     };
 
-    return <ItemPageComponent {...content} countries={countries} />;
+    return (
+        <>
+            <ItemPageComponent
+                {...content}
+                onPaginationChange={handlePageChange}
+                paginationData={{
+                    currentPage: galleryImages.current_page,
+                    lastPage: galleryImages.last_page,
+                    totalPages: galleryImages.total,
+                }}
+            />
+        </>
+    );
 };
 
 export default Quilt;

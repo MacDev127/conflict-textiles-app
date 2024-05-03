@@ -1,7 +1,12 @@
 import { React } from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
-import { usePage } from "@inertiajs/react";
-const Arpillera = ({ galleryImages, countries, auth, authUser }) => {
+import { usePage, router } from "@inertiajs/react";
+
+const Arpillera = ({ galleryImages, auth, authUser }) => {
+    const handlePageChange = (page) => {
+        router.visit(`/arpillera?page=${page}`);
+    };
+
     const { props } = usePage();
     const { flash } = props;
     const content = {
@@ -20,7 +25,15 @@ const Arpillera = ({ galleryImages, countries, auth, authUser }) => {
     };
     return (
         <>
-            <ItemPageComponent countries={countries} {...content} />
+            <ItemPageComponent
+                {...content}
+                onPaginationChange={handlePageChange}
+                paginationData={{
+                    currentPage: galleryImages.current_page,
+                    lastPage: galleryImages.last_page,
+                    totalPages: galleryImages.total,
+                }}
+            />
         </>
     );
 };

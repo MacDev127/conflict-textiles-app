@@ -21,15 +21,14 @@ class EventController extends Controller
             ->get()
             ->map(function ($event) {
                 if ($event->image) {
-                    $event->image = asset('storage/' . $event->image); // Ensuring the image URL is correctly formed
+                    $event->image = asset('storage/' . $event->image);
                 }
                 return $event;
             });
-        return Inertia::render('Home/Home', ['events' => $events]); // Changed 'events' to 'upcomingEvents' if needed in React component
+        return Inertia::render('Home/Home', ['events' => $events]);
     }
 
 
-    //get event data from the database and pass to the events page
     public function events()
     {
         // Fetch only upcoming events, paginate them, and use a map to modify the image path.
@@ -38,7 +37,7 @@ class EventController extends Controller
             ->paginate(6)
             ->through(function ($event) {
                 if ($event->image) {
-                    $event->image = asset('storage/' . $event->image);  // Modify image URL
+                    $event->image = asset('storage/' . $event->image);
                 }
                 return $event;
             });
@@ -80,11 +79,11 @@ class EventController extends Controller
 
         return Inertia::render('EventDetails/EventDetails', [
             'event' => $event,
-        ]); // Pass the event data to the React component.
+        ]);
     }
 
 
-    //-------------------admin functionality------------------
+    //-------------------admin functionality------------------//
 
     public function create()
     {
@@ -95,35 +94,33 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        // Validate the request
 
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/', // Allowing nullable and validating format HH:MM or HH:MM:SS
+            'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/',
             'location' => 'nullable|string',
             'type' => 'nullable|string',
-            'event_date' => 'nullable|date', // Allowing nullable
+            'event_date' => 'nullable|date',
             'commissioned_by' => 'nullable|string',
             'venue' => 'nullable|string',
             'curator' => 'nullable|string',
             'facilitator' => 'nullable|string',
             'description' => 'nullable|string',
             'outcome' => 'nullable|string',
-            'document_url' => 'nullable|string', // Allowing nullable, consider using 'nullable|url' if you expect a URL format
+            'document_url' => 'nullable|string',
             'textile_url' => 'nullable|string',
-            'image' => 'nullable|image|max:1024', // Image field is optional; validate if present
+            'image' => 'nullable|image|max:1024',
         ]);
 
         $event = new Event($validatedData);
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('events', 'public');
-            $event->image = $path; // Assign the path to the event's image attribute
+            $event->image = $path;
 
         }
 
         $event->save();
 
-        // Redirect or return response
         return redirect()->route('admin.events-dashboard');
     }
 
@@ -133,34 +130,30 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $event->delete();
 
-        // You can add additional logic here if you need to do more when an event is deleted,
-        // such as clearing caches, updating related models, etc.
 
         return redirect()->route('admin.events-dashboard')->with('message', 'Event deleted successfully.');
     }
 
     // update event from admin dashboard
-
     public function update(Request $request, $id)
     {
-        // Log::info($request->all());
 
         // Retrieve the existing event
         $event = Event::findOrFail($id);
 
         $validatedData = $request->validate([
             'title' => 'nullable|string|max:255',
-            'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/', // Allowing nullable and validating format HH:MM or HH:MM:SS
+            'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/',
             'location' => 'nullable|string',
             'type' => 'nullable|string',
-            'event_date' => 'nullable|date', // Allowing nullable
+            'event_date' => 'nullable|date',
             'commissioned_by' => 'nullable|string',
             'venue' => 'nullable|string',
             'curator' => 'nullable|string',
             'facilitator' => 'nullable|string',
             'description' => 'nullable|string',
             'outcome' => 'nullable|string',
-            'document_url' => 'nullable|string', // Allowing nullable, consider using 'nullable|url' if you expect a URL format
+            'document_url' => 'nullable|string',
             'textile_url' => 'nullable|string',
             'image' => 'nullable|image|max:1024',
         ]);
@@ -187,15 +180,15 @@ class EventController extends Controller
         return redirect()->route('admin.events-dashboard')->with('message', 'Event updated successfully.');
     }
 
+    // Fetches and prepares an event for editing, rendering the EditEvent component with the event's data.
     public function edit($id)
     {
         $event = Event::findOrFail($id);
 
-        // Optionally, you can add code here to handle if the event has images or other related data
-
         return Inertia::render('Admin/DashboardComponents/EditEvent/EditEvent', compact('event'));
     }
 
+    // Retrieves an event by its ID, formats the image URL if necessary, and renders the ShowEvents component for admin viewing.
     public function showAdmin($id)
     {
         $event = Event::findOrFail($id);

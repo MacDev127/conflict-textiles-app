@@ -1,11 +1,11 @@
 .show__textiles {
-    font-family: "Mulish", sans-serif; /* Changed to match the TextileDetail style */
-    background-color: #fff;
+    font-family: "Mulish", sans-serif;
+    background-color: #f5f3f4;
     color: #333;
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    overflow-y: auto; /* Adds scroll to the container */
+    overflow-y: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
 
 .textile-container {
     display: flex;
-    flex-direction: column; /* Adjust for side-by-side layout */
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     max-width: 800px;
@@ -58,7 +58,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 18px 0;
-    border-bottom: 1px solid #ccc; /* Adds a separator */
+    border-bottom: 1px solid #ccc;
     width: 100%;
 }
 
@@ -69,20 +69,20 @@
 }
 
 h1 {
-    font-size: 32px; /* Larger font size for headings */
+    font-size: 32px;
     color: #333;
-    padding-bottom: 15px; /* More padding below the title */
+    padding-bottom: 15px;
 }
 
 @media (max-width: 768px) {
     .textile-details {
-        max-width: 80%; /* Full width for details on small screens */
+        max-width: 80%;
     }
 }
 
 @media (max-width: 414px) {
     .textile-image-container {
-        max-width: 90%; /* Full width on small screens */
+        max-width: 90%;
     }
     .textile-details {
         min-height: 100vh;

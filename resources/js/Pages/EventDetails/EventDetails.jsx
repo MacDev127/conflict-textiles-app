@@ -79,16 +79,6 @@ const EventDetails = ({ event, authUser, auth }) => {
                                         </div>
                                     </li>
 
-                                    {/* <li>
-                                        <div className="event__details-event__info-icon">
-                                            <FaEnvelope />
-                                        </div>
-                                        <div className="event__details-event__info-content">
-                                            <h4>Enquiries</h4>
-                                            <p>info@ct.com</p>
-                                        </div>
-                                    </li> */}
-
                                     <div className="event__details-btn-wrapper">
                                         <ButtonComponent className="event__details-reg-btn">
                                             <Link

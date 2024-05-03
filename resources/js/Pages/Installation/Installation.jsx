@@ -1,10 +1,14 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
-import { usePage } from "@inertiajs/react";
+import { usePage, router } from "@inertiajs/react";
 
-const Installation = ({ galleryImages, countries, auth, authUser }) => {
+const Installation = ({ galleryImages, auth, authUser }) => {
     const { props } = usePage();
     const { flash } = props;
+
+    const handlePageChange = (page) => {
+        router.visit(`/installation?page=${page}`);
+    };
     const content = {
         type: "installation", // Used for className and routing
         title: "Installations Collection",
@@ -19,7 +23,19 @@ const Installation = ({ galleryImages, countries, auth, authUser }) => {
         authUser,
     };
 
-    return <ItemPageComponent {...content} countries={countries} />;
+    return (
+        <>
+            <ItemPageComponent
+                {...content}
+                onPaginationChange={handlePageChange}
+                paginationData={{
+                    currentPage: galleryImages.current_page,
+                    lastPage: galleryImages.last_page,
+                    totalPages: galleryImages.total,
+                }}
+            />
+        </>
+    );
 };
 
 export default Installation;

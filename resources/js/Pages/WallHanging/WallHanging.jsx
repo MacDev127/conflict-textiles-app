@@ -1,10 +1,15 @@
 import React from "react";
 import ItemPageComponent from "@/components/ItemPage/ItemPageComponent";
-import { usePage } from "@inertiajs/react";
+import { usePage, router } from "@inertiajs/react";
 
 const WallHanging = ({ galleryImages, authUser, auth }) => {
     const { props } = usePage();
     const { flash } = props;
+
+    const handlePageChange = (page) => {
+        router.visit(`/wall-hanging?page=${page}`);
+    };
+
     const content = {
         type: "wall-hanging", // Used for className and routing
         title: "Wall Hanging Collection",
@@ -19,7 +24,19 @@ const WallHanging = ({ galleryImages, authUser, auth }) => {
         auth,
     };
 
-    return <ItemPageComponent {...content} />;
+    return (
+        <>
+            <ItemPageComponent
+                {...content}
+                onPaginationChange={handlePageChange}
+                paginationData={{
+                    currentPage: galleryImages.current_page,
+                    lastPage: galleryImages.last_page,
+                    totalPages: galleryImages.total,
+                }}
+            />
+        </>
+    );
 };
 
 export default WallHanging;
