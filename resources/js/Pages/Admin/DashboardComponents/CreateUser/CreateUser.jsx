@@ -11,18 +11,10 @@ const CreateUser = () => {
         role_id: "",
     });
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     post("/admin/users/create");
-    // };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         post(route("users.create"), {
-            // Using 'users.create' based on your route name in Laravel
-            onSuccess: () => {
-                // Reset form or handle success
-            },
+            onSuccess: () => {},
             onError: (errors) => {
                 console.error(errors);
             },
@@ -35,7 +27,6 @@ const CreateUser = () => {
 
     return (
         <>
-            {/* <div className="create-user__title">Create User</div> */}
             <form onSubmit={handleSubmit} className="create-user-form">
                 <h2 className="create-user__title">Create User</h2>
                 <div className="form-field">

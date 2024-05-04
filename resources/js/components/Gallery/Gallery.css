@@ -1,7 +1,7 @@
 .galleryWrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
-    grid-gap: 20px; /* Spacing between grid items */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
     width: 60%;
     margin: 0 auto;
     padding: 40px;

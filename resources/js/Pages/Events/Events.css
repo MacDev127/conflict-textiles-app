@@ -30,7 +30,7 @@
 }
 @media (min-width: 1080px) {
     .MuiPagination-ul {
-        display: flex !important; /* Ensures it's displayed as flex */
+        display: flex !important;
     }
 }
 

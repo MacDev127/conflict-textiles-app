@@ -158,9 +158,7 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
                                     sx={{ color: "#df0144", cursor: "pointer" }}
                                     aria-label="Delete textile"
                                     onClick={handleDelete}
-                                >
-                                    {/* <FaTrashCan style={{ color: "crimson" }} /> */}
-                                </DeleteIcon>
+                                ></DeleteIcon>
                             </Tooltip>
                             <Tooltip title="View Details">
                                 <Link
@@ -216,21 +214,19 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
                     maxWidth: "1200px",
                     marginTop: "100px",
                     width: "100%",
-                    overflow: "hidden", // Ensures no scrollbars are visible by default
-                    // Use media query to apply styles based on the screen width
+                    overflow: "hidden",
                     "@media (max-width: 768px)": {
-                        // Adjust '600px' to the breakpoint you need
                         "& .MuiDataGrid-virtualScroller.css-1793420-MuiDataGrid-virtualScroller":
                             {
                                 overflowX: "auto",
-                                maxWidth: "900px", // Enables horizontal scrolling for small screens
-                                overflowY: "hidden", // Keeps vertical scrolling disabled
-                                scrollbarWidth: "thin", // Keeps the scrollbar thin
+                                maxWidth: "900px",
+                                overflowY: "hidden",
+                                scrollbarWidth: "thin",
                                 "&::-webkit-scrollbar": {
-                                    height: "10px", // Sets the scrollbar height
+                                    height: "10px",
                                 },
                                 "&::-webkit-scrollbar-thumb": {
-                                    backgroundColor: "rgba(0, 0, 0, 0.2)", // Sets the scrollbar color
+                                    backgroundColor: "rgba(0, 0, 0, 0.2)",
                                 },
                             },
                     },

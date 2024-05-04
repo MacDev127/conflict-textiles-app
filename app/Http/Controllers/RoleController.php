@@ -38,9 +38,7 @@ class RoleController extends Controller
 
     public function update(Request $request, Role $role)
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', Role::unique('roles', 'name')->ignore($role->id)],
-        // ]);
+
         $request->validate([
             'name' => ['required', 'string', Rule::unique('roles')->ignore($role->id)],
         ]);

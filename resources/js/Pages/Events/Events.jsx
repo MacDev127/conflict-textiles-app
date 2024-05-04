@@ -63,9 +63,7 @@ const Events = ({ type, upcomingEvents, authUser, auth }) => {
                 <PaginationComponent
                     total={upcomingEvents.last_page}
                     current={upcomingEvents.current_page}
-                    onChange={(page) => {
-                        /* handle page change if needed */
-                    }}
+                    onChange={(page) => {}}
                 />
                 <Link href="/events/previousEvents">
                     <ButtonComponent>View Past Events</ButtonComponent>

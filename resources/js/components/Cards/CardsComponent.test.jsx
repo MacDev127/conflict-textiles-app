@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom"; // Ensure this is properly imported.
-import CardComponent from "../Cards/CardsComponent"; // Adjust the import path as necessary.
+import "@testing-library/jest-dom";
+import CardComponent from "../Cards/CardsComponent";
 
 // Mock functions
 
@@ -18,10 +18,8 @@ describe("CardComponent", () => {
         };
 
         render(<CardComponent {...props} />);
-        // Assertions here to verify rendering
         expect(screen.getByText("Event Title")).toBeInTheDocument();
         expect(screen.getByText("Event Location")).toBeInTheDocument();
-        // Ensure the link is correctly set
         expect(screen.getByRole("link")).toHaveAttribute(
             "href",
             "/events/show/1"

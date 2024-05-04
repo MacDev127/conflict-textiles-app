@@ -31,9 +31,9 @@ class UserConfirmation extends Mailable
     public function build()
     {
         return $this->subject('User Confirmation')
-            ->markdown('user_confirmation') // Ensure this is the correct path to your view
+            ->markdown('user_confirmation') 
             ->with([
-                'name' => $this->data['name'], // Pass the name to the view
+                'name' => $this->data['name'], /
             ]);
     }
 }

@@ -12,7 +12,7 @@ class ResearcherController extends Controller
 {
     public function index()
     {
-        $userId = auth()->id(); // Ensure you're using the authenticated user's ID
+        $userId = auth()->id();
         $bookmarks = Bookmark::where('user_id', $userId)->with([
             'galleryImage' => function ($query) {
                 $query->select(['id', 'image', 'title', 'description']);
@@ -47,10 +47,7 @@ class ResearcherController extends Controller
             $isBookmarked = true;
         }
 
-        // Return the new bookmark status with Inertia
-        // return Inertia::render('YourComponentHere', [
-        //     'isBookmarked' => $isBookmarked
-        // ]);
+
         return Redirect::back();
 
     }

@@ -16,13 +16,13 @@
 
 .bookmark__image-container {
     position: relative;
-    overflow: hidden; /* Ensures the overlay fits within the container */
+    overflow: hidden;
 }
 
 img {
-    width: 100%; /* Full width of the container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space under image */
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .image__overlay {
@@ -37,7 +37,7 @@ img {
         rgba(0, 0, 0, 0.1) 60%
     );
     opacity: 0;
-    transition: opacity 0.3s ease; /* Smooth transition for the overlay */
+    transition: opacity 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,9 +62,9 @@ img {
 }
 
 .bookmark__image-container:hover .image__overlay {
-    opacity: 0.9; /* Show the overlay on hover */
+    opacity: 0.9;
 }
 
 .bookmark__text-container {
-    padding: 5px; /* Padding around text */
+    padding: 5px;
 }

@@ -125,7 +125,6 @@ const ListEvents = ({ events, toggleForm }) => {
         <>
             <Box
                 sx={{
-                    // minHeight: "300px",
                     maxWidth: "1200px",
                     marginTop: "100px",
                     width: "100%",

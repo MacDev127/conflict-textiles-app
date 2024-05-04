@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import LoginButton from "../LoginButton/LoginButton"; // Adjust the import path as necessary
-
+import LoginButton from "../LoginButton/LoginButton";
 describe("LoginButton", () => {
     it("renders the button with the provided children", () => {
         const childText = "Login";

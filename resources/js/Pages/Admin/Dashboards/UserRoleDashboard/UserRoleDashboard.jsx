@@ -6,7 +6,7 @@ import CreateRole from "../../DashboardComponents/CreateUser/CreateUser";
 import { CSSTransition } from "react-transition-group";
 
 const UserRoleDashboard = ({ users, authUser, roles }) => {
-    const [showForm, setShowForm] = useState(false); // State to control form visibility
+    const [showForm, setShowForm] = useState(false);
 
     const toggleForm = () => {
         setShowForm(!showForm);

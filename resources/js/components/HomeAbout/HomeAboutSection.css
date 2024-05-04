@@ -12,8 +12,8 @@
     font-size: 20px !important;
     margin: 0 10px !important;
     display: flex !important;
-    align-items: center; /* Centers items vertically within the flex container */
-    justify-content: center; /* Centers items horizontally within the flex container */
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
 }
 

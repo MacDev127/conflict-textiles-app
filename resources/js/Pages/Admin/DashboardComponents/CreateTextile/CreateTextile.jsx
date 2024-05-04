@@ -62,7 +62,6 @@ const CreateTextile = () => {
 
     return (
         <>
-            {/* <DashboardSidebar /> */}
             <section className="create-textile">
                 <div>
                     <form onSubmit={handleSubmit} encType="multipart/form-data">

@@ -1,7 +1,7 @@
-import React from "react"; // Ensure this line is present
+import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom"; // For extending jest matchers
-import ButtonComponent from "./ButtonComponent"; // Adjust the import path as necessary
+import "@testing-library/jest-dom";
+import ButtonComponent from "./ButtonComponent";
 
 describe("ButtonComponent Tests", () => {
     test("renders the button with provided text", () => {

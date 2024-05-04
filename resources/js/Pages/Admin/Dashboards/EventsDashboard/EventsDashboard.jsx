@@ -6,7 +6,7 @@ import "./EventsDashboard.css";
 import { CSSTransition } from "react-transition-group";
 
 const EventsDashboard = ({ events, authUser }) => {
-    const [showForm, setShowForm] = useState(false); // State to control form visibility
+    const [showForm, setShowForm] = useState(false);
 
     const toggleForm = () => {
         setShowForm(!showForm);

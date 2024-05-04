@@ -21,7 +21,6 @@ const DashboardMenu = ({ authUser }) => {
     };
 
     const handleLogout = () => {
-        // Close the menu first
         handleClose();
         // Then send a POST request to the logout endpoint
         router.post("/logout");

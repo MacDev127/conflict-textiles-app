@@ -10,7 +10,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import DashboardSidebar from "../DashboardComponents/DashboardSidebar/DashboardSidebar";
 
 const ShowEvents = ({ event }) => {
-    // Prepare details for mapping
     const details = [
         { label: "Type", value: event.type },
         { label: "Location", value: event.location },
@@ -19,7 +18,6 @@ const ShowEvents = ({ event }) => {
         { label: "Venue", value: event.venue },
         { label: "Curator", value: event.curator },
         { label: "Description", value: event.description },
-        // Add other details as needed
     ];
 
     const handleDelete = () => {
@@ -95,9 +93,6 @@ const ShowEvents = ({ event }) => {
                             </div>
                         ))}
                     </div>
-                    {/* <Link href="/admin/events-dashboard" className="back-link">
-                Back to Events Dashboard
-            </Link> */}
                 </div>
             </section>
         </>

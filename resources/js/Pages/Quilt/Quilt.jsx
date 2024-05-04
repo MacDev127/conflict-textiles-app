@@ -11,7 +11,7 @@ const Quilt = ({ galleryImages, countries, auth, authUser }) => {
     };
 
     const content = {
-        type: "quilt", // Used for className and routing
+        type: "quilt",
         title: "Quilt Collection",
         quoteText:
             "A labyrinth ends in a wall, mandalas, guide my actions and infinite journeys",

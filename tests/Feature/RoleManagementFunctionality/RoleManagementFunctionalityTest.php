@@ -31,7 +31,7 @@ class RoleManagementFunctionalityTest extends TestCase
         $response->assertOk();
         $response->assertInertia(fn($page) => $page
             ->component('Admin/DashboardComponents/UserRole/UserRole')
-            ->has('roles', 4) // Adjust the expected count to match the actual count
+            ->has('roles', 4)
             ->where('roles', fn($roles) => $roles->contains(fn($r) => $r['name'] === 'Test Role')));
     }
 

@@ -11,7 +11,7 @@ const WallHanging = ({ galleryImages, authUser, auth }) => {
     };
 
     const content = {
-        type: "wall-hanging", // Used for className and routing
+        type: "wall-hanging",
         title: "Wall Hanging Collection",
         quoteText:
             "They document peoples’ lived experiences, memories and stories",

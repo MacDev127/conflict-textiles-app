@@ -110,7 +110,6 @@ class GalleryImagesTest extends TestCase
 
         $response = $this->actingAs($this->admin)->put("/textileDetail/{$galleryImage->id}", [
             'title' => 'Updated Title',
-            // other fields to update
         ]);
 
         $response->assertRedirect();

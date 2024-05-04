@@ -19,7 +19,7 @@ const EmailSignUpComponent = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         post("/email-signup", {
-            preserveScroll: true, // Preserve scroll stops scroll to top of homepage
+            preserveScroll: true,
             onSuccess: () => {
                 setAlertMessage("Thanks for joining our email list!");
                 setSeverity("success");

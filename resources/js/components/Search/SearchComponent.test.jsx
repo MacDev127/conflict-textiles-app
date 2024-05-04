@@ -1,12 +1,12 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchComponent from "./SearchComponent"; // Adjust the import path as necessary
+import SearchComponent from "./SearchComponent";
 import "@testing-library/jest-dom";
 
 describe("SearchComponent", () => {
     const mockCountries = ["Country1", "Country2"];
     const mockTypes = ["Type1", "Type2"];
-    const mockAuth = { user: { role_id: 3 } }; // Assuming role_id 3 can access advanced search
+    const mockAuth = { user: { role_id: 3 } };
 
     it("renders without crashing", () => {
         render(
@@ -46,6 +46,6 @@ describe("SearchComponent", () => {
         );
         const button = screen.getByText("Advanced");
         fireEvent.click(button);
-        expect(screen.getByText("Type")).toBeInTheDocument(); // Checks if 'Type' label is now visible
+        expect(screen.getByText("Type")).toBeInTheDocument();
     });
 });

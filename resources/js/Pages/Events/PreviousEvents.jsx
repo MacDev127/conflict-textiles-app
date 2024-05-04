@@ -26,7 +26,6 @@ const PreviousEvents = ({ previousEvents, authUser }) => {
                 />
                 <BreadcrumbComponent
                     breadcrumbs={[
-                        // { label: "Home", href: "/home" },
                         { label: "Events", href: "/events" },
                         { label: "Past Events", href: "/previousEvents" },
                     ]}
@@ -46,9 +45,7 @@ const PreviousEvents = ({ previousEvents, authUser }) => {
                 <PaginationComponent
                     total={previousEvents.last_page}
                     current={previousEvents.current_page}
-                    onChange={(page) => {
-                        /* handle page change if needed */
-                    }}
+                    onChange={(page) => {}}
                 />
             </ContainerComponent>
 

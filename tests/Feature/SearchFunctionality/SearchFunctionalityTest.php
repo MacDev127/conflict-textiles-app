@@ -18,7 +18,6 @@ class SearchFunctionalityTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        // Set up necessary roles and permissions if you're using a package like Spatie Permission
     }
 
     public function test_basic_search_functionality()

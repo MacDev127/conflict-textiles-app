@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Fade from "@mui/material/Fade";
 
-import Accordian from "../Accordian/Accordian"; // Adjust path as necessary
+import Accordian from "../Accordian/Accordian";
 
 describe("Accordion Component Tests", () => {
     const mockTextileDetail = {

@@ -15,7 +15,6 @@
 }
 
 .home__collection-item {
-    /* change div to reference your elements you put in <Masonry> */
     margin-bottom: 30px;
     position: relative;
 }

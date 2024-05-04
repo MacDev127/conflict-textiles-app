@@ -16,7 +16,6 @@ const UserRole = ({ users: initialUsers, roles, toggleForm, showForm }) => {
 
     // Handle changing role
     const handleRoleChange = (userId, newRoleId) => {
-        // Update local state first to reflect UI changes immediately
         const updatedUsers = users.map((user) => {
             if (user.id === userId) {
                 return { ...user, role_id: newRoleId };
@@ -71,7 +70,7 @@ const UserRole = ({ users: initialUsers, roles, toggleForm, showForm }) => {
     const rows = users.map((user) => ({
         id: user.id,
         name: user.name,
-        role_id: user.role_id, // Ensure this is being passed correctly
+        role_id: user.role_id,
     }));
 
     return (
@@ -80,14 +79,14 @@ const UserRole = ({ users: initialUsers, roles, toggleForm, showForm }) => {
                 className="data-grid-container"
                 sx={{
                     maxHeight: "1000px",
-                    width: "100%", // Ensure it takes full width
+                    width: "100%",
                     overflow: "hidden",
-                    mt: { xs: "20px", md: "100px" }, // Smaller top margin on smaller screens
-                    minWidth: { md: "1000px" }, // No minimum width constraint on smaller screens
+                    mt: { xs: "20px", md: "100px" },
+                    minWidth: { md: "1000px" },
                     "& .MuiDataGrid-virtualScroller": {
                         overflowX: "auto",
                         "&::-webkit-scrollbar": {
-                            height: "8px", // Smaller scrollbar height
+                            height: "8px",
                             "&::-webkit-scrollbar-thumb": {
                                 backgroundColor: "rgba(0,0,0,0.3)",
                             },
@@ -107,7 +106,6 @@ const UserRole = ({ users: initialUsers, roles, toggleForm, showForm }) => {
                         borderBottomColor: "#ccc",
                         paddingBottom: "10px",
                         "@media (max-width: 414px)": {
-                            // Adjust '600px' to the breakpoint you need
                             fontSize: "20px",
                             paddingLeft: "60px",
                         },

@@ -50,7 +50,7 @@ class ResearcherFunctionalityTest extends TestCase
         $response->assertStatus(200);  // Verify that the response is OK
         $response->assertInertia(
             fn($page) => $page
-                ->component('Bookmarks/Bookmarks')  // Assuming 'Bookmarks/Bookmarks' is the correct Inertia component
+                ->component('Bookmarks/Bookmarks')
                 ->has('isBookmarked', true)  // Check that 'isBookmarked' property exists and is true
         );
         $this->assertDatabaseHas('bookmarks', [
@@ -86,7 +86,7 @@ class ResearcherFunctionalityTest extends TestCase
 
         $response = $this->actingAs($this->researcher)->delete("/delete-bookmark/{$bookmark->id}");
 
-        $response->assertRedirect();  // Assuming redirect occurs; adjust based on actual response
+        $response->assertRedirect();
         $this->assertDatabaseMissing('bookmarks', ['id' => $bookmark->id]);
     }
 }

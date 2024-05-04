@@ -34,8 +34,6 @@ const EditTextile = ({ galleryImage }) => {
                 setSeverity("success");
             },
             onError: (errors) => {
-                // Handle validation errors
-                // Log errors or set state to display them
                 console.error(errors);
             },
         });

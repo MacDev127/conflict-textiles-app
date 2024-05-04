@@ -10,7 +10,7 @@ const Installation = ({ galleryImages, auth, authUser }) => {
         router.visit(`/installation?page=${page}`);
     };
     const content = {
-        type: "installation", // Used for className and routing
+        type: "installation",
         title: "Installations Collection",
         quoteText:
             "They document peoples’ lived experiences, memories and stories",

@@ -4,7 +4,6 @@ import ContainerComponent from "@/components/Container/ContainerComponent";
 import TextComponent from "@/components/Text/TextComponent";
 import SubtitleComponent from "@/components/Subtitle/SubtitleComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
-import { Link } from "@inertiajs/react";
 
 import Footer from "@/components/Footer/Footer";
 import "./Links.css";

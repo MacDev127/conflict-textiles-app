@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TitleComponent from "./TitleComponent"; // Adjust the import path as necessary
+import TitleComponent from "./TitleComponent";
 import "@testing-library/jest-dom";
 
 describe("TitleComponent", () => {

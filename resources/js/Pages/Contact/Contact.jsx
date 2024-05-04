@@ -29,10 +29,10 @@ const Contact = ({ authUser, type, auth }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         post("/contact", {
-            preserveScroll: true, // Preserve scroll stops scroll to top of homepage
+            preserveScroll: true,
 
             onSuccess: () => {
-                reset(); // Reset the fields, or you can specify which fields to reset
+                reset();
                 setAlertMessage("Message sent successfully!");
                 setSeverity("success");
             },

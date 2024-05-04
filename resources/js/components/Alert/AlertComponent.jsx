@@ -23,7 +23,6 @@ const AlertComponent = ({
                 className={className}
                 sx={{
                     display: "flex",
-                    // backgroundColor: "#b4deb4",
                 }}
                 // autoHideDuration={6000}
                 variant={variant}

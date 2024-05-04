@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import TextComponent from "./TextComponent"; // Adjust the import path as necessary
+import TextComponent from "./TextComponent";
 import "@testing-library/jest-dom";
 
 describe("TextComponent", () => {

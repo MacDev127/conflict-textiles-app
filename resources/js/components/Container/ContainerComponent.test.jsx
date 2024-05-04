@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ContainerComponent from "./ContainerComponent"; // Adjust the import path as necessary
+import ContainerComponent from "./ContainerComponent";
 import "@testing-library/jest-dom";
 
 describe("ContainerComponent", () => {

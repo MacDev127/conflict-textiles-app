@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import DropdownMenu from "../Dropdown/Dropdown"; // Adjust the path to where your DropdownMenu is located
+import DropdownMenu from "../Dropdown/Dropdown";
 
 // Mocking router from @inertiajs/react
 jest.mock("@inertiajs/react", () => ({

@@ -39,7 +39,7 @@ class EventFunctionalityTest extends TestCase
         $response->assertStatus(200);
         $response->assertInertia(fn($page) => $page
             ->component('Home/Home')
-            ->has('events', 5)); // Assuming 'events' is the correct variable name
+            ->has('events', 5));
     }
 
     /** @test */
@@ -79,7 +79,6 @@ class EventFunctionalityTest extends TestCase
     }
 
     /** @test */
-    /** @test */
     public function can_view_individual_event_details()
     {
         $event = Event::factory()->create([
@@ -116,7 +115,6 @@ class EventFunctionalityTest extends TestCase
         $response->assertRedirect(); // Assuming a redirect happens after creation
         $this->assertDatabaseHas('events', [
             'title' => 'New Event',
-            // Check other fields as necessary
         ]);
     }
 

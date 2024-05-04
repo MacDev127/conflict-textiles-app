@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Dropdown.css";
-// import { FaAngleDown } from "react-icons/fa";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { router } from "@inertiajs/react";
 import { FaGlobe } from "react-icons/fa";

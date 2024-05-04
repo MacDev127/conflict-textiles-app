@@ -27,17 +27,7 @@ class AuthenticatedSessionController extends Controller
         ]);
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
-    // public function store(LoginRequest $request): RedirectResponse
-    // {
-    //     $request->authenticate();
 
-    //     $request->session()->regenerate();
-
-    //     return redirect()->intended(RouteServiceProvider::HOME);
-    // }
 
 
 
@@ -78,16 +68,6 @@ class AuthenticatedSessionController extends Controller
     }
 
 
-    // protected function redirectTo()
-    // {
-    //     $user = auth()->user();
-    //     if ($user->isAdmin()) {
-    //         return '/metrics-dashboard';
-    //     } elseif ($user->isResearcher()) {
-    //         return '/researcher-dashboard';
-    //     }
-    //     return '/'; // Default path
-    // }
 
     /**
      * Destroy an authenticated session.

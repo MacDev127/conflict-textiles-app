@@ -18,13 +18,9 @@ class EventsAndTextilesDashboardsTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        // Assuming 'admin' is the role required to access the dashboards
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
         $this->admin = User::factory()->create(['role_id' => $adminRole->id]);
 
-        // Or if using a policy or gate for authorization
-        // Gate::define('access-dashboard', fn($user) => $user->role === 'admin');
-        // $this->admin = User::factory()->create(['role' => 'admin']);
     }
 
     /** @test */

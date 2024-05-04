@@ -4,8 +4,6 @@ import { useForm } from "@inertiajs/react";
 import { FaAngleDown } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 
-// Access the current page's properties using the usePage hook from Inertia.js
-
 const SearchComponent = ({ countries, auth, children, type }) => {
     // Initialize form data with useForm hook from Inertia.js, setting default values for each field
     const { data, setData, get } = useForm({
@@ -96,14 +94,6 @@ const SearchComponent = ({ countries, auth, children, type }) => {
                             <div className="advanced__search-form__group1-container">
                                 <label htmlFor="type">Type</label>
 
-                                {/* <input
-                                    type="text"
-                                    name="type"
-                                    value={data.type}
-                                    onChange={handleInputChange}
-                                    placeholder="Arpillera, Quilt, Banner etc..."
-                                    className="advanced__input"
-                                /> */}
                                 <select
                                     name="type"
                                     value={data.type}
@@ -166,8 +156,8 @@ const SearchComponent = ({ countries, auth, children, type }) => {
                                     onChange={handleInputChange}
                                     placeholder="Year Start"
                                     className="advanced__input-date"
-                                    min="1900" // Adjust according to your data
-                                    max={new Date().getFullYear()} // Current year as the max value
+                                    min="1900"
+                                    max={new Date().getFullYear()}
                                 />
                             </div>
                             <div className="advanced__search-form__date-container">
@@ -179,14 +169,12 @@ const SearchComponent = ({ countries, auth, children, type }) => {
                                     onChange={handleInputChange}
                                     placeholder="Year End"
                                     className="advanced__input-date"
-                                    min="1900" // Adjust according to your data
-                                    max={new Date().getFullYear()} // Current year as the max value
+                                    min="1900"
+                                    max={new Date().getFullYear()}
                                 />
                             </div>
                         </div>
                     </form>
-
-                    {/* You can add more advanced search fields here */}
                 </div>
             </div>
         </div>

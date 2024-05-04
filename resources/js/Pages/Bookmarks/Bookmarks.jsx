@@ -57,15 +57,14 @@ const Bookmarks = ({ authUser, bookmarks, galleryImages, auth, type }) => {
                 >
                     {bookmarks.map((bookmark) => {
                         const galleryImage =
-                            bookmark.galleryImage || bookmark.gallery_image; // Fallback if different naming conventions are used.
-
+                            bookmark.galleryImage || bookmark.gallery_image;
                         return (
                             <div key={bookmark.id} className="bookmark-item">
                                 {galleryImage ? (
                                     <div className="bookmark__container">
                                         <div className="bookmark__image-container">
                                             <img
-                                                src={`/storage/${galleryImage.image}`} // Assuming you store just the filename in the database
+                                                src={`/storage/${galleryImage.image}`}
                                                 alt={galleryImage.title}
                                             />
                                             <div className="image__overlay"></div>

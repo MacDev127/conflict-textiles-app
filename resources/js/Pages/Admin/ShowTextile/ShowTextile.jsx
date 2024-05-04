@@ -22,7 +22,6 @@ const ShowTextiles = ({ textile }) => {
         { label: "Materials", value: textile.materials },
         { label: "Photographer", value: textile.photgrapher },
         { label: "Description", value: textile.descrioption },
-        // Add other details as needed
     ];
 
     const handleDelete = () => {
