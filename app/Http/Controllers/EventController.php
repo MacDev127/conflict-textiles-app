@@ -155,7 +155,7 @@ class EventController extends Controller
             'outcome' => 'nullable|string',
             'document_url' => 'nullable|string',
             'textile_url' => 'nullable|string',
-            'image' => 'nullable|image|max:1024',
+            'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
         ]);
 
         // Check if a new image file is uploaded.

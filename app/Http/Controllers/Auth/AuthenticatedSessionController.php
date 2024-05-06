@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
                 $request->session()->regenerate();
                 $user = Auth::user();
 
-                \Log::info('Authenticated user role:', ['role' => $user->role->name ?? 'undefined']);
+                // \Log::info('Authenticated user role:', ['role' => $user->role->name ?? 'undefined']);
 
                 switch ($user->role->name) {
                     case 'admin':
