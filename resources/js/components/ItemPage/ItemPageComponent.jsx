@@ -104,7 +104,10 @@ const ItemPageComponent = ({
                 >
                     {galleryImages.data.map((image) => (
                         <CollectionItemStyle key={image.id}>
-                            <Link href={`/textile-details/${image.id}`}>
+                            <Link
+                                href={`/textile-details/${image.id}`}
+                                data={{ referrer: window.location.pathname }}
+                            >
                                 <ImageContainer>
                                     <img src={image.img} alt={image.title} />
                                     <div className="overlay"></div>

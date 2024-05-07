@@ -10,6 +10,9 @@ export const ImageContainer = styled.div`
         margin: 0;
         display: block;
         transition: transform 0.3s ease-in-out;
+        &:hover {
+            transform: scale(1.02);
+        }
     }
 
     .overlay {
@@ -19,16 +22,12 @@ export const ImageContainer = styled.div`
         top: 0;
         left: 0;
         cursor: pointer;
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.2) 100%,
-            rgba(0, 0, 0, 0.2) 100%
-        );
+        background-color: rgba(0, 0, 0, 0.2);
+
         opacity: 0;
-        transition: opacity 0.1s;
         pointer-events: none;
         &:hover {
-            opacity: 0.9;
+            opacity: 0.3;
         }
     }
 `;

@@ -2,13 +2,29 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Accordian from "@/components/Accordian/Accordian";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
+import { usePage } from "@inertiajs/react";
 
 import "./TextileDetails.css";
 
-const TextileDetail = ({ textileDetail, authUser, auth }) => {
+const TextileDetail = ({ textileDetail, authUser, auth, type, title }) => {
+    const { props } = usePage();
+    const referrer = props.referrer;
     return (
         <>
             <Navbar auth={auth} authUser={authUser} />
+            <BreadcrumbComponent
+                breadcrumbs={[
+                    {
+                        label: textileDetail.type,
+                        href: referrer || "/collection",
+                    },
+                    {
+                        label: "Textile Details",
+                        href: "",
+                    },
+                ]}
+            />
             <section className="textile__details">
                 <div className="td__container">
                     <div className="modalImage">

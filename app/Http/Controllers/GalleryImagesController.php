@@ -201,12 +201,16 @@ class GalleryImagesController extends Controller
     public function showTextileDetail($id)
     {
         $galleryImage = GalleryImage::findOrFail($id);
+        $referrer = request()->input('referrer');
 
         if (!empty($galleryImage->image)) {
             $galleryImage->image = asset('storage/' . $galleryImage->image);
         }
 
-        return Inertia::render('TextileDetails/TextileDetail', ['textileDetail' => $galleryImage]);
+        return Inertia::render('TextileDetails/TextileDetail', [
+            'textileDetail' => $galleryImage,
+            'referrer' => $referrer
+        ]);
     }
 
     // Fetches a specific textile by its ID for administrative viewing, formats the image URL, and returns this data to the admin show textile view.
