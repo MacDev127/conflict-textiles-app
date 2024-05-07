@@ -166,11 +166,12 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
 Route::post("/admin/users/create", [UserRoleDashboardController::class, 'store'])->name('users.create');
 
 
+//----------------------Dashboards---------------///
 
 
 
 
-// researcher functionlaity-------//
+// --------researcher functionlaity-------//
 
 Route::middleware(['auth', 'is_researcher'])->group(function () {
     Route::get('/bookmarks', [ResearcherController::class, 'getBookmarks'])->name('bookmarks');
@@ -178,7 +179,7 @@ Route::middleware(['auth', 'is_researcher'])->group(function () {
     Route::delete('/delete-bookmark/{id}', [ResearcherController::class, 'deleteBookmark'])->name('delete-bookmark');
 });
 
-
+// --------researcher functionlaity-------//
 
 
 //Home Controller
@@ -217,6 +218,11 @@ Route::get('/disclaimer', function () {
 Route::get('/accessibility', function () {
     return Inertia::render('Accessibility/Accessibility');
 })->name('accessibility');
+
+// Privacy Page
+Route::get('/privacy', function () {
+    return Inertia::render('Privacy/Privacy');
+})->name('privacy');
 
 // Cookies Page
 Route::get('/cookies', function () {

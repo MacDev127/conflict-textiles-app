@@ -111,7 +111,7 @@ const Footer = () => {
                         <ul>
                             <li className="footer__links-title">Help</li>
                             <li>
-                                <a href="#">Terms & Conditions</a>
+                                <a href="/privacy">Privacy Policy</a>
                             </li>
                             <li>
                                 <a href="/disclaimer">Disclaimer</a>

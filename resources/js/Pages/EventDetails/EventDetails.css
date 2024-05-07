@@ -2,8 +2,12 @@
     --primary-color: #dc143c;
     --text-color: #333333;
     --subtext-color: #666666;
-    --background-color: #f9f1f1;
+    --background-color: #f5f4f3;
     --border-color: #e0e0e0;
+}
+.MuiBox-root,
+.css-39uiqa {
+    width: 90% !important;
 }
 .event__details {
     padding: 60px 0;
@@ -26,7 +30,7 @@
 }
 
 .event__details-image img {
-    width: 100%;
+    width: 650px;
     height: auto;
     object-fit: cover;
 }
@@ -221,7 +225,6 @@
     }
 
     .event__details-tabs {
-        width: 90%;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
