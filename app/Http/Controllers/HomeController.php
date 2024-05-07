@@ -15,7 +15,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        \Log::info('Current User:', ['user' => Auth::user()]);
 
         // Fetch only upcoming events, i.e., events whose date is today or in the future.
         $events = Event::where('event_date', '>=', now())

@@ -39,6 +39,8 @@ class UserRoleDashboardController extends Controller
             'role_id' => 'required|exists:roles,id'
         ]);
 
+        // Check if the validation failed
+
         if ($validator->fails()) {
             return redirect()
                 ->back()
@@ -48,6 +50,7 @@ class UserRoleDashboardController extends Controller
 
         // Find the user by user_id
         $user = User::findOrFail($request->input('user_id'));
+
         // Assign the new role_id to the user
         $user->role_id = $request->input('role_id');
         $user->save();

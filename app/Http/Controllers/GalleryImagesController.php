@@ -26,6 +26,7 @@ class GalleryImagesController extends Controller
     public function arpillera()
     {
         // Fetch specific images for the Arpillera collection
+        // Asset function used to ensure image url correctly generated and prefixed applications root url
         $arpilleraImages = GalleryImage::where('type', 'arpillera')->paginate(10)->through(function ($image) {
             $image->img = asset('storage/' . $image->image);
             return $image;

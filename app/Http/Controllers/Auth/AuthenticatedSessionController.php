@@ -42,14 +42,11 @@ class AuthenticatedSessionController extends Controller
                 $request->session()->regenerate();
                 $user = Auth::user();
 
-                // \Log::info('Authenticated user role:', ['role' => $user->role->name ?? 'undefined']);
 
                 switch ($user->role->name) {
                     case 'admin':
-                        \Log::info('Redirecting admin to metrics dashboard');
                         return redirect()->intended('/metrics-dashboard');
                     case 'researcher':
-                        \Log::info('Redirecting researcher to researcher dashboard');
                         return redirect()->intended('/');
                     default:
                         \Log::info('Redirecting to default home');

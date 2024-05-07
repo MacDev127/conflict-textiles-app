@@ -16,7 +16,6 @@ import PaginationComponent from "@/components/Pagination/PaginationComponent";
 import BreadcrumbComponent from "@/components/Breadcrumbs/BreadcrumbComponent";
 
 const Events = ({ type, upcomingEvents, authUser, auth }) => {
-    console.log(type);
     return (
         <section className="Events">
             <Navbar authUser={authUser} auth={auth} />

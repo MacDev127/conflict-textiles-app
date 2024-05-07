@@ -18,7 +18,7 @@ const Navbar = ({ authUser, auth, translations }) => {
     let navItems = [
         { path: "/", label: "Home" },
         { path: "/about", label: "About" },
-        { path: "/collection", label: "Collections" },
+        { path: "/collection", label: "Collection" },
         { path: "/events", label: "Events" },
         { path: "/contact", label: "Contact" },
     ];

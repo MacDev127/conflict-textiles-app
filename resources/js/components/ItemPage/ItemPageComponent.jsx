@@ -51,34 +51,30 @@ const ItemPageComponent = ({
         return null;
     };
 
-    // Retrieve the shared data using usePage
     const { props } = usePage();
     const [bookmarkedItems, setBookmarkedItems] = useState(
         new Set(props.bookmarkedItems)
     );
 
     const handleToggleBookmark = (imageId) => {
-        const newBookmarks = new Set(bookmarkedItems);
-        const currentlyBookmarked = newBookmarks.has(imageId);
+        // Create a new Set from the existing bookmarked items to prevent duplicates
+        const updatedBookmarks = new Set(bookmarkedItems);
 
-        // Toggle the bookmark status locally
-        if (currentlyBookmarked) {
-            newBookmarks.delete(imageId);
+        // Directly toggle the presence of the imageId in the set
+        if (updatedBookmarks.has(imageId)) {
+            updatedBookmarks.delete(imageId);
         } else {
-            newBookmarks.add(imageId);
+            updatedBookmarks.add(imageId);
         }
-        setBookmarkedItems(newBookmarks);
 
-        // Post to server to update the backend
+        // Update the state with the new set of bookmarks
+        setBookmarkedItems(updatedBookmarks);
+
+        // Post the update to the server
         router.post(
             `/toggle-bookmark/${imageId}`,
-            {
-                bookmarked: !currentlyBookmarked,
-            },
-            {
-                preserveState: true,
-                preventScroll: true,
-            }
+            { bookmarked: !updatedBookmarks.has(imageId) },
+            { preserveState: true, preventScroll: true }
         );
     };
 

@@ -50,11 +50,14 @@ const Bookmarks = ({ authUser, bookmarks, galleryImages, auth, type }) => {
                     Bookmarks
                 </PageTitleComponent>
                 <MasonryComponent
+                    // extract galleryImages properties from the bookmarks array and pass as prop
                     galleryImages={bookmarks.map(
                         (bookmark) => bookmark.galleryImage
                     )}
                     onImageClick={handleImageClick}
                 >
+                    {/* map over bookmarks prop containing bookmark info from
+                    controller */}
                     {bookmarks.map((bookmark) => {
                         const galleryImage =
                             bookmark.galleryImage || bookmark.gallery_image;

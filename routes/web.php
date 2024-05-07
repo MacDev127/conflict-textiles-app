@@ -22,7 +22,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserRoleDashboardController;
 
 
-Route::post("/admin/users/create", [UserRoleDashboardController::class, 'store'])->name('users.create');
 
 //Admin Routes
 Route::post('/admin/users/assign-role', [UserRoleDashboardController::class, 'assignRole'])
@@ -163,6 +162,8 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/admin/user-role-dashboard', [UserRoleDashboardController::class, 'index'])
         ->name('admin.user-role-dashboard.index');
 });
+
+Route::post("/admin/users/create", [UserRoleDashboardController::class, 'store'])->name('users.create');
 
 
 
