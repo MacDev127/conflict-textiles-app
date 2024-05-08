@@ -51,7 +51,10 @@ const ItemPageComponent = ({
         return null;
     };
 
+    // Access props from the usePage hook
     const { props } = usePage();
+
+    // Initialize a state variable with a unique set of bookmarked items from props.
     const [bookmarkedItems, setBookmarkedItems] = useState(
         new Set(props.bookmarkedItems)
     );

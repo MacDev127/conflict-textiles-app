@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "@inertiajs/react";
 import "./Createtextile.css";
 import AlertComponent from "@/components/Alert/AlertComponent";
@@ -23,6 +23,7 @@ const CreateTextile = () => {
 
     const [alertMessage, setAlertMessage] = useState("");
     const [severity, setSeverity] = useState("success");
+    const fileInputRef = useRef(null); // Create a ref for the file input
 
     const handleAlertClose = () => {
         setAlertMessage("");
@@ -47,6 +48,8 @@ const CreateTextile = () => {
             // Correct URL, no template literal or variable
             onSuccess: () => {
                 reset();
+                fileInputRef.current.value = "";
+
                 setAlertMessage("Textile Added Successfully!");
                 setSeverity("success");
             },
@@ -78,6 +81,7 @@ const CreateTextile = () => {
                                     name="image"
                                     required
                                     onChange={handleInputChange}
+                                    ref={fileInputRef} // Attach the ref to your file input
                                 />
 
                                 <label htmlFor="title">Title</label>

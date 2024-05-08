@@ -79,7 +79,7 @@ const MenuComponent = ({ authUser }) => {
                         </MenuItem>
                     </Link>
                 )}
-                {auth.user && (
+                {auth.user && auth.user.role_id === 2 && (
                     <Link href="/metrics-dashboard" style={{ color: "black" }}>
                         <MenuItem
                             onClick={handleClose}

@@ -1,6 +1,6 @@
 // In your resources/js/Pages/Admin/Textiles/CreateTextile.jsx
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "@inertiajs/react";
 import "./CreateEvent.css";
 import AlertComponent from "@/components/Alert/AlertComponent";
@@ -25,6 +25,7 @@ const CreateEvent = () => {
 
     const [alertMessage, setAlertMessage] = useState("");
     const [severity, setSeverity] = useState("success");
+    const fileInputRef = useRef(null); // Create a ref for the file input
 
     const handleAlertClose = () => {
         setAlertMessage("");
@@ -45,6 +46,7 @@ const CreateEvent = () => {
                 reset(); // Reset the fields, or you can specify which fields to reset
                 setAlertMessage("Event Added Successfully!");
                 setSeverity("success");
+                fileInputRef.current.value = "";
             },
             onError: (errors) => {
                 if (errors.image) {
@@ -70,6 +72,7 @@ const CreateEvent = () => {
                                     id="image"
                                     name="image"
                                     onChange={handleInputChange}
+                                    ref={fileInputRef} // Attach the ref to your file input
                                 />
 
                                 <label htmlFor="title">Title</label>
