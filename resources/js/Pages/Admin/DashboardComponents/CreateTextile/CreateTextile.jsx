@@ -3,7 +3,7 @@ import { useForm } from "@inertiajs/react";
 import "./Createtextile.css";
 import AlertComponent from "@/components/Alert/AlertComponent";
 
-const CreateTextile = () => {
+const CreateTextile = ({ type }) => {
     const { data, setData, post, errors, reset } = useForm({
         image: null,
         location: "",
@@ -19,6 +19,8 @@ const CreateTextile = () => {
         maker: "",
         owner: "",
         photographer: "",
+        exhibitied_at: "",
+        publications: "",
     });
 
     const [alertMessage, setAlertMessage] = useState("");
@@ -63,6 +65,7 @@ const CreateTextile = () => {
         });
     };
 
+    console.log(type);
     return (
         <>
             <section className="create-textile">
@@ -95,13 +98,20 @@ const CreateTextile = () => {
                                 />
 
                                 <label htmlFor="type">Type</label>
-                                <input
-                                    type="text"
+                                <select
                                     name="type"
                                     value={data.type}
                                     onChange={handleInputChange}
-                                    placeholder="Enter textile type"
-                                />
+                                    className="advanced__input"
+                                >
+                                    <option value="">Select</option>
+                                    {type &&
+                                        type.map((types, index) => (
+                                            <option key={index} value={types}>
+                                                {types}
+                                            </option>
+                                        ))}
+                                </select>
 
                                 <label htmlFor="location">Location</label>
                                 <input
@@ -121,6 +131,16 @@ const CreateTextile = () => {
                                     value={data.photographer}
                                     onChange={handleInputChange}
                                     placeholder="Photographer"
+                                />
+                                <label htmlFor="exhibited_at">
+                                    Exhibtited At
+                                </label>
+                                <input
+                                    type="text"
+                                    name="exhibited_at"
+                                    value={data.exhibited_at}
+                                    onChange={handleInputChange}
+                                    placeholder="Exhibited at"
                                 />
                             </div>
                             <div className="col-2">
@@ -167,6 +187,16 @@ const CreateTextile = () => {
                                     value={data.owner}
                                     onChange={handleInputChange}
                                     placeholder="Owner"
+                                />
+                                <label htmlFor="publications">
+                                    Publications
+                                </label>
+                                <input
+                                    type="text"
+                                    name="publications"
+                                    value={data.publications}
+                                    onChange={handleInputChange}
+                                    placeholder="Publications"
                                 />
                             </div>
                             <div className="col-3">

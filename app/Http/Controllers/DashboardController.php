@@ -23,6 +23,7 @@ class DashboardController extends Controller
     }
     public function textilesDashboard()
     {
+        $type = GalleryImage::distinct()->pluck('type');
 
         $galleryImages = GalleryImage::all()->map(function ($image) {
             if ($image->image) {
@@ -31,7 +32,7 @@ class DashboardController extends Controller
             return $image;
         });
 
-        return Inertia::render('Admin/Dashboards/TextileDashboard/TextileDashboard', ['galleryImages' => $galleryImages]);
+        return Inertia::render('Admin/Dashboards/TextileDashboard/TextileDashboard', ['galleryImages' => $galleryImages, 'type' => $type]);
     }
 
 }

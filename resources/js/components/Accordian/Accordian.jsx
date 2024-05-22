@@ -11,6 +11,7 @@ const Accordian = ({ textileDetail }) => {
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+    console.log(textileDetail);
     return (
         <div style={{ width: "80%" }}>
             <Accordion
@@ -43,7 +44,7 @@ const Accordian = ({ textileDetail }) => {
                     id="panel2bh-header"
                     style={{ minHeight: "80px" }}
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography sx={{ minWidth: "33%", flexShrink: 0 }}>
                         Publications
                     </Typography>
                 </AccordionSummary>
@@ -70,11 +71,7 @@ const Accordian = ({ textileDetail }) => {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Nunc vitae orci ultricies, auctor nunc in, volutpat
-                        nisl. Integer sit amet egestas eros, vitae egestas
-                        augue. Duis vel est augue.
-                    </Typography>
+                    <Typography>{textileDetail.exhibited_at}</Typography>
                 </AccordionDetails>
             </Accordion>
         </div>

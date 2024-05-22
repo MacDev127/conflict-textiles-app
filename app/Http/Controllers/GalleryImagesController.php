@@ -102,7 +102,7 @@ class GalleryImagesController extends Controller
     {
         //  validate the image data
         $validatedData = $request->validate([
-            'image' => 'required|image|max:1024|unique:gallery_images,image',
+            'image' => 'required|image|max:5120|unique:gallery_images,image',
             'type' => 'nullable|string',
             'title' => 'nullable|string',
             'maker' => 'nullable|string',
@@ -116,6 +116,8 @@ class GalleryImagesController extends Controller
             'authenticity' => 'nullable|string',
             'description' => 'nullable|string',
             'location' => 'nullable|string',
+            'exhibited_at' => 'nullable|string',
+            'publications' => 'nullable|string',
 
         ]);
 
@@ -144,7 +146,7 @@ class GalleryImagesController extends Controller
         $galleryImage = GalleryImage::findOrFail($id);
 
         $validatedData = $request->validate([
-            'image' => 'file|mimes:jpg,jpeg,png,gif|max:1024',
+            'image' => 'file|mimes:jpg,jpeg,png,gif|max:5120',
             'location' => 'nullable|string',
             'title' => 'nullable|string|max:255',
             'type' => 'nullable|string',
@@ -158,6 +160,8 @@ class GalleryImagesController extends Controller
             'owner' => 'nullable|string',
             'photographer' => 'nullable|string',
             'description' => 'nullable|string',
+            'exhibited_at' => 'nullable|string',
+            'publications' => 'nullable|string',
         ]);
 
         // Check if a new image file is uploaded.

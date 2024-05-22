@@ -21,6 +21,7 @@ const Navbar = ({ authUser, auth, translations }) => {
         { path: "/collection", label: "Collection" },
         { path: "/events", label: "Events" },
         { path: "/contact", label: "Contact" },
+        { path: "/links", label: "Resources" },
     ];
 
     if (auth && auth.user && auth.user.role_id === 3) {

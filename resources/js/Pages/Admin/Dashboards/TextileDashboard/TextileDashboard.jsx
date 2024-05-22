@@ -5,10 +5,11 @@ import ListTextile from "../../DashboardComponents/ListTextile/ListTextile";
 import { CSSTransition } from "react-transition-group";
 import "./Textiledashboard.css";
 
-const TextileDashboard = ({ galleryImages, authUser }) => {
+const TextileDashboard = ({ galleryImages, authUser, type }) => {
     const [showForm, setShowForm] = useState(false);
     const toggleForm = () => setShowForm(!showForm);
 
+    console.log(type);
     return (
         <>
             <DashboardSidebar authUser={authUser} />
@@ -18,6 +19,7 @@ const TextileDashboard = ({ galleryImages, authUser }) => {
                         galleryImages={galleryImages}
                         showForm={showForm}
                         toggleForm={toggleForm}
+                        type={type}
                     />
 
                     <CSSTransition
@@ -26,7 +28,10 @@ const TextileDashboard = ({ galleryImages, authUser }) => {
                         classNames="form"
                         unmountOnExit
                     >
-                        <CreateTextile galleryImages={galleryImages} />
+                        <CreateTextile
+                            galleryImages={galleryImages}
+                            type={type}
+                        />
                     </CSSTransition>
                 </div>
             </section>

@@ -48,7 +48,8 @@ form label {
 
 form input[type="file"],
 form input[type="time"],
-form input[type="date"] {
+form input[type="date"],
+.advanced__input {
     width: 100%;
     padding: 16px;
     margin-bottom: 20px;
@@ -80,6 +81,10 @@ input:focus {
 }
 
 textarea:focus {
+    outline: 1px solid crimson;
+}
+
+.advanced__input:focus {
     outline: 1px solid crimson;
 }
 
