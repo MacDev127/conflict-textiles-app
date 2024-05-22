@@ -83,6 +83,7 @@ const CreateEvent = () => {
                                     value={data.title}
                                     onChange={handleInputChange}
                                     placeholder="Enter event title"
+                                    required
                                 />
 
                                 <label htmlFor="type">Type</label>
@@ -92,6 +93,7 @@ const CreateEvent = () => {
                                     value={data.type}
                                     onChange={handleInputChange}
                                     placeholder="Enter event type"
+                                    required
                                 />
 
                                 <label htmlFor="location">Location</label>

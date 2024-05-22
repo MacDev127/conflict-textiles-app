@@ -15,12 +15,12 @@ import "./ListTextile.css";
 const ListTextiles = ({ galleryImages, toggleForm }) => {
     // Define columns for DataGrid
     const columns = [
-        {
-            field: "id",
-            headerName: "ID",
-            width: 30,
-            headerClassName: "table-header",
-        },
+        // {
+        //     field: "id",
+        //     headerName: "ID",
+        //     width: 30,
+        //     headerClassName: "table-header",
+        // },
         // {
         //     field: "image",
         //     headerName: "Image",
@@ -30,86 +30,86 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
         {
             field: "title",
             headerName: "Title",
-            width: 130,
+            width: 150,
             headerClassName: "table-header",
         },
         {
             field: "type",
             headerName: "Type",
-            width: 130,
+            width: 150,
+            headerClassName: "table-header",
+        },
+        {
+            field: "location",
+            headerName: "Location",
+            width: 150,
             headerClassName: "table-header",
         },
         // {
-        //     field: "location",
-        //     headerName: "Location",
-        //     width: 130,
-        //     headerClassName: "table-header",
-        // },
-        // {
         //     field: "photographer",
         //     headerName: "Photographer",
-        //     width: 130,
+        //     width: 150,
         //     headerClassName: "table-header",
         // },
         // {
         //     field: "year_produced",
         //     headerName: "Year Produced",
-        //     width: 130,
+        //     width: 150,
         //     headerClassName: "table-header",
         // },
         // {
         //     field: "size",
         //     headerName: "Size",
-        //     width: 130,
+        //     width: 150,
         //     headerClassName: "table-header",
         // },
         // {
         //     field: "materials",
         //     headerName: "Materials",
-        //     width: 130,
+        //     width: 150,
         //     headerClassName: "table-header",
         // },
         // {
         //     field: "provenance",
         //     headerName: "Provenance",
-        //     width: 130,
+        //     width: 150,
         //     headerClassName: "table-header",
         // },
         {
             field: "country_of_origin",
             headerName: "Country of Origin",
-            width: 130,
+            width: 150,
             headerClassName: "table-header",
         },
         {
             field: "authenticity",
             headerName: "Authenticity",
-            width: 130,
+            width: 150,
             headerClassName: "table-header",
         },
         {
             field: "maker",
             headerName: "Maker",
-            width: 130,
+            width: 150,
             headerClassName: "table-header",
         },
         {
             field: "owner",
             headerName: "Owner",
-            width: 130,
+            width: 150,
             headerClassName: "table-header",
         },
-        {
-            field: "description",
-            headerName: "Description",
-            width: 110,
-            headerClassName: "table-header",
-        },
+        // {
+        //     field: "description",
+        //     headerName: "Description",
+        //     width: 110,
+        //     headerClassName: "table-header",
+        // },
         {
             field: "actions",
             headerName: "Actions",
             headerClassName: "table-header",
-            width: 130,
+            width: 150,
 
             sortable: false,
             renderCell: (params) => {
@@ -260,8 +260,8 @@ const ListTextiles = ({ galleryImages, toggleForm }) => {
                     autoHeight
                     rows={rows}
                     columns={columns}
-                    pageSize={5}
-                    pageSizeOptions={[5, 10, 25]}
+                    rowsPerPageOptions={[5, 10]}
+                    pageSizeOptions={[10, 25, { value: 100, label: "100" }]}
                 />
             </Box>
         </>

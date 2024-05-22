@@ -146,7 +146,7 @@ const DashboardSidebar = ({ authUser }) => {
                             <Link href="/" style={{ width: "100%" }}>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <HomeIcon />
+                                        <HomeIcon sx={{ color: "#555" }} />
                                     </ListItemIcon>
                                     <ListItemText
                                         sx={{
@@ -164,7 +164,7 @@ const DashboardSidebar = ({ authUser }) => {
                             >
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <AnalyticsIcon />
+                                        <AnalyticsIcon sx={{ color: "#555" }} />
                                     </ListItemIcon>
                                     <ListItemText
                                         sx={{
@@ -182,7 +182,7 @@ const DashboardSidebar = ({ authUser }) => {
                             >
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <EventIcon />
+                                        <EventIcon sx={{ color: "#555" }} />
                                     </ListItemIcon>
                                     <ListItemText
                                         sx={{
@@ -201,7 +201,9 @@ const DashboardSidebar = ({ authUser }) => {
                             >
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <AddPhotoAlternateIcon />
+                                        <AddPhotoAlternateIcon
+                                            sx={{ color: "#555" }}
+                                        />
                                     </ListItemIcon>
                                     <ListItemText
                                         sx={{
@@ -220,7 +222,9 @@ const DashboardSidebar = ({ authUser }) => {
                             >
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <ManageAccountsIcon />
+                                        <ManageAccountsIcon
+                                            sx={{ color: "#555" }}
+                                        />
                                     </ListItemIcon>
                                     <ListItemText
                                         sx={{

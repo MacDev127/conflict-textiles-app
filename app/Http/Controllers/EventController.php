@@ -99,7 +99,7 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'event_time' => 'nullable|regex:/^\d{2}:\d{2}(:\d{2})?$/',
             'location' => 'nullable|string',
-            'type' => 'nullable|string',
+            'type' => 'required|string',
             'event_date' => 'nullable|date',
             'commissioned_by' => 'nullable|string',
             'venue' => 'nullable|string',
